@@ -1,4 +1,3 @@
-import { AppButton } from '../common/AppButton'
 import './LandingPanel.css'
 
 interface LandingPanelProps {
@@ -9,39 +8,47 @@ export function LandingPanel({ onStartSearch }: LandingPanelProps) {
   return (
     <div className="landing-panel">
       <div className="landing-content">
-        <h2 className="landing-title">Análise de Deputados Federais</h2>
+        <h2 className="landing-title">Análise de políticos do Brasil</h2>
         <p className="landing-description">
-          Explore informações detalhadas sobre deputados federais brasileiros, suas proposições e votações.
+          Explore informações detalhadas sobre politicos brasileiros, suas proposições e votações.
         </p>
 
         <div className="landing-features">
-          <div className="feature">
-            <div className="feature-icon">🗺️</div>
-            <h3>Selecione por Estado</h3>
-            <p>Escolha um estado e veja todos seus deputados federais</p>
-          </div>
-
-          <div className="feature">
-            <div className="feature-icon">🔍</div>
-            <h3>Busque Deputados</h3>
-            <p>Encontre deputados específicos por nome ou partido</p>
-          </div>
-
-          <div className="feature">
-            <div className="feature-icon">📋</div>
-            <h3>Veja Detalhes</h3>
-            <p>Acesse proposições, votações e informações pessoais</p>
-          </div>
-        </div>
-
-        <div className="landing-actions">
-          <AppButton
+          <div
+            className="feature"
+            role="button"
+            tabIndex={0}
+            aria-label="Iniciar busca por estado"
             onClick={onStartSearch}
-            className="landing-button"
-            aria-label="Iniciar busca de deputados"
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault()
+                onStartSearch()
+              }
+            }}
           >
-            Iniciar Busca
-          </AppButton>
+            <div className="feature-icon">🗺️</div>
+            <h3>Selecione por estado</h3>
+            <p>Escolha um estado e veja todos seus políticos</p>
+          </div>
+
+          <div className="feature">
+            <div className="feature-icon">🏛️</div>
+            <h3>Busque por partido</h3>
+            <p>Encontre políticos filtrando por partido</p>
+          </div>
+
+          <div className="feature">
+            <div className="feature-icon">📌</div>
+            <h3>Busque por cargo</h3>
+            <p>Filtre políticos de acordo com o cargo</p>
+          </div>
+
+          <div className="feature">
+            <div className="feature-icon">🔎</div>
+            <h3>Busque por nome</h3>
+            <p>Pesquise diretamente pelo nome do político</p>
+          </div>
         </div>
       </div>
     </div>

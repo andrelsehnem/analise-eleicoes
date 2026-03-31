@@ -1,4 +1,11 @@
-import type { Deputy, DeputyInfo, Proposition, Vote } from '../types/camara'
+import type {
+  Deputy,
+  DeputyInfo,
+  DeputyOrgan,
+  Profession,
+  Proposition,
+  Vote,
+} from '../types/camara'
 
 const API = 'https://dadosabertos.camara.leg.br/api/v2'
 
@@ -8,11 +15,13 @@ type ApiResponse<T> = {
 
 type DeputyDetailBundle = {
   info: DeputyInfo | null
+  professions: Profession[]
   propositions: Proposition[]
   votes: Vote[]
 }
 
 const deputyDetailRequestCache = new Map<number, Promise<DeputyDetailBundle>>()
+const deputyOrgaosRequestCache = new Map<number, Promise<DeputyOrgan[]>>()
 
 async function fetchApi<T>(url: string): Promise<T> {
   const response = await fetch(url)
@@ -40,18 +49,22 @@ export async function fetchDeputyDetailBundle(id: number): Promise<DeputyDetailB
   }
 
   const request = (async () => {
-    const [infoResult, propResult] = await Promise.allSettled([
+    const [infoResult, professionsResult, propResult] = await Promise.allSettled([
       fetchApi<ApiResponse<DeputyInfo>>(`${API}/deputados/${id}`),
+      fetchApi<ApiResponse<Profession[]>>(`${API}/deputados/${id}/profissoes`),
       fetchApi<ApiResponse<Proposition[]>>(
         `${API}/proposicoes?idDeputadoAutor=${id}&itens=50&ordem=DESC&ordenarPor=ano`,
       ),
     ])
 
     const infoData = infoResult.status === 'fulfilled' ? infoResult.value : undefined
+    const professionsData =
+      professionsResult.status === 'fulfilled' ? professionsResult.value : undefined
     const propData = propResult.status === 'fulfilled' ? propResult.value : undefined
 
     return {
       info: infoData?.dados || null,
+      professions: professionsData?.dados || [],
       propositions: propData?.dados || [],
       votes: [],
     }
@@ -63,6 +76,28 @@ export async function fetchDeputyDetailBundle(id: number): Promise<DeputyDetailB
     return await request
   } catch (error) {
     deputyDetailRequestCache.delete(id)
+    throw error
+  }
+}
+
+export async function fetchDeputyOrgaos(id: number): Promise<DeputyOrgan[]> {
+  const cachedRequest = deputyOrgaosRequestCache.get(id)
+
+  if (cachedRequest) {
+    return cachedRequest
+  }
+
+  const request = (async () => {
+    const response = await fetchApi<ApiResponse<DeputyOrgan[]>>(`${API}/deputados/${id}/orgaos`)
+    return response.dados || []
+  })()
+
+  deputyOrgaosRequestCache.set(id, request)
+
+  try {
+    return await request
+  } catch (error) {
+    deputyOrgaosRequestCache.delete(id)
     throw error
   }
 }

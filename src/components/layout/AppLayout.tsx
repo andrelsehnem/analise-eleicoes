@@ -3,7 +3,7 @@ import { AppHeader } from '../layout/AppHeader'
 import { Disclaimer } from '../layout/Disclaimer'
 import { HeroSection } from '../layout/HeroSection'
 import { StepsNav } from '../layout/StepsNav'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { STATES } from '../../constants/states'
 
 interface AppLayoutProps {
@@ -17,7 +17,9 @@ export function AppLayout({
   showStepsNav = false,
   deputyName = null,
 }: AppLayoutProps) {
+  const { pathname } = useLocation()
   const { uf, deputyId } = useParams<{ uf?: string; deputyId?: string }>()
+  const shouldShowHero = pathname === '/'
 
   const stateName =
     uf && STATES.find((state) => state.uf.toLowerCase() === uf.toLowerCase())
@@ -31,7 +33,7 @@ export function AppLayout({
       <AppHeader />
 
       <div className="main">
-        <HeroSection />
+        {shouldShowHero && <HeroSection />}
 
         {showStepsNav && (
           <StepsNav

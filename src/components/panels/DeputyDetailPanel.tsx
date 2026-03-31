@@ -1,4 +1,11 @@
-import type { Deputy, DeputyInfo, Proposition, Vote } from '../../types/camara'
+import type {
+  Deputy,
+  DeputyInfo,
+  DeputyOrgan,
+  Profession,
+  Proposition,
+  Vote,
+} from '../../types/camara'
 import { formatDate } from '../../utils/format'
 import {
   FALLBACK_AVATAR,
@@ -6,6 +13,7 @@ import {
   getPropositionStatusClass,
   getVotePillClass,
 } from '../../utils/ui'
+import { useState } from 'react'
 import { AppButton } from '../common/AppButton'
 import { EmptyState } from '../common/EmptyState'
 import { ErrorBox } from '../common/ErrorBox'
@@ -14,26 +22,151 @@ import { Loader } from '../common/Loader'
 type DeputyDetailPanelProps = {
   selectedDeputy: Deputy | null
   deputyInfo: DeputyInfo | null
+  professions: Profession[]
   propositions: Proposition[]
   votes: Vote[]
+  orgaos: DeputyOrgan[]
+  loadingOrgaos: boolean
+  orgaosError: string
   activeTab: 'proposicoes' | 'votacoes'
   loading: boolean
   error: string
   onBack: () => void
   onChangeTab: (tab: 'proposicoes' | 'votacoes') => void
+  onOpenOrgaosModal: () => void
 }
 
 export function DeputyDetailPanel({
   selectedDeputy,
   deputyInfo,
+  professions,
   propositions,
   votes,
+  orgaos,
+  loadingOrgaos,
+  orgaosError,
   activeTab,
   loading,
   error,
   onBack,
   onChangeTab,
+  onOpenOrgaosModal,
 }: DeputyDetailPanelProps) {
+  const [isOrgaosModalOpen, setIsOrgaosModalOpen] = useState(false)
+
+  function ensureUrl(value: string) {
+    if (/^https?:\/\//i.test(value)) {
+      return value
+    }
+
+    return `https://${value}`
+  }
+
+  function formatBirthPlace(municipio?: string, uf?: string) {
+    if (municipio && uf) {
+      return `${municipio}/${uf}`
+    }
+
+    return municipio || uf || ''
+  }
+
+  function formatCabinetAddress(info: DeputyInfo | null) {
+    const parts = [info?.gabinete?.nome, info?.gabinete?.predio, info?.gabinete?.sala]
+      .filter(Boolean)
+      .join(' · ')
+
+    if (!parts) {
+      return ''
+    }
+
+    return info?.gabinete?.andar ? `${parts} (andar ${info.gabinete.andar})` : parts
+  }
+
+  function getSocialMeta(value: string) {
+    const normalizedUrl = ensureUrl(value)
+
+    try {
+      const hostname = new URL(normalizedUrl).hostname.toLowerCase().replace('www.', '')
+
+      if (hostname.includes('instagram')) {
+        return { url: normalizedUrl, name: 'Instagram', icon: '📸' }
+      }
+
+      if (hostname.includes('facebook')) {
+        return { url: normalizedUrl, name: 'Facebook', icon: '📘' }
+      }
+
+      if (hostname.includes('x.com') || hostname.includes('twitter')) {
+        return { url: normalizedUrl, name: 'X', icon: '✖' }
+      }
+
+      if (hostname.includes('youtube') || hostname.includes('youtu.be')) {
+        return { url: normalizedUrl, name: 'YouTube', icon: '▶️' }
+      }
+
+      if (hostname.includes('tiktok')) {
+        return { url: normalizedUrl, name: 'TikTok', icon: '🎵' }
+      }
+
+      if (hostname.includes('linkedin')) {
+        return { url: normalizedUrl, name: 'LinkedIn', icon: '💼' }
+      }
+
+      if (hostname.includes('threads')) {
+        return { url: normalizedUrl, name: 'Threads', icon: '🧵' }
+      }
+    } catch {
+      return { url: normalizedUrl, name: 'Rede social', icon: '🔗' }
+    }
+
+    return { url: normalizedUrl, name: 'Rede social', icon: '🔗' }
+  }
+
+  function summarizeProfessions(items: Profession[]) {
+    const uniqueTitles = Array.from(
+      new Set(
+        items
+          .map((item) => item.titulo || item.nome)
+          .map((value) => value?.trim())
+          .filter(Boolean),
+      ),
+    ) as string[]
+
+    if (uniqueTitles.length === 0) {
+      return ''
+    }
+
+    const preview = uniqueTitles.slice(0, 3)
+    const remaining = uniqueTitles.length - preview.length
+
+    return remaining > 0 ? `${preview.join(', ')} e +${remaining}` : preview.join(', ')
+  }
+
+  function formatOrganPeriod(dataInicio?: string, dataFim?: string) {
+    if (dataInicio && dataFim) {
+      return `${formatDate(dataInicio)} até ${formatDate(dataFim)}`
+    }
+
+    if (dataInicio) {
+      return `Desde ${formatDate(dataInicio)}`
+    }
+
+    if (dataFim) {
+      return `Até ${formatDate(dataFim)}`
+    }
+
+    return ''
+  }
+
+  function handleOpenOrgaosModal() {
+    setIsOrgaosModalOpen(true)
+    onOpenOrgaosModal()
+  }
+
+  function handleCloseOrgaosModal() {
+    setIsOrgaosModalOpen(false)
+  }
+
   const deputyDisplayName =
     deputyInfo?.ultimoStatus?.nomeEleitoral || selectedDeputy?.nome || 'Deputado'
   const deputyPhoto =
@@ -41,7 +174,37 @@ export function DeputyDetailPanel({
   const deputyParty =
     deputyInfo?.ultimoStatus?.siglaPartido || selectedDeputy?.siglaPartido || '-'
   const deputyUf = deputyInfo?.ultimoStatus?.siglaUf || selectedDeputy?.siglaUf || '-'
-  const deputyEmail = deputyInfo?.ultimoStatus?.email
+  const deputyEmail = deputyInfo?.ultimoStatus?.email || selectedDeputy?.email
+  const deputyCivilName = deputyInfo?.nomeCivil
+  const deputyCpf = deputyInfo?.cpf
+  const deputySex = deputyInfo?.sexo
+  const deputyBirthDate = deputyInfo?.dataNascimento
+  const deputyBirthPlace = formatBirthPlace(
+    deputyInfo?.municipioNascimento,
+    deputyInfo?.ufNascimento,
+  )
+  const deputyWebsite = deputyInfo?.urlWebsite
+  const deputyEducation = deputyInfo?.escolaridade
+  const deputyCabinetEmail = deputyInfo?.gabinete?.email
+  const deputyCabinetPhone = deputyInfo?.gabinete?.telefone
+  const deputyCabinetAddress = formatCabinetAddress(deputyInfo)
+  const deputySocialLinks = (deputyInfo?.redeSocial || []).filter(Boolean)
+  const deputySocialTags = deputySocialLinks.map((social) => getSocialMeta(social))
+  const deputyProfessions = summarizeProfessions(professions)
+  const hasGeneralInfo = Boolean(
+    deputyCivilName ||
+      deputyCpf ||
+      deputySex ||
+      deputyEducation ||
+      deputyProfessions ||
+      deputyBirthDate ||
+      deputyBirthPlace ||
+      deputyEmail ||
+      deputyCabinetEmail ||
+      deputyCabinetPhone ||
+      deputyCabinetAddress ||
+        deputyWebsite,
+  )
 
   const approvedCount = propositions.filter((item) => {
     const descricaoSituacao =
@@ -79,7 +242,19 @@ export function DeputyDetailPanel({
               <div className="deputy-tags">
                 <span className="tag tag-party">🏛 {deputyParty}</span>
                 <span className="tag tag-state">📍 {deputyUf}</span>
-                {deputyEmail && <span className="tag tag-email">✉ {deputyEmail}</span>}
+                {/*deputyEmail && <span className="tag tag-email">✉ {deputyEmail}</span>*/}
+                {deputySocialTags.map((social, index) => (
+                  <a
+                    className="tag tag-social"
+                    href={social.url}
+                    key={`${social.url}-${index}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span aria-hidden="true">{social.icon}</span>
+                    {social.name}
+                  </a>
+                ))}
               </div>
               <div className="deputy-extra">
                 {deputyInfo?.escolaridade ? `Escolaridade: ${deputyInfo.escolaridade}` : ''}
@@ -90,6 +265,174 @@ export function DeputyDetailPanel({
               </div>
             </div>
           </div>
+
+          {hasGeneralInfo && (
+            <section className="deputy-general-info" aria-label="Informações gerais do deputado">
+              <h3 className="deputy-general-info-title">Informações gerais</h3>
+              <div className="deputy-general-info-grid">
+                {deputyCivilName && (
+                  <p className="deputy-general-item">
+                    <span className="deputy-general-label">Nome civil</span>
+                    <span className="deputy-general-value">{deputyCivilName}</span>
+                  </p>
+                )}
+
+                {deputyCpf && (
+                  <p className="deputy-general-item">
+                    <span className="deputy-general-label">CPF</span>
+                    <span className="deputy-general-value">{deputyCpf}</span>
+                  </p>
+                )}
+
+                {deputySex && (
+                  <p className="deputy-general-item">
+                    <span className="deputy-general-label">Sexo</span>
+                    <span className="deputy-general-value">{deputySex}</span>
+                  </p>
+                )}
+
+                {deputyEducation && (
+                  <p className="deputy-general-item">
+                    <span className="deputy-general-label">Escolaridade</span>
+                    <span className="deputy-general-value">{deputyEducation}</span>
+                  </p>
+                )}
+
+                {deputyProfessions && (
+                  <p className="deputy-general-item">
+                    <span className="deputy-general-label">Profissões</span>
+                    <span className="deputy-general-value">{deputyProfessions}</span>
+                  </p>
+                )}
+
+                {deputyBirthDate && (
+                  <p className="deputy-general-item">
+                    <span className="deputy-general-label">Nascimento</span>
+                    <span className="deputy-general-value">{formatDate(deputyBirthDate)}</span>
+                  </p>
+                )}
+
+                {deputyBirthPlace && (
+                  <p className="deputy-general-item">
+                    <span className="deputy-general-label">Naturalidade</span>
+                    <span className="deputy-general-value">{deputyBirthPlace}</span>
+                  </p>
+                )}
+
+                {deputyEmail && (
+                  <p className="deputy-general-item">
+                    <span className="deputy-general-label">E-mail</span>
+                    <span className="deputy-general-value">{deputyEmail}</span>
+                  </p>
+                )}
+
+                {deputyCabinetEmail && (
+                  <p className="deputy-general-item">
+                    <span className="deputy-general-label">E-mail do gabinete</span>
+                    <span className="deputy-general-value">{deputyCabinetEmail}</span>
+                  </p>
+                )}
+
+                {deputyCabinetPhone && (
+                  <p className="deputy-general-item">
+                    <span className="deputy-general-label">Telefone do gabinete</span>
+                    <span className="deputy-general-value">{deputyCabinetPhone}</span>
+                  </p>
+                )}
+
+                {deputyCabinetAddress && (
+                  <p className="deputy-general-item">
+                    <span className="deputy-general-label">Endereço do gabinete</span>
+                    <span className="deputy-general-value">{deputyCabinetAddress}</span>
+                  </p>
+                )}
+
+                {deputyWebsite && (
+                  <p className="deputy-general-item">
+                    <span className="deputy-general-label">Site</span>
+                    <a
+                      className="deputy-general-link"
+                      href={ensureUrl(deputyWebsite)}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {deputyWebsite}
+                    </a>
+                  </p>
+                )}
+
+                <div className="deputy-general-item">
+                  <span className="deputy-general-label">Órgãos</span>
+                  <AppButton
+                    className="deputy-organs-btn"
+                    onClick={handleOpenOrgaosModal}
+                    type="button"
+                  >
+                    Ver órgãos
+                  </AppButton>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {isOrgaosModalOpen && (
+            <div
+              className="deputy-organs-modal-overlay"
+              role="presentation"
+              onClick={handleCloseOrgaosModal}
+            >
+              <section
+                className="deputy-organs-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Órgãos em que o deputado atua"
+                onClick={(event) => {
+                  event.stopPropagation()
+                }}
+              >
+                <div className="deputy-organs-modal-header">
+                  <h3>Órgãos</h3>
+                  <AppButton
+                    className="deputy-organs-close-btn"
+                    onClick={handleCloseOrgaosModal}
+                    type="button"
+                  >
+                    Fechar
+                  </AppButton>
+                </div>
+
+                {loadingOrgaos && <Loader />}
+                {!loadingOrgaos && orgaosError && <ErrorBox message={orgaosError} />}
+
+                {!loadingOrgaos && !orgaosError && orgaos.length === 0 && (
+                  <EmptyState icon="🏛" message="Nenhum órgão encontrado." />
+                )}
+
+                {!loadingOrgaos && !orgaosError && orgaos.length > 0 && (
+                  <div className="deputy-organs-list">
+                    {orgaos.map((orgao, index) => {
+                      const orgaoNome = orgao.siglaOrgao || orgao.nomeOrgao || 'Órgão'
+                      const period = formatOrganPeriod(orgao.dataInicio, orgao.dataFim)
+
+                      return (
+                        <article
+                          className="deputy-organs-item"
+                          key={`${orgaoNome}-${orgao.titulo}-${orgao.dataInicio}-${index}`}
+                        >
+                          <p className="deputy-organs-name">{orgaoNome}</p>
+                          {orgao.nomeOrgao && orgao.siglaOrgao && (
+                            <p className="deputy-organs-fullname">{orgao.nomeOrgao}</p>
+                          )}
+                          {orgao.titulo && <p className="deputy-organs-role">{orgao.titulo}</p>}
+                          {period && <p className="deputy-organs-period">{period}</p>}
+                        </article>
+                      )
+                    })}
+                  </div>
+                )}
+              </section>
+            </div>
+          )}
 
           <div className="score-card">
             <div className="score-item">

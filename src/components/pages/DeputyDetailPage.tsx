@@ -22,10 +22,15 @@ export function DeputyDetailPage() {
     loadingDetail,
     detailError,
     deputyInfo,
+    professions,
     propositions,
     votes,
+    orgaos,
+    loadingOrgaos,
+    orgaosError,
     setActiveTab,
     loadDeputyDetail,
+    loadDeputyOrgaos,
   } = useDeputyDetail()
   const [isInitializing, setIsInitializing] = useState(true)
   const locationState = location.state as DeputyDetailLocationState | null
@@ -82,17 +87,28 @@ export function DeputyDetailPage() {
     goToDeputies(uf || '')
   }
 
+  function handleOpenOrgaosModal() {
+    if (!Number.isNaN(deputyIdNum)) {
+      void loadDeputyOrgaos(deputyIdNum)
+    }
+  }
+
   return (
     <DeputyDetailPanel
       selectedDeputy={selectedDeputy}
       deputyInfo={deputyInfo}
+      professions={professions}
       propositions={propositions}
       votes={votes}
+      orgaos={orgaos}
+      loadingOrgaos={loadingOrgaos}
+      orgaosError={orgaosError}
       activeTab={activeTab}
       loading={isPageLoading}
       error={detailError}
       onBack={handleBack}
       onChangeTab={setActiveTab}
+      onOpenOrgaosModal={handleOpenOrgaosModal}
     />
   )
 }
