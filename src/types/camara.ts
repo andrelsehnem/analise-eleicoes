@@ -15,7 +15,7 @@ export type Deputy = {
 export type DeputyInfo = {
   nomeCivil?: string
   cpf?: string
-  sexo?: string
+  //sexo?: string
   urlWebsite?: string
   redeSocial?: string[]
   escolaridade?: string
@@ -40,6 +40,8 @@ export type DeputyInfo = {
 }
 
 export type Proposition = {
+  id?: number
+  uri?: string
   siglaTipo?: string
   numero?: number
   ano?: number
@@ -69,6 +71,60 @@ export type DeputyOrgan = {
   dataInicio?: string
   dataFim?: string
 }
+
+export type President = {
+  id: string
+  nome: string
+  cargo: string
+  siglaPartido: string
+  abrangencia: string
+  periodo: string
+  wikipediaTitle: string
+  email?: string
+  urlFoto?: string
+  officialWebsite?: string
+  vice?: {
+    id: string
+    nome: string
+    cargo: string
+    siglaPartido?: string
+    periodo?: string
+    urlFoto?: string
+    officialWebsite?: string
+  }
+}
+
+export type PresidentTerm = {
+  titulo: string
+  inicio: string
+  fim?: string
+  vice?: string
+  resumo?: string
+}
+
+export type PresidentLink = {
+  label: string
+  url: string
+}
+
+export type PresidentDetail = President & {
+  descricao?: string
+  resumo: string
+  fonteResumoUrl?: string
+  nomeCivil?: string
+  dataNascimento?: string
+  naturalidade?: string
+  posseAtual?: string
+  partido?: string
+  mandatos: PresidentTerm[]
+  links: PresidentLink[]
+}
+
+export type OfficeType =
+  | 'deputado-federal'
+  | 'deputado-estadual'
+  | 'senador'
+  | 'presidente'
 
 export type Panel = 'landing' | 'states' | 'deputies' | 'detail'
 export type Tab = 'proposicoes' | 'votacoes'

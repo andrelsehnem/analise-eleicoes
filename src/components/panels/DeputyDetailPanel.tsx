@@ -13,7 +13,7 @@ import {
   getPropositionStatusClass,
   getVotePillClass,
 } from '../../utils/ui'
-import { useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { AppButton } from '../common/AppButton'
 import { EmptyState } from '../common/EmptyState'
 import { ErrorBox } from '../common/ErrorBox'
@@ -24,6 +24,10 @@ type DeputyDetailPanelProps = {
   deputyInfo: DeputyInfo | null
   professions: Profession[]
   propositions: Proposition[]
+  filterContextKey: string
+  includeRequirements: boolean
+  hasMorePropositions: boolean
+  loadingMorePropositions: boolean
   votes: Vote[]
   orgaos: DeputyOrgan[]
   loadingOrgaos: boolean
@@ -33,6 +37,8 @@ type DeputyDetailPanelProps = {
   error: string
   onBack: () => void
   onChangeTab: (tab: 'proposicoes' | 'votacoes') => void
+  onToggleIncludeRequirements: () => void
+  onLoadMorePropositions: () => void
   onOpenOrgaosModal: () => void
 }
 
@@ -41,6 +47,10 @@ export function DeputyDetailPanel({
   deputyInfo,
   professions,
   propositions,
+  filterContextKey,
+  includeRequirements,
+  hasMorePropositions,
+  loadingMorePropositions,
   votes,
   orgaos,
   loadingOrgaos,
@@ -50,9 +60,52 @@ export function DeputyDetailPanel({
   error,
   onBack,
   onChangeTab,
+  onToggleIncludeRequirements,
+  onLoadMorePropositions,
   onOpenOrgaosModal,
 }: DeputyDetailPanelProps) {
   const [isOrgaosModalOpen, setIsOrgaosModalOpen] = useState(false)
+  const [selectedPropositionTypes, setSelectedPropositionTypes] = useState<string[]>([])
+  const sentinelRef = useRef<HTMLDivElement | null>(null)
+  const lastFilterContextKeyRef = useRef<string>('')
+  const seenPropositionTypesRef = useRef<string[]>([])
+
+  useEffect(() => {
+    const sentinel = sentinelRef.current
+
+    if (!sentinel || !hasMorePropositions || loadingMorePropositions) {
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries
+
+        if (entry.isIntersecting) {
+          onLoadMorePropositions()
+        }
+      },
+      { threshold: 0.1 },
+    )
+
+    observer.observe(sentinel)
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [hasMorePropositions, loadingMorePropositions, onLoadMorePropositions])
+
+  function getPropositionTypeLabel(proposition: Proposition) {
+    return proposition.siglaTipo?.toUpperCase().trim() || 'OUTROS'
+  }
+
+  function getPropositionUrl(proposition: Proposition) {
+    if (proposition.id) {
+      return `https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=${proposition.id}`
+    }
+
+    return proposition.uri || ''
+  }
 
   function ensureUrl(value: string) {
     if (/^https?:\/\//i.test(value)) {
@@ -167,6 +220,53 @@ export function DeputyDetailPanel({
     setIsOrgaosModalOpen(false)
   }
 
+  function handleTogglePropositionType(type: string) {
+    setSelectedPropositionTypes((currentTypes) => {
+      if (currentTypes.includes(type)) {
+        return currentTypes.filter((currentType) => currentType !== type)
+      }
+
+      return [...currentTypes, type]
+    })
+  }
+
+  const propositionTypes = useMemo(() => {
+    return Array.from(new Set(propositions.map((item) => getPropositionTypeLabel(item)))).sort(
+      (leftType, rightType) => leftType.localeCompare(rightType, 'pt-BR'),
+    )
+  }, [propositions])
+
+  useEffect(() => {
+    const isNewContext = lastFilterContextKeyRef.current !== filterContextKey
+
+    setSelectedPropositionTypes((currentTypes) => {
+      if (isNewContext) {
+        lastFilterContextKeyRef.current = filterContextKey
+        seenPropositionTypesRef.current = propositionTypes
+        return propositionTypes
+      }
+
+      const previousSeenTypes = seenPropositionTypesRef.current
+      const preservedTypes = currentTypes.filter((type) => propositionTypes.includes(type))
+      const newTypes = propositionTypes.filter((type) => !previousSeenTypes.includes(type))
+
+      seenPropositionTypesRef.current = propositionTypes
+
+      return [...preservedTypes, ...newTypes]
+    })
+  }, [filterContextKey, propositionTypes])
+
+  const filteredPropositions = useMemo(() => {
+    if (selectedPropositionTypes.length === 0) {
+      return []
+    }
+
+    return propositions.filter((item) => {
+      const type = getPropositionTypeLabel(item)
+      return selectedPropositionTypes.includes(type)
+    })
+  }, [propositions, selectedPropositionTypes])
+
   const deputyDisplayName =
     deputyInfo?.ultimoStatus?.nomeEleitoral || selectedDeputy?.nome || 'Deputado'
   const deputyPhoto =
@@ -177,7 +277,6 @@ export function DeputyDetailPanel({
   const deputyEmail = deputyInfo?.ultimoStatus?.email || selectedDeputy?.email
   const deputyCivilName = deputyInfo?.nomeCivil
   const deputyCpf = deputyInfo?.cpf
-  const deputySex = deputyInfo?.sexo
   const deputyBirthDate = deputyInfo?.dataNascimento
   const deputyBirthPlace = formatBirthPlace(
     deputyInfo?.municipioNascimento,
@@ -194,7 +293,6 @@ export function DeputyDetailPanel({
   const hasGeneralInfo = Boolean(
     deputyCivilName ||
       deputyCpf ||
-      deputySex ||
       deputyEducation ||
       deputyProfessions ||
       deputyBirthDate ||
@@ -206,7 +304,7 @@ export function DeputyDetailPanel({
         deputyWebsite,
   )
 
-  const approvedCount = propositions.filter((item) => {
+  const approvedCount = filteredPropositions.filter((item) => {
     const descricaoSituacao =
       item.statusProposicao?.descricaoSituacao?.toLowerCase() || ''
 
@@ -281,13 +379,6 @@ export function DeputyDetailPanel({
                   <p className="deputy-general-item">
                     <span className="deputy-general-label">CPF</span>
                     <span className="deputy-general-value">{deputyCpf}</span>
-                  </p>
-                )}
-
-                {deputySex && (
-                  <p className="deputy-general-item">
-                    <span className="deputy-general-label">Sexo</span>
-                    <span className="deputy-general-value">{deputySex}</span>
                   </p>
                 )}
 
@@ -436,7 +527,10 @@ export function DeputyDetailPanel({
 
           <div className="score-card">
             <div className="score-item">
-              <span className="score-num">{propositions.length}</span>
+              <span className="score-num">
+                {propositions.length}
+                {hasMorePropositions && <span className="score-num-partial">+</span>}
+              </span>
               <span className="score-label">Proposições</span>
             </div>
             <div className="score-divider" />
@@ -467,7 +561,7 @@ export function DeputyDetailPanel({
               onClick={() => onChangeTab('proposicoes')}
               type="button"
             >
-              📄 Projetos Autorais ({propositions.length})
+              📄 Projetos Autorais ({filteredPropositions.length}{hasMorePropositions ? '+' : ''})
             </AppButton>
             <AppButton
               className={`tab-btn ${activeTab === 'votacoes' ? 'active' : ''}`}
@@ -480,25 +574,70 @@ export function DeputyDetailPanel({
 
           {activeTab === 'proposicoes' && (
             <div id="tab-proposicoes">
-              {propositions.length === 0 && (
+              <div className="prop-controls">
+                <AppButton
+                  className={`prop-requirements-toggle ${includeRequirements ? 'active' : ''}`}
+                  onClick={onToggleIncludeRequirements}
+                  type="button"
+                  aria-pressed={includeRequirements}
+                >
+                  {includeRequirements ? 'Ocultar requerimentos' : 'Mostrar requerimentos'}
+                </AppButton>
+
+                {propositionTypes.length > 0 && (
+                  <div className="prop-types-filter" aria-label="Filtro por tipo de proposição">
+                    {propositionTypes.map((type) => {
+                      const isSelected = selectedPropositionTypes.includes(type)
+                      const badgeClass = getPropositionBadgeClass(type)
+
+                      return (
+                        <AppButton
+                          key={type}
+                          className={`prop-type-tag ${badgeClass} ${isSelected ? 'active' : ''}`}
+                          onClick={() => handleTogglePropositionType(type)}
+                          type="button"
+                          aria-pressed={isSelected}
+                        >
+                          {type}
+                        </AppButton>
+                      )
+                    })}
+                  </div>
+                )}
+              </div>
+
+              {filteredPropositions.length === 0 && (
                 <EmptyState icon="📭" message="Nenhuma proposição encontrada." />
               )}
 
-              {propositions.length > 0 && (
+              {filteredPropositions.length > 0 && (
                 <div className="prop-list">
-                  {propositions.map((proposition, index) => {
+                  {filteredPropositions.map((proposition, index) => {
                     const status =
                       proposition.statusProposicao?.descricaoSituacao || 'Em tramitação'
-                    const tipo = proposition.siglaTipo || 'PL'
+                    const tipo = getPropositionTypeLabel(proposition)
+                    const propositionUrl = getPropositionUrl(proposition)
                     return (
                       <div
                         className="prop-item"
                         key={`${tipo}-${proposition.numero}-${proposition.ano}-${index}`}
                       >
                         <div className="prop-top">
-                          <span className={`prop-badge ${getPropositionBadgeClass(tipo)}`}>
-                            {tipo} {proposition.numero}/{proposition.ano}
-                          </span>
+                          {propositionUrl ? (
+                            <a
+                              className={`prop-badge prop-badge-link ${getPropositionBadgeClass(tipo)}`}
+                              href={propositionUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              title="Abrir página da proposição"
+                            >
+                              {tipo} {proposition.numero}/{proposition.ano}
+                            </a>
+                          ) : (
+                            <span className={`prop-badge ${getPropositionBadgeClass(tipo)}`}>
+                              {tipo} {proposition.numero}/{proposition.ano}
+                            </span>
+                          )}
                           <div className="prop-title">
                             {proposition.ementa || 'Ementa não disponível'}
                           </div>
@@ -515,6 +654,20 @@ export function DeputyDetailPanel({
                       </div>
                     )
                   })}
+                </div>
+              )}
+
+              {hasMorePropositions && (
+                <div
+                  ref={sentinelRef}
+                  className="prop-infinite-sentinel"
+                  aria-hidden="true"
+                />
+              )}
+
+              {loadingMorePropositions && (
+                <div className="prop-loading-more">
+                  <Loader />
                 </div>
               )}
             </div>

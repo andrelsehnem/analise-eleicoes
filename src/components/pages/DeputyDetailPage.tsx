@@ -19,17 +19,22 @@ export function DeputyDetailPage() {
   const { findDeputyById, allDeputies, loadDeputies, loadingDeputies } = useDeputies()
   const {
     activeTab,
+    includeRequirements,
     loadingDetail,
     detailError,
     deputyInfo,
     professions,
     propositions,
+    hasMorePropositions,
+    loadingMorePropositions,
     votes,
     orgaos,
     loadingOrgaos,
     orgaosError,
     setActiveTab,
     loadDeputyDetail,
+    toggleIncludeRequirements,
+    loadMorePropositions,
     loadDeputyOrgaos,
   } = useDeputyDetail()
   const [isInitializing, setIsInitializing] = useState(true)
@@ -39,7 +44,7 @@ export function DeputyDetailPage() {
   // Validar UF e carregar dados
   useEffect(() => {
     if (!uf || !deputyId) {
-      navigate('/federal-por-estado')
+      navigate('/por-estado')
       return
     }
 
@@ -48,7 +53,7 @@ export function DeputyDetailPage() {
     )
 
     if (!isValidUf) {
-      navigate('/federal-por-estado')
+      navigate('/por-estado')
       return
     }
 
@@ -72,7 +77,7 @@ export function DeputyDetailPage() {
     }
 
     void loadData()
-  }, [uf, deputyId, navigate, routeSelectedDeputy])
+  }, [uf, deputyId, navigate, routeSelectedDeputy, allDeputies.length, loadDeputies, loadDeputyDetail])
 
   const deputyIdNum = parseInt(deputyId || '', 10)
   const selectedDeputy = findDeputyById(deputyIdNum) || routeSelectedDeputy
@@ -99,6 +104,10 @@ export function DeputyDetailPage() {
       deputyInfo={deputyInfo}
       professions={professions}
       propositions={propositions}
+      filterContextKey={`${deputyId || selectedDeputy?.id || 'deputy'}-${includeRequirements ? 'with-req' : 'without-req'}`}
+      includeRequirements={includeRequirements}
+      hasMorePropositions={hasMorePropositions}
+      loadingMorePropositions={loadingMorePropositions}
       votes={votes}
       orgaos={orgaos}
       loadingOrgaos={loadingOrgaos}
@@ -108,6 +117,8 @@ export function DeputyDetailPage() {
       error={detailError}
       onBack={handleBack}
       onChangeTab={setActiveTab}
+      onToggleIncludeRequirements={toggleIncludeRequirements}
+      onLoadMorePropositions={loadMorePropositions}
       onOpenOrgaosModal={handleOpenOrgaosModal}
     />
   )

@@ -2,12 +2,24 @@ import brazilMap from '@svg-maps/brazil'
 import type { KeyboardEvent } from 'react'
 import { useEffect, useRef } from 'react'
 import { STATES } from '../../constants/states'
+import type { OfficeType } from '../../types/camara'
 import { AppButton } from '../common/AppButton'
 
 type StatesPanelProps = {
   selectedUf: string | null
+  selectedOffice: OfficeType
+  onChangeOffice: (office: OfficeType) => void
   onSelectState: (uf: string, name: string) => void
 }
+
+const OFFICE_OPTIONS: Array<{ value: OfficeType; label: string; implemented: boolean }> = [
+  { value: 'deputado-federal', label: 'Deputado Federal', implemented: true },
+  { value: 'deputado-estadual', label: 'Deputado Estadual', implemented: false },
+  { value: 'senador', label: 'Senador', implemented: false },
+  { value: 'presidente', label: 'Presidente', implemented: true },
+]
+
+const OFFICE_BADGE_VARIANT: 'discrete' | 'highlight' = 'discrete'
 
 const stateNameByUf = new Map(STATES.map((state) => [state.uf, state.name]))
 
@@ -19,8 +31,14 @@ type BrazilLocation = {
 
 const mapLocations = brazilMap.locations as BrazilLocation[]
 
-export function StatesPanel({ selectedUf, onSelectState }: StatesPanelProps) {
+export function StatesPanel({
+  selectedUf,
+  selectedOffice,
+  onChangeOffice,
+  onSelectState,
+}: StatesPanelProps) {
   const svgRef = useRef<SVGSVGElement>(null)
+  const isStateSelectionEnabled = selectedOffice === 'deputado-federal'
 
   // Calcula as posições dos rótulos de UF dentro de cada estado
   useEffect(() => {
@@ -60,6 +78,10 @@ export function StatesPanel({ selectedUf, onSelectState }: StatesPanelProps) {
     uf: string,
     name: string,
   ) => {
+    if (!isStateSelectionEnabled) {
+      return
+    }
+
     if (event.key !== 'Enter' && event.key !== ' ') {
       return
     }
@@ -71,10 +93,35 @@ export function StatesPanel({ selectedUf, onSelectState }: StatesPanelProps) {
   return (
     <div className="panel active" id="panel-states">
       <div className="section-header">
-        <div className="section-title">Selecione o Estado no mapa</div>
+        <div className="section-title">Selecione o tipo e o estado</div>
       </div>
 
-      <div className="states-map-container">
+      <div className="office-filter-container">
+        <div className="office-filter-label">Tipo de cargo</div>
+        <div className="office-filter-buttons" role="group" aria-label="Tipo de cargo">
+          {OFFICE_OPTIONS.map((option) => (
+            <AppButton
+              key={option.value}
+              type="button"
+              className={`office-filter-btn ${selectedOffice === option.value ? 'selected' : ''}`}
+              aria-pressed={selectedOffice === option.value}
+              onClick={() => onChangeOffice(option.value)}
+            >
+              <span>{option.label}</span>
+              {!option.implemented && (
+                <span
+                  className={`office-filter-badge office-filter-badge--${OFFICE_BADGE_VARIANT}`}
+                  aria-label="Recurso em breve"
+                >
+                  {OFFICE_BADGE_VARIANT === 'highlight' ? '⏳ Em breve' : 'Em breve'}
+                </span>
+              )}
+            </AppButton>
+          ))}
+        </div>
+      </div>
+
+      <div className={`states-map-container ${!isStateSelectionEnabled ? 'is-disabled' : ''}`}>
         <svg
           aria-label="Mapa do Brasil com estados clicáveis"
           className="brazil-map"
@@ -91,14 +138,23 @@ export function StatesPanel({ selectedUf, onSelectState }: StatesPanelProps) {
               <g key={location.id}>
                 <path
                   aria-label={`Selecionar ${name}`}
+                  aria-disabled={!isStateSelectionEnabled}
                   aria-pressed={isSelected}
-                  className={`map-state ${isSelected ? 'selected' : ''}`}
+                  className={`map-state ${isSelected ? 'selected' : ''} ${
+                    !isStateSelectionEnabled ? 'disabled' : ''
+                  }`}
                   d={location.path}
                   data-state-id={location.id}
-                  onClick={() => onSelectState(uf, name)}
+                  onClick={() => {
+                    if (!isStateSelectionEnabled) {
+                      return
+                    }
+
+                    onSelectState(uf, name)
+                  }}
                   onKeyDown={(event) => handleKeyDown(event, uf, name)}
                   role="button"
-                  tabIndex={0}
+                  tabIndex={isStateSelectionEnabled ? 0 : -1}
                 >
                   <title>{`${name} (${uf})`}</title>
                 </path>
@@ -119,7 +175,9 @@ export function StatesPanel({ selectedUf, onSelectState }: StatesPanelProps) {
         </svg>
 
         <p className="states-map-hint">
-          Clique em um estado para carregar os deputados da UF selecionada.
+          {isStateSelectionEnabled
+            ? 'Clique em um estado para carregar os deputados federais da UF selecionada.'
+            : 'Consulta por este cargo estará disponível em breve. No momento, a busca por estado está disponível para Deputado Federal.'}
         </p>
       </div>
 
@@ -129,6 +187,7 @@ export function StatesPanel({ selectedUf, onSelectState }: StatesPanelProps) {
           {STATES.map((state) => (
             <AppButton
               className={`state-btn ${selectedUf === state.uf ? 'selected' : ''}`}
+              disabled={!isStateSelectionEnabled}
               key={state.uf}
               onClick={() => onSelectState(state.uf, state.name)}
               type="button"

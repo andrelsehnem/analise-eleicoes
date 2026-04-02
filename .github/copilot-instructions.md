@@ -101,3 +101,4 @@ type Tab         = 'proposicoes' | 'votacoes'
 8. **Não instalar** bibliotecas de estado global (Redux, Zustand etc.) sem discussão prévia.
 9. Manter o código **compatível com TypeScript strict mode** (`"strict": true`).
 10. Sempre que necessário, realizar perguntas para melhorar a compreensão do requisito antes de gerar código.
+11. Ao adicionar novas fontes de dados, inserir de onde vem a fonte na página "Sobre".

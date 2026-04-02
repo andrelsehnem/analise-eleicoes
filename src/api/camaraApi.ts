@@ -2,26 +2,63 @@ import type {
   Deputy,
   DeputyInfo,
   DeputyOrgan,
+  President,
+  PresidentDetail,
   Profession,
   Proposition,
   Vote,
 } from '../types/camara'
+import { PRESIDENT_DETAIL_BY_ID, PRESIDENTS } from '../constants/presidents'
 
 const API = 'https://dadosabertos.camara.leg.br/api/v2'
+const WIKIPEDIA_API = 'https://pt.wikipedia.org/api/rest_v1/page/summary'
 
 type ApiResponse<T> = {
   dados?: T
+}
+
+type WikipediaSummaryResponse = {
+  description?: string
+  extract?: string
+  thumbnail?: {
+    source?: string
+  }
+  originalimage?: {
+    source?: string
+  }
+  content_urls?: {
+    desktop?: {
+      page?: string
+    }
+  }
+}
+
+const MANDATE_START_YEAR = 2022
+const MANDATE_END_YEAR = 2026
+const PROPOSITIONS_PAGE_SIZE = 100
+
+export type DeputyPropositionsPage = {
+  propositions: Proposition[]
+  hasNextPage: boolean
+  page: number
+}
+
+type DeputyPropositionsOptions = {
+  includeRequirements?: boolean
 }
 
 type DeputyDetailBundle = {
   info: DeputyInfo | null
   professions: Profession[]
   propositions: Proposition[]
+  hasMorePropositions: boolean
+  propositionsPage: number
   votes: Vote[]
 }
 
-const deputyDetailRequestCache = new Map<number, Promise<DeputyDetailBundle>>()
+const deputyDetailRequestCache = new Map<string, Promise<DeputyDetailBundle>>()
 const deputyOrgaosRequestCache = new Map<number, Promise<DeputyOrgan[]>>()
+const presidentDetailRequestCache = new Map<string, Promise<PresidentDetail>>()
 
 async function fetchApi<T>(url: string): Promise<T> {
   const response = await fetch(url)
@@ -33,6 +70,42 @@ async function fetchApi<T>(url: string): Promise<T> {
   return response.json() as Promise<T>
 }
 
+function filterMandatePropositions(
+  propositions: Proposition[],
+  options?: DeputyPropositionsOptions,
+): Proposition[] {
+  return propositions.filter((proposition) => {
+    const year = proposition.ano
+    const type = proposition.siglaTipo?.toUpperCase().trim()
+    const isReq = type === 'REQ' || type?.startsWith('REQ')
+
+    return (
+      !!year &&
+      year >= MANDATE_START_YEAR &&
+      year <= MANDATE_END_YEAR &&
+      (options?.includeRequirements || !isReq)
+    )
+  })
+}
+
+export async function fetchDeputyPropositionsPage(
+  id: number,
+  page: number,
+  options?: DeputyPropositionsOptions,
+): Promise<DeputyPropositionsPage> {
+  const response = await fetchApi<ApiResponse<Proposition[]>>(
+    `${API}/proposicoes?idDeputadoAutor=${id}&itens=${PROPOSITIONS_PAGE_SIZE}&pagina=${page}&ordem=ASC&ordenarPor=ano`,
+  )
+
+  const batch = response.dados || []
+
+  return {
+    propositions: filterMandatePropositions(batch, options),
+    hasNextPage: batch.length === PROPOSITIONS_PAGE_SIZE,
+    page,
+  }
+}
+
 export async function fetchDeputiesByState(uf: string): Promise<Deputy[]> {
   const data = await fetchApi<ApiResponse<Deputy[]>>(
     `${API}/deputados?siglaUf=${uf}&ordem=ASC&ordenarPor=nome&itens=100`,
@@ -41,8 +114,12 @@ export async function fetchDeputiesByState(uf: string): Promise<Deputy[]> {
   return data.dados || []
 }
 
-export async function fetchDeputyDetailBundle(id: number): Promise<DeputyDetailBundle> {
-  const cachedRequest = deputyDetailRequestCache.get(id)
+export async function fetchDeputyDetailBundle(
+  id: number,
+  options?: DeputyPropositionsOptions,
+): Promise<DeputyDetailBundle> {
+  const cacheKey = `${id}-${options?.includeRequirements ? 'with-req' : 'without-req'}`
+  const cachedRequest = deputyDetailRequestCache.get(cacheKey)
 
   if (cachedRequest) {
     return cachedRequest
@@ -52,9 +129,7 @@ export async function fetchDeputyDetailBundle(id: number): Promise<DeputyDetailB
     const [infoResult, professionsResult, propResult] = await Promise.allSettled([
       fetchApi<ApiResponse<DeputyInfo>>(`${API}/deputados/${id}`),
       fetchApi<ApiResponse<Profession[]>>(`${API}/deputados/${id}/profissoes`),
-      fetchApi<ApiResponse<Proposition[]>>(
-        `${API}/proposicoes?idDeputadoAutor=${id}&itens=50&ordem=DESC&ordenarPor=ano`,
-      ),
+      fetchDeputyPropositionsPage(id, 1, options),
     ])
 
     const infoData = infoResult.status === 'fulfilled' ? infoResult.value : undefined
@@ -65,17 +140,19 @@ export async function fetchDeputyDetailBundle(id: number): Promise<DeputyDetailB
     return {
       info: infoData?.dados || null,
       professions: professionsData?.dados || [],
-      propositions: propData?.dados || [],
+      propositions: propData?.propositions || [],
+      hasMorePropositions: propData?.hasNextPage || false,
+      propositionsPage: propData?.page || 1,
       votes: [],
     }
   })()
 
-  deputyDetailRequestCache.set(id, request)
+  deputyDetailRequestCache.set(cacheKey, request)
 
   try {
     return await request
   } catch (error) {
-    deputyDetailRequestCache.delete(id)
+    deputyDetailRequestCache.delete(cacheKey)
     throw error
   }
 }
@@ -98,6 +175,55 @@ export async function fetchDeputyOrgaos(id: number): Promise<DeputyOrgan[]> {
     return await request
   } catch (error) {
     deputyOrgaosRequestCache.delete(id)
+    throw error
+  }
+}
+
+export async function fetchPresidents(): Promise<President[]> {
+  return PRESIDENTS
+}
+
+export async function fetchPresidentDetail(id: string): Promise<PresidentDetail> {
+  const cachedRequest = presidentDetailRequestCache.get(id)
+
+  if (cachedRequest) {
+    return cachedRequest
+  }
+
+  const request = (async () => {
+    const presidentDetail = PRESIDENT_DETAIL_BY_ID[id]
+
+    if (!presidentDetail) {
+      throw new Error('Perfil não encontrado.')
+    }
+
+    try {
+      const wikipediaSummary = await fetchApi<WikipediaSummaryResponse>(
+        `${WIKIPEDIA_API}/${encodeURIComponent(presidentDetail.wikipediaTitle)}`,
+      )
+
+      return {
+        ...presidentDetail,
+        descricao: wikipediaSummary.description || presidentDetail.descricao,
+        resumo: wikipediaSummary.extract || presidentDetail.resumo,
+        urlFoto:
+          wikipediaSummary.originalimage?.source ||
+          wikipediaSummary.thumbnail?.source ||
+          presidentDetail.urlFoto,
+        fonteResumoUrl:
+          wikipediaSummary.content_urls?.desktop?.page || presidentDetail.fonteResumoUrl,
+      }
+    } catch {
+      return presidentDetail
+    }
+  })()
+
+  presidentDetailRequestCache.set(id, request)
+
+  try {
+    return await request
+  } catch (error) {
+    presidentDetailRequestCache.delete(id)
     throw error
   }
 }

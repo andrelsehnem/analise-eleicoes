@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { fetchDeputiesByState } from '../api/camaraApi'
 import type { Deputy } from '../types/camara'
 
@@ -19,7 +19,7 @@ export function useDeputies() {
     )
   }, [allDeputies, search])
 
-  async function loadDeputies(uf: string) {
+  const loadDeputies = useCallback(async (uf: string) => {
     setLoadingDeputies(true)
     setDeputiesError('')
 
@@ -32,17 +32,17 @@ export function useDeputies() {
     } finally {
       setLoadingDeputies(false)
     }
-  }
+  }, [])
 
-  function clearDeputiesState() {
+  const clearDeputiesState = useCallback(() => {
     setAllDeputies([])
     setSearch('')
     setDeputiesError('')
-  }
+  }, [])
 
-  function findDeputyById(id: number) {
+  const findDeputyById = useCallback((id: number) => {
     return allDeputies.find((item) => item.id === id) || null
-  }
+  }, [allDeputies])
 
   return {
     allDeputies,

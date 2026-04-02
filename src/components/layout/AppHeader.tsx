@@ -3,6 +3,11 @@ import { useNavigate } from 'react-router-dom'
 export function AppHeader() {
   const navigate = useNavigate()
 
+  function handleSobre(event: React.MouseEvent<HTMLAnchorElement>) {
+    event.preventDefault()
+    navigate('/sobre')
+  }
+
   return (
     <header>
       <div className="header-inner">
@@ -19,10 +24,10 @@ export function AppHeader() {
         
         <div className="header-sep" />
 
-        <div className="header-badge">Contato</div>
-        <a href="https://dadosabertos.camara.leg.br/index.html" target="_blank" rel="noopener noreferrer">
-          <div className="header-badge">Dados: api.camara.leg.br</div>
+        <a className="header-badge-link" href="/sobre" onClick={handleSobre}>
+          <div className="header-badge">Sobre</div>
         </a>
+
       </div>
     </header>
   )
