@@ -1,4 +1,4 @@
-import { LandingPanel } from '../panels/LandingPanel'
+import { LandingPanel } from '../panels/LandingPanel/LandingPanel'
 import { useAppNavigation } from '../../hooks/useAppNavigation'
 
 export function LandingPage() {

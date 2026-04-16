@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import type { Deputy } from '../types/camara'
+import type { Deputy, President } from '../types/camara'
 
 export function useAppNavigation() {
   const navigate = useNavigate()
@@ -9,17 +9,35 @@ export function useAppNavigation() {
   }
 
   function goToStateSelection() {
-    navigate('/federal-por-estado')
+    navigate('/por-estado')
   }
 
   function goToDeputies(uf: string) {
-    navigate(`/federal-por-estado/${uf.toLowerCase()}/deputados`)
+    navigate(`/por-estado/${uf.toLowerCase()}/deputado-federal`)
+  }
+
+  function goToPresidents() {
+    navigate('/presidente')
   }
 
   function goToDeputyDetail(uf: string, deputy: Deputy) {
-    navigate(`/federal-por-estado/${uf.toLowerCase()}/deputados/${deputy.id}`, {
+    navigate(`/por-estado/${uf.toLowerCase()}/deputado-federal/${deputy.id}`, {
       state: { selectedDeputy: deputy },
     })
+  }
+
+  function goToPresidentDetail(president: President) {
+    navigate(`/presidente/${president.id}`, {
+      state: { selectedPresident: president },
+    })
+  }
+
+  function goToPresidentDetailById(id: string) {
+    navigate(`/presidente/${id}`)
+  }
+
+  function goToSobre() {
+    navigate('/sobre')
   }
 
   function goBack() {
@@ -30,7 +48,11 @@ export function useAppNavigation() {
     goToHome,
     goToStateSelection,
     goToDeputies,
+    goToPresidents,
     goToDeputyDetail,
+    goToPresidentDetail,
+    goToPresidentDetailById,
+    goToSobre,
     goBack,
   }
 }

@@ -2,13 +2,20 @@
 
 ## Visão Geral
 
-**Analise-Eleicoes** é uma aplicação web SPA para consulta e análise de deputados federais brasileiros por estado. Os dados são consumidos em tempo real da [API de Dados Abertos da Câmara dos Deputados](https://dadosabertos.camara.leg.br/api/v2).
+**Analise-Eleicoes** é uma aplicação web SPA para consulta e análise de políticos brasileiros por estado. Os dados são consumidos em tempo real de APIs publicas, focando em presidentes, senadores, deputados federais e estaduais. O objetivo é fornecer uma ferramenta de fácil acesso para eleitores conhecerem o histórico de seus representantes antes das eleições.
 
-O usuário navega em três etapas:
+O usuário possui algumas opções de navegação para encontrar políticos:
 
-1. **Selecionar estado** – mapa interativo do Brasil (SVG)
-2. **Listar deputados** – lista com busca por nome
-3. **Detalhar deputado** – informações pessoais, proposições e votações
+1. **Selecionar a forma de pesquisa** – por estado ou busca direta
+2. **Selecionar estado** – mapa interativo do Brasil (SVG)
+3. **Listar políticos** – lista com busca por nome
+4. **Detalhar político** – informações pessoais, proposições e votações
+5. **Navegar entre painéis** – voltar para lista ou mapa
+6. **Buscar políticos por partido ou por cargo** – filtro avançado
+7. **Buscar políticos por nome** – campo de busca direta
+8. **Verificar candidatos para eleições futuras** – seção dedicada a candidatos confirmados
+9. **Favoritar políticos** – funcionalidade de favoritos para acesso rápido
+10. **Comparar políticos** – funcionalidade de comparação de políticos favoritados lado a lado
 
 ---
 
@@ -90,13 +97,14 @@ type Tab         = 'proposicoes' | 'votacoes'
 
 ## Boas Práticas ao Gerar Código
 
-1. **Novos componentes** devem ir em `src/components/common/` (genérico) ou no painel/layout correto.
+1. **Novos componentes** devem ir em `src/components/common/` (genérico) ou no painel/layout correto e devem ter seu próprio arquvio `.css` para estilos específicos, sempre seguindo o padrão do projeto para cores e fontes.
 2. **Novos hooks** devem ir em `src/hooks/` e seguir o padrão `use<Nome>`.
 3. **Novos tipos** devem ser adicionados em `src/types/camara.ts`.
 4. **Novas chamadas de API** devem ser adicionadas em `src/api/camaraApi.ts` usando a função `fetchApi<T>` interna.
 5. **Textos na UI** devem estar em português do Brasil.
 6. **Acessibilidade:** manter atributos `aria-*`, `role` e suporte a teclado nos elementos interativos.
-7. **CSS:** adicionar estilos no arquivo `.css` correspondente ao componente; usar variáveis CSS já definidas quando disponíveis.
+7. **CSS:** adicionar estilos no arquivo `.css` correspondente ao componente; usar variáveis CSS já definidas quando disponíveis. Nunca utilizar tailwind.
 8. **Não instalar** bibliotecas de estado global (Redux, Zustand etc.) sem discussão prévia.
 9. Manter o código **compatível com TypeScript strict mode** (`"strict": true`).
 10. Sempre que necessário, realizar perguntas para melhorar a compreensão do requisito antes de gerar código.
+11. Ao adicionar novas fontes de dados, inserir de onde vem a fonte na página "Sobre".

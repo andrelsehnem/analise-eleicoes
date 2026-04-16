@@ -23,7 +23,7 @@ export function DeputiesListPage() {
   // Validar se UF é válido
   useEffect(() => {
     if (!uf) {
-      navigate('/federal-por-estado')
+      navigate('/por-estado')
       return
     }
 
@@ -32,7 +32,7 @@ export function DeputiesListPage() {
     )
 
     if (!isValidUf) {
-      navigate('/federal-por-estado')
+      navigate('/por-estado')
       return
     }
 
@@ -41,7 +41,7 @@ export function DeputiesListPage() {
     }
 
     loadData()
-  }, [uf, navigate])
+  }, [uf, navigate, loadDeputies])
 
   const stateName: string =
     STATES.find((state) => state.uf.toLowerCase() === uf?.toLowerCase())

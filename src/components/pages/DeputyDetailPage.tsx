@@ -18,14 +18,27 @@ export function DeputyDetailPage() {
   const { goToDeputies } = useAppNavigation()
   const { findDeputyById, allDeputies, loadDeputies, loadingDeputies } = useDeputies()
   const {
-    activeTab,
+    includeRequirements,
     loadingDetail,
     detailError,
     deputyInfo,
+    professions,
     propositions,
-    votes,
-    setActiveTab,
+    hasMorePropositions,
+    loadingMorePropositions,
+    propositionVotes,
+    loadingPropositionVotes,
+    propositionVotesError,
+    selectedPropositionId,
+    orgaos,
+    loadingOrgaos,
+    orgaosError,
     loadDeputyDetail,
+    toggleIncludeRequirements,
+    loadMorePropositions,
+    loadPropositionVotes,
+    clearPropositionVotesState,
+    loadDeputyOrgaos,
   } = useDeputyDetail()
   const [isInitializing, setIsInitializing] = useState(true)
   const locationState = location.state as DeputyDetailLocationState | null
@@ -34,7 +47,7 @@ export function DeputyDetailPage() {
   // Validar UF e carregar dados
   useEffect(() => {
     if (!uf || !deputyId) {
-      navigate('/federal-por-estado')
+      navigate('/por-estado')
       return
     }
 
@@ -43,7 +56,7 @@ export function DeputyDetailPage() {
     )
 
     if (!isValidUf) {
-      navigate('/federal-por-estado')
+      navigate('/por-estado')
       return
     }
 
@@ -67,7 +80,7 @@ export function DeputyDetailPage() {
     }
 
     void loadData()
-  }, [uf, deputyId, navigate, routeSelectedDeputy])
+  }, [uf, deputyId, navigate, routeSelectedDeputy, allDeputies.length, loadDeputies, loadDeputyDetail])
 
   const deputyIdNum = parseInt(deputyId || '', 10)
   const selectedDeputy = findDeputyById(deputyIdNum) || routeSelectedDeputy
@@ -82,17 +95,37 @@ export function DeputyDetailPage() {
     goToDeputies(uf || '')
   }
 
+  function handleOpenOrgaosModal() {
+    if (!Number.isNaN(deputyIdNum)) {
+      void loadDeputyOrgaos(deputyIdNum)
+    }
+  }
+
   return (
     <DeputyDetailPanel
       selectedDeputy={selectedDeputy}
       deputyInfo={deputyInfo}
+      professions={professions}
       propositions={propositions}
-      votes={votes}
-      activeTab={activeTab}
+      filterContextKey={`${deputyId || selectedDeputy?.id || 'deputy'}-${includeRequirements ? 'with-req' : 'without-req'}`}
+      includeRequirements={includeRequirements}
+      hasMorePropositions={hasMorePropositions}
+      loadingMorePropositions={loadingMorePropositions}
+      propositionVotes={propositionVotes}
+      loadingPropositionVotes={loadingPropositionVotes}
+      propositionVotesError={propositionVotesError}
+      selectedPropositionId={selectedPropositionId}
+      orgaos={orgaos}
+      loadingOrgaos={loadingOrgaos}
+      orgaosError={orgaosError}
       loading={isPageLoading}
       error={detailError}
       onBack={handleBack}
-      onChangeTab={setActiveTab}
+      onToggleIncludeRequirements={toggleIncludeRequirements}
+      onLoadMorePropositions={loadMorePropositions}
+      onOpenPropositionVotes={loadPropositionVotes}
+      onClearPropositionVotesState={clearPropositionVotesState}
+      onOpenOrgaosModal={handleOpenOrgaosModal}
     />
   )
 }
