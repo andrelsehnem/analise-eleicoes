@@ -18,7 +18,6 @@ export function DeputyDetailPage() {
   const { goToDeputies } = useAppNavigation()
   const { findDeputyById, allDeputies, loadDeputies, loadingDeputies } = useDeputies()
   const {
-    activeTab,
     includeRequirements,
     loadingDetail,
     detailError,
@@ -27,14 +26,18 @@ export function DeputyDetailPage() {
     propositions,
     hasMorePropositions,
     loadingMorePropositions,
-    votes,
+    propositionVotes,
+    loadingPropositionVotes,
+    propositionVotesError,
+    selectedPropositionId,
     orgaos,
     loadingOrgaos,
     orgaosError,
-    setActiveTab,
     loadDeputyDetail,
     toggleIncludeRequirements,
     loadMorePropositions,
+    loadPropositionVotes,
+    clearPropositionVotesState,
     loadDeputyOrgaos,
   } = useDeputyDetail()
   const [isInitializing, setIsInitializing] = useState(true)
@@ -108,17 +111,20 @@ export function DeputyDetailPage() {
       includeRequirements={includeRequirements}
       hasMorePropositions={hasMorePropositions}
       loadingMorePropositions={loadingMorePropositions}
-      votes={votes}
+      propositionVotes={propositionVotes}
+      loadingPropositionVotes={loadingPropositionVotes}
+      propositionVotesError={propositionVotesError}
+      selectedPropositionId={selectedPropositionId}
       orgaos={orgaos}
       loadingOrgaos={loadingOrgaos}
       orgaosError={orgaosError}
-      activeTab={activeTab}
       loading={isPageLoading}
       error={detailError}
       onBack={handleBack}
-      onChangeTab={setActiveTab}
       onToggleIncludeRequirements={toggleIncludeRequirements}
       onLoadMorePropositions={loadMorePropositions}
+      onOpenPropositionVotes={loadPropositionVotes}
+      onClearPropositionVotesState={clearPropositionVotesState}
       onOpenOrgaosModal={handleOpenOrgaosModal}
     />
   )

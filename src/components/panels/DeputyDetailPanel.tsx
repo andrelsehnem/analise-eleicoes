@@ -2,9 +2,9 @@ import type {
   Deputy,
   DeputyInfo,
   DeputyOrgan,
+  PropositionVote,
   Profession,
   Proposition,
-  Vote,
 } from '../../types/camara'
 import { formatDate } from '../../utils/format'
 import {
@@ -28,17 +28,20 @@ type DeputyDetailPanelProps = {
   includeRequirements: boolean
   hasMorePropositions: boolean
   loadingMorePropositions: boolean
-  votes: Vote[]
+  propositionVotes: PropositionVote[]
+  loadingPropositionVotes: boolean
+  propositionVotesError: string
+  selectedPropositionId: number | null
   orgaos: DeputyOrgan[]
   loadingOrgaos: boolean
   orgaosError: string
-  activeTab: 'proposicoes' | 'votacoes'
   loading: boolean
   error: string
   onBack: () => void
-  onChangeTab: (tab: 'proposicoes' | 'votacoes') => void
   onToggleIncludeRequirements: () => void
   onLoadMorePropositions: () => void
+  onOpenPropositionVotes: (proposition: Proposition) => void
+  onClearPropositionVotesState: () => void
   onOpenOrgaosModal: () => void
 }
 
@@ -51,20 +54,27 @@ export function DeputyDetailPanel({
   includeRequirements,
   hasMorePropositions,
   loadingMorePropositions,
-  votes,
+  propositionVotes,
+  loadingPropositionVotes,
+  propositionVotesError,
+  selectedPropositionId,
   orgaos,
   loadingOrgaos,
   orgaosError,
-  activeTab,
   loading,
   error,
   onBack,
-  onChangeTab,
   onToggleIncludeRequirements,
   onLoadMorePropositions,
+  onOpenPropositionVotes,
+  onClearPropositionVotesState,
   onOpenOrgaosModal,
 }: DeputyDetailPanelProps) {
   const [isOrgaosModalOpen, setIsOrgaosModalOpen] = useState(false)
+  const [isPropositionVotesModalOpen, setIsPropositionVotesModalOpen] = useState(false)
+  const [selectedVoteTab, setSelectedVoteTab] = useState<string | null>(null)
+  const [selectedPropositionForVotes, setSelectedPropositionForVotes] =
+    useState<Proposition | null>(null)
   const [selectedPropositionTypes, setSelectedPropositionTypes] = useState<string[]>([])
   const sentinelRef = useRef<HTMLDivElement | null>(null)
   const lastFilterContextKeyRef = useRef<string>('')
@@ -220,6 +230,44 @@ export function DeputyDetailPanel({
     setIsOrgaosModalOpen(false)
   }
 
+  function getVoteGroupLabel(voteType: string) {
+    const normalizedVoteType = voteType.trim().toLowerCase()
+
+    if (normalizedVoteType === 'sim') {
+      return 'Sim'
+    }
+
+    if (normalizedVoteType === 'não' || normalizedVoteType === 'nao') {
+      return 'Não'
+    }
+
+    if (normalizedVoteType.includes('absten')) {
+      return 'Abstenção'
+    }
+
+    if (normalizedVoteType.includes('obstru')) {
+      return 'Obstrução'
+    }
+
+    if (normalizedVoteType.includes('aus')) {
+      return 'Ausência'
+    }
+
+    return voteType || 'Não informado'
+  }
+
+  function handleOpenPropositionVotesModal(proposition: Proposition) {
+    setSelectedPropositionForVotes(proposition)
+    setIsPropositionVotesModalOpen(true)
+    onOpenPropositionVotes(proposition)
+  }
+
+  function handleClosePropositionVotesModal() {
+    setIsPropositionVotesModalOpen(false)
+    setSelectedPropositionForVotes(null)
+    onClearPropositionVotesState()
+  }
+
   function handleTogglePropositionType(type: string) {
     setSelectedPropositionTypes((currentTypes) => {
       if (currentTypes.includes(type)) {
@@ -267,6 +315,48 @@ export function DeputyDetailPanel({
     })
   }, [propositions, selectedPropositionTypes])
 
+  const propositionVotesByGroup = useMemo(() => {
+    const groupedVotes = new Map<string, PropositionVote[]>()
+
+    propositionVotes.forEach((vote) => {
+      const label = getVoteGroupLabel(vote.voto)
+      const currentVotes = groupedVotes.get(label) || []
+      groupedVotes.set(label, [...currentVotes, vote])
+    })
+
+    const sorted = Array.from(groupedVotes.entries()).sort((leftEntry, rightEntry) => {
+      const sortOrder: Record<string, number> = {
+        Sim: 0,
+        Não: 1,
+        Abstenção: 2,
+        Obstrução: 3,
+        Ausência: 4,
+      }
+
+      const leftWeight = sortOrder[leftEntry[0]] ?? 99
+      const rightWeight = sortOrder[rightEntry[0]] ?? 99
+
+      if (leftWeight !== rightWeight) {
+        return leftWeight - rightWeight
+      }
+
+      return leftEntry[0].localeCompare(rightEntry[0], 'pt-BR')
+    })
+
+    return sorted.map(([label, votes]) => [
+      label,
+      [...votes].sort((a, b) => a.deputadoNome.localeCompare(b.deputadoNome, 'pt-BR')),
+    ] as [string, PropositionVote[]])
+  }, [propositionVotes])
+
+  useEffect(() => {
+    if (propositionVotesByGroup.length > 0) {
+      setSelectedVoteTab(propositionVotesByGroup[0][0])
+    } else {
+      setSelectedVoteTab(null)
+    }
+  }, [propositionVotesByGroup])
+
   const deputyDisplayName =
     deputyInfo?.ultimoStatus?.nomeEleitoral || selectedDeputy?.nome || 'Deputado'
   const deputyPhoto =
@@ -310,9 +400,6 @@ export function DeputyDetailPanel({
 
     return descricaoSituacao.includes('aprovad')
   }).length
-  const simVotes = votes.filter((item) => item.voto === 'Sim').length
-  const naoVotes = votes.filter((item) => item.voto === 'Não').length
-  const abstentions = votes.length - simVotes - naoVotes
   const canRenderContent = !error && Boolean(selectedDeputy || deputyInfo)
 
   return (
@@ -538,42 +625,8 @@ export function DeputyDetailPanel({
               <span className="score-num score-approved">{approvedCount}</span>
               <span className="score-label">Aprovadas</span>
             </div>
-            <div className="score-divider" />
-            <div className="score-item">
-              <span className="score-num score-sim">{simVotes}</span>
-              <span className="score-label">Votos SIM</span>
-            </div>
-            <div className="score-divider" />
-            <div className="score-item">
-              <span className="score-num score-nao">{naoVotes}</span>
-              <span className="score-label">Votos NÃO</span>
-            </div>
-            <div className="score-divider" />
-            <div className="score-item">
-              <span className="score-num score-abs">{abstentions}</span>
-              <span className="score-label">Abstenções</span>
-            </div>
           </div>
-
-          <div className="tabs">
-            <AppButton
-              className={`tab-btn ${activeTab === 'proposicoes' ? 'active' : ''}`}
-              onClick={() => onChangeTab('proposicoes')}
-              type="button"
-            >
-              📄 Projetos Autorais ({filteredPropositions.length}{hasMorePropositions ? '+' : ''})
-            </AppButton>
-            <AppButton
-              className={`tab-btn ${activeTab === 'votacoes' ? 'active' : ''}`}
-              onClick={() => onChangeTab('votacoes')}
-              type="button"
-            >
-              🗳 Votações Registradas ({votes.length})
-            </AppButton>
-          </div>
-
-          {activeTab === 'proposicoes' && (
-            <div id="tab-proposicoes">
+          <div id="tab-proposicoes">
               <div className="prop-controls">
                 <AppButton
                   className={`prop-requirements-toggle ${includeRequirements ? 'active' : ''}`}
@@ -645,6 +698,13 @@ export function DeputyDetailPanel({
                         <div className="prop-status">
                           <div className={`status-dot ${getPropositionStatusClass(status)}`} />
                           <div className="status-text">{status}</div>
+                          <AppButton
+                            className="prop-votes-btn"
+                            onClick={() => handleOpenPropositionVotesModal(proposition)}
+                            type="button"
+                          >
+                            Ver votos
+                          </AppButton>
                           {proposition.statusProposicao?.dataHora && (
                             <div className="prop-year">
                               {formatDate(proposition.statusProposicao.dataHora)}
@@ -670,33 +730,104 @@ export function DeputyDetailPanel({
                   <Loader />
                 </div>
               )}
-            </div>
-          )}
+          </div>
 
-          {activeTab === 'votacoes' && (
-            <div id="tab-votacoes">
-              {votes.length === 0 && (
-                <EmptyState icon="🗳" message="Nenhuma votação registrada encontrada." />
-              )}
-
-              {votes.length > 0 && (
-                <div className="votes-list">
-                  {votes.map((vote, index) => {
-                    const voto = vote.voto || 'Ausente'
-                    return (
-                      <div className="vote-item" key={`${vote.dataHoraVoto}-${vote.voto}-${index}`}>
-                        <span className={`vote-pill ${getVotePillClass(voto)}`}>{voto}</span>
-                        <div className="vote-desc">
-                          {vote.descricao || vote.proposicaoObjeto || 'Votação sem descrição'}
-                        </div>
-                        <div className="vote-date">
-                          {vote.dataHoraVoto ? formatDate(vote.dataHoraVoto) : ''}
-                        </div>
-                      </div>
-                    )
-                  })}
+          {isPropositionVotesModalOpen && (
+            <div
+              className="deputy-proposition-votes-modal-overlay"
+              role="presentation"
+              onClick={handleClosePropositionVotesModal}
+            >
+              <section
+                className="deputy-proposition-votes-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Votos por proposição"
+                onClick={(event) => {
+                  event.stopPropagation()
+                }}
+              >
+                <div className="deputy-proposition-votes-modal-header">
+                  <div>
+                    <div className="deputy-proposition-votes-title-row">
+                      <h3>Votos da proposição</h3>
+                      <p className="deputy-proposition-votes-note">
+                        * Nem toda proposição retorna votos individuais.
+                      </p>
+                    </div>
+                    {selectedPropositionForVotes && (
+                      <p className="deputy-proposition-votes-subtitle">
+                        {getPropositionTypeLabel(selectedPropositionForVotes)}{' '}
+                        {selectedPropositionForVotes.numero}/{selectedPropositionForVotes.ano}
+                      </p>
+                    )}
+                  </div>
+                  <AppButton
+                    className="deputy-organs-close-btn"
+                    onClick={handleClosePropositionVotesModal}
+                    type="button"
+                  >
+                    Fechar
+                  </AppButton>
                 </div>
-              )}
+
+                {loadingPropositionVotes && <Loader />}
+                {!loadingPropositionVotes && propositionVotesError && (
+                  <ErrorBox message={propositionVotesError} />
+                )}
+                {!loadingPropositionVotes && !propositionVotesError && selectedPropositionId === null && (
+                  <EmptyState icon="🗳" message="Proposição sem identificador para consultar votos." />
+                )}
+                {!loadingPropositionVotes &&
+                  !propositionVotesError &&
+                  selectedPropositionId !== null &&
+                  propositionVotes.length === 0 && (
+                    <EmptyState icon="🗳" message="Nenhum voto individual encontrado para esta proposição." />
+                  )}
+
+                {!loadingPropositionVotes && !propositionVotesError && propositionVotes.length > 0 && (
+                  <div className="proposition-vote-tabs-container">
+                    <div className="proposition-vote-tabs" role="tablist">
+                      {propositionVotesByGroup.map(([groupLabel, groupVotes]) => (
+                        <button
+                          key={groupLabel}
+                          role="tab"
+                          aria-selected={selectedVoteTab === groupLabel}
+                          className={`proposition-vote-tab ${getVotePillClass(groupLabel)}${selectedVoteTab === groupLabel ? ' active' : ''}`}
+                          onClick={() => setSelectedVoteTab(groupLabel)}
+                          type="button"
+                        >
+                          <span className="proposition-vote-tab-label">{groupLabel}</span>
+                          <span className="proposition-vote-tab-count">{groupVotes.length}</span>
+                        </button>
+                      ))}
+                    </div>
+
+                    {propositionVotesByGroup
+                      .filter(([groupLabel]) => groupLabel === selectedVoteTab)
+                      .map(([groupLabel, groupVotes]) => (
+                        <div
+                          key={groupLabel}
+                          className="proposition-vote-list"
+                          role="tabpanel"
+                        >
+                          {groupVotes.map((vote, index) => (
+                            <article
+                              className="proposition-vote-item"
+                              key={`${vote.votacaoId}-${vote.deputadoId || vote.deputadoNome}-${index}`}
+                            >
+                              <div className="proposition-vote-item-name">{vote.deputadoNome}</div>
+                              <div className="proposition-vote-item-meta">
+                                {vote.siglaPartido || '-'} / {vote.siglaUf || '-'}
+                                {vote.dataHoraVoto ? ` · ${formatDate(vote.dataHoraVoto)}` : ''}
+                              </div>
+                            </article>
+                          ))}
+                        </div>
+                      ))}
+                  </div>
+                )}
+              </section>
             </div>
           )}
         </>

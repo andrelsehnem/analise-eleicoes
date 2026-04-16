@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './LandingPanel.css'
 
 interface LandingPanelProps {
@@ -6,14 +5,6 @@ interface LandingPanelProps {
 }
 
 export function LandingPanel({ onStartSearch }: LandingPanelProps) {
-  const [showToast, setShowToast] = useState(false)
-
-  function handleComingSoon() {
-    if (showToast) return
-    setShowToast(true)
-    setTimeout(() => setShowToast(false), 3000)
-  }
-
   return (
     <div className="landing-panel">
       <div className="landing-content">
@@ -42,48 +33,33 @@ export function LandingPanel({ onStartSearch }: LandingPanelProps) {
           </div>
 
           <div className="feature">
+            <span className="feature-badge">Em breve</span>
             <div className="feature-icon">🏛️</div>
             <h3>Busque por partido</h3>
             <p>Encontre políticos filtrando por partido</p>
           </div>
 
           <div className="feature">
+            <span className="feature-badge">Em breve</span>
             <div className="feature-icon">📌</div>
             <h3>Busque por cargo</h3>
             <p>Filtre políticos de acordo com o cargo</p>
           </div>
 
           <div className="feature">
+            <span className="feature-badge">Em breve</span>
             <div className="feature-icon">🔎</div>
             <h3>Busque por nome</h3>
             <p>Pesquise diretamente pelo nome do político</p>
           </div>
 
-          <div
-            className="feature feature-highlight"
-            role="button"
-            tabIndex={0}
-            aria-label="Ver candidatos da próxima eleição (em breve)"
-            onClick={handleComingSoon}
-            onKeyDown={(event) => {
-              if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault()
-                handleComingSoon()
-              }
-            }}
-          >
+          <div className="feature feature-highlight">
             <span className="feature-badge">Em breve</span>
             <div className="feature-icon">🗳️</div>
             <h3>Candidatos 2026</h3>
             <p>Consulte os candidatos registrados para as eleições de outubro de 2026</p>
           </div>
         </div>
-
-        {showToast && (
-          <div className="landing-toast" role="status" aria-live="polite">
-            🚧 Funcionalidade em desenvolvimento — disponível em breve!
-          </div>
-        )}
       </div>
     </div>
   )

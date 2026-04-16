@@ -59,6 +59,18 @@ export type Vote = {
   dataHoraVoto?: string
 }
 
+export type PropositionVote = {
+  votacaoId: string
+  voto: string
+  deputadoId?: number
+  deputadoNome: string
+  siglaPartido?: string
+  siglaUf?: string
+  descricao?: string
+  proposicaoObjeto?: string
+  dataHoraVoto?: string
+}
+
 export type Profession = {
   titulo?: string
   nome?: string

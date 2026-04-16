@@ -4,9 +4,9 @@ import type {
   DeputyOrgan,
   President,
   PresidentDetail,
+  PropositionVote,
   Profession,
   Proposition,
-  Vote,
 } from '../types/camara'
 import { PRESIDENT_DETAIL_BY_ID, PRESIDENTS } from '../constants/presidents'
 
@@ -53,12 +53,29 @@ type DeputyDetailBundle = {
   propositions: Proposition[]
   hasMorePropositions: boolean
   propositionsPage: number
-  votes: Vote[]
 }
 
 const deputyDetailRequestCache = new Map<string, Promise<DeputyDetailBundle>>()
 const deputyOrgaosRequestCache = new Map<number, Promise<DeputyOrgan[]>>()
+const propositionVotesRequestCache = new Map<number, Promise<PropositionVote[]>>()
 const presidentDetailRequestCache = new Map<string, Promise<PresidentDetail>>()
+
+type PropositionVoting = {
+  id: string
+  descricao?: string
+  proposicaoObjeto?: string | null
+}
+
+type VotingVoteItem = {
+  tipoVoto?: string
+  dataRegistroVoto?: string
+  deputado_?: {
+    id?: number
+    nome?: string
+    siglaPartido?: string
+    siglaUf?: string
+  }
+}
 
 async function fetchApi<T>(url: string): Promise<T> {
   const response = await fetch(url)
@@ -143,7 +160,6 @@ export async function fetchDeputyDetailBundle(
       propositions: propData?.propositions || [],
       hasMorePropositions: propData?.hasNextPage || false,
       propositionsPage: propData?.page || 1,
-      votes: [],
     }
   })()
 
@@ -175,6 +191,68 @@ export async function fetchDeputyOrgaos(id: number): Promise<DeputyOrgan[]> {
     return await request
   } catch (error) {
     deputyOrgaosRequestCache.delete(id)
+    throw error
+  }
+}
+
+export async function fetchPropositionVotes(propositionId: number): Promise<PropositionVote[]> {
+  const cachedRequest = propositionVotesRequestCache.get(propositionId)
+
+  if (cachedRequest) {
+    return cachedRequest
+  }
+
+  const request = (async () => {
+    const votacoesResponse = await fetchApi<ApiResponse<PropositionVoting[]>>(
+      `${API}/proposicoes/${propositionId}/votacoes`,
+    )
+
+    const votacoes = votacoesResponse.dados || []
+
+    if (votacoes.length === 0) {
+      return []
+    }
+
+    const voteRequests = await Promise.allSettled(
+      votacoes.map((votacao) =>
+        fetchApi<ApiResponse<VotingVoteItem[]>>(`${API}/votacoes/${votacao.id}/votos`),
+      ),
+    )
+
+    const votesByProposition = voteRequests.flatMap((requestResult, index) => {
+      if (requestResult.status !== 'fulfilled') {
+        return []
+      }
+
+      const votacao = votacoes[index]
+      const votes = requestResult.value.dados || []
+
+      return votes.map((vote) => ({
+        votacaoId: votacao.id,
+        voto: vote.tipoVoto || 'Não informado',
+        deputadoId: vote.deputado_?.id,
+        deputadoNome: vote.deputado_?.nome || 'Deputado não identificado',
+        siglaPartido: vote.deputado_?.siglaPartido,
+        siglaUf: vote.deputado_?.siglaUf,
+        descricao: votacao.descricao,
+        proposicaoObjeto: votacao.proposicaoObjeto || undefined,
+        dataHoraVoto: vote.dataRegistroVoto,
+      }))
+    })
+
+    return votesByProposition.sort((leftVote, rightVote) => {
+      const leftTime = leftVote.dataHoraVoto ? new Date(leftVote.dataHoraVoto).getTime() : 0
+      const rightTime = rightVote.dataHoraVoto ? new Date(rightVote.dataHoraVoto).getTime() : 0
+      return rightTime - leftTime
+    })
+  })()
+
+  propositionVotesRequestCache.set(propositionId, request)
+
+  try {
+    return await request
+  } catch (error) {
+    propositionVotesRequestCache.delete(propositionId)
     throw error
   }
 }

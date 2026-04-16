@@ -90,7 +90,7 @@ export function SobrePanel() {
       </div>
 
       {/* Criadores */}
-      <div className="sobre-section">
+      <div className="sobre-section sobre-section--oculta">
         <div className="sobre-section-header">
           <span className="sobre-section-icon">👥</span>
           <h2>Criadores</h2>

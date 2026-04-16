@@ -3,14 +3,15 @@ import {
   fetchDeputyDetailBundle,
   fetchDeputyOrgaos,
   fetchDeputyPropositionsPage,
+  fetchPropositionVotes,
 } from '../api/camaraApi'
 import type {
   DeputyInfo,
   DeputyOrgan,
+  PropositionVote,
   Profession,
   Proposition,
   Tab,
-  Vote,
 } from '../types/camara'
 
 export function useDeputyDetail() {
@@ -23,7 +24,10 @@ export function useDeputyDetail() {
   const [propositions, setPropositions] = useState<Proposition[]>([])
   const [loadingMorePropositions, setLoadingMorePropositions] = useState(false)
   const [hasMorePropositions, setHasMorePropositions] = useState(false)
-  const [votes, setVotes] = useState<Vote[]>([])
+  const [propositionVotes, setPropositionVotes] = useState<PropositionVote[]>([])
+  const [loadingPropositionVotes, setLoadingPropositionVotes] = useState(false)
+  const [propositionVotesError, setPropositionVotesError] = useState('')
+  const [selectedPropositionId, setSelectedPropositionId] = useState<number | null>(null)
   const [orgaos, setOrgaos] = useState<DeputyOrgan[]>([])
   const [loadingOrgaos, setLoadingOrgaos] = useState(false)
   const [orgaosError, setOrgaosError] = useState('')
@@ -55,7 +59,6 @@ export function useDeputyDetail() {
         propositions: fetchedPropositions,
         hasMorePropositions: fetchedHasMorePropositions,
         propositionsPage: fetchedPropositionsPage,
-        votes: fetchedVotes,
       } =
         await fetchDeputyDetailBundle(id, {
           includeRequirements: shouldIncludeRequirements,
@@ -70,7 +73,10 @@ export function useDeputyDetail() {
       setPropositions(fetchedPropositions)
       setHasMorePropositions(fetchedHasMorePropositions)
       currentPropositionsPage.current = fetchedPropositionsPage
-      setVotes(fetchedVotes)
+      setPropositionVotes([])
+      setLoadingPropositionVotes(false)
+      setPropositionVotesError('')
+      setSelectedPropositionId(null)
       setOrgaos([])
       setOrgaosError('')
       setLoadingOrgaos(false)
@@ -87,7 +93,10 @@ export function useDeputyDetail() {
       setLoadingMorePropositions(false)
       setHasMorePropositions(false)
       currentPropositionsPage.current = 1
-      setVotes([])
+      setPropositionVotes([])
+      setLoadingPropositionVotes(false)
+      setPropositionVotesError('')
+      setSelectedPropositionId(null)
       setOrgaos([])
       setOrgaosError('')
       setLoadingOrgaos(false)
@@ -155,6 +164,37 @@ export function useDeputyDetail() {
     }
   }, [])
 
+  const loadPropositionVotes = useCallback(async (proposition: Proposition) => {
+    if (!proposition.id) {
+      setSelectedPropositionId(null)
+      setPropositionVotes([])
+      setPropositionVotesError('Esta proposição não possui identificador para consultar votações.')
+      setLoadingPropositionVotes(false)
+      return
+    }
+
+    setSelectedPropositionId(proposition.id)
+    setLoadingPropositionVotes(true)
+    setPropositionVotesError('')
+
+    try {
+      const fetchedVotes = await fetchPropositionVotes(proposition.id)
+      setPropositionVotes(fetchedVotes)
+    } catch {
+      setPropositionVotes([])
+      setPropositionVotesError('Erro ao carregar votos da proposição.')
+    } finally {
+      setLoadingPropositionVotes(false)
+    }
+  }, [])
+
+  const clearPropositionVotesState = useCallback(() => {
+    setSelectedPropositionId(null)
+    setPropositionVotes([])
+    setLoadingPropositionVotes(false)
+    setPropositionVotesError('')
+  }, [])
+
   const clearDeputyDetailState = useCallback(() => {
     setIncludeRequirements(false)
     includeRequirementsRef.current = false
@@ -165,7 +205,10 @@ export function useDeputyDetail() {
     setHasMorePropositions(false)
     currentPropositionsPage.current = 1
     currentDeputyId.current = null
-    setVotes([])
+    setPropositionVotes([])
+    setLoadingPropositionVotes(false)
+    setPropositionVotesError('')
+    setSelectedPropositionId(null)
     setOrgaos([])
     setOrgaosError('')
     setLoadingOrgaos(false)
@@ -197,7 +240,10 @@ export function useDeputyDetail() {
     propositions,
     hasMorePropositions,
     loadingMorePropositions,
-    votes,
+    propositionVotes,
+    loadingPropositionVotes,
+    propositionVotesError,
+    selectedPropositionId,
     orgaos,
     loadingOrgaos,
     orgaosError,
@@ -205,6 +251,8 @@ export function useDeputyDetail() {
     loadDeputyDetail,
     toggleIncludeRequirements,
     loadMorePropositions,
+    loadPropositionVotes,
+    clearPropositionVotesState,
     loadDeputyOrgaos,
     clearDeputyDetailState,
   }

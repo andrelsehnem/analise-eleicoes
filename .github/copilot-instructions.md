@@ -10,6 +10,12 @@ O usuário possui algumas opções de navegação para encontrar políticos:
 2. **Selecionar estado** – mapa interativo do Brasil (SVG)
 3. **Listar políticos** – lista com busca por nome
 4. **Detalhar político** – informações pessoais, proposições e votações
+5. **Navegar entre painéis** – voltar para lista ou mapa
+6. **Buscar políticos por partido ou por cargo** – filtro avançado
+7. **Buscar políticos por nome** – campo de busca direta
+8. **Verificar candidatos para eleições futuras** – seção dedicada a candidatos confirmados
+9. **Favoritar políticos** – funcionalidade de favoritos para acesso rápido
+10. **Comparar políticos** – funcionalidade de comparação de políticos favoritados lado a lado
 
 ---
 

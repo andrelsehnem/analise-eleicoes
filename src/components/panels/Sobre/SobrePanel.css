@@ -83,6 +83,10 @@
   margin-top: 0.75rem;
 }
 
+.sobre-section--oculta {
+  display: none;
+}
+
 /* Data sources list */
 .sobre-sources {
   display: flex;

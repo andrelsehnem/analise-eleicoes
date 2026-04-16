@@ -1,4 +1,4 @@
-import { SobrePanel } from '../panels/SobrePanel'
+import { SobrePanel } from '../panels/Sobre/SobrePanel'
 
 export function SobrePage() {
   return <SobrePanel />
