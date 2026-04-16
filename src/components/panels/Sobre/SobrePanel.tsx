@@ -1,10 +1,12 @@
+import brazilLogo from '../../../assets/brazil-svgrepo-com.svg'
+
 import './SobrePanel.css'
 
 export function SobrePanel() {
   return (
     <section className="sobre-panel">
       <div className="sobre-hero">
-        <div className="sobre-hero-icon">⚖</div>
+        <img className="sobre-hero-icon" src={brazilLogo} alt="" aria-hidden="true" />
         <h1>Sobre o Mandato Transparente</h1>
         <p>
           Uma ferramenta aberta para que todo cidadão brasileiro

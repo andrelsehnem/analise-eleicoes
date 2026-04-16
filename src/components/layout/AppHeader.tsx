@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 
+import brazilLogo from '../../assets/brazil-svgrepo-com.svg'
+
 export function AppHeader() {
   const navigate = useNavigate()
 
@@ -15,7 +17,7 @@ export function AppHeader() {
           event.preventDefault()
           navigate('/')
         }}>
-          <div className="logo-seal">⚖</div>
+          <img className="logo-seal" src={brazilLogo} alt="" aria-hidden="true" />
           <div className="logo-text">
             <div className="logo-title">Mandato Transparente</div>
             <div className="logo-sub">Análise de Políticos do Brasil</div>
