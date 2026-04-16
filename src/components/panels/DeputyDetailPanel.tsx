@@ -349,13 +349,11 @@ export function DeputyDetailPanel({
     ] as [string, PropositionVote[]])
   }, [propositionVotes])
 
-  useEffect(() => {
-    if (propositionVotesByGroup.length > 0) {
-      setSelectedVoteTab(propositionVotesByGroup[0][0])
-    } else {
-      setSelectedVoteTab(null)
-    }
-  }, [propositionVotesByGroup])
+  const effectiveVoteTab: string | null =
+    selectedVoteTab !== null &&
+    propositionVotesByGroup.some(([label]) => label === selectedVoteTab)
+      ? selectedVoteTab
+      : (propositionVotesByGroup[0]?.[0] ?? null)
 
   const deputyDisplayName =
     deputyInfo?.ultimoStatus?.nomeEleitoral || selectedDeputy?.nome || 'Deputado'
@@ -792,8 +790,8 @@ export function DeputyDetailPanel({
                         <button
                           key={groupLabel}
                           role="tab"
-                          aria-selected={selectedVoteTab === groupLabel}
-                          className={`proposition-vote-tab ${getVotePillClass(groupLabel)}${selectedVoteTab === groupLabel ? ' active' : ''}`}
+                          aria-selected={effectiveVoteTab === groupLabel}
+                          className={`proposition-vote-tab ${getVotePillClass(groupLabel)}${effectiveVoteTab === groupLabel ? ' active' : ''}`}
                           onClick={() => setSelectedVoteTab(groupLabel)}
                           type="button"
                         >
@@ -804,7 +802,7 @@ export function DeputyDetailPanel({
                     </div>
 
                     {propositionVotesByGroup
-                      .filter(([groupLabel]) => groupLabel === selectedVoteTab)
+                      .filter(([groupLabel]) => groupLabel === effectiveVoteTab)
                       .map(([groupLabel, groupVotes]) => (
                         <div
                           key={groupLabel}
