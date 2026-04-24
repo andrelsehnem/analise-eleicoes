@@ -1,73 +1,93 @@
-# React + TypeScript + Vite
+# Analise-Eleicoes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web SPA para consulta pública de políticos brasileiros, com foco atual em deputados federais por estado e consulta da Presidência da República.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19 + TypeScript (strict)
+- Vite
+- React Router DOM
+- ESLint (`typescript-eslint`)
+- CSS puro
+- `@svg-maps/brazil`
 
-## React Compiler
+## Funcionalidades implementadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Landing com entrada para busca por estado
+- Seleção de estado por mapa do Brasil e lista de UFs
+- Lista de deputados federais por UF com busca por nome/partido
+- Detalhe de deputado com:
+  - dados gerais
+  - proposições com filtros e carregamento incremental
+  - votos por proposição
+  - órgãos de atuação
+- Lista e detalhe da Presidência (presidente e vice)
+- Página Sobre
 
-## Expanding the ESLint configuration
+## Funcionalidades não implementadas (roadmap)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Busca direta global por nome
+- Favoritos
+- Comparação entre políticos
+- Consulta funcional para senador e deputado estadual
+- Candidatos futuros
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Detalhes em `documentacao/roadmap-nao-implementado.md`.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Rotas principais
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- `/`
+- `/por-estado`
+- `/por-estado/:uf/deputado-federal`
+- `/por-estado/:uf/deputado-federal/:deputyId`
+- `/presidente`
+- `/presidente/:presidentId`
+- `/sobre`
+
+## Fontes de dados
+
+- API Dados Abertos da Câmara: `https://dadosabertos.camara.leg.br/api/v2`
+- Wikipedia REST (resumo complementar da Presidência): `https://pt.wikipedia.org/api/rest_v1/page/summary`
+- Dados locais em `src/constants/presidents.ts`
+
+## Como executar
+
+### Pré-requisitos
+
+- Node.js 20+
+- npm
+
+### Comandos
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Outros comandos:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
+npm run lint
+npm run preview
 ```
+
+## Estrutura resumida
+
+```text
+src/
+  api/
+  components/
+    common/
+    layout/
+    pages/
+    panels/
+  constants/
+  hooks/
+  types/
+  utils/
+```
+
+## Documentação detalhada
+
+A documentação técnica e funcional consolidada está em `documentacao/`.
