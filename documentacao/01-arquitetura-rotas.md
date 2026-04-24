@@ -16,6 +16,27 @@
 - `/presidente/:presidentId` → `PresidentDetailPage`
 - `/sobre` → `SobrePage`
 
+## SEO técnico por rota
+
+- Metadados (`title`, `description`, `canonical`, Open Graph e Twitter) são definidos por rota via componente `SeoHead` em `src/components/common/SeoHead.tsx`.
+- O domínio canônico adotado é `https://www.mandatotransparente.com.br`.
+- Rotas dinâmicas geram metadados com fallback seguro quando o conteúdo ainda está carregando.
+- A rota 404 aplica `robots="noindex,nofollow"`.
+
+## Indexação
+
+- `public/robots.txt` permite rastreamento e aponta para o sitemap.
+- `public/sitemap.xml` contém apenas rotas estáticas públicas nesta fase:
+	- `/`
+	- `/por-estado`
+	- `/presidente`
+	- `/sobre`
+
+## Performance de carregamento
+
+- As páginas de rota em `src/App.tsx` usam `React.lazy` + `Suspense` para code-splitting por rota.
+- O fallback de carregamento mantém o fluxo visual via `Loader`.
+
 ## Responsabilidades por camada
 
 ### `components/pages`

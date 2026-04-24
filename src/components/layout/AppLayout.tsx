@@ -32,7 +32,7 @@ export function AppLayout({
     <div className="app">
       <AppHeader />
 
-      <div className="main">
+      <main className="main" id="conteudo-principal">
         {shouldShowHero && <HeroSection />}
 
         {showStepsNav && (
@@ -53,7 +53,7 @@ export function AppLayout({
         )}
 
         {children}
-      </div>
+      </main>
 
       <Disclaimer />
     </div>

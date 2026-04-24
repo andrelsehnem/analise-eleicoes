@@ -69,9 +69,9 @@ export function PresidentsPanel({
       </AppButton>
 
       <div className="section-header">
-        <div className="section-title" id="presidents-title">
+        <h1 className="section-title" id="presidents-title">
           Presidência da República
-        </div>
+        </h1>
         <div className="section-count" id="presidents-count">
           {directoryCards.length} cargo{directoryCards.length === 1 ? '' : 's'}
         </div>
@@ -109,6 +109,8 @@ export function PresidentsPanel({
                   className="deputy-photo"
                   src={card.urlFoto || FALLBACK_AVATAR}
                   alt={card.nome}
+                  width={60}
+                  height={60}
                   onError={(event) => {
                     event.currentTarget.src = FALLBACK_AVATAR
                   }}

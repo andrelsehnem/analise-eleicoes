@@ -8,6 +8,7 @@ Local: `src/components/common`
 - `Loader`: estado de carregamento.
 - `ErrorBox`: exibição padronizada de erro.
 - `EmptyState`: estado vazio com ícone/mensagem.
+- `SeoHead`: metadados SEO por rota (`title`, `description`, `canonical`, Open Graph/Twitter e JSON-LD).
 
 ## Layout
 
@@ -22,6 +23,7 @@ Local: `src/utils`
 
 - `format.ts`: normalização/formatação de datas e strings de apoio.
 - `ui.ts`: classes de badge/status, fallback de avatar e helpers de UI.
+- `seo.ts`: helpers para URL canônica, `BreadcrumbList`, `WebSite`, `Organization` e `CollectionPage`.
 
 ## Papel no sistema
 

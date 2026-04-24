@@ -2,6 +2,8 @@ import { StatesPanel } from '../panels/StatesPanel'
 import { useAppNavigation } from '../../hooks/useAppNavigation'
 import { useState } from 'react'
 import type { OfficeType } from '../../types/camara'
+import { SeoHead } from '../common/SeoHead'
+import { buildBreadcrumbSchema, buildCollectionPageSchema } from '../../utils/seo'
 
 export function StateSelectionPage() {
   const { goToDeputies, goToPresidents } = useAppNavigation()
@@ -26,11 +28,28 @@ export function StateSelectionPage() {
   }
 
   return (
-    <StatesPanel
-      selectedUf={selectedUf}
-      selectedOffice={selectedOffice}
-      onChangeOffice={handleOfficeChange}
-      onSelectState={handleSelectState}
-    />
+    <>
+      <SeoHead
+        title="Selecionar estado e cargo"
+        description="Escolha o cargo e o estado para consultar representantes e acessar informações públicas sobre atuação política."
+        jsonLd={[
+          buildBreadcrumbSchema([
+            { name: 'Início', path: '/' },
+            { name: 'Seleção por estado', path: '/por-estado' },
+          ]),
+          buildCollectionPageSchema(
+            'Seleção por estado e cargo',
+            'Página de seleção de estado e cargo para iniciar a consulta de representantes públicos.',
+            '/por-estado',
+          ),
+        ]}
+      />
+      <StatesPanel
+        selectedUf={selectedUf}
+        selectedOffice={selectedOffice}
+        onChangeOffice={handleOfficeChange}
+        onSelectState={handleSelectState}
+      />
+    </>
   )
 }

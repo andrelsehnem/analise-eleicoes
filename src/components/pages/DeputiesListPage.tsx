@@ -5,6 +5,8 @@ import { useAppNavigation } from '../../hooks/useAppNavigation'
 import { useEffect } from 'react'
 import { STATES } from '../../constants/states'
 import type { Deputy } from '../../types/camara'
+import { SeoHead } from '../common/SeoHead'
+import { buildBreadcrumbSchema, buildCollectionPageSchema } from '../../utils/seo'
 
 export function DeputiesListPage() {
   const { uf } = useParams<{ uf: string }>()
@@ -52,16 +54,43 @@ export function DeputiesListPage() {
   }
 
   return (
-    <DeputiesPanel
-      stateName={stateName}
-      allDeputiesCount={allDeputies.length}
-      search={search}
-      onSearchChange={setSearch}
-      loading={loadingDeputies}
-      error={deputiesError}
-      deputies={filteredDeputies}
-      onBack={goToStateSelection}
-      onSelectDeputy={handleSelectDeputy}
-    />
+    <>
+      <SeoHead
+        title={stateName ? `Deputados federais de ${stateName}` : 'Deputados federais por estado'}
+        description={
+          stateName
+            ? `Veja a lista de deputados federais de ${stateName}, filtre por nome ou partido e abra o histórico de atuação de cada parlamentar.`
+            : 'Veja a lista de deputados federais por estado e consulte dados públicos de atuação parlamentar.'
+        }
+        jsonLd={[
+          buildBreadcrumbSchema([
+            { name: 'Início', path: '/' },
+            { name: 'Seleção por estado', path: '/por-estado' },
+            {
+              name: stateName ? `Deputados de ${stateName}` : 'Lista de deputados',
+              path: uf ? `/por-estado/${uf.toLowerCase()}/deputado-federal` : '/por-estado',
+            },
+          ]),
+          buildCollectionPageSchema(
+            stateName ? `Deputados federais de ${stateName}` : 'Deputados federais por estado',
+            stateName
+              ? `Diretório de deputados federais de ${stateName} com busca por nome e partido.`
+              : 'Diretório de deputados federais com filtros de busca.',
+            uf ? `/por-estado/${uf.toLowerCase()}/deputado-federal` : '/por-estado',
+          ),
+        ]}
+      />
+      <DeputiesPanel
+        stateName={stateName}
+        allDeputiesCount={allDeputies.length}
+        search={search}
+        onSearchChange={setSearch}
+        loading={loadingDeputies}
+        error={deputiesError}
+        deputies={filteredDeputies}
+        onBack={goToStateSelection}
+        onSelectDeputy={handleSelectDeputy}
+      />
+    </>
   )
 }

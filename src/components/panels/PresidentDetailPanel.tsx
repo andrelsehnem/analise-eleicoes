@@ -61,12 +61,14 @@ function PresidentDetailContent({ presidentDetail }: PresidentDetailContentProps
             className="deputy-detail-photo"
             src={presidentDetail.urlFoto || FALLBACK_AVATAR}
             alt={presidentDetail.nome}
+            width={100}
+            height={100}
             onError={(event) => {
               event.currentTarget.src = FALLBACK_AVATAR
             }}
           />
           <div className="deputy-detail-info">
-            <div className="deputy-detail-name">{presidentDetail.nome}</div>
+            <h1 className="deputy-detail-name">{presidentDetail.nome}</h1>
             {presidentDetail.descricao && (
               <div className="president-detail-subtitle">{presidentDetail.descricao}</div>
             )}
@@ -95,6 +97,8 @@ function PresidentDetailContent({ presidentDetail }: PresidentDetailContentProps
                 className="president-vice-photo"
                 src={presidentDetail.vice.urlFoto || FALLBACK_AVATAR}
                 alt={presidentDetail.vice.nome}
+                width={72}
+                height={72}
                 onError={(event) => {
                   event.currentTarget.src = FALLBACK_AVATAR
                 }}
