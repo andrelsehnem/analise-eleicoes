@@ -8,6 +8,7 @@ import { DeputyDetailPage } from './components/pages/DeputyDetailPage'
 import { PresidentsListPage } from './components/pages/PresidentsListPage'
 import { PresidentDetailPage } from './components/pages/PresidentDetailPage'
 import { SobrePage } from './components/pages/SobrePage'
+import { NotFoundPage } from './components/pages/NotFoundPage'
 
 function App() {
   return (
@@ -65,6 +66,14 @@ function App() {
         element={
           <AppLayout showStepsNav={false}>
             <SobrePage />
+          </AppLayout>
+        }
+      />
+      <Route
+        path="*"
+        element={
+          <AppLayout showStepsNav={false}>
+            <NotFoundPage />
           </AppLayout>
         }
       />

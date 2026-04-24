@@ -1,0 +1,106 @@
+.not-found-panel {
+  width: 100%;
+  padding: 4rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 600px;
+}
+
+.not-found-content {
+  max-width: 620px;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.not-found-code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(5rem, 15vw, 9rem);
+  font-weight: 500;
+  line-height: 1;
+  color: transparent;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 60%, var(--silver) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.04em;
+}
+
+.not-found-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.not-found-description {
+  font-size: 1rem;
+  color: var(--silver);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+}
+
+.not-found-divider {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  margin: 0 auto 2.5rem;
+  border-radius: 1px;
+}
+
+.not-found-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.not-found-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 6px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.not-found-btn-primary {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  color: var(--navy);
+}
+
+.not-found-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(201, 168, 76, 0.35);
+}
+
+.not-found-btn-secondary {
+  background: rgba(17, 34, 64, 0.8);
+  color: var(--white-dim);
+  border: 1px solid var(--border);
+}
+
+.not-found-btn-secondary:hover {
+  transform: translateY(-2px);
+  background: rgba(26, 58, 110, 0.5);
+  box-shadow: 0 8px 20px rgba(10, 22, 40, 0.3);
+}
