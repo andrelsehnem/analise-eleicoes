@@ -10,6 +10,11 @@ export function AppHeader() {
     navigate('/sobre')
   }
 
+  function handleSugestoes(event: React.MouseEvent<HTMLAnchorElement>) {
+    event.preventDefault()
+    navigate('/sugestoes')
+  }
+
   return (
     <header>
       <div className="header-inner">
@@ -33,7 +38,10 @@ export function AppHeader() {
         
         <div className="header-sep" />
 
-        <nav aria-label="Navegação principal">
+        <nav className="header-nav" aria-label="Navegação principal">
+          <a className="header-badge-link" href="/sugestoes" onClick={handleSugestoes}>
+            <div className="header-badge">Sugestões</div>
+          </a>
           <a className="header-badge-link" href="/sobre" onClick={handleSobre}>
             <div className="header-badge">Sobre</div>
           </a>

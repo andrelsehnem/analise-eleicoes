@@ -6,7 +6,7 @@ import { SeoHead } from '../common/SeoHead'
 import { buildBreadcrumbSchema, buildCollectionPageSchema } from '../../utils/seo'
 
 export function StateSelectionPage() {
-  const { goToDeputies, goToPresidents } = useAppNavigation()
+  const { goToDeputies, goToPresidents, goToSenators } = useAppNavigation()
   const [selectedUf, setSelectedUf] = useState<string | null>(null)
   const [selectedOffice, setSelectedOffice] = useState<OfficeType>('deputado-federal')
 
@@ -15,6 +15,11 @@ export function StateSelectionPage() {
 
     if (selectedOffice === 'deputado-federal') {
       goToDeputies(uf)
+      return
+    }
+
+    if (selectedOffice === 'senador') {
+      goToSenators(uf)
     }
   }
 

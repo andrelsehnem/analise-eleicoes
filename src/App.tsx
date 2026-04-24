@@ -13,8 +13,14 @@ const StateSelectionPage = lazy(async () => ({
 const DeputiesListPage = lazy(async () => ({
   default: (await import('./components/pages/DeputiesListPage')).DeputiesListPage,
 }))
+const SenatorsListPage = lazy(async () => ({
+  default: (await import('./components/pages/SenatorsListPage')).SenatorsListPage,
+}))
 const DeputyDetailPage = lazy(async () => ({
   default: (await import('./components/pages/DeputyDetailPage')).DeputyDetailPage,
+}))
+const SenatorDetailPage = lazy(async () => ({
+  default: (await import('./components/pages/SenatorDetailPage')).SenatorDetailPage,
 }))
 const PresidentsListPage = lazy(async () => ({
   default: (await import('./components/pages/PresidentsListPage')).PresidentsListPage,
@@ -24,6 +30,9 @@ const PresidentDetailPage = lazy(async () => ({
 }))
 const SobrePage = lazy(async () => ({
   default: (await import('./components/pages/SobrePage')).SobrePage,
+}))
+const SugestoesPage = lazy(async () => ({
+  default: (await import('./components/pages/SugestoesPage')).SugestoesPage,
 }))
 const NotFoundPage = lazy(async () => ({
   default: (await import('./components/pages/NotFoundPage')).NotFoundPage,
@@ -63,11 +72,31 @@ function App() {
         }
       />
       <Route
+        path="/senadores/:uf"
+        element={
+          <AppLayout showStepsNav={true}>
+            <Suspense fallback={<Loader />}>
+              <SenatorsListPage />
+            </Suspense>
+          </AppLayout>
+        }
+      />
+      <Route
         path="/por-estado/:uf/deputado-federal/:deputyId"
         element={
           <AppLayout showStepsNav={true}>
             <Suspense fallback={<Loader />}>
               <DeputyDetailPage />
+            </Suspense>
+          </AppLayout>
+        }
+      />
+      <Route
+        path="/senador/:senatorId"
+        element={
+          <AppLayout showStepsNav={true}>
+            <Suspense fallback={<Loader />}>
+              <SenatorDetailPage />
             </Suspense>
           </AppLayout>
         }
@@ -98,6 +127,16 @@ function App() {
           <AppLayout showStepsNav={false}>
             <Suspense fallback={<Loader />}>
               <SobrePage />
+            </Suspense>
+          </AppLayout>
+        }
+      />
+      <Route
+        path="/sugestoes"
+        element={
+          <AppLayout showStepsNav={false}>
+            <Suspense fallback={<Loader />}>
+              <SugestoesPage />
             </Suspense>
           </AppLayout>
         }

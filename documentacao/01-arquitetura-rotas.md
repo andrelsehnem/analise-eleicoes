@@ -12,9 +12,12 @@
 - `/por-estado` → `StateSelectionPage`
 - `/por-estado/:uf/deputado-federal` → `DeputiesListPage`
 - `/por-estado/:uf/deputado-federal/:deputyId` → `DeputyDetailPage`
+- `/senadores/:uf` → `SenatorsListPage`
+- `/senador/:senatorId` → `SenatorDetailPage`
 - `/presidente` → `PresidentsListPage`
 - `/presidente/:presidentId` → `PresidentDetailPage`
 - `/sobre` → `SobrePage`
+- `/sugestoes` → `SugestoesPage`
 
 ## SEO técnico por rota
 
@@ -31,6 +34,7 @@
 	- `/por-estado`
 	- `/presidente`
 	- `/sobre`
+	- `/sugestoes`
 
 ## Performance de carregamento
 
@@ -56,6 +60,8 @@
 - `useAppNavigation`: centraliza navegação por rota.
 - `useDeputies`: lista/busca de deputados por UF.
 - `useDeputyDetail`: detalhe, proposições paginadas, votos, órgãos.
+- `useSenators`: lista/busca de senadores por UF.
+- `useSenatorDetail`: detalhe de senador com mandatos, comissões e cargos.
 - `usePresidents`: lista e busca em presidência.
 - `usePresidentDetail`: detalhe de presidente/vice.
 
