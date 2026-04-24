@@ -6,6 +6,8 @@ import { useDeputyDetail } from '../../hooks/useDeputyDetail'
 import { useAppNavigation } from '../../hooks/useAppNavigation'
 import { STATES } from '../../constants/states'
 import type { Deputy } from '../../types/camara'
+import { SeoHead } from '../common/SeoHead'
+import { buildAbsoluteUrl, buildBreadcrumbSchema } from '../../utils/seo'
 
 type DeputyDetailLocationState = {
   selectedDeputy?: Deputy
@@ -86,9 +88,37 @@ export function DeputyDetailPage() {
   const selectedDeputy = findDeputyById(deputyIdNum) || routeSelectedDeputy
   const hasDeputyData = Boolean(selectedDeputy || deputyInfo)
   const isPageLoading = loadingDetail || (!routeSelectedDeputy && (isInitializing || loadingDeputies))
+  const stateName =
+    STATES.find((state) => state.uf.toLowerCase() === uf?.toLowerCase())?.name ||
+    uf?.toUpperCase() ||
+    ''
+  const deputyName =
+    deputyInfo?.ultimoStatus?.nomeEleitoral || selectedDeputy?.nome || 'Deputado federal'
+  const deputyDescription = stateName
+    ? `Acompanhe dados públicos, proposições e votações de ${deputyName}, representante de ${stateName}.`
+    : `Acompanhe dados públicos, proposições e votações de ${deputyName}.`
+  const detailPath =
+    uf && deputyId
+      ? `/por-estado/${uf.toLowerCase()}/deputado-federal/${deputyId}`
+      : '/por-estado'
+  const deputyPersonSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: deputyName,
+    jobTitle: 'Deputado Federal',
+    url: buildAbsoluteUrl(detailPath),
+  }
 
   if (!hasDeputyData && !isPageLoading && !detailError) {
-    return <div>Deputado não encontrado</div>
+    return (
+      <>
+        <SeoHead
+          title="Deputado não encontrado"
+          description="O perfil solicitado não foi encontrado. Volte para a lista por estado e faça uma nova busca."
+        />
+        <div>Deputado não encontrado</div>
+      </>
+    )
   }
 
   function handleBack() {
@@ -102,30 +132,48 @@ export function DeputyDetailPage() {
   }
 
   return (
-    <DeputyDetailPanel
-      selectedDeputy={selectedDeputy}
-      deputyInfo={deputyInfo}
-      professions={professions}
-      propositions={propositions}
-      filterContextKey={`${deputyId || selectedDeputy?.id || 'deputy'}-${includeRequirements ? 'with-req' : 'without-req'}`}
-      includeRequirements={includeRequirements}
-      hasMorePropositions={hasMorePropositions}
-      loadingMorePropositions={loadingMorePropositions}
-      propositionVotes={propositionVotes}
-      loadingPropositionVotes={loadingPropositionVotes}
-      propositionVotesError={propositionVotesError}
-      selectedPropositionId={selectedPropositionId}
-      orgaos={orgaos}
-      loadingOrgaos={loadingOrgaos}
-      orgaosError={orgaosError}
-      loading={isPageLoading}
-      error={detailError}
-      onBack={handleBack}
-      onToggleIncludeRequirements={toggleIncludeRequirements}
-      onLoadMorePropositions={loadMorePropositions}
-      onOpenPropositionVotes={loadPropositionVotes}
-      onClearPropositionVotesState={clearPropositionVotesState}
-      onOpenOrgaosModal={handleOpenOrgaosModal}
-    />
+    <>
+      <SeoHead
+        title={`Perfil de ${deputyName}`}
+        description={deputyDescription}
+        jsonLd={[
+          buildBreadcrumbSchema([
+            { name: 'Início', path: '/' },
+            { name: 'Seleção por estado', path: '/por-estado' },
+            {
+              name: stateName ? `Deputados de ${stateName}` : 'Lista de deputados',
+              path: uf ? `/por-estado/${uf.toLowerCase()}/deputado-federal` : '/por-estado',
+            },
+            { name: deputyName, path: detailPath },
+          ]),
+          deputyPersonSchema,
+        ]}
+      />
+      <DeputyDetailPanel
+        selectedDeputy={selectedDeputy}
+        deputyInfo={deputyInfo}
+        professions={professions}
+        propositions={propositions}
+        filterContextKey={`${deputyId || selectedDeputy?.id || 'deputy'}-${includeRequirements ? 'with-req' : 'without-req'}`}
+        includeRequirements={includeRequirements}
+        hasMorePropositions={hasMorePropositions}
+        loadingMorePropositions={loadingMorePropositions}
+        propositionVotes={propositionVotes}
+        loadingPropositionVotes={loadingPropositionVotes}
+        propositionVotesError={propositionVotesError}
+        selectedPropositionId={selectedPropositionId}
+        orgaos={orgaos}
+        loadingOrgaos={loadingOrgaos}
+        orgaosError={orgaosError}
+        loading={isPageLoading}
+        error={detailError}
+        onBack={handleBack}
+        onToggleIncludeRequirements={toggleIncludeRequirements}
+        onLoadMorePropositions={loadMorePropositions}
+        onOpenPropositionVotes={loadPropositionVotes}
+        onClearPropositionVotesState={clearPropositionVotesState}
+        onOpenOrgaosModal={handleOpenOrgaosModal}
+      />
+    </>
   )
 }

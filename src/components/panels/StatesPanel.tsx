@@ -93,8 +93,13 @@ export function StatesPanel({
   return (
     <div className="panel active" id="panel-states">
       <div className="section-header">
-        <div className="section-title">Selecione o tipo e o estado</div>
+        <h1 className="section-title">Selecione o tipo e o estado</h1>
       </div>
+
+      <p className="president-panel-description">
+        Escolha um cargo e uma UF para abrir uma consulta pública com dados oficiais. Este fluxo
+        ajuda a comparar representantes por estado antes da decisão de voto.
+      </p>
 
       <div className="office-filter-container">
         <div className="office-filter-label">Tipo de cargo</div>
@@ -182,7 +187,7 @@ export function StatesPanel({
       </div>
 
       <div className="states-list-container">
-        <div className="section-title states-list-title">Ou selecione pela lista</div>
+        <h2 className="section-title states-list-title">Ou selecione pela lista</h2>
         <div className="state-grid">
           {STATES.map((state) => (
             <AppButton

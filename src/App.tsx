@@ -1,14 +1,33 @@
 import './App.css'
+import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { AppLayout } from './components/layout/AppLayout'
-import { LandingPage } from './components/pages/LandingPage'
-import { StateSelectionPage } from './components/pages/StateSelectionPage'
-import { DeputiesListPage } from './components/pages/DeputiesListPage'
-import { DeputyDetailPage } from './components/pages/DeputyDetailPage'
-import { PresidentsListPage } from './components/pages/PresidentsListPage'
-import { PresidentDetailPage } from './components/pages/PresidentDetailPage'
-import { SobrePage } from './components/pages/SobrePage'
-import { NotFoundPage } from './components/pages/NotFoundPage'
+import { Loader } from './components/common/Loader'
+
+const LandingPage = lazy(async () => ({
+  default: (await import('./components/pages/LandingPage')).LandingPage,
+}))
+const StateSelectionPage = lazy(async () => ({
+  default: (await import('./components/pages/StateSelectionPage')).StateSelectionPage,
+}))
+const DeputiesListPage = lazy(async () => ({
+  default: (await import('./components/pages/DeputiesListPage')).DeputiesListPage,
+}))
+const DeputyDetailPage = lazy(async () => ({
+  default: (await import('./components/pages/DeputyDetailPage')).DeputyDetailPage,
+}))
+const PresidentsListPage = lazy(async () => ({
+  default: (await import('./components/pages/PresidentsListPage')).PresidentsListPage,
+}))
+const PresidentDetailPage = lazy(async () => ({
+  default: (await import('./components/pages/PresidentDetailPage')).PresidentDetailPage,
+}))
+const SobrePage = lazy(async () => ({
+  default: (await import('./components/pages/SobrePage')).SobrePage,
+}))
+const NotFoundPage = lazy(async () => ({
+  default: (await import('./components/pages/NotFoundPage')).NotFoundPage,
+}))
 
 function App() {
   return (
@@ -17,7 +36,9 @@ function App() {
         path="/"
         element={
           <AppLayout showStepsNav={false}>
-            <LandingPage />
+            <Suspense fallback={<Loader />}>
+              <LandingPage />
+            </Suspense>
           </AppLayout>
         }
       />
@@ -25,7 +46,9 @@ function App() {
         path="/por-estado"
         element={
           <AppLayout showStepsNav={true}>
-            <StateSelectionPage />
+            <Suspense fallback={<Loader />}>
+              <StateSelectionPage />
+            </Suspense>
           </AppLayout>
         }
       />
@@ -33,7 +56,9 @@ function App() {
         path="/por-estado/:uf/deputado-federal"
         element={
           <AppLayout showStepsNav={true}>
-            <DeputiesListPage />
+            <Suspense fallback={<Loader />}>
+              <DeputiesListPage />
+            </Suspense>
           </AppLayout>
         }
       />
@@ -41,7 +66,9 @@ function App() {
         path="/por-estado/:uf/deputado-federal/:deputyId"
         element={
           <AppLayout showStepsNav={true}>
-            <DeputyDetailPage />
+            <Suspense fallback={<Loader />}>
+              <DeputyDetailPage />
+            </Suspense>
           </AppLayout>
         }
       />
@@ -49,7 +76,9 @@ function App() {
         path="/presidente"
         element={
           <AppLayout showStepsNav={false}>
-            <PresidentsListPage />
+            <Suspense fallback={<Loader />}>
+              <PresidentsListPage />
+            </Suspense>
           </AppLayout>
         }
       />
@@ -57,7 +86,9 @@ function App() {
         path="/presidente/:presidentId"
         element={
           <AppLayout showStepsNav={false}>
-            <PresidentDetailPage />
+            <Suspense fallback={<Loader />}>
+              <PresidentDetailPage />
+            </Suspense>
           </AppLayout>
         }
       />
@@ -65,7 +96,9 @@ function App() {
         path="/sobre"
         element={
           <AppLayout showStepsNav={false}>
-            <SobrePage />
+            <Suspense fallback={<Loader />}>
+              <SobrePage />
+            </Suspense>
           </AppLayout>
         }
       />
@@ -73,7 +106,9 @@ function App() {
         path="*"
         element={
           <AppLayout showStepsNav={false}>
-            <NotFoundPage />
+            <Suspense fallback={<Loader />}>
+              <NotFoundPage />
+            </Suspense>
           </AppLayout>
         }
       />

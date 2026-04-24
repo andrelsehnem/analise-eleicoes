@@ -35,13 +35,18 @@ export function DeputiesPanel({
       </AppButton>
 
       <div className="section-header">
-        <div className="section-title" id="deputies-title">
+        <h1 className="section-title" id="deputies-title">
           Deputados do {stateName}
-        </div>
+        </h1>
         <div className="section-count" id="deputies-count">
           {allDeputiesCount} deputados
         </div>
       </div>
+
+      <p className="president-panel-description">
+        Filtre por nome ou partido para encontrar deputados federais da UF selecionada e acessar
+        o perfil completo de atuação legislativa.
+      </p>
 
       <div className="search-box">
         <span className="search-icon">🔍</span>
@@ -74,6 +79,8 @@ export function DeputiesPanel({
                 className="deputy-photo"
                 src={deputy.urlFoto || FALLBACK_AVATAR}
                 alt={deputy.nome}
+                width={60}
+                height={60}
                 onError={(event) => {
                   event.currentTarget.src = FALLBACK_AVATAR
                 }}

@@ -416,12 +416,14 @@ export function DeputyDetailPanel({
               className="deputy-detail-photo"
               src={deputyPhoto}
               alt={deputyDisplayName}
+              width={100}
+              height={100}
               onError={(event) => {
                 event.currentTarget.src = FALLBACK_AVATAR
               }}
             />
             <div className="deputy-detail-info">
-              <div className="deputy-detail-name">{deputyDisplayName}</div>
+              <h1 className="deputy-detail-name">{deputyDisplayName}</h1>
               <div className="deputy-tags">
                 <span className="tag tag-party">🏛 {deputyParty}</span>
                 <span className="tag tag-state">📍 {deputyUf}</span>

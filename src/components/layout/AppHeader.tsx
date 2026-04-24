@@ -17,7 +17,14 @@ export function AppHeader() {
           event.preventDefault()
           navigate('/')
         }}>
-          <img className="logo-seal" src={brazilLogo} alt="" aria-hidden="true" />
+          <img
+            className="logo-seal"
+            src={brazilLogo}
+            alt=""
+            aria-hidden="true"
+            width={44}
+            height={44}
+          />
           <div className="logo-text">
             <div className="logo-title">Mandato Transparente</div>
             <div className="logo-sub">Análise de Políticos do Brasil</div>
@@ -26,9 +33,11 @@ export function AppHeader() {
         
         <div className="header-sep" />
 
-        <a className="header-badge-link" href="/sobre" onClick={handleSobre}>
-          <div className="header-badge">Sobre</div>
-        </a>
+        <nav aria-label="Navegação principal">
+          <a className="header-badge-link" href="/sobre" onClick={handleSobre}>
+            <div className="header-badge">Sobre</div>
+          </a>
+        </nav>
 
       </div>
     </header>
