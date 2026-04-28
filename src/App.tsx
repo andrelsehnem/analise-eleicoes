@@ -62,6 +62,16 @@ function App() {
         }
       />
       <Route
+        path="/por-estado/:office"
+        element={
+          <AppLayout showStepsNav={true}>
+            <Suspense fallback={<Loader />}>
+              <StateSelectionPage />
+            </Suspense>
+          </AppLayout>
+        }
+      />
+      <Route
         path="/por-estado/:uf/deputado-federal"
         element={
           <AppLayout showStepsNav={true}>

@@ -303,6 +303,7 @@ export function SugestoesPanel() {
 
         <div className="sugestoes-actions">
           <AppButton
+            className="sugestoes-submit-btn"
             type="submit"
             disabled={isSubmitting || !canRenderCaptcha || captchaStatus !== 'ready'}
           >

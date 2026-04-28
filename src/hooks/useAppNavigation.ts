@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import type { Deputy, President, Senator } from '../types/camara'
+import type { Deputy, OfficeType, President, Senator } from '../types/camara'
 
 export function useAppNavigation() {
   const navigate = useNavigate()
@@ -8,7 +8,12 @@ export function useAppNavigation() {
     navigate('/')
   }
 
-  function goToStateSelection() {
+  function goToStateSelection(office?: OfficeType) {
+    if (office) {
+      navigate(`/por-estado/${office}`)
+      return
+    }
+
     navigate('/por-estado')
   }
 
