@@ -190,6 +190,9 @@ export function SugestoesPanel() {
         <p>
           Sua opinião ajuda a melhorar o Mandato Transparente. Campos com * são obrigatórios.
         </p>
+        <p>
+          Preencha abaixo ou então encaminhe um e-mail para andrelsehnem@gmail.com
+        </p>
       </div>
 
       <form className="sugestoes-form" onSubmit={handleSubmit} noValidate>
