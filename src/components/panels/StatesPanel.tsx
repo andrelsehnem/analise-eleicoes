@@ -15,7 +15,7 @@ type StatesPanelProps = {
 const OFFICE_OPTIONS: Array<{ value: OfficeType; label: string; implemented: boolean }> = [
   { value: 'deputado-federal', label: 'Deputado Federal', implemented: true },
   { value: 'deputado-estadual', label: 'Deputado Estadual', implemented: false },
-  { value: 'senador', label: 'Senador', implemented: false },
+  { value: 'senador', label: 'Senador', implemented: true },
   { value: 'presidente', label: 'Presidente', implemented: true },
 ]
 
@@ -38,7 +38,8 @@ export function StatesPanel({
   onSelectState,
 }: StatesPanelProps) {
   const svgRef = useRef<SVGSVGElement>(null)
-  const isStateSelectionEnabled = selectedOffice === 'deputado-federal'
+  const isStateSelectionEnabled =
+    selectedOffice === 'deputado-federal' || selectedOffice === 'senador'
 
   // Calcula as posições dos rótulos de UF dentro de cada estado
   useEffect(() => {
@@ -181,8 +182,10 @@ export function StatesPanel({
 
         <p className="states-map-hint">
           {isStateSelectionEnabled
-            ? 'Clique em um estado para carregar os deputados federais da UF selecionada.'
-            : 'Consulta por este cargo estará disponível em breve. No momento, a busca por estado está disponível para Deputado Federal.'}
+            ? selectedOffice === 'senador'
+              ? 'Clique em um estado para carregar os senadores da UF selecionada.'
+              : 'Clique em um estado para carregar os deputados federais da UF selecionada.'
+            : 'Consulta por este cargo estará disponível em breve.'}
         </p>
       </div>
 

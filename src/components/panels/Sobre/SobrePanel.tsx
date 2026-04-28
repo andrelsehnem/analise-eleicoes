@@ -79,6 +79,26 @@ export function SobrePanel() {
           <div className="sobre-source-item">
             <div className="sobre-source-dot" />
             <div className="sobre-source-info">
+              <h3>API de Dados Abertos do Senado Federal</h3>
+              <p>
+                Dados de senadores, mandatos, comissões e cargos são obtidos
+                diretamente da API pública do Senado Federal.
+              </p>
+              <p>
+                <a
+                  href="https://legis.senado.leg.br/dadosabertos/api-docs/swagger-ui/index.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  legis.senado.leg.br/dadosabertos
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <div className="sobre-source-item">
+            <div className="sobre-source-dot" />
+            <div className="sobre-source-info">
               <h3>Portal do Governo Federal — Presidência da República</h3>
               <p>
                 Informações e perfis dos presidentes da República são

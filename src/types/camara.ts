@@ -132,6 +132,171 @@ export type PresidentDetail = President & {
   links: PresidentLink[]
 }
 
+export type Senator = {
+  id: string
+  codigoPublico?: string
+  nome: string
+  nomeCompleto?: string
+  sexo?: string
+  siglaPartido: string
+  siglaUf: string
+  email?: string
+  telefone?: string
+  urlFoto?: string
+  urlPagina?: string
+  urlPaginaParticular?: string
+  blocoNome?: string
+  blocoApelido?: string
+  membroMesa?: boolean
+  membroLideranca?: boolean
+  descricaoParticipacao?: string
+}
+
+export type SenatorServiceLink = {
+  nome: string
+  descricao?: string
+  url: string
+}
+
+export type SenatorTerm = {
+  codigoMandato?: string
+  uf: string
+  participacao?: string
+  legislaturas: Array<{
+    numero?: string
+    inicio?: string
+    fim?: string
+  }>
+  partidos: Array<{
+    sigla?: string
+    nome?: string
+    dataFiliacao?: string
+  }>
+}
+
+export type SenatorCommission = {
+  codigo?: string
+  sigla?: string
+  nome?: string
+  casa?: string
+  participacao?: string
+  inicio?: string
+  fim?: string
+}
+
+export type SenatorOffice = {
+  codigo?: string
+  cargo?: string
+  comissao?: string
+  nomeComissao?: string
+  inicio?: string
+  fim?: string
+}
+
+export type SenatorFiliacao = {
+  siglaPartido: string
+  nomePartido?: string
+  dataFiliacao?: string
+  dataDesfiliacao?: string
+}
+
+export type SenatorLicenca = {
+  codigo: string
+  dataInicio?: string
+  dataFim?: string
+  siglaTipo?: string
+  descricaoTipo?: string
+}
+
+export type SenatorLideranca = {
+  unidade?: string
+  casa?: string
+  tipo?: string
+  ordemVice?: string
+  dataInicio?: string
+  dataFim?: string
+  bloco?: {
+    sigla?: string
+    nome?: string
+  }
+  partido?: {
+    sigla?: string
+    nome?: string
+  }
+}
+
+export type SenatorMateriaAutoria = {
+  codigoMateria?: string
+  identificacao?: string
+  ementa?: string
+  data?: string
+  indicadorAutorPrincipal?: boolean
+  indicadorOutrosAutores?: boolean
+}
+
+export type SenatorMateriaRelatoria = {
+  codigoMateria?: string
+  identificacao?: string
+  ementa?: string
+  data?: string
+  tipoRelator?: string
+  dataDesignacao?: string
+  dataDestituicao?: string
+  motivoDestituicao?: string
+  comissao?: {
+    sigla?: string
+    nome?: string
+  }
+}
+
+export type SenatorVotacao = {
+  codigoSessaoVotacao?: string
+  descricaoVotacao?: string
+  descricaoResultado?: string
+  dataSessao?: string
+  siglaVoto?: string
+  descricaoVoto?: string
+  votacaoSecreta?: boolean
+  totalSim?: string
+  totalNao?: string
+  totalAbstencao?: string
+  materia?: {
+    identificacao?: string
+    ementa?: string
+  }
+}
+
+export type SenatorAparte = {
+  codigo: string
+  tipoSigla?: string
+  tipoDescricao?: string
+  data?: string
+  casa?: string
+  textoResumo?: string
+  urlTexto?: string
+  orador?: {
+    nome?: string
+    siglaPartido?: string
+    uf?: string
+  }
+  sessao?: {
+    data?: string
+    numero?: string
+    tipo?: string
+  }
+}
+
+export type SenatorDetail = Senator & {
+  dataNascimento?: string
+  naturalidade?: string
+  ufNaturalidade?: string
+  enderecoParlamentar?: string
+  mandatos: SenatorTerm[]
+  comissoes: SenatorCommission[]
+  cargos: SenatorOffice[]
+  links: SenatorServiceLink[]
+}
+
 export type OfficeType =
   | 'deputado-federal'
   | 'deputado-estadual'
@@ -140,3 +305,17 @@ export type OfficeType =
 
 export type Panel = 'landing' | 'states' | 'deputies' | 'detail'
 export type Tab = 'proposicoes' | 'votacoes'
+
+export type SuggestionPayload = {
+  nome: string
+  telefone?: string
+  email?: string
+  assunto: string
+  descricao: string
+  captchaToken: string
+}
+
+export type SuggestionSuccessResponse = {
+  success: true
+  message: string
+}
