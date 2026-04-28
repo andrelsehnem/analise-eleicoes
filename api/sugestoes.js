@@ -99,11 +99,23 @@ async function verifyTurnstileToken(captchaToken, ip) {
   })
 
   if (!response.ok) {
-    return false
+    return {
+      success: false,
+      errorCodes: ['turnstile-unreachable'],
+      hostname: '',
+    }
   }
 
   const body = await response.json()
-  return Boolean(body?.success)
+  const errorCodes = Array.isArray(body?.['error-codes'])
+    ? body['error-codes'].filter((value) => typeof value === 'string')
+    : []
+
+  return {
+    success: Boolean(body?.success),
+    errorCodes,
+    hostname: typeof body?.hostname === 'string' ? body.hostname : '',
+  }
 }
 
 function buildMailText(body) {
@@ -185,10 +197,33 @@ export default async function handler(req, res) {
   }
 
   try {
-    const captchaOk = await verifyTurnstileToken(req.body.captchaToken, ip)
+    const captchaResult = await verifyTurnstileToken(req.body.captchaToken, ip)
 
-    if (!captchaOk) {
-      return jsonResponse(res, 400, { message: 'Captcha inválido. Tente novamente.' })
+    if (!captchaResult.success) {
+      const baseMessage = 'Captcha inválido. Tente novamente.'
+      const isProduction = process.env.NODE_ENV === 'production'
+
+      if (isProduction) {
+        return jsonResponse(res, 400, { message: baseMessage })
+      }
+
+      const details = []
+
+      if (captchaResult.errorCodes.length > 0) {
+        details.push(`códigos=${captchaResult.errorCodes.join(',')}`)
+      }
+
+      if (captchaResult.hostname) {
+        details.push(`hostname=${captchaResult.hostname}`)
+      }
+
+      const detailsMessage = details.length > 0
+        ? ` Detalhes Turnstile: ${details.join(' | ')}.`
+        : ' Sem detalhes adicionais do Turnstile.'
+
+      return jsonResponse(res, 400, {
+        message: `${baseMessage}${detailsMessage} Verifique se a chave e o domínio localhost estão configurados no Turnstile.`,
+      })
     }
 
     await sendWithResend(req.body)
