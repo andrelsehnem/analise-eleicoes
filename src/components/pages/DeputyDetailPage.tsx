@@ -7,7 +7,7 @@ import { useAppNavigation } from '../../hooks/useAppNavigation'
 import { STATES } from '../../constants/states'
 import type { Deputy } from '../../types/camara'
 import { SeoHead } from '../common/SeoHead'
-import { buildAbsoluteUrl, buildBreadcrumbSchema } from '../../utils/seo'
+import { buildBreadcrumbSchema, buildPersonProfileSchema } from '../../utils/seo'
 
 type DeputyDetailLocationState = {
   selectedDeputy?: Deputy
@@ -101,13 +101,15 @@ export function DeputyDetailPage() {
     uf && deputyId
       ? `/por-estado/${uf.toLowerCase()}/deputado-federal/${deputyId}`
       : '/por-estado'
-  const deputyPersonSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
+  const deputyPersonSchema = buildPersonProfileSchema({
     name: deputyName,
     jobTitle: 'Deputado Federal',
-    url: buildAbsoluteUrl(detailPath),
-  }
+    path: detailPath,
+    imageUrl: deputyInfo?.ultimoStatus?.urlFoto || selectedDeputy?.urlFoto,
+    party: deputyInfo?.ultimoStatus?.siglaPartido || selectedDeputy?.siglaPartido,
+    sameAs: [deputyInfo?.urlWebsite || '', ...(deputyInfo?.redeSocial || [])],
+    worksFor: 'Câmara dos Deputados',
+  })
 
   if (!hasDeputyData && !isPageLoading && !detailError) {
     return (
@@ -115,6 +117,7 @@ export function DeputyDetailPage() {
         <SeoHead
           title="Deputado não encontrado"
           description="O perfil solicitado não foi encontrado. Volte para a lista por estado e faça uma nova busca."
+          canonicalPath={uf ? `/por-estado/${uf.toLowerCase()}/deputado-federal` : '/por-estado'}
         />
         <div>Deputado não encontrado</div>
       </>

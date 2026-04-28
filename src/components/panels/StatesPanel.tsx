@@ -1,6 +1,7 @@
 import brazilMap from '@svg-maps/brazil'
 import type { KeyboardEvent } from 'react'
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { STATES } from '../../constants/states'
 import type { OfficeType } from '../../types/camara'
 import { AppButton } from '../common/AppButton'
@@ -30,6 +31,20 @@ type BrazilLocation = {
 }
 
 const mapLocations = brazilMap.locations as BrazilLocation[]
+
+function buildStateListPath(uf: string, office: OfficeType): string {
+  const normalizedUf = uf.toLowerCase()
+
+  if (office === 'senador') {
+    return `/senadores/${normalizedUf}`
+  }
+
+  if (office === 'deputado-federal') {
+    return `/por-estado/${normalizedUf}/deputado-federal`
+  }
+
+  return '/por-estado'
+}
 
 export function StatesPanel({
   selectedUf,
@@ -192,18 +207,25 @@ export function StatesPanel({
       <div className="states-list-container">
         <h2 className="section-title states-list-title">Ou selecione pela lista</h2>
         <div className="state-grid">
-          {STATES.map((state) => (
-            <AppButton
-              className={`state-btn ${selectedUf === state.uf ? 'selected' : ''}`}
-              disabled={!isStateSelectionEnabled}
-              key={state.uf}
-              onClick={() => onSelectState(state.uf, state.name)}
-              type="button"
-            >
-              <span className="state-uf">{state.uf}</span>
-              <span className="state-name">{state.name}</span>
-            </AppButton>
-          ))}
+          {STATES.map((state) => {
+            const className = `state-btn ${selectedUf === state.uf ? 'selected' : ''}`
+
+            if (!isStateSelectionEnabled) {
+              return (
+                <AppButton className={className} disabled={true} key={state.uf} type="button">
+                  <span className="state-uf">{state.uf}</span>
+                  <span className="state-name">{state.name}</span>
+                </AppButton>
+              )
+            }
+
+            return (
+              <Link className={className} key={state.uf} to={buildStateListPath(state.uf, selectedOffice)}>
+                <span className="state-uf">{state.uf}</span>
+                <span className="state-name">{state.name}</span>
+              </Link>
+            )
+          })}
         </div>
       </div>
     </div>

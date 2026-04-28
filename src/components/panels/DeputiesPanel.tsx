@@ -1,4 +1,5 @@
 import type { Deputy } from '../../types/camara'
+import { Link } from 'react-router-dom'
 import { FALLBACK_AVATAR } from '../../utils/ui'
 import { AppButton } from '../common/AppButton'
 import { EmptyState } from '../common/EmptyState'
@@ -14,7 +15,6 @@ type DeputiesPanelProps = {
   error: string
   deputies: Deputy[]
   onBack: () => void
-  onSelectDeputy: (deputy: Deputy) => void
 }
 
 export function DeputiesPanel({
@@ -26,7 +26,6 @@ export function DeputiesPanel({
   error,
   deputies,
   onBack,
-  onSelectDeputy,
 }: DeputiesPanelProps) {
   return (
     <div className="panel active" id="panel-deputies">
@@ -69,11 +68,11 @@ export function DeputiesPanel({
       {!loading && !error && deputies.length > 0 && (
         <div className="deputy-grid">
           {deputies.map((deputy) => (
-            <AppButton
+            <Link
               className="deputy-card"
               key={deputy.id}
-              onClick={() => onSelectDeputy(deputy)}
-              type="button"
+              state={{ selectedDeputy: deputy }}
+              to={`/por-estado/${deputy.siglaUf.toLowerCase()}/deputado-federal/${deputy.id}`}
             >
               <img
                 className="deputy-photo"
@@ -93,7 +92,7 @@ export function DeputiesPanel({
                 </div>
               </div>
               <div className="deputy-arrow">›</div>
-            </AppButton>
+            </Link>
           ))}
         </div>
       )}

@@ -4,7 +4,7 @@ import { PresidentDetailPanel } from '../panels/PresidentDetailPanel'
 import { usePresidentDetail } from '../../hooks/usePresidentDetail'
 import { useAppNavigation } from '../../hooks/useAppNavigation'
 import { SeoHead } from '../common/SeoHead'
-import { buildAbsoluteUrl, buildBreadcrumbSchema } from '../../utils/seo'
+import { buildBreadcrumbSchema, buildPersonProfileSchema } from '../../utils/seo'
 
 export function PresidentDetailPage() {
   const { presidentId } = useParams<{ presidentId: string }>()
@@ -16,6 +16,15 @@ export function PresidentDetailPage() {
   const profileDescription = presidentDetail
     ? `Veja dados públicos, resumo e mandatos de ${presidentDetail.nome}, ${presidentDetail.cargo.toLowerCase()}.`
     : 'Veja dados públicos de presidente e vice-presidente com fontes oficiais.'
+  const presidentPersonSchema = buildPersonProfileSchema({
+    name: profileName,
+    jobTitle: presidentDetail?.cargo || 'Presidência da República',
+    path: detailPath,
+    imageUrl: presidentDetail?.urlFoto,
+    party: presidentDetail?.siglaPartido,
+    sameAs: [presidentDetail?.officialWebsite || '', ...(presidentDetail?.links.map((link) => link.url) || [])],
+    worksFor: 'Presidência da República',
+  })
 
   useEffect(() => {
     if (!presidentId) {
@@ -32,6 +41,7 @@ export function PresidentDetailPage() {
         <SeoHead
           title="Perfil da presidência não encontrado"
           description="O perfil solicitado não foi encontrado. Volte para a lista de presidência e escolha outro nome."
+          canonicalPath="/presidente"
         />
         <div>Perfil não encontrado</div>
       </>
@@ -49,13 +59,7 @@ export function PresidentDetailPage() {
             { name: 'Presidência', path: '/presidente' },
             { name: profileName, path: detailPath },
           ]),
-          {
-            '@context': 'https://schema.org',
-            '@type': 'Person',
-            name: profileName,
-            jobTitle: presidentDetail?.cargo || 'Presidência da República',
-            url: buildAbsoluteUrl(detailPath),
-          },
+          presidentPersonSchema,
         ]}
       />
       <PresidentDetailPanel

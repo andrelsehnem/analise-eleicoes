@@ -1,4 +1,5 @@
 import type { Senator } from '../../types/camara'
+import { Link } from 'react-router-dom'
 import { FALLBACK_AVATAR } from '../../utils/ui'
 import { AppButton } from '../common/AppButton'
 import { EmptyState } from '../common/EmptyState'
@@ -14,7 +15,6 @@ type SenatorsPanelProps = {
   error: string
   senators: Senator[]
   onBack: () => void
-  onSelectSenator: (senator: Senator) => void
 }
 
 export function SenatorsPanel({
@@ -26,7 +26,6 @@ export function SenatorsPanel({
   error,
   senators,
   onBack,
-  onSelectSenator,
 }: SenatorsPanelProps) {
   return (
     <div className="panel active" id="panel-senators">
@@ -69,11 +68,11 @@ export function SenatorsPanel({
       {!loading && !error && senators.length > 0 && (
         <div className="deputy-grid">
           {senators.map((senator) => (
-            <AppButton
+            <Link
               className="deputy-card"
               key={senator.id}
-              onClick={() => onSelectSenator(senator)}
-              type="button"
+              state={{ selectedUf: senator.siglaUf.toUpperCase() }}
+              to={`/senador/${senator.id}`}
             >
               <img
                 className="deputy-photo"
@@ -93,7 +92,7 @@ export function SenatorsPanel({
                 </div>
               </div>
               <div className="deputy-arrow">›</div>
-            </AppButton>
+            </Link>
           ))}
         </div>
       )}

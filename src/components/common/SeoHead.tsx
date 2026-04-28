@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import {
+  GSC_VERIFICATION_TOKEN,
   SEO_DEFAULT_DESCRIPTION,
+  SEO_DEFAULT_OG_IMAGE_PATH,
   SEO_DEFAULT_ROBOTS,
   SITE_NAME,
 } from '../../constants/seo'
@@ -14,6 +16,7 @@ type SeoHeadProps = {
   description?: string
   robots?: string
   canonicalPath?: string
+  ogImagePath?: string
   ogType?: 'website' | 'article'
   jsonLd?: JsonLdSchema | JsonLdSchema[]
 }
@@ -95,6 +98,7 @@ export function SeoHead({
   description = SEO_DEFAULT_DESCRIPTION,
   robots = SEO_DEFAULT_ROBOTS,
   canonicalPath,
+  ogImagePath = SEO_DEFAULT_OG_IMAGE_PATH,
   ogType = 'website',
   jsonLd,
 }: SeoHeadProps) {
@@ -102,15 +106,24 @@ export function SeoHead({
 
   useEffect(() => {
     const canonicalUrl = buildAbsoluteUrl(canonicalPath || location.pathname)
+    const socialImageUrl = buildAbsoluteUrl(ogImagePath)
     const finalTitle = normalizeTitle(title)
 
     document.title = finalTitle
 
     upsertMetaByName('description', description)
     upsertMetaByName('robots', robots)
-    upsertMetaByName('twitter:card', 'summary')
+
+    // Google Search Console verification (only on homepage)
+    if (location.pathname === '/' && GSC_VERIFICATION_TOKEN) {
+      upsertMetaByName('google-site-verification', GSC_VERIFICATION_TOKEN)
+    }
+
+    upsertMetaByName('twitter:card', 'summary_large_image')
     upsertMetaByName('twitter:title', finalTitle)
     upsertMetaByName('twitter:description', description)
+    upsertMetaByName('twitter:image', socialImageUrl)
+    upsertMetaByName('twitter:url', canonicalUrl)
 
     upsertMetaByProperty('og:locale', 'pt_BR')
     upsertMetaByProperty('og:site_name', SITE_NAME)
@@ -118,10 +131,12 @@ export function SeoHead({
     upsertMetaByProperty('og:title', finalTitle)
     upsertMetaByProperty('og:description', description)
     upsertMetaByProperty('og:url', canonicalUrl)
+    upsertMetaByProperty('og:image', socialImageUrl)
+    upsertMetaByProperty('og:image:alt', finalTitle)
 
     upsertCanonical(canonicalUrl)
     upsertJsonLd(jsonLd)
-  }, [canonicalPath, description, jsonLd, location.pathname, ogType, robots, title])
+  }, [canonicalPath, description, jsonLd, location.pathname, ogImagePath, ogType, robots, title])
 
   return null
 }

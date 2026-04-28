@@ -546,6 +546,7 @@ button.step {
   transition: all 0.2s;
   font-family: 'IBM Plex Sans', sans-serif;
   color: inherit;
+  text-decoration: none;
 }
 
 .state-btn:hover {
@@ -604,6 +605,7 @@ button.step {
   gap: 14px;
   text-align: left;
   color: inherit;
+  text-decoration: none;
 }
 
 .deputy-card:hover {

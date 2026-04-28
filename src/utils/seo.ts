@@ -5,6 +5,16 @@ export type BreadcrumbItem = {
   path: string
 }
 
+type PersonProfileSchemaOptions = {
+  name: string
+  jobTitle: string
+  path: string
+  imageUrl?: string
+  party?: string
+  sameAs?: string[]
+  worksFor?: string
+}
+
 function normalizePath(path: string): string {
   if (!path || path === '/') {
     return '/'
@@ -59,5 +69,39 @@ export function buildCollectionPageSchema(name: string, description: string, pat
     description,
     inLanguage: 'pt-BR',
     url: buildAbsoluteUrl(path),
+  }
+}
+
+export function buildPersonProfileSchema({
+  name,
+  jobTitle,
+  path,
+  imageUrl,
+  party,
+  sameAs,
+  worksFor,
+}: PersonProfileSchemaOptions) {
+  const normalizedSameAs = (sameAs || []).filter((url) => Boolean(url?.trim()))
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name,
+    jobTitle,
+    url: buildAbsoluteUrl(path),
+    image: imageUrl,
+    sameAs: normalizedSameAs.length > 0 ? normalizedSameAs : undefined,
+    affiliation: party
+      ? {
+          '@type': 'Organization',
+          name: party,
+        }
+      : undefined,
+    worksFor: worksFor
+      ? {
+          '@type': 'Organization',
+          name: worksFor,
+        }
+      : undefined,
   }
 }

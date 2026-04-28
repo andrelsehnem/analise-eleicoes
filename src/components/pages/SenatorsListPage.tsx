@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { STATES } from '../../constants/states'
 import { useAppNavigation } from '../../hooks/useAppNavigation'
 import { useSenators } from '../../hooks/useSenators'
-import type { Senator } from '../../types/camara'
 import { buildBreadcrumbSchema, buildCollectionPageSchema } from '../../utils/seo'
 import { SeoHead } from '../common/SeoHead'
 import { SenatorsPanel } from '../panels/SenatorsPanel'
@@ -11,7 +10,7 @@ import { SenatorsPanel } from '../panels/SenatorsPanel'
 export function SenatorsListPage() {
   const { uf } = useParams<{ uf: string }>()
   const navigate = useNavigate()
-  const { goToSenatorDetail, goToStateSelection } = useAppNavigation()
+  const { goToStateSelection } = useAppNavigation()
   const {
     allSenators,
     search,
@@ -44,10 +43,6 @@ export function SenatorsListPage() {
 
   const stateName: string =
     STATES.find((state) => state.uf.toLowerCase() === uf?.toLowerCase())?.name || uf || ''
-
-  function handleSelectSenator(senator: Senator) {
-    goToSenatorDetail(uf || '', senator)
-  }
 
   return (
     <>
@@ -85,7 +80,6 @@ export function SenatorsListPage() {
         error={senatorsError}
         senators={filteredSenators}
         onBack={() => goToStateSelection('senador')}
-        onSelectSenator={handleSelectSenator}
       />
     </>
   )
