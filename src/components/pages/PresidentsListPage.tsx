@@ -6,7 +6,7 @@ import { SeoHead } from '../common/SeoHead'
 import { buildBreadcrumbSchema, buildCollectionPageSchema } from '../../utils/seo'
 
 export function PresidentsListPage() {
-  const { goToPresidentDetailById, goToStateSelection } = useAppNavigation()
+  const { goToStateSelection } = useAppNavigation()
   const {
     search,
     loadingPresidents,
@@ -19,10 +19,6 @@ export function PresidentsListPage() {
   useEffect(() => {
     void loadPresidents()
   }, [loadPresidents])
-
-  function handleSelectPresident(id: string) {
-    goToPresidentDetailById(id)
-  }
 
   return (
     <>
@@ -48,7 +44,6 @@ export function PresidentsListPage() {
         error={presidentsError}
         presidents={filteredPresidents}
         onBack={goToStateSelection}
-        onSelectPresident={handleSelectPresident}
       />
     </>
   )

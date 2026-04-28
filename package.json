@@ -5,9 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "npm run generate:sitemap && npm run generate:prerender-routes && tsc -b && vite build && node scripts/generate-prerender-pages.mjs",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate:sitemap": "node scripts/generate-sitemap.mjs",
+    "generate:prerender-routes": "node scripts/generate-prerender-routes.mjs",
+    "generate:prerender-pages": "node scripts/generate-prerender-pages.mjs"
   },
   "dependencies": {
     "@svg-maps/brazil": "^2.0.0",

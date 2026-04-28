@@ -1,4 +1,5 @@
 import type { President } from '../../types/camara'
+import { Link } from 'react-router-dom'
 import { FALLBACK_AVATAR } from '../../utils/ui'
 import { AppButton } from '../common/AppButton'
 import { EmptyState } from '../common/EmptyState'
@@ -12,7 +13,6 @@ type PresidentDirectoryCard = {
   siglaPartido: string
   periodo: string
   urlFoto?: string
-  onClick?: () => void
 }
 
 type PresidentsPanelProps = {
@@ -22,7 +22,6 @@ type PresidentsPanelProps = {
   error: string
   presidents: President[]
   onBack: () => void
-  onSelectPresident: (id: string) => void
 }
 
 export function PresidentsPanel({
@@ -32,7 +31,6 @@ export function PresidentsPanel({
   error,
   presidents,
   onBack,
-  onSelectPresident,
 }: PresidentsPanelProps) {
   const directoryCards: PresidentDirectoryCard[] = presidents.flatMap((president) => {
     const presidentCard: PresidentDirectoryCard = {
@@ -42,7 +40,6 @@ export function PresidentsPanel({
       siglaPartido: president.siglaPartido,
       periodo: president.periodo,
       urlFoto: president.urlFoto,
-      onClick: () => onSelectPresident(president.id),
     }
 
     const viceCard: PresidentDirectoryCard[] = president.vice
@@ -54,7 +51,6 @@ export function PresidentsPanel({
             siglaPartido: president.vice.siglaPartido || 'Partido não informado',
             periodo: president.vice.periodo || president.periodo,
             urlFoto: president.vice.urlFoto,
-            onClick: () => onSelectPresident(president.vice!.id),
           },
         ]
       : []
@@ -128,14 +124,13 @@ export function PresidentsPanel({
             )
 
             return (
-              <AppButton
+              <Link
                 className="deputy-card president-card"
                 key={card.id}
-                onClick={card.onClick}
-                type="button"
+                to={`/presidente/${card.id}`}
               >
                 {content}
-              </AppButton>
+              </Link>
             )
           })}
         </div>

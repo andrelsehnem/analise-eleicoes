@@ -4,14 +4,13 @@ import { useDeputies } from '../../hooks/useDeputies'
 import { useAppNavigation } from '../../hooks/useAppNavigation'
 import { useEffect } from 'react'
 import { STATES } from '../../constants/states'
-import type { Deputy } from '../../types/camara'
 import { SeoHead } from '../common/SeoHead'
 import { buildBreadcrumbSchema, buildCollectionPageSchema } from '../../utils/seo'
 
 export function DeputiesListPage() {
   const { uf } = useParams<{ uf: string }>()
   const navigate = useNavigate()
-  const { goToDeputyDetail, goToStateSelection } = useAppNavigation()
+  const { goToStateSelection } = useAppNavigation()
   const {
     allDeputies,
     search,
@@ -49,10 +48,6 @@ export function DeputiesListPage() {
     STATES.find((state) => state.uf.toLowerCase() === uf?.toLowerCase())
       ?.name || uf || ''
 
-  function handleSelectDeputy(deputy: Deputy) {
-    goToDeputyDetail(uf || '', deputy)
-  }
-
   return (
     <>
       <SeoHead
@@ -89,7 +84,6 @@ export function DeputiesListPage() {
         error={deputiesError}
         deputies={filteredDeputies}
         onBack={goToStateSelection}
-        onSelectDeputy={handleSelectDeputy}
       />
     </>
   )

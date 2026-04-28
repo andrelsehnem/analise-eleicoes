@@ -1,0 +1,22 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A1628"/>
+      <stop offset="1" stop-color="#112240"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="70" y="70" width="1060" height="490" rx="16" fill="rgba(10, 22, 40, 0.35)" stroke="rgba(201, 168, 76, 0.45)" stroke-width="3"/>
+  <text x="110" y="230" fill="#F0F4FF" font-size="74" font-family="'IBM Plex Sans', sans-serif" font-weight="700">
+    Mandato Transparente
+  </text>
+  <text x="110" y="300" fill="#E8C96D" font-size="34" font-family="'IBM Plex Sans', sans-serif" font-weight="500">
+    Dados públicos sobre políticos brasileiros
+  </text>
+  <text x="110" y="370" fill="#C8D4EE" font-size="29" font-family="'IBM Plex Sans', sans-serif" font-weight="400">
+    Consulte deputado, senador e presidência antes de votar.
+  </text>
+  <text x="110" y="505" fill="#8899BB" font-size="24" font-family="'IBM Plex Sans', sans-serif" font-weight="400">
+    mandatotransparente.com.br
+  </text>
+</svg>

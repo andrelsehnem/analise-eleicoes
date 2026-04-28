@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useAppNavigation } from '../../hooks/useAppNavigation'
 import { useSenatorDetail } from '../../hooks/useSenatorDetail'
-import { buildAbsoluteUrl, buildBreadcrumbSchema } from '../../utils/seo'
+import { buildBreadcrumbSchema, buildPersonProfileSchema } from '../../utils/seo'
 import { SeoHead } from '../common/SeoHead'
 import { SenatorDetailPanel } from '../panels/SenatorDetailPanel'
 
@@ -32,6 +32,19 @@ export function SenatorDetailPage() {
     ? `Veja dados públicos, mandatos e comissões de ${senatorDetail.nome}, senador por ${senatorDetail.siglaUf}.`
     : 'Veja dados públicos de senadores por estado com fontes oficiais do Senado Federal.'
   const detailPath = senatorId ? `/senador/${senatorId}` : '/por-estado'
+  const senatorPersonSchema = buildPersonProfileSchema({
+    name: profileName,
+    jobTitle: 'Senador',
+    path: detailPath,
+    imageUrl: senatorDetail?.urlFoto,
+    party: senatorDetail?.siglaPartido,
+    sameAs: [
+      senatorDetail?.urlPagina || '',
+      senatorDetail?.urlPaginaParticular || '',
+      ...(senatorDetail?.links.map((link) => link.url) || []),
+    ],
+    worksFor: 'Senado Federal',
+  })
 
   function handleBack() {
     const ufFromDetail = senatorDetail?.siglaUf
@@ -52,6 +65,7 @@ export function SenatorDetailPage() {
         <SeoHead
           title="Perfil de senador não encontrado"
           description="O perfil solicitado não foi encontrado. Volte para a lista de senadores e escolha outro nome."
+          canonicalPath={locationState?.selectedUf ? `/senadores/${locationState.selectedUf.toLowerCase()}` : '/por-estado/senador'}
         />
         <div>Perfil não encontrado</div>
       </>
@@ -73,13 +87,7 @@ export function SenatorDetailPage() {
             },
             { name: profileName, path: detailPath },
           ]),
-          {
-            '@context': 'https://schema.org',
-            '@type': 'Person',
-            name: profileName,
-            jobTitle: 'Senador',
-            url: buildAbsoluteUrl(detailPath),
-          },
+          senatorPersonSchema,
         ]}
       />
       <SenatorDetailPanel
