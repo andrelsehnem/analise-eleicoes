@@ -20,7 +20,7 @@ export function SenatorDetailPage() {
 
   useEffect(() => {
     if (!senatorId) {
-      navigate('/por-estado')
+      navigate('/por-estado/senador')
       return
     }
 
@@ -43,7 +43,7 @@ export function SenatorDetailPage() {
       return
     }
 
-    goToStateSelection()
+    goToStateSelection('senador')
   }
 
   if (!loadingDetail && !detailError && !senatorDetail) {

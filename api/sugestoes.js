@@ -172,7 +172,25 @@ async function sendWithResend(body) {
   })
 
   if (!response.ok) {
-    throw new Error('Falha ao enviar sugestão por e-mail.')
+    const errorBody = await response.json().catch(() => null)
+    const isProduction = process.env.NODE_ENV === 'production'
+
+    if (isProduction) {
+      throw new Error('Falha ao enviar sugestão por e-mail.')
+    }
+
+    const resendMessage = typeof errorBody?.message === 'string' ? errorBody.message : ''
+    const resendName = typeof errorBody?.name === 'string' ? errorBody.name : ''
+    const resendCode = typeof errorBody?.code === 'string' ? errorBody.code : ''
+
+    const details = [
+      `status=${response.status}`,
+      resendName ? `name=${resendName}` : '',
+      resendCode ? `code=${resendCode}` : '',
+      resendMessage ? `message=${resendMessage}` : '',
+    ].filter(Boolean)
+
+    throw new Error(`Falha ao enviar sugestão por e-mail (${details.join(' | ')}).`)
   }
 }
 

@@ -24,14 +24,14 @@ export function SenatorsListPage() {
 
   useEffect(() => {
     if (!uf) {
-      navigate('/por-estado')
+      navigate('/por-estado/senador')
       return
     }
 
     const isValidUf = STATES.some((state) => state.uf.toLowerCase() === uf.toLowerCase())
 
     if (!isValidUf) {
-      navigate('/por-estado')
+      navigate('/por-estado/senador')
       return
     }
 
@@ -84,7 +84,7 @@ export function SenatorsListPage() {
         loading={loadingSenators}
         error={senatorsError}
         senators={filteredSenators}
-        onBack={goToStateSelection}
+        onBack={() => goToStateSelection('senador')}
         onSelectSenator={handleSelectSenator}
       />
     </>
