@@ -297,6 +297,26 @@ export type SenatorDetail = Senator & {
   links: SenatorServiceLink[]
 }
 
+export type PoliticiansIndexGroup = 'deputados-federais' | 'senadores'
+
+export type PoliticianIndexItem = {
+  id: string
+  nome: string
+  estado: string
+  partido: string
+}
+
+export type PoliticiansIndex = {
+  geradoEm: string
+  'deputados-federais': PoliticianIndexItem[]
+  senadores: PoliticianIndexItem[]
+}
+
+export type GlobalSearchItem = PoliticianIndexItem & {
+  grupo: PoliticiansIndexGroup
+  cargo: 'deputado-federal' | 'senador'
+}
+
 export type OfficeType =
   | 'deputado-federal'
   | 'deputado-estadual'

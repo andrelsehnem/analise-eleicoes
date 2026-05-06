@@ -17,9 +17,11 @@ export function AppLayout({
   showStepsNav = false,
   deputyName = null,
 }: AppLayoutProps) {
-  const { pathname } = useLocation()
+  const location = useLocation()
+  const { pathname, state } = location
   const { uf, deputyId } = useParams<{ uf?: string; deputyId?: string }>()
   const shouldShowHero = pathname === '/'
+  const hideStepsNavFromSearch = Boolean((state as { fromGlobalSearch?: boolean } | null)?.fromGlobalSearch)
 
   const stateName =
     uf && STATES.find((state) => state.uf.toLowerCase() === uf.toLowerCase())
@@ -35,7 +37,7 @@ export function AppLayout({
       <main className="main" id="conteudo-principal">
         {shouldShowHero && <HeroSection />}
 
-        {showStepsNav && (
+        {showStepsNav && !hideStepsNavFromSearch && (
           <StepsNav
             panel={panel}
             selectedState={

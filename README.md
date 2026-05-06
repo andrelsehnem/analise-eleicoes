@@ -14,8 +14,10 @@ Aplicação web SPA para consulta pública de políticos brasileiros, com foco a
 ## Funcionalidades implementadas
 
 - Landing com entrada para busca por estado
+- Busca global por nome, partido e cargo com filtros clicáveis
 - Seleção de estado por mapa do Brasil e lista de UFs
 - Lista de deputados federais por UF com busca por nome/partido
+- Lista de senadores por UF com busca por nome/partido
 - Detalhe de deputado com:
   - dados gerais
   - proposições com filtros e carregamento incremental
@@ -27,10 +29,9 @@ Aplicação web SPA para consulta pública de políticos brasileiros, com foco a
 
 ## Funcionalidades não implementadas (roadmap)
 
-- Busca direta global por nome
 - Favoritos
 - Comparação entre políticos
-- Consulta funcional para senador e deputado estadual
+- Consulta para deputado estadual
 - Candidatos futuros
 
 Detalhes em `documentacao/roadmap-nao-implementado.md`.
@@ -38,9 +39,12 @@ Detalhes em `documentacao/roadmap-nao-implementado.md`.
 ## Rotas principais
 
 - `/`
+- `/busca`
 - `/por-estado`
 - `/por-estado/:uf/deputado-federal`
 - `/por-estado/:uf/deputado-federal/:deputyId`
+- `/senadores/:uf`
+- `/senador/:senatorId`
 - `/presidente`
 - `/presidente/:presidentId`
 - `/sobre`

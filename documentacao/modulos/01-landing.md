@@ -12,12 +12,14 @@ Apresentar formas de pesquisa e iniciar o fluxo principal de consulta.
 ## Comportamento atual
 
 - Card ativo: **Selecione por estado** (aciona navegação para `/por-estado`).
+- Cards ativos:
+  - **Busque por partido** (aciona navegação para `/busca`)
+  - **Busque por cargo** (aciona navegação para `/busca`)
+  - **Busque por nome** (aciona navegação para `/busca`)
 - Cards marcados como **Em breve**:
-  - buscar por partido
   - buscar por cargo
-  - buscar por nome
   - candidatos 2026
 
 ## Acessibilidade
 
-- Card principal com `role="button"`, `tabIndex={0}` e suporte a Enter/Espaço.
+- Cards ativos com `role="button"`, `tabIndex={0}` e suporte a Enter/Espaço.

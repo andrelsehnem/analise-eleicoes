@@ -8,6 +8,7 @@ import { SenatorDetailPanel } from '../panels/SenatorDetailPanel'
 
 type SenatorDetailLocationState = {
   selectedUf?: string
+  fromGlobalSearch?: boolean
 }
 
 export function SenatorDetailPage() {
@@ -17,6 +18,7 @@ export function SenatorDetailPage() {
   const { goToSenators, goToStateSelection } = useAppNavigation()
   const { loadingDetail, detailError, senatorDetail, loadSenatorDetail } = useSenatorDetail()
   const locationState = location.state as SenatorDetailLocationState | null
+  const fromGlobalSearch = Boolean(locationState?.fromGlobalSearch)
 
   useEffect(() => {
     if (!senatorId) {
@@ -47,6 +49,11 @@ export function SenatorDetailPage() {
   })
 
   function handleBack() {
+    if (fromGlobalSearch) {
+      navigate('/busca')
+      return
+    }
+
     const ufFromDetail = senatorDetail?.siglaUf
     const ufFromState = locationState?.selectedUf
     const targetUf = ufFromDetail || ufFromState

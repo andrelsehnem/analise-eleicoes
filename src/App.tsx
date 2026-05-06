@@ -34,6 +34,9 @@ const SobrePage = lazy(async () => ({
 const SugestoesPage = lazy(async () => ({
   default: (await import('./components/pages/SugestoesPage')).SugestoesPage,
 }))
+const SearchPage = lazy(async () => ({
+  default: (await import('./components/pages/SearchPage')).SearchPage,
+}))
 const NotFoundPage = lazy(async () => ({
   default: (await import('./components/pages/NotFoundPage')).NotFoundPage,
 }))
@@ -147,6 +150,16 @@ function App() {
           <AppLayout showStepsNav={false}>
             <Suspense fallback={<Loader />}>
               <SugestoesPage />
+            </Suspense>
+          </AppLayout>
+        }
+      />
+      <Route
+        path="/busca"
+        element={
+          <AppLayout showStepsNav={false}>
+            <Suspense fallback={<Loader />}>
+              <SearchPage />
             </Suspense>
           </AppLayout>
         }

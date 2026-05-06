@@ -4,7 +4,7 @@ import { SeoHead } from '../common/SeoHead'
 import { buildOrganizationSchema, buildWebSiteSchema } from '../../utils/seo'
 
 export function LandingPage() {
-  const { goToStateSelection } = useAppNavigation()
+  const { goToStateSelection, goToGlobalSearch } = useAppNavigation()
 
   return (
     <>
@@ -13,7 +13,7 @@ export function LandingPage() {
         description="Consulte o histórico de atuação de deputados federais e presidência com dados públicos oficiais antes de votar."
         jsonLd={[buildWebSiteSchema(), buildOrganizationSchema()]}
       />
-      <LandingPanel onStartSearch={goToStateSelection} />
+      <LandingPanel onStartSearch={goToStateSelection} onStartGlobalSearch={goToGlobalSearch} />
     </>
   )
 }

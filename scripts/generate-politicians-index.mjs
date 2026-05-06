@@ -63,20 +63,16 @@ async function fetchJson(url) {
 }
 
 /**
- * Busca todos os deputados federais de todas as UFs e retorna lista consolidada.
- * Fonte: GET /deputados?siglaUf={UF}&ordem=ASC&ordenarPor=nome&itens=100
+ * Busca deputados federais de uma UF com uma única retentativa em caso de falha.
+ * @param {string} uf
  * @returns {Promise<PoliticianEntry[]>}
  */
-async function loadDeputadosFederais() {
-  /** @type {PoliticianEntry[]} */
-  const all = []
+async function loadDeputadosFederaisByUf(uf) {
+  const url = `${CAMARA_API}/deputados?siglaUf=${uf}&ordem=ASC&ordenarPor=nome&itens=100`
 
-  const results = await Promise.allSettled(
-    STATES.map(async (uf) => {
-      const data = await fetchJson(
-        `${CAMARA_API}/deputados?siglaUf=${uf}&ordem=ASC&ordenarPor=nome&itens=100`,
-      )
-
+  for (let attempt = 1; attempt <= 2; attempt += 1) {
+    try {
+      const data = await fetchJson(url)
       const deputies = Array.isArray(data?.dados) ? data.dados : []
 
       return deputies
@@ -87,14 +83,39 @@ async function loadDeputadosFederais() {
           estado: String(d.siglaUf ?? uf),
           partido: String(d.siglaPartido ?? ''),
         }))
-    }),
-  )
-
-  for (const result of results) {
-    if (result.status === 'fulfilled') {
-      all.push(...result.value)
+    } catch (error) {
+      if (attempt === 2) {
+        throw new Error(
+          `Falha ao buscar deputados federais da UF ${uf}: ${error instanceof Error ? error.message : String(error)}`,
+        )
+      }
     }
   }
+
+  return []
+}
+
+/**
+ * Busca todos os deputados federais de todas as UFs e retorna lista consolidada.
+ * Fonte: GET /deputados?siglaUf={UF}&ordem=ASC&ordenarPor=nome&itens=100
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosFederais() {
+  /** @type {PoliticianEntry[]} */
+  const all = []
+
+  const results = await Promise.allSettled(
+    STATES.map(async (uf) => loadDeputadosFederaisByUf(uf)),
+  )
+
+  results.forEach((result, index) => {
+    if (result.status === 'fulfilled') {
+      all.push(...result.value)
+      return
+    }
+
+    console.warn(`⚠️  ${result.reason instanceof Error ? result.reason.message : `Falha ao buscar deputados federais da UF ${STATES[index]}.`}`)
+  })
 
   const rejected = results.filter((r) => r.status === 'rejected')
   if (rejected.length > 0) {

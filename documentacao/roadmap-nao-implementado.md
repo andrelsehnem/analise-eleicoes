@@ -4,10 +4,8 @@ Este arquivo separa funcionalidades planejadas/indicadas na interface das que j√
 
 ## Em breve (indicadas na UI)
 
-1. Busca por partido (landing).
-2. Busca por cargo (landing, como fluxo dedicado).
-3. Busca direta por nome (landing, como fluxo global).
-4. Candidatos 2026.
+1. Busca por cargo (landing, como fluxo dedicado).
+2. Candidatos 2026.
 
 ## Parcialmente representadas, mas sem fluxo completo
 

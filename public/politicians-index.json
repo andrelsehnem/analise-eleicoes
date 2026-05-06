@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-05-06T16:29:12.257Z",
+  "geradoEm": "2026-05-06T17:26:09.209Z",
   "deputados-federais": [
     {
       "id": "204379",
@@ -56,12 +56,6 @@
       "partido": "PP"
     },
     {
-      "id": "204495",
-      "nome": "Airton Faleiro",
-      "estado": "PA",
-      "partido": "PT"
-    },
-    {
       "id": "204549",
       "nome": "AJ Albuquerque",
       "estado": "CE",
@@ -86,6 +80,12 @@
       "partido": "MDB"
     },
     {
+      "id": "220542",
+      "nome": "Alexandre Guimarães",
+      "estado": "TO",
+      "partido": "MDB"
+    },
+    {
       "id": "220554",
       "nome": "Alexandre Lindenmeyer",
       "estado": "RS",
@@ -102,12 +102,6 @@
       "nome": "Alice Portugal",
       "estado": "BA",
       "partido": "PCdoB"
-    },
-    {
-      "id": "178927",
-      "nome": "Aliel Machado",
-      "estado": "PR",
-      "partido": "PV"
     },
     {
       "id": "204353",
@@ -200,28 +194,22 @@
       "partido": "REDE"
     },
     {
-      "id": "220676",
-      "nome": "Andreia Siqueira",
-      "estado": "PA",
-      "partido": "PSB"
-    },
-    {
       "id": "123756",
       "nome": "Antônia Lúcia",
       "estado": "AC",
       "partido": "MDB"
     },
     {
+      "id": "220544",
+      "nome": "Antonio Andrade",
+      "estado": "TO",
+      "partido": "PSDB"
+    },
+    {
       "id": "160553",
       "nome": "Antonio Brito",
       "estado": "BA",
       "partido": "PSD"
-    },
-    {
-      "id": "220675",
-      "nome": "Antônio Doido",
-      "estado": "PA",
-      "partido": "MDB"
     },
     {
       "id": "220549",
@@ -290,22 +278,16 @@
       "partido": "PT"
     },
     {
+      "id": "109429",
+      "nome": "Benes Leocádio",
+      "estado": "RN",
+      "partido": "UNIÃO"
+    },
+    {
       "id": "204358",
       "nome": "Beto Pereira",
       "estado": "MS",
       "partido": "REPUBLICANOS"
-    },
-    {
-      "id": "220698",
-      "nome": "Beto Preto",
-      "estado": "PR",
-      "partido": "PSD"
-    },
-    {
-      "id": "220683",
-      "nome": "Beto Richa",
-      "estado": "PR",
-      "partido": "PSDB"
     },
     {
       "id": "204374",
@@ -356,6 +338,12 @@
       "partido": "PL"
     },
     {
+      "id": "213762",
+      "nome": "Carla Dickson",
+      "estado": "RN",
+      "partido": "PL"
+    },
+    {
       "id": "204361",
       "nome": "Carlos Chiodini",
       "estado": "SC",
@@ -368,6 +356,12 @@
       "partido": "REPUBLICANOS"
     },
     {
+      "id": "178993",
+      "nome": "Carlos Henrique Gaguim",
+      "estado": "TO",
+      "partido": "UNIÃO"
+    },
+    {
       "id": "204460",
       "nome": "Carlos Jordy",
       "estado": "RJ",
@@ -377,12 +371,6 @@
       "id": "204426",
       "nome": "Carlos Veras",
       "estado": "PE",
-      "partido": "PT"
-    },
-    {
-      "id": "220704",
-      "nome": "Carol Dartora",
-      "estado": "PR",
       "partido": "PT"
     },
     {
@@ -414,12 +402,6 @@
       "nome": "Célio Studart",
       "estado": "CE",
       "partido": "PSD"
-    },
-    {
-      "id": "204496",
-      "nome": "Celso Sabino",
-      "estado": "PA",
-      "partido": "PDT"
     },
     {
       "id": "205476",
@@ -626,18 +608,6 @@
       "partido": "PSD"
     },
     {
-      "id": "220673",
-      "nome": "Delegado Caveira",
-      "estado": "PA",
-      "partido": "PL"
-    },
-    {
-      "id": "178908",
-      "nome": "Delegado Éder Mauro",
-      "estado": "PA",
-      "partido": "PL"
-    },
-    {
       "id": "220583",
       "nome": "Delegado Fabio Costa",
       "estado": "AL",
@@ -647,12 +617,6 @@
       "id": "204512",
       "nome": "Delegado Marcelo Freitas",
       "estado": "MG",
-      "partido": "UNIÃO"
-    },
-    {
-      "id": "220701",
-      "nome": "Delegado Matheus Laiola",
-      "estado": "PR",
       "partido": "UNIÃO"
     },
     {
@@ -672,24 +636,6 @@
       "nome": "Diego Coronel",
       "estado": "BA",
       "partido": "REPUBLICANOS"
-    },
-    {
-      "id": "178929",
-      "nome": "Diego Garcia",
-      "estado": "PR",
-      "partido": "UNIÃO"
-    },
-    {
-      "id": "73768",
-      "nome": "Dilceu Sperafico",
-      "estado": "PR",
-      "partido": "PP"
-    },
-    {
-      "id": "220671",
-      "nome": "Dilvanda Faro",
-      "estado": "PA",
-      "partido": "PT"
     },
     {
       "id": "160599",
@@ -788,12 +734,6 @@
       "partido": "MDB"
     },
     {
-      "id": "220674",
-      "nome": "Dra. Alessandra Haber",
-      "estado": "PA",
-      "partido": "PODE"
-    },
-    {
       "id": "220686",
       "nome": "Duarte Jr.",
       "estado": "MA",
@@ -830,10 +770,10 @@
       "partido": "SOLIDARIEDADE"
     },
     {
-      "id": "74075",
-      "nome": "Elcione Barbalho",
-      "estado": "PA",
-      "partido": "MDB"
+      "id": "204364",
+      "nome": "Eli Borges",
+      "estado": "TO",
+      "partido": "REPUBLICANOS"
     },
     {
       "id": "178854",
@@ -926,12 +866,6 @@
       "partido": "PSB"
     },
     {
-      "id": "204398",
-      "nome": "Felipe Francischini",
-      "estado": "PR",
-      "partido": "PODE"
-    },
-    {
       "id": "160666",
       "nome": "Félix Mendonça Júnior",
       "estado": "BA",
@@ -956,6 +890,12 @@
       "partido": "UNIÃO"
     },
     {
+      "id": "204445",
+      "nome": "Fernando Mineiro",
+      "estado": "RN",
+      "partido": "PT"
+    },
+    {
       "id": "92699",
       "nome": "Fernando Monteiro",
       "estado": "PE",
@@ -968,9 +908,9 @@
       "partido": "PRD"
     },
     {
-      "id": "204411",
-      "nome": "Filipe Barros",
-      "estado": "PR",
+      "id": "220545",
+      "nome": "Filipe Martins",
+      "estado": "TO",
       "partido": "PL"
     },
     {
@@ -1022,6 +962,12 @@
       "partido": "PSD"
     },
     {
+      "id": "204473",
+      "nome": "General Girão",
+      "estado": "RN",
+      "partido": "PL"
+    },
+    {
       "id": "220611",
       "nome": "General Pazuello",
       "estado": "RJ",
@@ -1032,12 +978,6 @@
       "nome": "Geovania de Sá",
       "estado": "SC",
       "partido": "REPUBLICANOS"
-    },
-    {
-      "id": "220702",
-      "nome": "Geraldo Mendes",
-      "estado": "PR",
-      "partido": "UNIÃO"
     },
     {
       "id": "74374",
@@ -1086,12 +1026,6 @@
       "nome": "Glaustin da Fokus",
       "estado": "GO",
       "partido": "PODE"
-    },
-    {
-      "id": "107283",
-      "nome": "Gleisi Hoffmann",
-      "estado": "PR",
-      "partido": "PT"
     },
     {
       "id": "198197",
@@ -1152,12 +1086,6 @@
       "nome": "Heloísa Helena",
       "estado": "RJ",
       "partido": "REDE"
-    },
-    {
-      "id": "220672",
-      "nome": "Henderson Pinto",
-      "estado": "PA",
-      "partido": "UNIÃO"
     },
     {
       "id": "204539",
@@ -1226,12 +1154,6 @@
       "partido": "MDB"
     },
     {
-      "id": "225846",
-      "nome": "Itamar Paim",
-      "estado": "PR",
-      "partido": "PL"
-    },
-    {
       "id": "220696",
       "nome": "Ivoneide Caetano",
       "estado": "BA",
@@ -1286,10 +1208,10 @@
       "partido": "PT"
     },
     {
-      "id": "178910",
-      "nome": "Joaquim Passarinho",
-      "estado": "PA",
-      "partido": "PL"
+      "id": "141459",
+      "nome": "João Maia",
+      "estado": "RN",
+      "partido": "PP"
     },
     {
       "id": "235800",
@@ -1332,12 +1254,6 @@
       "nome": "José Nelto",
       "estado": "GO",
       "partido": "UNIÃO"
-    },
-    {
-      "id": "74079",
-      "nome": "José Priante",
-      "estado": "PA",
-      "partido": "MDB"
     },
     {
       "id": "74554",
@@ -1412,12 +1328,6 @@
       "partido": "PL"
     },
     {
-      "id": "204497",
-      "nome": "Júnior Ferrari",
-      "estado": "PA",
-      "partido": "PSD"
-    },
-    {
       "id": "204574",
       "nome": "Junior Lourenço",
       "estado": "MA",
@@ -1436,12 +1346,6 @@
       "partido": "PSDB"
     },
     {
-      "id": "220677",
-      "nome": "Keniston Braga",
-      "estado": "PA",
-      "partido": "MDB"
-    },
-    {
       "id": "98057",
       "nome": "Lafayette de Andrada",
       "estado": "MG",
@@ -1451,12 +1355,6 @@
       "id": "74856",
       "nome": "Laura Carneiro",
       "estado": "RJ",
-      "partido": "PSD"
-    },
-    {
-      "id": "178832",
-      "nome": "Leandre",
-      "estado": "PR",
       "partido": "PSD"
     },
     {
@@ -1526,12 +1424,6 @@
       "partido": "MDB"
     },
     {
-      "id": "178931",
-      "nome": "Luciano Ducci",
-      "estado": "PR",
-      "partido": "PSB"
-    },
-    {
       "id": "220616",
       "nome": "Luciano Vieira",
       "estado": "RJ",
@@ -1544,22 +1436,10 @@
       "partido": "PL"
     },
     {
-      "id": "204410",
-      "nome": "Luisa Canziani",
-      "estado": "PR",
-      "partido": "UNIÃO"
-    },
-    {
       "id": "141485",
       "nome": "Luiz Carlos Busato",
       "estado": "RS",
       "partido": "UNIÃO"
-    },
-    {
-      "id": "73778",
-      "nome": "Luiz Carlos Hauly",
-      "estado": "PR",
-      "partido": "PODE"
     },
     {
       "id": "74041",
@@ -1584,12 +1464,6 @@
       "nome": "Luiz Lima",
       "estado": "RJ",
       "partido": "NOVO"
-    },
-    {
-      "id": "162332",
-      "nome": "Luiz Nishimori",
-      "estado": "PR",
-      "partido": "PSD"
     },
     {
       "id": "178866",
@@ -1832,6 +1706,12 @@
       "partido": "REPUBLICANOS"
     },
     {
+      "id": "204453",
+      "nome": "Natália Bonavides",
+      "estado": "RN",
+      "partido": "PT"
+    },
+    {
       "id": "204449",
       "nome": "Nelson Barbudo",
       "estado": "MT",
@@ -1874,12 +1754,6 @@
       "partido": "PT"
     },
     {
-      "id": "204498",
-      "nome": "Olival Marques",
-      "estado": "PA",
-      "partido": "PODE"
-    },
-    {
       "id": "73692",
       "nome": "Osmar Terra",
       "estado": "RS",
@@ -1890,12 +1764,6 @@
       "nome": "Otoni de Paula",
       "estado": "RJ",
       "partido": "PSD"
-    },
-    {
-      "id": "220706",
-      "nome": "Padovani",
-      "estado": "PR",
-      "partido": "PP"
     },
     {
       "id": "160556",
@@ -1976,12 +1844,6 @@
       "partido": "PT"
     },
     {
-      "id": "220685",
-      "nome": "Paulo Litro",
-      "estado": "PR",
-      "partido": "UNIÃO"
-    },
-    {
       "id": "74574",
       "nome": "Paulo Magalhães",
       "estado": "BA",
@@ -2016,12 +1878,6 @@
       "nome": "Pedro Lucas Fernandes",
       "estado": "MA",
       "partido": "UNIÃO"
-    },
-    {
-      "id": "204395",
-      "nome": "Pedro Lupion",
-      "estado": "PR",
-      "partido": "REPUBLICANOS"
     },
     {
       "id": "122158",
@@ -2108,12 +1964,6 @@
       "partido": "PSD"
     },
     {
-      "id": "74084",
-      "nome": "Raimundo Santos",
-      "estado": "PA",
-      "partido": "PSD"
-    },
-    {
       "id": "74161",
       "nome": "Reginaldo Lopes",
       "estado": "MG",
@@ -2124,12 +1974,6 @@
       "nome": "Reimont",
       "estado": "RJ",
       "partido": "PT"
-    },
-    {
-      "id": "153423",
-      "nome": "Renilce Nicodemos",
-      "estado": "PA",
-      "partido": "MDB"
     },
     {
       "id": "73801",
@@ -2150,10 +1994,10 @@
       "partido": "PSDB"
     },
     {
-      "id": "73788",
-      "nome": "Ricardo Barros",
-      "estado": "PR",
-      "partido": "PP"
+      "id": "220543",
+      "nome": "Ricardo Ayres",
+      "estado": "TO",
+      "partido": "REPUBLICANOS"
     },
     {
       "id": "204362",
@@ -2190,6 +2034,12 @@
       "nome": "Roberto Monteiro Pai",
       "estado": "RJ",
       "partido": "PL"
+    },
+    {
+      "id": "220624",
+      "nome": "Robinson Faria",
+      "estado": "RN",
+      "partido": "PP"
     },
     {
       "id": "220546",
@@ -2282,15 +2132,9 @@
       "partido": "PL"
     },
     {
-      "id": "160621",
-      "nome": "Sandro Alex",
-      "estado": "PR",
-      "partido": "PSD"
-    },
-    {
-      "id": "204387",
-      "nome": "Sargento Fahur",
-      "estado": "PR",
+      "id": "220621",
+      "nome": "Sargento Gonçalves",
+      "estado": "RN",
       "partido": "PL"
     },
     {
@@ -2310,12 +2154,6 @@
       "nome": "Sérgio Brito",
       "estado": "BA",
       "partido": "PSD"
-    },
-    {
-      "id": "178933",
-      "nome": "Sergio Souza",
-      "estado": "PR",
-      "partido": "MDB"
     },
     {
       "id": "235776",
@@ -2378,12 +2216,6 @@
       "partido": "PSD"
     },
     {
-      "id": "220682",
-      "nome": "Tadeu Veneri",
-      "estado": "PR",
-      "partido": "PT"
-    },
-    {
       "id": "204464",
       "nome": "Talíria Petrone",
       "estado": "RJ",
@@ -2408,16 +2240,10 @@
       "partido": "UNIÃO"
     },
     {
-      "id": "220684",
-      "nome": "Tião Medeiros",
-      "estado": "PR",
-      "partido": "PP"
-    },
-    {
-      "id": "178934",
-      "nome": "Toninho Wandscheer",
-      "estado": "PR",
-      "partido": "PP"
+      "id": "143084",
+      "nome": "Tiago Dimas",
+      "estado": "TO",
+      "partido": "PODE"
     },
     {
       "id": "157130",
@@ -2450,10 +2276,10 @@
       "partido": "AVANTE"
     },
     {
-      "id": "204396",
-      "nome": "Vermelho",
-      "estado": "PR",
-      "partido": "PL"
+      "id": "137070",
+      "nome": "Vicentinho Júnior",
+      "estado": "TO",
+      "partido": "PSDB"
     },
     {
       "id": "160591",
@@ -2484,12 +2310,6 @@
       "nome": "Wellington Roberto",
       "estado": "PB",
       "partido": "PSD"
-    },
-    {
-      "id": "224333",
-      "nome": "Welter",
-      "estado": "PR",
-      "partido": "PT"
     },
     {
       "id": "74044",
@@ -2544,12 +2364,6 @@
       "nome": "Zé Vitor",
       "estado": "MG",
       "partido": "PL"
-    },
-    {
-      "id": "160592",
-      "nome": "Zeca Dirceu",
-      "estado": "PR",
-      "partido": "PT"
     },
     {
       "id": "220592",

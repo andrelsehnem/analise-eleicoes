@@ -11,6 +11,7 @@ import { buildBreadcrumbSchema, buildPersonProfileSchema } from '../../utils/seo
 
 type DeputyDetailLocationState = {
   selectedDeputy?: Deputy
+  fromGlobalSearch?: boolean
 }
 
 export function DeputyDetailPage() {
@@ -45,6 +46,7 @@ export function DeputyDetailPage() {
   const [isInitializing, setIsInitializing] = useState(true)
   const locationState = location.state as DeputyDetailLocationState | null
   const routeSelectedDeputy = locationState?.selectedDeputy || null
+  const fromGlobalSearch = Boolean(locationState?.fromGlobalSearch)
 
   // Validar UF e carregar dados
   useEffect(() => {
@@ -125,6 +127,11 @@ export function DeputyDetailPage() {
   }
 
   function handleBack() {
+    if (fromGlobalSearch) {
+      navigate('/busca')
+      return
+    }
+
     goToDeputies(uf || '')
   }
 

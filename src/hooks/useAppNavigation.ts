@@ -29,6 +29,10 @@ export function useAppNavigation() {
     navigate('/presidente')
   }
 
+  function goToGlobalSearch() {
+    navigate('/busca')
+  }
+
   function goToDeputyDetail(uf: string, deputy: Deputy) {
     navigate(`/por-estado/${uf.toLowerCase()}/deputado-federal/${deputy.id}`, {
       state: { selectedDeputy: deputy },
@@ -69,6 +73,7 @@ export function useAppNavigation() {
     goToDeputies,
     goToSenators,
     goToPresidents,
+    goToGlobalSearch,
     goToDeputyDetail,
     goToSenatorDetail,
     goToPresidentDetail,

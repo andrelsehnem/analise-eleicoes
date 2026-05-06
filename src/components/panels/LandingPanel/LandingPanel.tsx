@@ -2,9 +2,10 @@ import './LandingPanel.css'
 
 interface LandingPanelProps {
   onStartSearch: () => void
+  onStartGlobalSearch: () => void
 }
 
-export function LandingPanel({ onStartSearch }: LandingPanelProps) {
+export function LandingPanel({ onStartSearch, onStartGlobalSearch }: LandingPanelProps) {
   return (
     <div className="landing-panel">
       <div className="landing-content">
@@ -32,22 +33,55 @@ export function LandingPanel({ onStartSearch }: LandingPanelProps) {
             <p>Escolha um estado e veja todos seus políticos</p>
           </div>
 
-          <div className="feature">
-            <span className="feature-badge">Em breve</span>
+          <div
+            className="feature"
+            role="button"
+            tabIndex={0}
+            aria-label="Iniciar busca por partido"
+            onClick={onStartGlobalSearch}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault()
+                onStartGlobalSearch()
+              }
+            }}
+          >
             <div className="feature-icon">🏛️</div>
             <h3>Busque por partido</h3>
             <p>Encontre políticos filtrando por partido</p>
           </div>
 
-          <div className="feature">
-            <span className="feature-badge">Em breve</span>
+          <div
+            className="feature"
+            role="button"
+            tabIndex={0}
+            aria-label="Iniciar busca por cargo"
+            onClick={onStartGlobalSearch}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault()
+                onStartGlobalSearch()
+              }
+            }}
+          >
             <div className="feature-icon">📌</div>
             <h3>Busque por cargo</h3>
             <p>Filtre políticos de acordo com o cargo</p>
           </div>
 
-          <div className="feature">
-            <span className="feature-badge">Em breve</span>
+          <div
+            className="feature"
+            role="button"
+            tabIndex={0}
+            aria-label="Iniciar busca por nome"
+            onClick={onStartGlobalSearch}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault()
+                onStartGlobalSearch()
+              }
+            }}
+          >
             <div className="feature-icon">🔎</div>
             <h3>Busque por nome</h3>
             <p>Pesquise diretamente pelo nome do político</p>
