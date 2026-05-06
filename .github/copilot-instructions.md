@@ -90,7 +90,18 @@ type Tab         = 'proposicoes' | 'votacoes'
   - `fetchPropositionVotes(propositionId: number): Promise<PropositionVote[]>`
   - `fetchPresidents(): Promise<President[]>`
   - `fetchPresidentDetail(id: string): Promise<PresidentDetail>`
+  - `fetchSenatorsByState(uf: string): Promise<Senator[]>`
+  - `fetchSenatorDetailBundle(id: number): Promise<SenatorDetail>`
 - Erros de HTTP lançam `Error` com mensagem em português
+
+### URLs de API de Listagem (usadas no índice de políticos)
+
+| Grupo | URL |
+|---|---|
+| `deputados-federais` | `GET https://dadosabertos.camara.leg.br/api/v2/deputados` (por UF) |
+| `senadores` | `GET https://legis.senado.leg.br/dadosabertos/senador/lista/atual` |
+
+> **Ao integrar uma nova API com listagem de políticos:** adicionar um novo grupo em `scripts/generate-politicians-index.mjs` seguindo o padrão existente (função `load<Tipo>` + entrada no objeto `index`) e registrar a URL na tabela acima. O JSON `public/politicians-index.json` é gerado automaticamente no `pnpm build` e também via `pnpm generate:politicians`.
 
 ---
 
@@ -121,6 +132,7 @@ Observação: `useCamaraData` existe como legado e não é o fluxo principal atu
 9. Manter o código **compatível com TypeScript strict mode** (`"strict": true`).
 10. Sempre que necessário, realizar perguntas para melhorar a compreensão do requisito antes de gerar código.
 11. Ao adicionar novas fontes de dados, atualizar as referências em `documentacao/` e, quando aplicável, na página "Sobre".
+12. **Ao integrar uma nova API de listagem de políticos** (senadores, deputados estaduais, etc.), adicionar o novo grupo em `scripts/generate-politicians-index.mjs` e registrar a URL na tabela de *URLs de API de Listagem* na seção **API** acima.
 
 ---
 

@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run generate:sitemap && npm run generate:prerender-routes && tsc -b && vite build && node scripts/generate-prerender-pages.mjs",
+    "build": "npm run generate:politicians && npm run generate:sitemap && npm run generate:prerender-routes && tsc -b && vite build && node scripts/generate-prerender-pages.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
+    "generate:politicians": "node scripts/generate-politicians-index.mjs",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
     "generate:prerender-routes": "node scripts/generate-prerender-routes.mjs",
     "generate:prerender-pages": "node scripts/generate-prerender-pages.mjs"

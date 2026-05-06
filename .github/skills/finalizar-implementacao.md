@@ -52,6 +52,7 @@ Opcionalmente informe escopo:
 6. **Checklist final de entrega**
    - Confirmar que documentação e instruções ficaram consistentes com o código.
    - Listar o que foi atualizado e o que permaneceu pendente para próxima iteração.
+   - Se uma nova API de listagem de políticos foi integrada (senadores, deputados estaduais, vereadores, etc.), verificar se `scripts/generate-politicians-index.mjs` foi atualizado com o novo grupo e se a URL foi registrada na tabela de *URLs de API de Listagem* em `.github/copilot-instructions.md`.
 
 ## Critérios de qualidade
 
