@@ -41,8 +41,8 @@ Detalhes em `documentacao/roadmap-nao-implementado.md`.
 - `/`
 - `/busca`
 - `/por-estado`
-- `/por-estado/:uf/deputado-federal`
-- `/por-estado/:uf/deputado-federal/:deputyId`
+- `/por-estado/deputado-federal`
+- `/por-estado/deputado-estadual`
 - `/senadores/:uf`
 - `/senador/:senatorId`
 - `/presidente`
@@ -77,33 +77,6 @@ npm run build
 npm run lint
 npm run preview
 ```
-
-## Variáveis de ambiente (Sugestões)
-
-Frontend (Vite):
-
-- `VITE_TURNSTILE_SITE_KEY`
-
-Serverless (Vercel):
-
-- `SITE_URL`
-- `TURNSTILE_SECRET_KEY`
-- `RESEND_API_KEY`
-- `SUGESTOES_DEST_EMAIL`
-- `SUGESTOES_FROM_EMAIL` (opcional)
-- `SUGESTOES_RATE_LIMIT_MAX` (opcional, padrão `5`)
-- `BETTER_AUTH_SECRET` (futuro login; gere com 32+ caracteres)
-- `BETTER_AUTH_TRUSTED_ORIGINS` (origens confiáveis separadas por vírgula)
-
-## Checklist de deploy na Vercel
-
-- Criar as variáveis de ambiente do frontend e backend com base em [.env.example](.env.example).
-- Configurar `VITE_TURNSTILE_SITE_KEY` com a chave pública do Cloudflare Turnstile.
-- Configurar `TURNSTILE_SECRET_KEY` com a chave secreta do Turnstile.
-- Configurar `RESEND_API_KEY` e validar o domínio/remetente usado em `SUGESTOES_FROM_EMAIL`.
-- Configurar `SUGESTOES_DEST_EMAIL` com a caixa que receberá as sugestões.
-- Fazer deploy e testar o fluxo completo em [/sugestoes](src/App.tsx#L123-L131).
-- Validar cenários de erro: captcha inválido, limite de requisições e falha de envio de e-mail.
 
 ## Estrutura resumida
 
