@@ -82,11 +82,14 @@ Frontend (Vite):
 
 Serverless (Vercel):
 
+- `SITE_URL`
 - `TURNSTILE_SECRET_KEY`
 - `RESEND_API_KEY`
 - `SUGESTOES_DEST_EMAIL`
 - `SUGESTOES_FROM_EMAIL` (opcional)
 - `SUGESTOES_RATE_LIMIT_MAX` (opcional, padrão `5`)
+- `BETTER_AUTH_SECRET` (futuro login; gere com 32+ caracteres)
+- `BETTER_AUTH_TRUSTED_ORIGINS` (origens confiáveis separadas por vírgula)
 
 ## Checklist de deploy na Vercel
 
