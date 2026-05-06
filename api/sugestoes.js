@@ -2,7 +2,96 @@ const rateLimitBuckets = new Map()
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000
 const RATE_LIMIT_MAX_REQUESTS = Number(process.env.SUGESTOES_RATE_LIMIT_MAX || 5)
 
+function applySecurityHeaders(res) {
+  res.setHeader('Cache-Control', 'no-store')
+  res.setHeader('Vary', 'Origin')
+}
+
+function normalizeOrigin(value) {
+  if (!value || typeof value !== 'string') {
+    return ''
+  }
+
+  const trimmed = value.trim()
+
+  if (!trimmed) {
+    return ''
+  }
+
+  const candidate = trimmed.includes('://') ? trimmed : `https://${trimmed}`
+
+  try {
+    return new URL(candidate).origin
+  } catch {
+    return ''
+  }
+}
+
+function getTrustedOrigins() {
+  const origins = new Set()
+  const configuredOrigins = [
+    process.env.SITE_URL,
+    process.env.BETTER_AUTH_URL,
+    process.env.VERCEL_PROJECT_PRODUCTION_URL,
+    process.env.VERCEL_URL,
+  ]
+
+  for (const value of configuredOrigins) {
+    const normalized = normalizeOrigin(value)
+
+    if (normalized) {
+      origins.add(normalized)
+    }
+  }
+
+  const trustedOriginsEnv = process.env.BETTER_AUTH_TRUSTED_ORIGINS || process.env.TRUSTED_ORIGINS || ''
+
+  for (const value of trustedOriginsEnv.split(',')) {
+    const normalized = normalizeOrigin(value)
+
+    if (normalized) {
+      origins.add(normalized)
+    }
+  }
+
+  if (process.env.NODE_ENV !== 'production') {
+    origins.add('http://localhost:5173')
+    origins.add('http://127.0.0.1:5173')
+    origins.add('http://localhost:4173')
+    origins.add('http://127.0.0.1:4173')
+  }
+
+  return origins
+}
+
+function isTrustedOrigin(req) {
+  const originHeader = req.headers.origin
+
+  if (!originHeader || typeof originHeader !== 'string') {
+    return true
+  }
+
+  const requestOrigin = normalizeOrigin(originHeader)
+
+  if (!requestOrigin) {
+    return false
+  }
+
+  return getTrustedOrigins().has(requestOrigin)
+}
+
+function logSecurityEvent(eventName, details) {
+  console.warn(
+    `[security] ${eventName}`,
+    JSON.stringify({
+      at: new Date().toISOString(),
+      ...details,
+    }),
+  )
+}
+
 function jsonResponse(res, statusCode, body) {
+  applySecurityHeaders(res)
   res.status(statusCode).json(body)
 }
 
@@ -195,6 +284,8 @@ async function sendWithResend(body) {
 }
 
 export default async function handler(req, res) {
+  applySecurityHeaders(res)
+
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST')
     return jsonResponse(res, 405, { message: 'Método não permitido.' })
@@ -202,7 +293,21 @@ export default async function handler(req, res) {
 
   const ip = getClientIp(req)
 
+  if (!isTrustedOrigin(req)) {
+    logSecurityEvent('sugestoes.invalid_origin', {
+      ip,
+      origin: typeof req.headers.origin === 'string' ? req.headers.origin : 'unknown',
+    })
+
+    return jsonResponse(res, 403, {
+      message: 'Origem não autorizada.',
+    })
+  }
+
   if (isRateLimited(ip)) {
+    res.setHeader('Retry-After', String(Math.ceil(RATE_LIMIT_WINDOW_MS / 1000)))
+    logSecurityEvent('sugestoes.rate_limited', { ip })
+
     return jsonResponse(res, 429, {
       message: 'Muitas tentativas. Aguarde alguns minutos e tente novamente.',
     })
@@ -251,9 +356,18 @@ export default async function handler(req, res) {
       message: 'Sugestão enviada com sucesso. Obrigado por contribuir!',
     })
   } catch (error) {
-    const message = error instanceof Error
-      ? error.message
-      : 'Erro interno ao processar sua sugestão.'
+    const isProduction = process.env.NODE_ENV === 'production'
+
+    logSecurityEvent('sugestoes.internal_error', {
+      ip,
+      error: error instanceof Error ? error.message : 'unknown',
+    })
+
+    const message = isProduction
+      ? 'Erro interno ao processar sua sugestão.'
+      : error instanceof Error
+        ? error.message
+        : 'Erro interno ao processar sua sugestão.'
 
     return jsonResponse(res, 500, { message })
   }

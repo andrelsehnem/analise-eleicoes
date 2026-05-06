@@ -2161,6 +2161,67 @@ button.step {
   font-size: 1rem;
 }
 
+.party-filter-wrap {
+  margin-bottom: 1.5rem;
+}
+
+.party-filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.party-filter-title {
+  color: var(--white-dim);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.party-filter-clear {
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.78rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.party-filter-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-height: 172px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.party-chip {
+  background: rgba(17, 34, 64, 0.7);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--silver);
+  font-size: 0.8rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.party-chip:hover {
+  border-color: var(--gold);
+  color: var(--white);
+}
+
+.party-chip.active {
+  border-color: var(--gold);
+  color: var(--white);
+  background: rgba(201, 168, 76, 0.18);
+}
+
 .back-btn {
   display: inline-flex;
   align-items: center;

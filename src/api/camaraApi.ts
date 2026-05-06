@@ -1,7 +1,11 @@
 import type {
   Deputy,
+  GlobalSearchItem,
   DeputyInfo,
   DeputyOrgan,
+  PoliticianIndexItem,
+  PoliticiansIndexGroup,
+  PoliticiansIndex,
   President,
   PresidentDetail,
   Senator,
@@ -20,6 +24,7 @@ import type {
   PropositionVote,
   Profession,
   Proposition,
+  StateDeputy,
 } from '../types/camara'
 import { PRESIDENT_DETAIL_BY_ID, PRESIDENTS } from '../constants/presidents'
 
@@ -75,6 +80,7 @@ const propositionVotesRequestCache = new Map<number, Promise<PropositionVote[]>>
 const presidentDetailRequestCache = new Map<string, Promise<PresidentDetail>>()
 const senatorsByStateRequestCache = new Map<string, Promise<Senator[]>>()
 const senatorDetailRequestCache = new Map<string, Promise<SenatorDetail>>()
+let politiciansIndexRequestCache: Promise<GlobalSearchItem[]> | null = null
 
 type PropositionVoting = {
   id: string
@@ -464,6 +470,32 @@ async function fetchApi<T>(url: string): Promise<T> {
   return response.json() as Promise<T>
 }
 
+function mapIndexGroupItems(
+  items: PoliticianIndexItem[],
+  group: PoliticiansIndexGroup,
+): GlobalSearchItem[] {
+  return items
+    .map((item) => ({
+      id: item.id?.trim() || '',
+      nome: item.nome?.trim() || '',
+      estado: item.estado?.trim().toUpperCase() || '',
+      partido: item.partido?.trim() || 'Sem partido',
+      email: item.email?.trim(),
+      urlFoto: item.urlFoto?.trim(),
+      telefone: item.telefone?.trim(),
+      urlPerfil: item.urlPerfil?.trim(),
+      grupo: group,
+      cargo: (
+        group === 'deputados-federais'
+          ? 'deputado-federal'
+          : group === 'senadores'
+            ? 'senador'
+            : 'deputado-estadual'
+      ) as 'deputado-federal' | 'senador' | 'deputado-estadual',
+    }))
+    .filter((item) => item.id && item.nome && item.partido)
+}
+
 function filterMandatePropositions(
   propositions: Proposition[],
   options?: DeputyPropositionsOptions,
@@ -638,6 +670,34 @@ export async function fetchPresidents(): Promise<President[]> {
   return PRESIDENTS
 }
 
+export async function fetchPoliticiansIndex(): Promise<GlobalSearchItem[]> {
+  if (politiciansIndexRequestCache) {
+    return politiciansIndexRequestCache
+  }
+
+  const request = (async () => {
+    const index = await fetchApi<PoliticiansIndex>('/politicians-index.json')
+    const federalDeputies = mapIndexGroupItems(index['deputados-federais'] || [], 'deputados-federais')
+    const senators = mapIndexGroupItems(index.senadores || [], 'senadores')
+    const stateDeputies = mapIndexGroupItems(index['deputados-estaduais'] || [], 'deputados-estaduais')
+
+    if (federalDeputies.length === 0 && senators.length === 0 && stateDeputies.length === 0) {
+      throw new Error('Arquivo de índice de políticos indisponível ou vazio.')
+    }
+
+    return [...federalDeputies, ...senators, ...stateDeputies]
+  })()
+
+  politiciansIndexRequestCache = request
+
+  try {
+    return await request
+  } catch (error) {
+    politiciansIndexRequestCache = null
+    throw error
+  }
+}
+
 export async function fetchSenatorsByState(uf: string): Promise<Senator[]> {
   const normalizedUf = uf.trim().toUpperCase()
   const cacheKey = normalizedUf
@@ -676,6 +736,33 @@ export async function fetchSenatorsByState(uf: string): Promise<Senator[]> {
     senatorsByStateRequestCache.delete(cacheKey)
     throw error
   }
+}
+
+/**
+ * Retorna a lista de deputados estaduais de uma UF a partir do índice pré-gerado.
+ * Apenas PR, SC e RS estão disponíveis.
+ */
+export async function fetchStateDeputiesByState(uf: string): Promise<StateDeputy[]> {
+  const normalizedUf = uf.trim().toUpperCase()
+
+  const allItems = await fetchPoliticiansIndex()
+  return allItems
+    .filter((item) => item.cargo === 'deputado-estadual' && item.estado === normalizedUf)
+    .map((item) => ({
+      id: item.id,
+      nome: item.nome,
+      siglaPartido: item.partido,
+      siglaUf: item.estado,
+      email: item.email,
+      urlFoto: item.urlFoto,
+      telefone: item.telefone,
+      urlPerfil: item.estado === 'RS'
+        ? item.urlPerfil || `https://ww4.al.rs.gov.br/deputados/${item.id}`
+        : item.estado === 'SC'
+          ? item.urlPerfil || `https://www.alesc.sc.gov.br/deputado/${item.id.replace('sc-', '')}/`
+          : item.urlPerfil,
+    }))
+    .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
 }
 
 export async function fetchSenatorDetailBundle(id: string): Promise<SenatorDetail> {

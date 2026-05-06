@@ -1,0 +1,6005 @@
+{
+  "geradoEm": "2026-05-06T20:58:59.394Z",
+  "deputados-federais": [
+    {
+      "id": "204379",
+      "nome": "Acácio Favacho",
+      "estado": "AP",
+      "partido": "MDB"
+    },
+    {
+      "id": "220714",
+      "nome": "Adail Filho",
+      "estado": "AM",
+      "partido": "MDB"
+    },
+    {
+      "id": "221328",
+      "nome": "Adilson Barroso",
+      "estado": "SP",
+      "partido": "PL"
+    },
+    {
+      "id": "204560",
+      "nome": "Adolfo Viana",
+      "estado": "BA",
+      "partido": "PSDB"
+    },
+    {
+      "id": "204528",
+      "nome": "Adriana Ventura",
+      "estado": "SP",
+      "partido": "NOVO"
+    },
+    {
+      "id": "121948",
+      "nome": "Adriano do Baldy",
+      "estado": "GO",
+      "partido": "PP"
+    },
+    {
+      "id": "74646",
+      "nome": "Aécio Neves",
+      "estado": "MG",
+      "partido": "PSDB"
+    },
+    {
+      "id": "160508",
+      "nome": "Afonso Florence",
+      "estado": "BA",
+      "partido": "PT"
+    },
+    {
+      "id": "136811",
+      "nome": "Afonso Hamm",
+      "estado": "RS",
+      "partido": "PP"
+    },
+    {
+      "id": "178835",
+      "nome": "Afonso Motta",
+      "estado": "RS",
+      "partido": "PDT"
+    },
+    {
+      "id": "160527",
+      "nome": "Aguinaldo Ribeiro",
+      "estado": "PB",
+      "partido": "PP"
+    },
+    {
+      "id": "204495",
+      "nome": "Airton Faleiro",
+      "estado": "PA",
+      "partido": "PT"
+    },
+    {
+      "id": "204549",
+      "nome": "AJ Albuquerque",
+      "estado": "CE",
+      "partido": "PP"
+    },
+    {
+      "id": "73579",
+      "nome": "Alberto Fraga",
+      "estado": "DF",
+      "partido": "PL"
+    },
+    {
+      "id": "220538",
+      "nome": "Albuquerque",
+      "estado": "RR",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "160559",
+      "nome": "Alceu Moreira",
+      "estado": "RS",
+      "partido": "MDB"
+    },
+    {
+      "id": "204501",
+      "nome": "Alencar Santana",
+      "estado": "SP",
+      "partido": "PT"
+    },
+    {
+      "id": "178972",
+      "nome": "Alex Manente",
+      "estado": "SP",
+      "partido": "CIDADANIA"
+    },
+    {
+      "id": "220542",
+      "nome": "Alexandre Guimarães",
+      "estado": "TO",
+      "partido": "MDB"
+    },
+    {
+      "id": "160545",
+      "nome": "Alexandre Leite",
+      "estado": "SP",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "220554",
+      "nome": "Alexandre Lindenmeyer",
+      "estado": "RS",
+      "partido": "PT"
+    },
+    {
+      "id": "221148",
+      "nome": "Alfredinho",
+      "estado": "SP",
+      "partido": "PT"
+    },
+    {
+      "id": "220576",
+      "nome": "Alfredo Gaspar",
+      "estado": "AL",
+      "partido": "PL"
+    },
+    {
+      "id": "74057",
+      "nome": "Alice Portugal",
+      "estado": "BA",
+      "partido": "PCdoB"
+    },
+    {
+      "id": "178927",
+      "nome": "Aliel Machado",
+      "estado": "PR",
+      "partido": "PV"
+    },
+    {
+      "id": "204353",
+      "nome": "Aline Gurgel",
+      "estado": "AP",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "178937",
+      "nome": "Altineu Côrtes",
+      "estado": "RJ",
+      "partido": "PL"
+    },
+    {
+      "id": "178881",
+      "nome": "Aluisio Mendes",
+      "estado": "MA",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "220707",
+      "nome": "Amanda Gentil",
+      "estado": "MA",
+      "partido": "PP"
+    },
+    {
+      "id": "204356",
+      "nome": "Amaro Neto",
+      "estado": "ES",
+      "partido": "PP"
+    },
+    {
+      "id": "220715",
+      "nome": "Amom Mandel",
+      "estado": "AM",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "107970",
+      "nome": "Ana Paula Leão",
+      "estado": "MG",
+      "partido": "PP"
+    },
+    {
+      "id": "220556",
+      "nome": "Ana Paula Lima",
+      "estado": "SC",
+      "partido": "PT"
+    },
+    {
+      "id": "220632",
+      "nome": "Ana Pimentel",
+      "estado": "MG",
+      "partido": "PT"
+    },
+    {
+      "id": "178831",
+      "nome": "André Abdon",
+      "estado": "AP",
+      "partido": "PP"
+    },
+    {
+      "id": "220657",
+      "nome": "André Fernandes",
+      "estado": "CE",
+      "partido": "PL"
+    },
+    {
+      "id": "204423",
+      "nome": "André Ferreira",
+      "estado": "PE",
+      "partido": "PL"
+    },
+    {
+      "id": "133439",
+      "nome": "André Figueiredo",
+      "estado": "CE",
+      "partido": "PDT"
+    },
+    {
+      "id": "178882",
+      "nome": "André Fufuca",
+      "estado": "MA",
+      "partido": "PP"
+    },
+    {
+      "id": "204515",
+      "nome": "André Janones",
+      "estado": "MG",
+      "partido": "REDE"
+    },
+    {
+      "id": "220676",
+      "nome": "Andreia Siqueira",
+      "estado": "PA",
+      "partido": "PSB"
+    },
+    {
+      "id": "123756",
+      "nome": "Antônia Lúcia",
+      "estado": "AC",
+      "partido": "MDB"
+    },
+    {
+      "id": "220544",
+      "nome": "Antonio Andrade",
+      "estado": "TO",
+      "partido": "PSDB"
+    },
+    {
+      "id": "160553",
+      "nome": "Antonio Brito",
+      "estado": "BA",
+      "partido": "PSD"
+    },
+    {
+      "id": "220638",
+      "nome": "Antonio Carlos Rodrigues",
+      "estado": "SP",
+      "partido": "PL"
+    },
+    {
+      "id": "220675",
+      "nome": "Antônio Doido",
+      "estado": "PA",
+      "partido": "MDB"
+    },
+    {
+      "id": "220549",
+      "nome": "Any Ortiz",
+      "estado": "RS",
+      "partido": "PP"
+    },
+    {
+      "id": "73433",
+      "nome": "Arlindo Chinaglia",
+      "estado": "SP",
+      "partido": "PT"
+    },
+    {
+      "id": "141391",
+      "nome": "Arnaldo Jardim",
+      "estado": "SP",
+      "partido": "CIDADANIA"
+    },
+    {
+      "id": "160541",
+      "nome": "Arthur Lira",
+      "estado": "AL",
+      "partido": "PP"
+    },
+    {
+      "id": "160600",
+      "nome": "Arthur Oliveira Maia",
+      "estado": "BA",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "74090",
+      "nome": "Átila Lins",
+      "estado": "AM",
+      "partido": "PSD"
+    },
+    {
+      "id": "123086",
+      "nome": "Átila Lira",
+      "estado": "PI",
+      "partido": "PP"
+    },
+    {
+      "id": "160665",
+      "nome": "Augusto Coutinho",
+      "estado": "PE",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "160512",
+      "nome": "Aureo Ribeiro",
+      "estado": "RJ",
+      "partido": "SOLIDARIEDADE"
+    },
+    {
+      "id": "69871",
+      "nome": "Bacelar",
+      "estado": "BA",
+      "partido": "PV"
+    },
+    {
+      "id": "178975",
+      "nome": "Baleia Rossi",
+      "estado": "SP",
+      "partido": "MDB"
+    },
+    {
+      "id": "220605",
+      "nome": "Bandeira de Mello",
+      "estado": "RJ",
+      "partido": "PV"
+    },
+    {
+      "id": "220612",
+      "nome": "Bebeto",
+      "estado": "RJ",
+      "partido": "PP"
+    },
+    {
+      "id": "73701",
+      "nome": "Benedita da Silva",
+      "estado": "RJ",
+      "partido": "PT"
+    },
+    {
+      "id": "109429",
+      "nome": "Benes Leocádio",
+      "estado": "RN",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "204358",
+      "nome": "Beto Pereira",
+      "estado": "MS",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "220698",
+      "nome": "Beto Preto",
+      "estado": "PR",
+      "partido": "PSD"
+    },
+    {
+      "id": "220683",
+      "nome": "Beto Richa",
+      "estado": "PR",
+      "partido": "PSDB"
+    },
+    {
+      "id": "204374",
+      "nome": "Bia Kicis",
+      "estado": "DF",
+      "partido": "PL"
+    },
+    {
+      "id": "204388",
+      "nome": "Bibo Nunes",
+      "estado": "RS",
+      "partido": "PL"
+    },
+    {
+      "id": "160538",
+      "nome": "Bohn Gass",
+      "estado": "RS",
+      "partido": "PT"
+    },
+    {
+      "id": "210989",
+      "nome": "Bruno Farias",
+      "estado": "MG",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "220635",
+      "nome": "Bruno Ganem",
+      "estado": "SP",
+      "partido": "PODE"
+    },
+    {
+      "id": "220574",
+      "nome": "Cabo Gilberto Silva",
+      "estado": "PB",
+      "partido": "PL"
+    },
+    {
+      "id": "220548",
+      "nome": "Camila Jara",
+      "estado": "MS",
+      "partido": "PT"
+    },
+    {
+      "id": "204572",
+      "nome": "Capitão Alberto Neto",
+      "estado": "AM",
+      "partido": "PL"
+    },
+    {
+      "id": "220690",
+      "nome": "Capitão Alden",
+      "estado": "BA",
+      "partido": "PL"
+    },
+    {
+      "id": "178829",
+      "nome": "Capitão Augusto",
+      "estado": "SP",
+      "partido": "PL"
+    },
+    {
+      "id": "213762",
+      "nome": "Carla Dickson",
+      "estado": "RN",
+      "partido": "PL"
+    },
+    {
+      "id": "204361",
+      "nome": "Carlos Chiodini",
+      "estado": "SC",
+      "partido": "MDB"
+    },
+    {
+      "id": "178962",
+      "nome": "Carlos Gomes",
+      "estado": "RS",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "178993",
+      "nome": "Carlos Henrique Gaguim",
+      "estado": "TO",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "204460",
+      "nome": "Carlos Jordy",
+      "estado": "RJ",
+      "partido": "PL"
+    },
+    {
+      "id": "74262",
+      "nome": "Carlos Sampaio",
+      "estado": "SP",
+      "partido": "PSD"
+    },
+    {
+      "id": "204426",
+      "nome": "Carlos Veras",
+      "estado": "PE",
+      "partido": "PT"
+    },
+    {
+      "id": "141398",
+      "nome": "Carlos Zarattini",
+      "estado": "SP",
+      "partido": "PT"
+    },
+    {
+      "id": "220704",
+      "nome": "Carol Dartora",
+      "estado": "PR",
+      "partido": "PT"
+    },
+    {
+      "id": "204369",
+      "nome": "Caroline de Toni",
+      "estado": "SC",
+      "partido": "PL"
+    },
+    {
+      "id": "220699",
+      "nome": "Castro Neto",
+      "estado": "PI",
+      "partido": "MDB"
+    },
+    {
+      "id": "206018",
+      "nome": "Célia Xakriabá",
+      "estado": "MG",
+      "partido": "PSOL"
+    },
+    {
+      "id": "178876",
+      "nome": "Célio Silveira",
+      "estado": "GO",
+      "partido": "MDB"
+    },
+    {
+      "id": "204488",
+      "nome": "Célio Studart",
+      "estado": "CE",
+      "partido": "PSD"
+    },
+    {
+      "id": "73441",
+      "nome": "Celso Russomanno",
+      "estado": "SP",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "204496",
+      "nome": "Celso Sabino",
+      "estado": "PA",
+      "partido": "PDT"
+    },
+    {
+      "id": "204504",
+      "nome": "Cezinha de Madureira",
+      "estado": "SP",
+      "partido": "PL"
+    },
+    {
+      "id": "205476",
+      "nome": "Charles Fernandes",
+      "estado": "BA",
+      "partido": "PSD"
+    },
+    {
+      "id": "74171",
+      "nome": "Chico Alencar",
+      "estado": "RJ",
+      "partido": "PSOL"
+    },
+    {
+      "id": "204462",
+      "nome": "Chris Tonietto",
+      "estado": "RJ",
+      "partido": "PL"
+    },
+    {
+      "id": "220665",
+      "nome": "Clarissa Tércio",
+      "estado": "PE",
+      "partido": "PP"
+    },
+    {
+      "id": "74537",
+      "nome": "Claudio Cajado",
+      "estado": "BA",
+      "partido": "PP"
+    },
+    {
+      "id": "141408",
+      "nome": "Cleber Verde",
+      "estado": "MA",
+      "partido": "MDB"
+    },
+    {
+      "id": "88256",
+      "nome": "Clodoaldo Magalhães",
+      "estado": "PE",
+      "partido": "PV"
+    },
+    {
+      "id": "98148",
+      "nome": "Cobalchini",
+      "estado": "SC",
+      "partido": "MDB"
+    },
+    {
+      "id": "220594",
+      "nome": "Coronel Assis",
+      "estado": "MT",
+      "partido": "PL"
+    },
+    {
+      "id": "204378",
+      "nome": "Coronel Chrisóstomo",
+      "estado": "RO",
+      "partido": "PL"
+    },
+    {
+      "id": "220595",
+      "nome": "Coronel Fernanda",
+      "estado": "MT",
+      "partido": "PL"
+    },
+    {
+      "id": "220666",
+      "nome": "Coronel Meira",
+      "estado": "PE",
+      "partido": "PL"
+    },
+    {
+      "id": "220590",
+      "nome": "Coronel Ulysses",
+      "estado": "AC",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "220608",
+      "nome": "Cristiane Lopes",
+      "estado": "RO",
+      "partido": "PODE"
+    },
+    {
+      "id": "204355",
+      "nome": "Da Vitoria",
+      "estado": "ES",
+      "partido": "PP"
+    },
+    {
+      "id": "141411",
+      "nome": "Dagoberto Nogueira",
+      "estado": "MS",
+      "partido": "PP"
+    },
+    {
+      "id": "220555",
+      "nome": "Daiana Santos",
+      "estado": "RS",
+      "partido": "PCdoB"
+    },
+    {
+      "id": "220692",
+      "nome": "Dal Barreto",
+      "estado": "BA",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "74467",
+      "nome": "Damião Feliciano",
+      "estado": "PB",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "220629",
+      "nome": "Dandara",
+      "estado": "MG",
+      "partido": "PT"
+    },
+    {
+      "id": "220603",
+      "nome": "Dani Cunha",
+      "estado": "RJ",
+      "partido": "PL"
+    },
+    {
+      "id": "220571",
+      "nome": "Daniel Agrobom",
+      "estado": "GO",
+      "partido": "PSD"
+    },
+    {
+      "id": "74060",
+      "nome": "Daniel Almeida",
+      "estado": "BA",
+      "partido": "PCdoB"
+    },
+    {
+      "id": "220582",
+      "nome": "Daniel Barbosa",
+      "estado": "AL",
+      "partido": "PP"
+    },
+    {
+      "id": "204367",
+      "nome": "Daniel Freitas",
+      "estado": "SC",
+      "partido": "PL"
+    },
+    {
+      "id": "204409",
+      "nome": "Daniel Trzeciak",
+      "estado": "RS",
+      "partido": "PSDB"
+    },
+    {
+      "id": "204459",
+      "nome": "Daniela do Waguinho",
+      "estado": "RJ",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "220557",
+      "nome": "Daniela Reinehr",
+      "estado": "SC",
+      "partido": "PL"
+    },
+    {
+      "id": "62881",
+      "nome": "Danilo Forte",
+      "estado": "CE",
+      "partido": "PP"
+    },
+    {
+      "id": "160552",
+      "nome": "Danrlei de Deus Hinterholz",
+      "estado": "RS",
+      "partido": "PSD"
+    },
+    {
+      "id": "204511",
+      "nome": "David Soares",
+      "estado": "SP",
+      "partido": "PODE"
+    },
+    {
+      "id": "220539",
+      "nome": "Defensor Stélio Dener",
+      "estado": "RR",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "220565",
+      "nome": "Delegada Adriana Accorsi",
+      "estado": "GO",
+      "partido": "PT"
+    },
+    {
+      "id": "220625",
+      "nome": "Delegada Ione",
+      "estado": "MG",
+      "partido": "AVANTE"
+    },
+    {
+      "id": "220561",
+      "nome": "Delegada Katarina",
+      "estado": "SE",
+      "partido": "PSD"
+    },
+    {
+      "id": "220642",
+      "nome": "Delegado Bruno Lima",
+      "estado": "SP",
+      "partido": "PODE"
+    },
+    {
+      "id": "220673",
+      "nome": "Delegado Caveira",
+      "estado": "PA",
+      "partido": "PL"
+    },
+    {
+      "id": "220649",
+      "nome": "Delegado da Cunha",
+      "estado": "SP",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "178908",
+      "nome": "Delegado Éder Mauro",
+      "estado": "PA",
+      "partido": "PL"
+    },
+    {
+      "id": "220583",
+      "nome": "Delegado Fabio Costa",
+      "estado": "AL",
+      "partido": "PP"
+    },
+    {
+      "id": "204512",
+      "nome": "Delegado Marcelo Freitas",
+      "estado": "MG",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "220701",
+      "nome": "Delegado Matheus Laiola",
+      "estado": "PR",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "220652",
+      "nome": "Delegado Palumbo",
+      "estado": "SP",
+      "partido": "PODE"
+    },
+    {
+      "id": "220654",
+      "nome": "Delegado Paulo Bilynskyj",
+      "estado": "SP",
+      "partido": "PL"
+    },
+    {
+      "id": "220553",
+      "nome": "Denise Pessôa",
+      "estado": "RS",
+      "partido": "PT"
+    },
+    {
+      "id": "160588",
+      "nome": "Diego Andrade",
+      "estado": "MG",
+      "partido": "PSD"
+    },
+    {
+      "id": "220691",
+      "nome": "Diego Coronel",
+      "estado": "BA",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "178929",
+      "nome": "Diego Garcia",
+      "estado": "PR",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "73768",
+      "nome": "Dilceu Sperafico",
+      "estado": "PR",
+      "partido": "PP"
+    },
+    {
+      "id": "220671",
+      "nome": "Dilvanda Faro",
+      "estado": "PA",
+      "partido": "PT"
+    },
+    {
+      "id": "160599",
+      "nome": "Dimas Fabiano",
+      "estado": "MG",
+      "partido": "PP"
+    },
+    {
+      "id": "220602",
+      "nome": "Dimas Gadelha",
+      "estado": "RJ",
+      "partido": "PT"
+    },
+    {
+      "id": "143632",
+      "nome": "Domingos Neto",
+      "estado": "CE",
+      "partido": "PSD"
+    },
+    {
+      "id": "160758",
+      "nome": "Domingos Sávio",
+      "estado": "MG",
+      "partido": "PL"
+    },
+    {
+      "id": "220573",
+      "nome": "Dorinaldo Malafaia",
+      "estado": "AP",
+      "partido": "PDT"
+    },
+    {
+      "id": "204450",
+      "nome": "Doutor Luizinho",
+      "estado": "RJ",
+      "partido": "PP"
+    },
+    {
+      "id": "227991",
+      "nome": "Dr Flávio",
+      "estado": "RJ",
+      "partido": "PL"
+    },
+    {
+      "id": "220614",
+      "nome": "Dr. Daniel Soranz",
+      "estado": "RJ",
+      "partido": "PSD"
+    },
+    {
+      "id": "220610",
+      "nome": "Dr. Fernando Máximo",
+      "estado": "RO",
+      "partido": "PL"
+    },
+    {
+      "id": "220688",
+      "nome": "Dr. Francisco",
+      "estado": "PI",
+      "partido": "PT"
+    },
+    {
+      "id": "204518",
+      "nome": "Dr. Frederico",
+      "estado": "MG",
+      "partido": "PRD"
+    },
+    {
+      "id": "220570",
+      "nome": "Dr. Ismael Alexandrino",
+      "estado": "GO",
+      "partido": "PSD"
+    },
+    {
+      "id": "204481",
+      "nome": "Dr. Jaziel",
+      "estado": "CE",
+      "partido": "PL"
+    },
+    {
+      "id": "204351",
+      "nome": "Dr. Luiz Ovando",
+      "estado": "MS",
+      "partido": "PP"
+    },
+    {
+      "id": "220528",
+      "nome": "Dr. Victor Linhalis",
+      "estado": "ES",
+      "partido": "PODE"
+    },
+    {
+      "id": "204412",
+      "nome": "Dr. Zacharias Calil",
+      "estado": "GO",
+      "partido": "MDB"
+    },
+    {
+      "id": "220674",
+      "nome": "Dra. Alessandra Haber",
+      "estado": "PA",
+      "partido": "PODE"
+    },
+    {
+      "id": "220686",
+      "nome": "Duarte Jr.",
+      "estado": "MA",
+      "partido": "AVANTE"
+    },
+    {
+      "id": "220540",
+      "nome": "Duda Ramos",
+      "estado": "RR",
+      "partido": "PODE"
+    },
+    {
+      "id": "220623",
+      "nome": "Duda Salabert",
+      "estado": "MG",
+      "partido": "PSOL"
+    },
+    {
+      "id": "204541",
+      "nome": "Eduardo Bismarck",
+      "estado": "CE",
+      "partido": "PV"
+    },
+    {
+      "id": "141421",
+      "nome": "Eduardo da Fonte",
+      "estado": "PE",
+      "partido": "PP"
+    },
+    {
+      "id": "220589",
+      "nome": "Eduardo Velloso",
+      "estado": "AC",
+      "partido": "SOLIDARIEDADE"
+    },
+    {
+      "id": "74075",
+      "nome": "Elcione Barbalho",
+      "estado": "PA",
+      "partido": "MDB"
+    },
+    {
+      "id": "204364",
+      "nome": "Eli Borges",
+      "estado": "TO",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "178854",
+      "nome": "Elmar Nascimento",
+      "estado": "BA",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "198783",
+      "nome": "Emanuel Pinheiro Neto",
+      "estado": "MT",
+      "partido": "PSD"
+    },
+    {
+      "id": "161550",
+      "nome": "Emidinho Madeira",
+      "estado": "MG",
+      "partido": "PL"
+    },
+    {
+      "id": "230765",
+      "nome": "Enfermeira Rejane",
+      "estado": "RJ",
+      "partido": "PCdoB"
+    },
+    {
+      "id": "220663",
+      "nome": "Eriberto Medeiros",
+      "estado": "PE",
+      "partido": "PSB"
+    },
+    {
+      "id": "220645",
+      "nome": "Erika Hilton",
+      "estado": "SP",
+      "partido": "PSOL"
+    },
+    {
+      "id": "160575",
+      "nome": "Erika Kokay",
+      "estado": "DF",
+      "partido": "PT"
+    },
+    {
+      "id": "160640",
+      "nome": "Eros Biondini",
+      "estado": "MG",
+      "partido": "PL"
+    },
+    {
+      "id": "74454",
+      "nome": "Eunício Oliveira",
+      "estado": "CE",
+      "partido": "MDB"
+    },
+    {
+      "id": "178871",
+      "nome": "Evair Vieira de Melo",
+      "estado": "ES",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "178905",
+      "nome": "Fabio Garcia",
+      "estado": "MT",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "220681",
+      "nome": "Fábio Macedo",
+      "estado": "MA",
+      "partido": "PODE"
+    },
+    {
+      "id": "171623",
+      "nome": "Fabio Reis",
+      "estado": "SE",
+      "partido": "PSD"
+    },
+    {
+      "id": "204368",
+      "nome": "Fabio Schiochet",
+      "estado": "SC",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "220653",
+      "nome": "Fábio Teruel",
+      "estado": "SP",
+      "partido": "MDB"
+    },
+    {
+      "id": "220712",
+      "nome": "Fausto Jr.",
+      "estado": "AM",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "66828",
+      "nome": "Fausto Pinato",
+      "estado": "SP",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "220646",
+      "nome": "Felipe Becari",
+      "estado": "SP",
+      "partido": "PODE"
+    },
+    {
+      "id": "72442",
+      "nome": "Felipe Carreras",
+      "estado": "PE",
+      "partido": "PSB"
+    },
+    {
+      "id": "204398",
+      "nome": "Felipe Francischini",
+      "estado": "PR",
+      "partido": "PODE"
+    },
+    {
+      "id": "160666",
+      "nome": "Félix Mendonça Júnior",
+      "estado": "BA",
+      "partido": "PDT"
+    },
+    {
+      "id": "204407",
+      "nome": "Fernanda Melchionna",
+      "estado": "RS",
+      "partido": "PSOL"
+    },
+    {
+      "id": "220656",
+      "nome": "Fernanda Pessoa",
+      "estado": "CE",
+      "partido": "PSD"
+    },
+    {
+      "id": "141431",
+      "nome": "Fernando Coelho Filho",
+      "estado": "PE",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "204445",
+      "nome": "Fernando Mineiro",
+      "estado": "RN",
+      "partido": "PT"
+    },
+    {
+      "id": "92699",
+      "nome": "Fernando Monteiro",
+      "estado": "PE",
+      "partido": "PSD"
+    },
+    {
+      "id": "204427",
+      "nome": "Fernando Rodolfo",
+      "estado": "PE",
+      "partido": "PRD"
+    },
+    {
+      "id": "204411",
+      "nome": "Filipe Barros",
+      "estado": "PR",
+      "partido": "PL"
+    },
+    {
+      "id": "220545",
+      "nome": "Filipe Martins",
+      "estado": "TO",
+      "partido": "PL"
+    },
+    {
+      "id": "160598",
+      "nome": "Flávia Morais",
+      "estado": "GO",
+      "partido": "MDB"
+    },
+    {
+      "id": "191923",
+      "nome": "Flávio Nogueira",
+      "estado": "PI",
+      "partido": "PT"
+    },
+    {
+      "id": "220700",
+      "nome": "Florentino Neto",
+      "estado": "PI",
+      "partido": "PT"
+    },
+    {
+      "id": "220551",
+      "nome": "Franciane Bayer",
+      "estado": "RS",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "204494",
+      "nome": "Fred Costa",
+      "estado": "MG",
+      "partido": "PRD"
+    },
+    {
+      "id": "220534",
+      "nome": "Fred Linhares",
+      "estado": "DF",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "224117",
+      "nome": "Gabriel Mota",
+      "estado": "RR",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "220708",
+      "nome": "Gabriel Nunes",
+      "estado": "BA",
+      "partido": "PSD"
+    },
+    {
+      "id": "204473",
+      "nome": "General Girão",
+      "estado": "RN",
+      "partido": "PL"
+    },
+    {
+      "id": "220611",
+      "nome": "General Pazuello",
+      "estado": "RJ",
+      "partido": "PL"
+    },
+    {
+      "id": "178966",
+      "nome": "Geovania de Sá",
+      "estado": "SC",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "220702",
+      "nome": "Geraldo Mendes",
+      "estado": "PR",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "74374",
+      "nome": "Geraldo Resende",
+      "estado": "MS",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "204394",
+      "nome": "Gervásio Maia",
+      "estado": "PB",
+      "partido": "PCdoB"
+    },
+    {
+      "id": "204491",
+      "nome": "Gilberto Abramo",
+      "estado": "MG",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "74270",
+      "nome": "Gilberto Nascimento",
+      "estado": "SP",
+      "partido": "PODE"
+    },
+    {
+      "id": "220529",
+      "nome": "Gilson Daniel",
+      "estado": "ES",
+      "partido": "PODE"
+    },
+    {
+      "id": "204365",
+      "nome": "Gilson Marques",
+      "estado": "SC",
+      "partido": "NOVO"
+    },
+    {
+      "id": "220526",
+      "nome": "Gilvan da Federal",
+      "estado": "ES",
+      "partido": "PL"
+    },
+    {
+      "id": "160673",
+      "nome": "Giovani Cherini",
+      "estado": "RS",
+      "partido": "PL"
+    },
+    {
+      "id": "204419",
+      "nome": "Glaustin da Fokus",
+      "estado": "GO",
+      "partido": "PODE"
+    },
+    {
+      "id": "107283",
+      "nome": "Gleisi Hoffmann",
+      "estado": "PR",
+      "partido": "PT"
+    },
+    {
+      "id": "198197",
+      "nome": "Greyce Elias",
+      "estado": "MG",
+      "partido": "PL"
+    },
+    {
+      "id": "204531",
+      "nome": "Guilherme Derrite",
+      "estado": "SP",
+      "partido": "PP"
+    },
+    {
+      "id": "220664",
+      "nome": "Guilherme Uchoa",
+      "estado": "PE",
+      "partido": "PSD"
+    },
+    {
+      "id": "220568",
+      "nome": "Gustavo Gayer",
+      "estado": "GO",
+      "partido": "PL"
+    },
+    {
+      "id": "204408",
+      "nome": "Gustinho Ribeiro",
+      "estado": "SE",
+      "partido": "PP"
+    },
+    {
+      "id": "204456",
+      "nome": "Gutemberg Reis",
+      "estado": "RJ",
+      "partido": "MDB"
+    },
+    {
+      "id": "178964",
+      "nome": "Heitor Schuch",
+      "estado": "RS",
+      "partido": "PSD"
+    },
+    {
+      "id": "178873",
+      "nome": "Helder Salomão",
+      "estado": "ES",
+      "partido": "PT"
+    },
+    {
+      "id": "220537",
+      "nome": "Helena Lima",
+      "estado": "RR",
+      "partido": "PSD"
+    },
+    {
+      "id": "204444",
+      "nome": "Helio Lopes",
+      "estado": "RJ",
+      "partido": "PL"
+    },
+    {
+      "id": "234788",
+      "nome": "Heloísa Helena",
+      "estado": "RJ",
+      "partido": "REDE"
+    },
+    {
+      "id": "220672",
+      "nome": "Henderson Pinto",
+      "estado": "PA",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "204539",
+      "nome": "Hercílio Coelho Diniz",
+      "estado": "MG",
+      "partido": "MDB"
+    },
+    {
+      "id": "178884",
+      "nome": "Hildo Rocha",
+      "estado": "MA",
+      "partido": "MDB"
+    },
+    {
+      "id": "141450",
+      "nome": "Hugo Leal",
+      "estado": "RJ",
+      "partido": "PSD"
+    },
+    {
+      "id": "160674",
+      "nome": "Hugo Motta",
+      "estado": "PB",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "220563",
+      "nome": "Icaro de Valmir",
+      "estado": "SE",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "204533",
+      "nome": "Idilvan Alencar",
+      "estado": "CE",
+      "partido": "PSB"
+    },
+    {
+      "id": "204508",
+      "nome": "Igor Timo",
+      "estado": "MG",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "235620",
+      "nome": "Ilacir Bicalho",
+      "estado": "MG",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "74295",
+      "nome": "Inácio Arruda",
+      "estado": "CE",
+      "partido": "PCdoB"
+    },
+    {
+      "id": "98615",
+      "nome": "Ismael",
+      "estado": "SC",
+      "partido": "PL"
+    },
+    {
+      "id": "204436",
+      "nome": "Isnaldo Bulhões Jr.",
+      "estado": "AL",
+      "partido": "MDB"
+    },
+    {
+      "id": "225846",
+      "nome": "Itamar Paim",
+      "estado": "PR",
+      "partido": "PL"
+    },
+    {
+      "id": "220696",
+      "nome": "Ivoneide Caetano",
+      "estado": "BA",
+      "partido": "PT"
+    },
+    {
+      "id": "220670",
+      "nome": "Iza Arruda",
+      "estado": "PE",
+      "partido": "MDB"
+    },
+    {
+      "id": "220527",
+      "nome": "Jack Rocha",
+      "estado": "ES",
+      "partido": "PT"
+    },
+    {
+      "id": "220697",
+      "nome": "Jadyel Alencar",
+      "estado": "PI",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "74848",
+      "nome": "Jandira Feghali",
+      "estado": "RJ",
+      "partido": "PCdoB"
+    },
+    {
+      "id": "220567",
+      "nome": "Jeferson Rodrigues",
+      "estado": "GO",
+      "partido": "PSDB"
+    },
+    {
+      "id": "74273",
+      "nome": "Jefferson Campos",
+      "estado": "SP",
+      "partido": "PL"
+    },
+    {
+      "id": "141456",
+      "nome": "Jilmar Tatto",
+      "estado": "SP",
+      "partido": "PT"
+    },
+    {
+      "id": "235869",
+      "nome": "João Carlos",
+      "estado": "AM",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "141458",
+      "nome": "João Carlos Bacelar",
+      "estado": "BA",
+      "partido": "PL"
+    },
+    {
+      "id": "230957",
+      "nome": "João Cury",
+      "estado": "SP",
+      "partido": "MDB"
+    },
+    {
+      "id": "178970",
+      "nome": "João Daniel",
+      "estado": "SE",
+      "partido": "PT"
+    },
+    {
+      "id": "141459",
+      "nome": "João Maia",
+      "estado": "RN",
+      "partido": "PP"
+    },
+    {
+      "id": "178910",
+      "nome": "Joaquim Passarinho",
+      "estado": "PA",
+      "partido": "PL"
+    },
+    {
+      "id": "160548",
+      "nome": "Jonas Donizette",
+      "estado": "SP",
+      "partido": "PSB"
+    },
+    {
+      "id": "235800",
+      "nome": "Jorge Araújo",
+      "estado": "BA",
+      "partido": "PP"
+    },
+    {
+      "id": "205550",
+      "nome": "Jorge Braz",
+      "estado": "RJ",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "214694",
+      "nome": "Jorge Goetten",
+      "estado": "SC",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "178857",
+      "nome": "Jorge Solla",
+      "estado": "BA",
+      "partido": "PT"
+    },
+    {
+      "id": "141464",
+      "nome": "José Airton Félix Cirilo",
+      "estado": "CE",
+      "partido": "PT"
+    },
+    {
+      "id": "204472",
+      "nome": "José Medeiros",
+      "estado": "MT",
+      "partido": "PL"
+    },
+    {
+      "id": "204391",
+      "nome": "José Nelto",
+      "estado": "GO",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "74079",
+      "nome": "José Priante",
+      "estado": "PA",
+      "partido": "MDB"
+    },
+    {
+      "id": "74554",
+      "nome": "José Rocha",
+      "estado": "BA",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "209189",
+      "nome": "Joseildo Ramos",
+      "estado": "BA",
+      "partido": "PT"
+    },
+    {
+      "id": "220578",
+      "nome": "Josenildo",
+      "estado": "AP",
+      "partido": "PDT"
+    },
+    {
+      "id": "215043",
+      "nome": "Josivaldo JP",
+      "estado": "MA",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "204474",
+      "nome": "Juarez Costa",
+      "estado": "MT",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "220559",
+      "nome": "Julia Zanatta",
+      "estado": "SC",
+      "partido": "PL"
+    },
+    {
+      "id": "220640",
+      "nome": "Juliana Cardoso",
+      "estado": "SP",
+      "partido": "PT"
+    },
+    {
+      "id": "66385",
+      "nome": "Julio Arcoverde",
+      "estado": "PI",
+      "partido": "PP"
+    },
+    {
+      "id": "74317",
+      "nome": "Júlio Cesar",
+      "estado": "PI",
+      "partido": "PSD"
+    },
+    {
+      "id": "204372",
+      "nome": "Julio Cesar Ribeiro",
+      "estado": "DF",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "74253",
+      "nome": "Julio Lopes",
+      "estado": "RJ",
+      "partido": "PP"
+    },
+    {
+      "id": "204457",
+      "nome": "Juninho do Pneu",
+      "estado": "RJ",
+      "partido": "PSDB"
+    },
+    {
+      "id": "204520",
+      "nome": "Junio Amaral",
+      "estado": "MG",
+      "partido": "PL"
+    },
+    {
+      "id": "204497",
+      "nome": "Júnior Ferrari",
+      "estado": "PA",
+      "partido": "PSD"
+    },
+    {
+      "id": "204574",
+      "nome": "Junior Lourenço",
+      "estado": "MA",
+      "partido": "MDB"
+    },
+    {
+      "id": "204550",
+      "nome": "Júnior Mano",
+      "estado": "CE",
+      "partido": "PSB"
+    },
+    {
+      "id": "178886",
+      "nome": "Juscelino Filho",
+      "estado": "MA",
+      "partido": "PSDB"
+    },
+    {
+      "id": "220677",
+      "nome": "Keniston Braga",
+      "estado": "PA",
+      "partido": "MDB"
+    },
+    {
+      "id": "162067",
+      "nome": "Kiko Celeguim",
+      "estado": "SP",
+      "partido": "PT"
+    },
+    {
+      "id": "204536",
+      "nome": "Kim Kataguiri",
+      "estado": "SP",
+      "partido": "MISSÃO"
+    },
+    {
+      "id": "98057",
+      "nome": "Lafayette de Andrada",
+      "estado": "MG",
+      "partido": "PL"
+    },
+    {
+      "id": "74856",
+      "nome": "Laura Carneiro",
+      "estado": "RJ",
+      "partido": "PSD"
+    },
+    {
+      "id": "178832",
+      "nome": "Leandre",
+      "estado": "PR",
+      "partido": "PSD"
+    },
+    {
+      "id": "220566",
+      "nome": "Lêda Borges",
+      "estado": "GO",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "80815",
+      "nome": "Leo Prates",
+      "estado": "BA",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "74156",
+      "nome": "Leonardo Monteiro",
+      "estado": "MG",
+      "partido": "PT"
+    },
+    {
+      "id": "92102",
+      "nome": "Leur Lomanto Júnior",
+      "estado": "BA",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "139285",
+      "nome": "Lídice da Mata",
+      "estado": "BA",
+      "partido": "PSB"
+    },
+    {
+      "id": "74585",
+      "nome": "Lincoln Portela",
+      "estado": "MG",
+      "partido": "PL"
+    },
+    {
+      "id": "74858",
+      "nome": "Lindbergh Farias",
+      "estado": "RJ",
+      "partido": "PT"
+    },
+    {
+      "id": "220662",
+      "nome": "Lucas Ramos",
+      "estado": "PE",
+      "partido": "PSB"
+    },
+    {
+      "id": "204404",
+      "nome": "Lucas Redecker",
+      "estado": "RS",
+      "partido": "PSD"
+    },
+    {
+      "id": "220581",
+      "nome": "Luciano Amaral",
+      "estado": "AL",
+      "partido": "PSD"
+    },
+    {
+      "id": "74478",
+      "nome": "Luciano Bivar",
+      "estado": "PE",
+      "partido": "MDB"
+    },
+    {
+      "id": "178931",
+      "nome": "Luciano Ducci",
+      "estado": "PR",
+      "partido": "PSB"
+    },
+    {
+      "id": "220616",
+      "nome": "Luciano Vieira",
+      "estado": "RJ",
+      "partido": "PSDB"
+    },
+    {
+      "id": "178954",
+      "nome": "Lucio Mosquini",
+      "estado": "RO",
+      "partido": "PL"
+    },
+    {
+      "id": "204410",
+      "nome": "Luisa Canziani",
+      "estado": "PR",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "141485",
+      "nome": "Luiz Carlos Busato",
+      "estado": "RS",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "73778",
+      "nome": "Luiz Carlos Hauly",
+      "estado": "PR",
+      "partido": "PODE"
+    },
+    {
+      "id": "204485",
+      "nome": "Luiz Carlos Motta",
+      "estado": "SP",
+      "partido": "PL"
+    },
+    {
+      "id": "74041",
+      "nome": "Luiz Couto",
+      "estado": "PB",
+      "partido": "PT"
+    },
+    {
+      "id": "141487",
+      "nome": "Luiz Fernando Faria",
+      "estado": "MG",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "220658",
+      "nome": "Luiz Gastão",
+      "estado": "CE",
+      "partido": "PSD"
+    },
+    {
+      "id": "204455",
+      "nome": "Luiz Lima",
+      "estado": "RJ",
+      "partido": "NOVO"
+    },
+    {
+      "id": "162332",
+      "nome": "Luiz Nishimori",
+      "estado": "PR",
+      "partido": "PSD"
+    },
+    {
+      "id": "204526",
+      "nome": "Luiz Philippe de Orleans e Bragança",
+      "estado": "SP",
+      "partido": "PL"
+    },
+    {
+      "id": "74784",
+      "nome": "Luiza Erundina",
+      "estado": "SP",
+      "partido": "PSOL"
+    },
+    {
+      "id": "178866",
+      "nome": "Luizianne Lins",
+      "estado": "CE",
+      "partido": "REDE"
+    },
+    {
+      "id": "220669",
+      "nome": "Lula da Fonte",
+      "estado": "PE",
+      "partido": "PP"
+    },
+    {
+      "id": "166402",
+      "nome": "Magda Mofatto",
+      "estado": "GO",
+      "partido": "PL"
+    },
+    {
+      "id": "220648",
+      "nome": "Marangoni",
+      "estado": "SP",
+      "partido": "PODE"
+    },
+    {
+      "id": "156190",
+      "nome": "Marcel van Hattem",
+      "estado": "RS",
+      "partido": "NOVO"
+    },
+    {
+      "id": "179000",
+      "nome": "Marcelo Álvaro Antônio",
+      "estado": "MG",
+      "partido": "PL"
+    },
+    {
+      "id": "220599",
+      "nome": "Marcelo Crivella",
+      "estado": "RJ",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "133810",
+      "nome": "Marcelo Moraes",
+      "estado": "RS",
+      "partido": "PL"
+    },
+    {
+      "id": "204558",
+      "nome": "Marcelo Nilo",
+      "estado": "BA",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "160161",
+      "nome": "Marcelo Queiroz",
+      "estado": "RJ",
+      "partido": "PSDB"
+    },
+    {
+      "id": "178983",
+      "nome": "Marcio Alvino",
+      "estado": "SP",
+      "partido": "PL"
+    },
+    {
+      "id": "179001",
+      "nome": "Márcio Biolchi",
+      "estado": "RS",
+      "partido": "MDB"
+    },
+    {
+      "id": "220687",
+      "nome": "Márcio Honaiser",
+      "estado": "MA",
+      "partido": "SOLIDARIEDADE"
+    },
+    {
+      "id": "81055",
+      "nome": "Márcio Jerry",
+      "estado": "MA",
+      "partido": "PCdoB"
+    },
+    {
+      "id": "150418",
+      "nome": "Márcio Marinho",
+      "estado": "BA",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "160535",
+      "nome": "Marcon",
+      "estado": "RS",
+      "partido": "PT"
+    },
+    {
+      "id": "204431",
+      "nome": "Marcos Aurélio Sampaio",
+      "estado": "PI",
+      "partido": "MDB"
+    },
+    {
+      "id": "204506",
+      "nome": "Marcos Pereira",
+      "estado": "SP",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "220547",
+      "nome": "Marcos Pollon",
+      "estado": "MS",
+      "partido": "PL"
+    },
+    {
+      "id": "178943",
+      "nome": "Marcos Soares",
+      "estado": "RJ",
+      "partido": "PSDB"
+    },
+    {
+      "id": "220604",
+      "nome": "Marcos Tavares",
+      "estado": "RJ",
+      "partido": "PDT"
+    },
+    {
+      "id": "220668",
+      "nome": "Maria Arraes",
+      "estado": "PE",
+      "partido": "PSB"
+    },
+    {
+      "id": "74398",
+      "nome": "Maria do Rosário",
+      "estado": "RS",
+      "partido": "PT"
+    },
+    {
+      "id": "204540",
+      "nome": "Maria Rosas",
+      "estado": "SP",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "220637",
+      "nome": "Marina Silva",
+      "estado": "SP",
+      "partido": "REDE"
+    },
+    {
+      "id": "220655",
+      "nome": "Mario Frias",
+      "estado": "SP",
+      "partido": "PL"
+    },
+    {
+      "id": "74158",
+      "nome": "Mário Heringer",
+      "estado": "MG",
+      "partido": "PDT"
+    },
+    {
+      "id": "178858",
+      "nome": "Mário Negromonte Jr.",
+      "estado": "BA",
+      "partido": "PSB"
+    },
+    {
+      "id": "220572",
+      "nome": "Marussa Boldrin",
+      "estado": "GO",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "178843",
+      "nome": "Marx Beltrão",
+      "estado": "AL",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "220661",
+      "nome": "Matheus Noronha",
+      "estado": "CE",
+      "partido": "PL"
+    },
+    {
+      "id": "220609",
+      "nome": "Maurício Carvalho",
+      "estado": "RO",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "220628",
+      "nome": "Mauricio do Vôlei",
+      "estado": "MG",
+      "partido": "PL"
+    },
+    {
+      "id": "220550",
+      "nome": "Mauricio Marcon",
+      "estado": "RS",
+      "partido": "PL"
+    },
+    {
+      "id": "220647",
+      "nome": "Mauricio Neves",
+      "estado": "SP",
+      "partido": "PP"
+    },
+    {
+      "id": "204486",
+      "nome": "Mauro Benevides Filho",
+      "estado": "CE",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "220607",
+      "nome": "Max Lemos",
+      "estado": "RJ",
+      "partido": "PDT"
+    },
+    {
+      "id": "220591",
+      "nome": "Meire Serafim",
+      "estado": "AC",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "74428",
+      "nome": "Mendonça Filho",
+      "estado": "PE",
+      "partido": "PL"
+    },
+    {
+      "id": "188097",
+      "nome": "Merlong Solano",
+      "estado": "PI",
+      "partido": "PT"
+    },
+    {
+      "id": "220585",
+      "nome": "Mersinho Lucena",
+      "estado": "PB",
+      "partido": "PSD"
+    },
+    {
+      "id": "220530",
+      "nome": "Messias Donato",
+      "estado": "ES",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "171786",
+      "nome": "Miguel Ângelo",
+      "estado": "MG",
+      "partido": "PT"
+    },
+    {
+      "id": "178985",
+      "nome": "Miguel Lombardi",
+      "estado": "SP",
+      "partido": "PL"
+    },
+    {
+      "id": "154178",
+      "nome": "Milton Vieira",
+      "estado": "SP",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "178895",
+      "nome": "Misael Varella",
+      "estado": "MG",
+      "partido": "PSD"
+    },
+    {
+      "id": "160561",
+      "nome": "Missionário José Olimpio",
+      "estado": "SP",
+      "partido": "PL"
+    },
+    {
+      "id": "178997",
+      "nome": "Moses Rodrigues",
+      "estado": "CE",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "220617",
+      "nome": "Murillo Gouvea",
+      "estado": "RJ",
+      "partido": "PSDB"
+    },
+    {
+      "id": "220584",
+      "nome": "Murilo Galdino",
+      "estado": "PB",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "204453",
+      "nome": "Natália Bonavides",
+      "estado": "RN",
+      "partido": "PT"
+    },
+    {
+      "id": "204449",
+      "nome": "Nelson Barbudo",
+      "estado": "MT",
+      "partido": "PODE"
+    },
+    {
+      "id": "220622",
+      "nome": "Nely Aquino",
+      "estado": "MG",
+      "partido": "PODE"
+    },
+    {
+      "id": "220703",
+      "nome": "Neto Carletto",
+      "estado": "BA",
+      "partido": "AVANTE"
+    },
+    {
+      "id": "178896",
+      "nome": "Newton Cardoso Jr",
+      "estado": "MG",
+      "partido": "MDB"
+    },
+    {
+      "id": "204479",
+      "nome": "Nicoletti",
+      "estado": "RR",
+      "partido": "PL"
+    },
+    {
+      "id": "209787",
+      "nome": "Nikolas Ferreira",
+      "estado": "MG",
+      "partido": "PL"
+    },
+    {
+      "id": "178986",
+      "nome": "Nilto Tatto",
+      "estado": "SP",
+      "partido": "PT"
+    },
+    {
+      "id": "74159",
+      "nome": "Odair Cunha",
+      "estado": "MG",
+      "partido": "PT"
+    },
+    {
+      "id": "204498",
+      "nome": "Olival Marques",
+      "estado": "PA",
+      "partido": "PODE"
+    },
+    {
+      "id": "178987",
+      "nome": "Orlando Silva",
+      "estado": "SP",
+      "partido": "PCdoB"
+    },
+    {
+      "id": "73692",
+      "nome": "Osmar Terra",
+      "estado": "RS",
+      "partido": "PL"
+    },
+    {
+      "id": "204441",
+      "nome": "Otoni de Paula",
+      "estado": "RJ",
+      "partido": "PSD"
+    },
+    {
+      "id": "220706",
+      "nome": "Padovani",
+      "estado": "PR",
+      "partido": "PP"
+    },
+    {
+      "id": "160556",
+      "nome": "Padre João",
+      "estado": "MG",
+      "partido": "PT"
+    },
+    {
+      "id": "180214",
+      "nome": "Pastor Diniz",
+      "estado": "RR",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "160642",
+      "nome": "Pastor Eurico",
+      "estado": "PE",
+      "partido": "PSDB"
+    },
+    {
+      "id": "204570",
+      "nome": "Pastor Gil",
+      "estado": "MA",
+      "partido": "PL"
+    },
+    {
+      "id": "220615",
+      "nome": "Pastor Henrique Vieira",
+      "estado": "RJ",
+      "partido": "PSOL"
+    },
+    {
+      "id": "204553",
+      "nome": "Pastor Sargento Isidório",
+      "estado": "BA",
+      "partido": "AVANTE"
+    },
+    {
+      "id": "74160",
+      "nome": "Patrus Ananias",
+      "estado": "MG",
+      "partido": "PT"
+    },
+    {
+      "id": "171617",
+      "nome": "Paulão",
+      "estado": "AL",
+      "partido": "PT"
+    },
+    {
+      "id": "141518",
+      "nome": "Paulinho da Força",
+      "estado": "SP",
+      "partido": "SOLIDARIEDADE"
+    },
+    {
+      "id": "141516",
+      "nome": "Paulo Abi-Ackel",
+      "estado": "MG",
+      "partido": "PSDB"
+    },
+    {
+      "id": "220650",
+      "nome": "Paulo Alexandre Barbosa",
+      "estado": "SP",
+      "partido": "PSDB"
+    },
+    {
+      "id": "178860",
+      "nome": "Paulo Azi",
+      "estado": "BA",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "160517",
+      "nome": "Paulo Folletto",
+      "estado": "ES",
+      "partido": "PSB"
+    },
+    {
+      "id": "160558",
+      "nome": "Paulo Freire Costa",
+      "estado": "SP",
+      "partido": "PL"
+    },
+    {
+      "id": "204492",
+      "nome": "Paulo Guedes",
+      "estado": "MG",
+      "partido": "PT"
+    },
+    {
+      "id": "233592",
+      "nome": "Paulo Lemos",
+      "estado": "AP",
+      "partido": "PT"
+    },
+    {
+      "id": "220685",
+      "nome": "Paulo Litro",
+      "estado": "PR",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "74574",
+      "nome": "Paulo Magalhães",
+      "estado": "BA",
+      "partido": "PSD"
+    },
+    {
+      "id": "128760",
+      "nome": "Paulo Marinho Jr",
+      "estado": "MA",
+      "partido": "PL"
+    },
+    {
+      "id": "74400",
+      "nome": "Paulo Pimenta",
+      "estado": "RS",
+      "partido": "PT"
+    },
+    {
+      "id": "141488",
+      "nome": "Paulo Teixeira",
+      "estado": "SP",
+      "partido": "PT"
+    },
+    {
+      "id": "220630",
+      "nome": "Pedro Aihara",
+      "estado": "MG",
+      "partido": "PP"
+    },
+    {
+      "id": "220667",
+      "nome": "Pedro Campos",
+      "estado": "PE",
+      "partido": "PSB"
+    },
+    {
+      "id": "122974",
+      "nome": "Pedro Lucas Fernandes",
+      "estado": "MA",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "204395",
+      "nome": "Pedro Lupion",
+      "estado": "PR",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "122158",
+      "nome": "Pedro Paulo",
+      "estado": "RJ",
+      "partido": "PSD"
+    },
+    {
+      "id": "160604",
+      "nome": "Pedro Uczai",
+      "estado": "SC",
+      "partido": "PT"
+    },
+    {
+      "id": "204406",
+      "nome": "Pedro Westphalen",
+      "estado": "RS",
+      "partido": "PP"
+    },
+    {
+      "id": "161440",
+      "nome": "Pezenti",
+      "estado": "SC",
+      "partido": "MDB"
+    },
+    {
+      "id": "204524",
+      "nome": "Pinheirinho",
+      "estado": "MG",
+      "partido": "PP"
+    },
+    {
+      "id": "73486",
+      "nome": "Pompeo de Mattos",
+      "estado": "RS",
+      "partido": "PDT"
+    },
+    {
+      "id": "160601",
+      "nome": "Pr. Marco Feliciano",
+      "estado": "SP",
+      "partido": "PL"
+    },
+    {
+      "id": "220533",
+      "nome": "Prof. Reginaldo Veras",
+      "estado": "DF",
+      "partido": "PV"
+    },
+    {
+      "id": "204390",
+      "nome": "Professor Alcides",
+      "estado": "GO",
+      "partido": "PSDB"
+    },
+    {
+      "id": "221338",
+      "nome": "Professora Luciene Cavalcante",
+      "estado": "SP",
+      "partido": "PSOL"
+    },
+    {
+      "id": "160641",
+      "nome": "Professora Marcivania",
+      "estado": "AP",
+      "partido": "PCdoB"
+    },
+    {
+      "id": "220586",
+      "nome": "Rafael Brito",
+      "estado": "AL",
+      "partido": "MDB"
+    },
+    {
+      "id": "233594",
+      "nome": "Rafael Fera",
+      "estado": "RO",
+      "partido": "PODE"
+    },
+    {
+      "id": "220532",
+      "nome": "Rafael Prudente",
+      "estado": "DF",
+      "partido": "MDB"
+    },
+    {
+      "id": "220626",
+      "nome": "Rafael Simoes",
+      "estado": "MG",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "204567",
+      "nome": "Raimundo Costa",
+      "estado": "BA",
+      "partido": "PSD"
+    },
+    {
+      "id": "74084",
+      "nome": "Raimundo Santos",
+      "estado": "PA",
+      "partido": "PSD"
+    },
+    {
+      "id": "74161",
+      "nome": "Reginaldo Lopes",
+      "estado": "MG",
+      "partido": "PT"
+    },
+    {
+      "id": "220606",
+      "nome": "Reimont",
+      "estado": "RJ",
+      "partido": "PT"
+    },
+    {
+      "id": "178989",
+      "nome": "Renata Abreu",
+      "estado": "SP",
+      "partido": "PODE"
+    },
+    {
+      "id": "153423",
+      "nome": "Renilce Nicodemos",
+      "estado": "PA",
+      "partido": "MDB"
+    },
+    {
+      "id": "73801",
+      "nome": "Renildo Calheiros",
+      "estado": "PE",
+      "partido": "PCdoB"
+    },
+    {
+      "id": "175765",
+      "nome": "Ribamar Silva",
+      "estado": "SP",
+      "partido": "PODE"
+    },
+    {
+      "id": "235088",
+      "nome": "Ribeiro Neto",
+      "estado": "MA",
+      "partido": "SOLIDARIEDADE"
+    },
+    {
+      "id": "221329",
+      "nome": "Ricardo Abrão",
+      "estado": "RJ",
+      "partido": "PSDB"
+    },
+    {
+      "id": "220543",
+      "nome": "Ricardo Ayres",
+      "estado": "TO",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "73788",
+      "nome": "Ricardo Barros",
+      "estado": "PR",
+      "partido": "PP"
+    },
+    {
+      "id": "204362",
+      "nome": "Ricardo Guidi",
+      "estado": "SC",
+      "partido": "PL"
+    },
+    {
+      "id": "220694",
+      "nome": "Ricardo Maia",
+      "estado": "BA",
+      "partido": "MDB"
+    },
+    {
+      "id": "220633",
+      "nome": "Ricardo Salles",
+      "estado": "SP",
+      "partido": "NOVO"
+    },
+    {
+      "id": "204489",
+      "nome": "Robério Monteiro",
+      "estado": "CE",
+      "partido": "PSB"
+    },
+    {
+      "id": "220693",
+      "nome": "Roberta Roma",
+      "estado": "BA",
+      "partido": "PL"
+    },
+    {
+      "id": "220588",
+      "nome": "Roberto Duarte",
+      "estado": "AC",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "220613",
+      "nome": "Roberto Monteiro Pai",
+      "estado": "RJ",
+      "partido": "PL"
+    },
+    {
+      "id": "220624",
+      "nome": "Robinson Faria",
+      "estado": "RN",
+      "partido": "PP"
+    },
+    {
+      "id": "220546",
+      "nome": "Rodolfo Nogueira",
+      "estado": "MS",
+      "partido": "PL"
+    },
+    {
+      "id": "230767",
+      "nome": "Rodrigo da Zaeli",
+      "estado": "MT",
+      "partido": "PL"
+    },
+    {
+      "id": "141531",
+      "nome": "Rodrigo de Castro",
+      "estado": "MG",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "220641",
+      "nome": "Rodrigo Gambale",
+      "estado": "SP",
+      "partido": "PODE"
+    },
+    {
+      "id": "141533",
+      "nome": "Rodrigo Rollemberg",
+      "estado": "DF",
+      "partido": "PSB"
+    },
+    {
+      "id": "165470",
+      "nome": "Rodrigo Valadares",
+      "estado": "SE",
+      "partido": "PL"
+    },
+    {
+      "id": "220695",
+      "nome": "Rogéria Santos",
+      "estado": "BA",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "204480",
+      "nome": "Rogério Correia",
+      "estado": "MG",
+      "partido": "PT"
+    },
+    {
+      "id": "160629",
+      "nome": "Romero Rodrigues",
+      "estado": "PB",
+      "partido": "PODE"
+    },
+    {
+      "id": "204525",
+      "nome": "Rosana Valle",
+      "estado": "SP",
+      "partido": "PL"
+    },
+    {
+      "id": "178945",
+      "nome": "Rosangela Gomes",
+      "estado": "RJ",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "220644",
+      "nome": "Rosangela Moro",
+      "estado": "SP",
+      "partido": "PL"
+    },
+    {
+      "id": "220620",
+      "nome": "Rosângela Reis",
+      "estado": "MG",
+      "partido": "PL"
+    },
+    {
+      "id": "74371",
+      "nome": "Rubens Otoni",
+      "estado": "GO",
+      "partido": "PT"
+    },
+    {
+      "id": "178887",
+      "nome": "Rubens Pereira Júnior",
+      "estado": "MA",
+      "partido": "PT"
+    },
+    {
+      "id": "73604",
+      "nome": "Rui Falcão",
+      "estado": "SP",
+      "partido": "PT"
+    },
+    {
+      "id": "160635",
+      "nome": "Ruy Carneiro",
+      "estado": "PB",
+      "partido": "PODE"
+    },
+    {
+      "id": "204535",
+      "nome": "Sâmia Bomfim",
+      "estado": "SP",
+      "partido": "PSOL"
+    },
+    {
+      "id": "220631",
+      "nome": "Samuel Viana",
+      "estado": "MG",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "204416",
+      "nome": "Sanderson",
+      "estado": "RS",
+      "partido": "PL"
+    },
+    {
+      "id": "160621",
+      "nome": "Sandro Alex",
+      "estado": "PR",
+      "partido": "PSD"
+    },
+    {
+      "id": "204387",
+      "nome": "Sargento Fahur",
+      "estado": "PR",
+      "partido": "PL"
+    },
+    {
+      "id": "220621",
+      "nome": "Sargento Gonçalves",
+      "estado": "RN",
+      "partido": "PL"
+    },
+    {
+      "id": "220618",
+      "nome": "Sargento Portugal",
+      "estado": "RJ",
+      "partido": "PODE"
+    },
+    {
+      "id": "220713",
+      "nome": "Saullo Vianna",
+      "estado": "AM",
+      "partido": "MDB"
+    },
+    {
+      "id": "226837",
+      "nome": "Saulo Pedroso",
+      "estado": "SP",
+      "partido": "PSD"
+    },
+    {
+      "id": "73808",
+      "nome": "Sérgio Brito",
+      "estado": "BA",
+      "partido": "PSD"
+    },
+    {
+      "id": "178933",
+      "nome": "Sergio Souza",
+      "estado": "PR",
+      "partido": "MDB"
+    },
+    {
+      "id": "235776",
+      "nome": "Sérgio Turra",
+      "estado": "RS",
+      "partido": "PP"
+    },
+    {
+      "id": "204557",
+      "nome": "Sidney Leite",
+      "estado": "AM",
+      "partido": "PSD"
+    },
+    {
+      "id": "204360",
+      "nome": "Silvia Cristina",
+      "estado": "RO",
+      "partido": "PP"
+    },
+    {
+      "id": "227310",
+      "nome": "Silvio Antonio",
+      "estado": "MA",
+      "partido": "PL"
+    },
+    {
+      "id": "204425",
+      "nome": "Silvio Costa Filho",
+      "estado": "PE",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "220569",
+      "nome": "Silvye Alves",
+      "estado": "GO",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "220651",
+      "nome": "Simone Marquetto",
+      "estado": "SP",
+      "partido": "PP"
+    },
+    {
+      "id": "104552",
+      "nome": "Socorro Neri",
+      "estado": "AC",
+      "partido": "PP"
+    },
+    {
+      "id": "220643",
+      "nome": "Sônia Guajajara",
+      "estado": "SP",
+      "partido": "PSOL"
+    },
+    {
+      "id": "178946",
+      "nome": "Soraya Santos",
+      "estado": "RJ",
+      "partido": "PL"
+    },
+    {
+      "id": "178947",
+      "nome": "Sóstenes Cavalcante",
+      "estado": "RJ",
+      "partido": "PL"
+    },
+    {
+      "id": "92776",
+      "nome": "Stefano Aguiar",
+      "estado": "MG",
+      "partido": "PSD"
+    },
+    {
+      "id": "204534",
+      "nome": "Tabata Amaral",
+      "estado": "SP",
+      "partido": "PSB"
+    },
+    {
+      "id": "220682",
+      "nome": "Tadeu Veneri",
+      "estado": "PR",
+      "partido": "PT"
+    },
+    {
+      "id": "204464",
+      "nome": "Talíria Petrone",
+      "estado": "RJ",
+      "partido": "PSOL"
+    },
+    {
+      "id": "220598",
+      "nome": "Tarcísio Motta",
+      "estado": "RJ",
+      "partido": "PSOL"
+    },
+    {
+      "id": "220560",
+      "nome": "Thiago de Joaldo",
+      "estado": "SE",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "220597",
+      "nome": "Thiago Flores",
+      "estado": "RO",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "143084",
+      "nome": "Tiago Dimas",
+      "estado": "TO",
+      "partido": "PODE"
+    },
+    {
+      "id": "220684",
+      "nome": "Tião Medeiros",
+      "estado": "PR",
+      "partido": "PP"
+    },
+    {
+      "id": "160976",
+      "nome": "Tiririca",
+      "estado": "SP",
+      "partido": "PSD"
+    },
+    {
+      "id": "178934",
+      "nome": "Toninho Wandscheer",
+      "estado": "PR",
+      "partido": "PP"
+    },
+    {
+      "id": "157130",
+      "nome": "Túlio Gadêlha",
+      "estado": "PE",
+      "partido": "PSD"
+    },
+    {
+      "id": "160610",
+      "nome": "Valmir Assunção",
+      "estado": "BA",
+      "partido": "PT"
+    },
+    {
+      "id": "74376",
+      "nome": "Vander Loubet",
+      "estado": "MS",
+      "partido": "PT"
+    },
+    {
+      "id": "234673",
+      "nome": "Vanderlan Alves",
+      "estado": "CE",
+      "partido": "SOLIDARIEDADE"
+    },
+    {
+      "id": "235712",
+      "nome": "Vavá",
+      "estado": "MG",
+      "partido": "AVANTE"
+    },
+    {
+      "id": "204396",
+      "nome": "Vermelho",
+      "estado": "PR",
+      "partido": "PL"
+    },
+    {
+      "id": "137070",
+      "nome": "Vicentinho Júnior",
+      "estado": "TO",
+      "partido": "PSDB"
+    },
+    {
+      "id": "141555",
+      "nome": "Vinicius Carvalho",
+      "estado": "SP",
+      "partido": "PL"
+    },
+    {
+      "id": "160591",
+      "nome": "Vinicius Gurgel",
+      "estado": "AP",
+      "partido": "PL"
+    },
+    {
+      "id": "178992",
+      "nome": "Vitor Lippi",
+      "estado": "SP",
+      "partido": "PSD"
+    },
+    {
+      "id": "91228",
+      "nome": "Waldemar Oliveira",
+      "estado": "PE",
+      "partido": "AVANTE"
+    },
+    {
+      "id": "160569",
+      "nome": "Waldenor Pereira",
+      "estado": "BA",
+      "partido": "PT"
+    },
+    {
+      "id": "160518",
+      "nome": "Weliton Prado",
+      "estado": "MG",
+      "partido": "SOLIDARIEDADE"
+    },
+    {
+      "id": "74043",
+      "nome": "Wellington Roberto",
+      "estado": "PB",
+      "partido": "PSD"
+    },
+    {
+      "id": "224333",
+      "nome": "Welter",
+      "estado": "PR",
+      "partido": "PT"
+    },
+    {
+      "id": "74044",
+      "nome": "Wilson Santiago",
+      "estado": "PB",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "220564",
+      "nome": "Yandra Moura",
+      "estado": "SE",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "220660",
+      "nome": "Yury do Paredão",
+      "estado": "CE",
+      "partido": "MDB"
+    },
+    {
+      "id": "230768",
+      "nome": "Zé Adriano",
+      "estado": "AC",
+      "partido": "PP"
+    },
+    {
+      "id": "220536",
+      "nome": "Zé Haroldo Cathedral",
+      "estado": "RR",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "204559",
+      "nome": "Zé Neto",
+      "estado": "BA",
+      "partido": "PT"
+    },
+    {
+      "id": "160632",
+      "nome": "Zé Silva",
+      "estado": "MG",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "220558",
+      "nome": "Zé Trovão",
+      "estado": "SC",
+      "partido": "PL"
+    },
+    {
+      "id": "204517",
+      "nome": "Zé Vitor",
+      "estado": "MG",
+      "partido": "PL"
+    },
+    {
+      "id": "160592",
+      "nome": "Zeca Dirceu",
+      "estado": "PR",
+      "partido": "PT"
+    },
+    {
+      "id": "220592",
+      "nome": "Zezinho Barbary",
+      "estado": "AC",
+      "partido": "PP"
+    },
+    {
+      "id": "220552",
+      "nome": "Zucco",
+      "estado": "RS",
+      "partido": "PL"
+    }
+  ],
+  "senadores": [
+    {
+      "id": "5672",
+      "nome": "Alan Rick",
+      "estado": "AC",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "5982",
+      "nome": "Alessandro Vieira",
+      "estado": "SE",
+      "partido": "MDB"
+    },
+    {
+      "id": "6358",
+      "nome": "Ana Paula Lobato",
+      "estado": "MA",
+      "partido": "PSB"
+    },
+    {
+      "id": "5967",
+      "nome": "Angelo Coronel",
+      "estado": "BA",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "6009",
+      "nome": "Astronauta Marcos Pontes",
+      "estado": "SP",
+      "partido": "PL"
+    },
+    {
+      "id": "4639",
+      "nome": "Beto Faro",
+      "estado": "PA",
+      "partido": "PT"
+    },
+    {
+      "id": "6336",
+      "nome": "Camilo Santana",
+      "estado": "CE",
+      "partido": "PT"
+    },
+    {
+      "id": "6295",
+      "nome": "Carlos Fávaro",
+      "estado": "MT",
+      "partido": "PSD"
+    },
+    {
+      "id": "5936",
+      "nome": "Carlos Portinho",
+      "estado": "RJ",
+      "partido": "PL"
+    },
+    {
+      "id": "5990",
+      "nome": "Carlos Viana",
+      "estado": "MG",
+      "partido": "PSD"
+    },
+    {
+      "id": "470",
+      "nome": "Chico Rodrigues",
+      "estado": "RR",
+      "partido": "PSB"
+    },
+    {
+      "id": "5973",
+      "nome": "Cid Gomes",
+      "estado": "CE",
+      "partido": "PSB"
+    },
+    {
+      "id": "739",
+      "nome": "Ciro Nogueira",
+      "estado": "PI",
+      "partido": "PP"
+    },
+    {
+      "id": "6337",
+      "nome": "Cleitinho",
+      "estado": "MG",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "475",
+      "nome": "Confúcio Moura",
+      "estado": "RO",
+      "partido": "MDB"
+    },
+    {
+      "id": "6335",
+      "nome": "Damares Alves",
+      "estado": "DF",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "5998",
+      "nome": "Daniella Ribeiro",
+      "estado": "PB",
+      "partido": "PP"
+    },
+    {
+      "id": "3830",
+      "nome": "Davi Alcolumbre",
+      "estado": "AP",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "5793",
+      "nome": "Dr. Hiran",
+      "estado": "RR",
+      "partido": "PP"
+    },
+    {
+      "id": "5906",
+      "nome": "Dra. Eudócia",
+      "estado": "AL",
+      "partido": "PSDB"
+    },
+    {
+      "id": "4994",
+      "nome": "Eduardo Braga",
+      "estado": "AM",
+      "partido": "MDB"
+    },
+    {
+      "id": "5976",
+      "nome": "Eduardo Girão",
+      "estado": "CE",
+      "partido": "NOVO"
+    },
+    {
+      "id": "3777",
+      "nome": "Eduardo Gomes",
+      "estado": "TO",
+      "partido": "PL"
+    },
+    {
+      "id": "4642",
+      "nome": "Efraim Filho",
+      "estado": "PB",
+      "partido": "PL"
+    },
+    {
+      "id": "5718",
+      "nome": "Eliziane Gama",
+      "estado": "MA",
+      "partido": "PSD"
+    },
+    {
+      "id": "22",
+      "nome": "Esperidião Amin",
+      "estado": "SC",
+      "partido": "PP"
+    },
+    {
+      "id": "5953",
+      "nome": "Fabiano Contarato",
+      "estado": "ES",
+      "partido": "PT"
+    },
+    {
+      "id": "5917",
+      "nome": "Fernando Dueire",
+      "estado": "PE",
+      "partido": "PSD"
+    },
+    {
+      "id": "345",
+      "nome": "Flávio Arns",
+      "estado": "PR",
+      "partido": "PSB"
+    },
+    {
+      "id": "5894",
+      "nome": "Flávio Bolsonaro",
+      "estado": "RJ",
+      "partido": "PL"
+    },
+    {
+      "id": "6008",
+      "nome": "Giordano",
+      "estado": "SP",
+      "partido": "PODEMOS"
+    },
+    {
+      "id": "6341",
+      "nome": "Hamilton Mourão",
+      "estado": "RS",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "6381",
+      "nome": "Hermes Klann",
+      "estado": "SC",
+      "partido": "PL"
+    },
+    {
+      "id": "5008",
+      "nome": "Humberto Costa",
+      "estado": "PE",
+      "partido": "PT"
+    },
+    {
+      "id": "5385",
+      "nome": "Irajá",
+      "estado": "TO",
+      "partido": "PSD"
+    },
+    {
+      "id": "6010",
+      "nome": "Ivete da Silveira",
+      "estado": "SC",
+      "partido": "MDB"
+    },
+    {
+      "id": "4770",
+      "nome": "Izalci Lucas",
+      "estado": "DF",
+      "partido": "PL"
+    },
+    {
+      "id": "35",
+      "nome": "Jader Barbalho",
+      "estado": "PA",
+      "partido": "MDB"
+    },
+    {
+      "id": "6340",
+      "nome": "Jaime Bagattoli",
+      "estado": "RO",
+      "partido": "PL"
+    },
+    {
+      "id": "581",
+      "nome": "Jaques Wagner",
+      "estado": "BA",
+      "partido": "PT"
+    },
+    {
+      "id": "4531",
+      "nome": "Jayme Campos",
+      "estado": "MT",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "5895",
+      "nome": "Jorge Kajuru",
+      "estado": "GO",
+      "partido": "PSB"
+    },
+    {
+      "id": "6369",
+      "nome": "Jussara Lima",
+      "estado": "PI",
+      "partido": "PSD"
+    },
+    {
+      "id": "4811",
+      "nome": "Laércio Oliveira",
+      "estado": "SE",
+      "partido": "PP"
+    },
+    {
+      "id": "5979",
+      "nome": "Leila Barros",
+      "estado": "DF",
+      "partido": "PDT"
+    },
+    {
+      "id": "5926",
+      "nome": "Lucas Barreto",
+      "estado": "AP",
+      "partido": "PSD"
+    },
+    {
+      "id": "1186",
+      "nome": "Luis Carlos Heinze",
+      "estado": "RS",
+      "partido": "PP"
+    },
+    {
+      "id": "631",
+      "nome": "Magno Malta",
+      "estado": "ES",
+      "partido": "PL"
+    },
+    {
+      "id": "5376",
+      "nome": "Mara Gabrilli",
+      "estado": "SP",
+      "partido": "PSD"
+    },
+    {
+      "id": "742",
+      "nome": "Marcelo Castro",
+      "estado": "PI",
+      "partido": "MDB"
+    },
+    {
+      "id": "285",
+      "nome": "Marcio Bittar",
+      "estado": "AC",
+      "partido": "PL"
+    },
+    {
+      "id": "5942",
+      "nome": "Marcos do Val",
+      "estado": "ES",
+      "partido": "AVANTE"
+    },
+    {
+      "id": "5422",
+      "nome": "Marcos Rogério",
+      "estado": "RO",
+      "partido": "PL"
+    },
+    {
+      "id": "5985",
+      "nome": "Nelsinho Trad",
+      "estado": "MS",
+      "partido": "PSD"
+    },
+    {
+      "id": "5525",
+      "nome": "Omar Aziz",
+      "estado": "AM",
+      "partido": "PSD"
+    },
+    {
+      "id": "5924",
+      "nome": "Oriovisto Guimarães",
+      "estado": "PR",
+      "partido": "PSDB"
+    },
+    {
+      "id": "5523",
+      "nome": "Otto Alencar",
+      "estado": "BA",
+      "partido": "PSD"
+    },
+    {
+      "id": "825",
+      "nome": "Paulo Paim",
+      "estado": "RS",
+      "partido": "PT"
+    },
+    {
+      "id": "5502",
+      "nome": "Plínio Valério",
+      "estado": "AM",
+      "partido": "PSDB"
+    },
+    {
+      "id": "5386",
+      "nome": "Professora Dorinha Seabra",
+      "estado": "TO",
+      "partido": "UNIÃO"
+    },
+    {
+      "id": "5012",
+      "nome": "Randolfe Rodrigues",
+      "estado": "AP",
+      "partido": "PT"
+    },
+    {
+      "id": "70",
+      "nome": "Renan Calheiros",
+      "estado": "AL",
+      "partido": "MDB"
+    },
+    {
+      "id": "5207",
+      "nome": "Renan Filho",
+      "estado": "AL",
+      "partido": "MDB"
+    },
+    {
+      "id": "6025",
+      "nome": "Roberta Acioly",
+      "estado": "RR",
+      "partido": "REPUBLICANOS"
+    },
+    {
+      "id": "5732",
+      "nome": "Rodrigo Pacheco",
+      "estado": "MG",
+      "partido": "PSB"
+    },
+    {
+      "id": "5352",
+      "nome": "Rogério Carvalho",
+      "estado": "SE",
+      "partido": "PT"
+    },
+    {
+      "id": "4694",
+      "nome": "Rogerio Marinho",
+      "estado": "RN",
+      "partido": "PL"
+    },
+    {
+      "id": "5322",
+      "nome": "Romário",
+      "estado": "RJ",
+      "partido": "PL"
+    },
+    {
+      "id": "6331",
+      "nome": "Sergio Moro",
+      "estado": "PR",
+      "partido": "PL"
+    },
+    {
+      "id": "4560",
+      "nome": "Sérgio Petecão",
+      "estado": "AC",
+      "partido": "PSD"
+    },
+    {
+      "id": "5988",
+      "nome": "Soraya Thronicke",
+      "estado": "MS",
+      "partido": "PSB"
+    },
+    {
+      "id": "5959",
+      "nome": "Styvenson Valentim",
+      "estado": "RN",
+      "partido": "PODEMOS"
+    },
+    {
+      "id": "6338",
+      "nome": "Teresa Leitão",
+      "estado": "PE",
+      "partido": "PT"
+    },
+    {
+      "id": "5736",
+      "nome": "Tereza Cristina",
+      "estado": "MS",
+      "partido": "PP"
+    },
+    {
+      "id": "5899",
+      "nome": "Vanderlan Cardoso",
+      "estado": "GO",
+      "partido": "PSD"
+    },
+    {
+      "id": "5748",
+      "nome": "Veneziano Vital do Rêgo",
+      "estado": "PB",
+      "partido": "MDB"
+    },
+    {
+      "id": "5016",
+      "nome": "Wellington Dias",
+      "estado": "",
+      "partido": "PT"
+    },
+    {
+      "id": "1173",
+      "nome": "Wellington Fagundes",
+      "estado": "MT",
+      "partido": "PL"
+    },
+    {
+      "id": "5411",
+      "nome": "Weverton",
+      "estado": "MA",
+      "partido": "PDT"
+    },
+    {
+      "id": "5070",
+      "nome": "Wilder Morais",
+      "estado": "GO",
+      "partido": "PL"
+    },
+    {
+      "id": "5783",
+      "nome": "Zenaide Maia",
+      "estado": "RN",
+      "partido": "PSD"
+    },
+    {
+      "id": "3806",
+      "nome": "Zequinha Marinho",
+      "estado": "PA",
+      "partido": "PODEMOS"
+    }
+  ],
+  "deputados-estaduais": [
+    {
+      "id": "2144",
+      "nome": "Adão Pretto Filho",
+      "estado": "RS",
+      "partido": "PT",
+      "email": "adao.prettofilho@al.rs.gov.br",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/3/24/360297_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2144"
+    },
+    {
+      "id": "es-adilsonespindula",
+      "nome": "Adilson Espindula",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3612",
+      "email": "dep.adilsonespindula@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_adilson_espindula_mini_305.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/AdilsonEspindula"
+    },
+    {
+      "id": "13",
+      "nome": "Adolfo Brito",
+      "estado": "RS",
+      "partido": "PP",
+      "email": "ajbrito@al.rs.gov.br",
+      "telefone": "(51) 32102110",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/3/24/360299_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/13"
+    },
+    {
+      "id": "2145",
+      "nome": "Adriana Lara ",
+      "estado": "RS",
+      "partido": "PL",
+      "email": "adriana.lara@al.rs.gov.br",
+      "telefone": "(51) 32101725",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/3/24/360293_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2145"
+    },
+    {
+      "id": "300607",
+      "nome": "Agente Federal Danilo Balas",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "apfdanilobalas@al.sp.gov.br",
+      "telefone": "3886-6054/6052",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300607/678129ff534ded49f5d96881ab26868b6170b40819639502898b48ee6030c787.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300607"
+    },
+    {
+      "id": "505",
+      "nome": "ALAN LOPES",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_133211AlanLopes.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/505?Legislatura=20"
+    },
+    {
+      "id": "es-alcantarofilho",
+      "nome": "Alcântaro Filho",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-5200",
+      "email": "alcantarofilho@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_alcantaro_victor_lazzarini_campos_mini_332.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/AlcantaroFilho"
+    },
+    {
+      "id": "300608",
+      "nome": "Alex Madureira",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "alexdemadureira@al.sp.gov.br",
+      "telefone": "(11) 3886-6676/ 6677",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230302-145402-id=546-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300608"
+    },
+    {
+      "id": "420",
+      "nome": "ALEXANDRE KNOPLOCH",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/28012026_1149073x4.jpeg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/420?Legislatura=20"
+    },
+    {
+      "id": "es-alexandrexambinho",
+      "nome": "Alexandre Xambinho",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3521",
+      "email": "alexandrexambinho@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_alexandre_araujo_marcal_mini_307.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/AlexandreXambinho"
+    },
+    {
+      "id": "es-allanferreira",
+      "nome": "Allan Ferreira",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3631",
+      "email": "dep.allanferreira@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_allan_albert_lourenco_ferreira_mini_334.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/AllanFerreira"
+    },
+    {
+      "id": "134",
+      "nome": "Aloísio Classmann",
+      "estado": "RS",
+      "partido": "PSD",
+      "email": "aloisio.classmann@al.rs.gov.br",
+      "telefone": "(51) 32102610",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2015/3/10/178994_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/134"
+    },
+    {
+      "id": "300609",
+      "nome": "Altair Moraes",
+      "estado": "SP",
+      "partido": "REPUBLICANOS",
+      "email": "altairmoraes@al.sp.gov.br",
+      "telefone": "(11) 3886-6468/ 6476",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230315-141411-id=545-GRD.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300609"
+    },
+    {
+      "id": "sc-altair-silva",
+      "nome": "Altair Silva",
+      "estado": "SC",
+      "partido": "",
+      "email": "dep.altairsilva@alesc.sc.gov.br",
+      "telefone": "4832212729",
+      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/altair-silva/"
+    },
+    {
+      "id": "300657",
+      "nome": "Ana Carolina Serra",
+      "estado": "SP",
+      "partido": "PSDB",
+      "email": "acrbserra@al.sp.gov.br",
+      "telefone": "(11) 3886-6066/ 6067",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230315-163915-id=1622-GRD.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300657"
+    },
+    {
+      "id": "300466",
+      "nome": "Ana Perugini",
+      "estado": "SP",
+      "partido": "PT",
+      "email": "anaperugini@al.sp.gov.br",
+      "telefone": "(11) 3886-6082/ 6083",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230320-180813-id=81-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300466"
+    },
+    {
+      "id": "300431",
+      "nome": "Analice Fernandes",
+      "estado": "SP",
+      "partido": "PSD",
+      "email": "afernandes@al.sp.gov.br",
+      "telefone": "(11) 3886-6797/ 6798",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300431/69142319ee3fc052a205d625527ba5a8de9faa52aa1b643a8b3c0f41f886e1a7.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300431"
+    },
+    {
+      "id": "422",
+      "nome": "ANDERSON MORAES",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_150559AndersonMorais.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/422?Legislatura=20"
+    },
+    {
+      "id": "300694",
+      "nome": "André Bueno",
+      "estado": "SP",
+      "partido": "MDB",
+      "email": "andre.bueno@al.sp.gov.br",
+      "telefone": "(11) 3886-6526 / 6527",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300694/e887523d7aec18236fb4b9da8ef2e63fd9c728bc645aa04c5c1131fa9f4fd2c5.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300694"
+    },
+    {
+      "id": "346",
+      "nome": "ANDRE CORREA",
+      "estado": "RJ",
+      "partido": "PSD",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/07062020_234145AC500.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/346?Legislatura=20"
+    },
+    {
+      "id": "300497",
+      "nome": "André do Prado",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "andredoprado@al.sp.gov.br",
+      "telefone": "(11) 3886-6562/ 6563",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300497/2f42bf3f57458a3a37942214178dfc3d890395c8884ceb9979a0aea6f0a1850c.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300497"
+    },
+    {
+      "id": "300658",
+      "nome": "Andréa Werner",
+      "estado": "SP",
+      "partido": "PSB",
+      "email": "andreawerner@al.sp.gov.br",
+      "telefone": "(11) 3886-6088/ 6089",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300658/ec8711d9e474223bd1fdb27dbaff6fb7cab4ecb03d9f34023706fb4734e2868d.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300658"
+    },
+    {
+      "id": "sc-antidio-lunelli",
+      "nome": "Antídio Lunelli",
+      "estado": "SC",
+      "partido": "",
+      "email": "depantidiolunelli@alesc.sc.gov.br",
+      "telefone": "4832212695",
+      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/antidio-lunelli/"
+    },
+    {
+      "id": "501",
+      "nome": "ARTHUR MONTEIRO",
+      "estado": "RJ",
+      "partido": "SDD",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/09032023_170259ArthurMonteiro.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/501?Legislatura=20"
+    },
+    {
+      "id": "300537",
+      "nome": "Atila Jacomussi",
+      "estado": "SP",
+      "partido": "PRD",
+      "email": "atilajacomussi@al.sp.gov.br",
+      "telefone": "(11) 3886-6090/ 6091",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230315-170109-id=265-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300537"
+    },
+    {
+      "id": "300188",
+      "nome": "Barros Munhoz",
+      "estado": "SP",
+      "partido": "PSD",
+      "email": "barrosmunhoz@al.sp.gov.br",
+      "telefone": "(11) 3886-6635/ 6665",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300188/c5f99a2bc1c4d2dfe5d72c8a24e6b9a242b03d5b61314284be308fee932813a6.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300188"
+    },
+    {
+      "id": "sc-nilso-berlanda",
+      "nome": "Berlanda",
+      "estado": "SC",
+      "partido": "",
+      "email": "deputadoberlanda@alesc.sc.gov.br",
+      "telefone": "4832212645",
+      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/nilso-berlanda/"
+    },
+    {
+      "id": "300435",
+      "nome": "Beth Sahão",
+      "estado": "SP",
+      "partido": "PT",
+      "email": "bsahao@al.sp.gov.br",
+      "telefone": "(11) 3886-6643/ 6657",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230317-110718-id=31-GRD.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300435"
+    },
+    {
+      "id": "2139",
+      "nome": "Beto Fantinel ",
+      "estado": "RS",
+      "partido": "MDB",
+      "email": "beto.fantinel@al.rs.gov.br",
+      "telefone": "(51) 32102304",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2021/1/12/292433_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2139"
+    },
+    {
+      "id": "es-bispoalves",
+      "nome": "Bispo Alves",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3800",
+      "email": "dep.beneditocosta@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_benedito_alves_costa_mini_336.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/BispoAlves"
+    },
+    {
+      "id": "439",
+      "nome": "BRAZÃO",
+      "estado": "RJ",
+      "partido": "União",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_150811Brazao.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/439?Legislatura=20"
+    },
+    {
+      "id": "300659",
+      "nome": "Bruna Furlan",
+      "estado": "SP",
+      "partido": "REPUBLICANOS",
+      "email": "brunafurlan@al.sp.gov.br",
+      "telefone": "(11) 3886-6098/ 6099",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230315-170525-id=1641-GRD.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300659"
+    },
+    {
+      "id": "2146",
+      "nome": "Bruna Rodrigues",
+      "estado": "RS",
+      "partido": "PSB",
+      "email": "bruna.rodrigues@al.rs.gov.br",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/2/8/356623_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2146"
+    },
+    {
+      "id": "377",
+      "nome": "BRUNO DAUAIRE",
+      "estado": "RJ",
+      "partido": "União",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/19022019_162744BrunoDauaire_deputado3x4-4103.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/377?Legislatura=20"
+    },
+    {
+      "id": "300660",
+      "nome": "Bruno Zambelli",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "brunozambelli@al.sp.gov.br",
+      "telefone": "(11) 3886-6860/ 6862",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230511-162900-id=1644-GRD.jfif",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300660"
+    },
+    {
+      "id": "300540",
+      "nome": "Caio França",
+      "estado": "SP",
+      "partido": "PSB",
+      "email": "caiofranca@al.sp.gov.br",
+      "telefone": "(11) 3886-6572/ 6577",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230321-190741-id=267-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300540"
+    },
+    {
+      "id": "es-callegari",
+      "nome": "Callegari",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3581",
+      "email": "dep.wellingtoncallegari@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_wellington_callegari_mini_337.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/Callegari"
+    },
+    {
+      "id": "es-camilavaladao",
+      "nome": "Camila Valadão",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3601",
+      "email": "dep.camilavaladao@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_camila_costa_valadao_mini_335.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/CamilaValadao"
+    },
+    {
+      "id": "sc-camilo-martins",
+      "nome": "Camilo Martins",
+      "estado": "SC",
+      "partido": "",
+      "email": "camilo@camilomartins.com.br",
+      "telefone": "4832212677",
+      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/camilo-martins/"
+    },
+    {
+      "id": "es-capitaoassumcao",
+      "nome": "Capitão Assumção",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3595",
+      "email": "dep.capitaoassumcao@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_lucinio_castelo_de_assumcao_mini_309.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/CapitaoAssumcao"
+    },
+    {
+      "id": "2159",
+      "nome": "Capitão Martim",
+      "estado": "RS",
+      "partido": "REPUBLICANOS",
+      "email": "capitao.martim@al.rs.gov.br",
+      "telefone": "(51) 32102182",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2024/2/20/384002_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2159"
+    },
+    {
+      "id": "300661",
+      "nome": "Capitão Telhada",
+      "estado": "SP",
+      "partido": "PP",
+      "email": "capitaotelhada@al.sp.gov.br",
+      "telefone": "(11) 3886-6281/ 6283",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230315-173219-id=1648-GRD.png",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300661"
+    },
+    {
+      "id": "508",
+      "nome": "CARLA MACHADO",
+      "estado": "RJ",
+      "partido": "PSD",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_150853CarlaMachado.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/508?Legislatura=20"
+    },
+    {
+      "id": "300614",
+      "nome": "Carla Morando",
+      "estado": "SP",
+      "partido": "PSD",
+      "email": "carlamorando@al.sp.gov.br",
+      "telefone": "(11) 3886-6110 / 6111",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230315-142108-id=540-GRD.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300614"
+    },
+    {
+      "id": "300499",
+      "nome": "Carlão Pignatari",
+      "estado": "SP",
+      "partido": "PSD",
+      "email": "carlaopignatari@al.sp.gov.br",
+      "telefone": "(11) 3886-6123/ 6124",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300499/9717fd9e32cdb65c43f9558978d7a440bc407b053773de388c2f6f345989eba6.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300499"
+    },
+    {
+      "id": "494",
+      "nome": "CARLINHOS BNH",
+      "estado": "RJ",
+      "partido": "PP",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_150938CarlinhosBNH.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/494?Legislatura=20"
+    },
+    {
+      "id": "300485",
+      "nome": "Carlos Giannazi",
+      "estado": "SP",
+      "partido": "PSOL",
+      "email": "cgiannazi@al.sp.gov.br",
+      "telefone": "(11) 3886-6686/ 6690",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230321-191048-id=148-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300485"
+    },
+    {
+      "id": "sc-carlos-humberto",
+      "nome": "Carlos Humberto",
+      "estado": "SC",
+      "partido": "",
+      "email": "deputadocarloshumberto@alesc.sc.gov.br",
+      "telefone": "4832212653",
+      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/carlos-humberto/"
+    },
+    {
+      "id": "378",
+      "nome": "CARLOS MACEDO",
+      "estado": "RJ",
+      "partido": "REP",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_151018CarlosMacedo.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/378?Legislatura=20"
+    },
+    {
+      "id": "310",
+      "nome": "CARLOS MINC",
+      "estado": "RJ",
+      "partido": "PSB",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_151104CarlosMinc.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/310?Legislatura=20"
+    },
+    {
+      "id": "464",
+      "nome": "CELIA JORDÃO",
+      "estado": "RJ",
+      "partido": "PSD",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_151141CeliaJordao.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/464?Legislatura=20"
+    },
+    {
+      "id": "417",
+      "nome": "CHICO MACHADO",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/01042026_170853chico 3 . 4.jpeg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/417?Legislatura=20"
+    },
+    {
+      "id": "300662",
+      "nome": "Clarice Ganem",
+      "estado": "SP",
+      "partido": "PODE",
+      "email": "clariceganem@al.sp.gov.br",
+      "telefone": "(11) 3886-6093/ 6094",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300662/d9362d62e29435984b085411f9c8dd4f482f95db5b129c476778773a9d4a0cd8.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300662"
+    },
+    {
+      "id": "507",
+      "nome": "CLAUDIO CAIADO",
+      "estado": "RJ",
+      "partido": "PSD",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_151219ClaudioCaiado.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/507?Legislatura=20"
+    },
+    {
+      "id": "2148",
+      "nome": "Cláudio Tatsch",
+      "estado": "RS",
+      "partido": "PL",
+      "email": "claudio.tatsch@al.rs.gov.br",
+      "telefone": "(51) 32102310",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/3/1/357918_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2148"
+    },
+    {
+      "id": "300205",
+      "nome": "Conte Lopes",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "clopes@al.sp.gov.br",
+      "telefone": "(11) 3886-6464 / 6465",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230316-173502-id=180-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300205"
+    },
+    {
+      "id": "es-coronelweliton",
+      "nome": "Coronel Weliton",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3561",
+      "email": "dep.welitonpereira@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_weliton_virgilio_pereira_mini_338.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/CoronelWeliton"
+    },
+    {
+      "id": "300663",
+      "nome": "Dani Alonso",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "danialonso@al.sp.gov.br",
+      "telefone": "(11) 3886-6108/ 6109",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230315-171350-id=1653-GRD.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300663"
+    },
+    {
+      "id": "484",
+      "nome": "DANI BALBI",
+      "estado": "RJ",
+      "partido": "PC do B",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_151439DaniBalbi.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/484?Legislatura=20"
+    },
+    {
+      "id": "425",
+      "nome": "DANI MONTEIRO",
+      "estado": "RJ",
+      "partido": "PSOL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_151518DaniMonteiro.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/425?Legislatura=20"
+    },
+    {
+      "id": "300619",
+      "nome": "Daniel Soares",
+      "estado": "SP",
+      "partido": "UNIÃO",
+      "email": "DanielSoares@al.sp.gov.br",
+      "telefone": "(11) 3886-6235/ 6236",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230315-142647-id=535-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300619"
+    },
+    {
+      "id": "426",
+      "nome": "DANNIEL LIBRELON",
+      "estado": "RJ",
+      "partido": "REP",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_151354DanbielLibrelon.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/426?Legislatura=20"
+    },
+    {
+      "id": "es-darypagung",
+      "nome": "Dary Pagung",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3607",
+      "email": "darypagung@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_dary_alves_pagung_mini_24.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/DaryPagung"
+    },
+    {
+      "id": "300620",
+      "nome": "Delegada Graciela",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "delegadagraciela@al.sp.gov.br",
+      "telefone": "(11) 3886-6276/ 6279",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300620/b725bb9f2b1a490e2e6b490ae913be604ec542b36f1375ded387ba72d391e184.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300620"
+    },
+    {
+      "id": "2162",
+      "nome": "Delegada Nadine",
+      "estado": "RS",
+      "partido": "PSD",
+      "email": "delegada.nadine@al.rs.gov.br",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/1/31/355869_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2162"
+    },
+    {
+      "id": "427",
+      "nome": "DELEGADO CARLOS AUGUSTO",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/19022019_162912DelegadoCarlosAugusto_deputado3x4-4121.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/427?Legislatura=20"
+    },
+    {
+      "id": "es-delegadodanilobahiense",
+      "nome": "Delegado Danilo Bahiense",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3636",
+      "email": "dep.danilobahiense@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_danilo_bahiense_moreira_mini_316.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/DelegadoDaniloBahiense"
+    },
+    {
+      "id": "300543",
+      "nome": "Delegado Olim",
+      "estado": "SP",
+      "partido": "PP",
+      "email": "deputado.delegadoolim@al.sp.gov.br",
+      "telefone": "(11) 3886-6536/ 6543",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230321-191240-id=263-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300543"
+    },
+    {
+      "id": "2164",
+      "nome": "Delegado Zucco",
+      "estado": "RS",
+      "partido": "REPUBLICANOS",
+      "email": "delegado.zucco@al.rs.gov.br",
+      "telefone": "(51) 32101843",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/2/15/356992_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2164"
+    },
+    {
+      "id": "es-denninhosilva",
+      "nome": "Denninho Silva",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27)3382-3515",
+      "email": "dep.dennersilva@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_denner_januario_da_silva_mini_339.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/DenninhoSilva"
+    },
+    {
+      "id": "291",
+      "nome": "DIONISIO LINS",
+      "estado": "RJ",
+      "partido": "PP",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_151650DionisioLins.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/291?Legislatura=20"
+    },
+    {
+      "id": "300650",
+      "nome": "Dirceu Dalben",
+      "estado": "SP",
+      "partido": "PSD",
+      "email": "dirceudalben@al.sp.gov.br",
+      "telefone": "(11) 3886-6737/ 6763",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230324-122116-id=561-GRD.png",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300650"
+    },
+    {
+      "id": "2110",
+      "nome": "Dirceu Franciscon",
+      "estado": "RS",
+      "partido": "UNIÃO",
+      "email": "dirceu.franciscon@al.rs.gov.br",
+      "telefone": "(51) 32101411",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2019/2/14/238604_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2110"
+    },
+    {
+      "id": "300664",
+      "nome": "Donato",
+      "estado": "SP",
+      "partido": "PT",
+      "email": "donato@al.sp.gov.br",
+      "telefone": "(11) 3886-6219/ 6220",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230321-130104-id=1655-GRD.png",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300664"
+    },
+    {
+      "id": "478",
+      "nome": "DOUGLAS RUAS",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/16042026_102741douglas 3  4.jpeg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/478?Legislatura=20"
+    },
+    {
+      "id": "es-drbrunoresende",
+      "nome": "Dr. Bruno Resende",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3526",
+      "email": "dep.brunoresende@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_bruno_da_costa_resende_mini_340.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/DrBrunoResende"
+    },
+    {
+      "id": "380",
+      "nome": "DR. DEODALTO",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_151911DrDeodalto.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/380?Legislatura=20"
+    },
+    {
+      "id": "300665",
+      "nome": "Dr. Eduardo Nóbrega",
+      "estado": "SP",
+      "partido": "MDB",
+      "email": "dreduardonobrega@al.sp.gov.br",
+      "telefone": "(11) 3886-6242",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230315-171633-id=1657-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300665"
+    },
+    {
+      "id": "300666",
+      "nome": "Dr. Elton",
+      "estado": "SP",
+      "partido": "UNIÃO",
+      "email": "drelton@al.sp.gov.br",
+      "telefone": "(11) 3886-6384/ 6385",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230321-130306-id=1656-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300666"
+    },
+    {
+      "id": "300623",
+      "nome": "Dr. Jorge do Carmo",
+      "estado": "SP",
+      "partido": "PT",
+      "email": "drdepjorgedocarmo@al.sp.gov.br",
+      "telefone": "(11) 3886-6517/ 6518",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20190315-162558-id=531-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300623"
+    },
+    {
+      "id": "460",
+      "nome": "DR. PEDRO RICARDO",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_151959DrPedroRicardo.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/460?Legislatura=20"
+    },
+    {
+      "id": "2123",
+      "nome": "Dr. Thiago Duarte",
+      "estado": "RS",
+      "partido": "PDT",
+      "email": "dr.thiago@al.rs.gov.br",
+      "telefone": "(51) 32101651",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2019/2/14/238605_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2123"
+    },
+    {
+      "id": "sc-dr-vicente-caropreso",
+      "nome": "Dr. Vicente Caropreso",
+      "estado": "SC",
+      "partido": "",
+      "email": "dr.vicente@alesc.sc.gov.br",
+      "telefone": "4832212640",
+      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/dr-vicente-caropreso/"
+    },
+    {
+      "id": "300667",
+      "nome": "Ediane Maria",
+      "estado": "SP",
+      "partido": "PSOL",
+      "email": "edianemaria@al.sp.gov.br",
+      "telefone": "(11) 3886-6395/ 6397",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230427-144843-id=1654-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300667"
+    },
+    {
+      "id": "2150",
+      "nome": "Edivilson Brum",
+      "estado": "RS",
+      "partido": "MDB",
+      "email": "edivilson.brum@al.rs.gov.br",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/3/24/360296_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2150"
+    },
+    {
+      "id": "300318",
+      "nome": "Edna Macedo",
+      "estado": "SP",
+      "partido": "REPUBLICANOS",
+      "email": "ednamacedo@al.sp.gov.br",
+      "telefone": "(11) 3886-6432/ 6435",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20190315-152242-id=516-GRD.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300318"
+    },
+    {
+      "id": "300449",
+      "nome": "Edson Giriboni",
+      "estado": "SP",
+      "partido": "UNIÃO",
+      "email": "egiriboni@al.sp.gov.br",
+      "telefone": "(11) 3886-6555 / 6556",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300449/280f76c24a7653fb998a3811f59dbf282857f0f814f00ebc8dc51230dd9bcb70.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300449"
+    },
+    {
+      "id": "2085",
+      "nome": "Eduardo Loureiro",
+      "estado": "RS",
+      "partido": "PDT",
+      "email": "eduardo.loureiro@al.rs.gov.br",
+      "telefone": "(51) 32102560",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/2/17/357222_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2085"
+    },
+    {
+      "id": "300693",
+      "nome": "Eduardo Suplicy",
+      "estado": "SP",
+      "partido": "PT",
+      "email": "eduardosuplicy@al.sp.gov.br",
+      "telefone": "(11) 3886-6406/ 6407",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230321-191506-id=987-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300693"
+    },
+    {
+      "id": "2151",
+      "nome": "Eliana Bayer",
+      "estado": "RS",
+      "partido": "REPUBLICANOS",
+      "email": "eliana.bayer@al.rs.gov.br",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2026/3/19/450773_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2151"
+    },
+    {
+      "id": "481",
+      "nome": "ELIKA TAKIMOTO",
+      "estado": "RJ",
+      "partido": "PT",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_152039ElikaTakimoto.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/481?Legislatura=20"
+    },
+    {
+      "id": "2112",
+      "nome": "Elizandro Sabino",
+      "estado": "RS",
+      "partido": "REPUBLICANOS",
+      "email": "elizandro.sabino@al.rs.gov.br",
+      "telefone": "(51) 32101421",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2022/12/19/354399_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2112"
+    },
+    {
+      "id": "2086",
+      "nome": "Elton Weber",
+      "estado": "RS",
+      "partido": "PSD",
+      "email": "elton.weber@al.rs.gov.br",
+      "telefone": "(51) 32102440",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/2/7/356392_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2086"
+    },
+    {
+      "id": "300395",
+      "nome": "Emídio de Souza",
+      "estado": "SP",
+      "partido": "PT",
+      "email": "emidio@al.sp.gov.br",
+      "telefone": "(11) 3886-6420/ 6418",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230315-145500-id=517-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300395"
+    },
+    {
+      "id": "es-engenheirojoseesmeraldo",
+      "nome": "Engenheiro José Esmeraldo",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3766",
+      "email": "joseesmeraldo@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_jose_esmeraldo_de_freitas_mini_39.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/EngenheiroJoseEsmeraldo"
+    },
+    {
+      "id": "300440",
+      "nome": "Enio Tatto",
+      "estado": "SP",
+      "partido": "PT",
+      "email": "eniotatto@al.sp.gov.br",
+      "telefone": "(11) 3886-6950/ 6944",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20191112-192019-id=175-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300440"
+    },
+    {
+      "id": "2045",
+      "nome": "Ernani Polo",
+      "estado": "RS",
+      "partido": "PSD",
+      "email": "ernani.polo@al.rs.gov.br",
+      "telefone": "(51) 32101711",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2019/2/21/239082_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2045"
+    },
+    {
+      "id": "300669",
+      "nome": "Fabiana Bolsonaro",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "fabianab@al.sp.gov.br",
+      "telefone": "(11) 3886-6504/ 6505",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300669/c3164700a1d9a520ce2bd91f02475ecf7392825cc642755ced7be33b02771720.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300669"
+    },
+    {
+      "id": "sc-fabiano-da-luz",
+      "nome": "Fabiano da Luz",
+      "estado": "SC",
+      "partido": "",
+      "email": "fabiano@fabianodaluz.com.br",
+      "telefone": "4832212628",
+      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/fabiano-da-luz/"
+    },
+    {
+      "id": "es-fabioduarte",
+      "nome": "Fábio Duarte",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3531",
+      "email": "dep.fabioduarte@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_fabio_duarte_de_almeida_mini_352.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/FabioDuarte"
+    },
+    {
+      "id": "300697",
+      "nome": "Fábio Faria de Sá",
+      "estado": "SP",
+      "partido": "PODE",
+      "email": "fabiofariadesa@al.sp.gov.br",
+      "telefone": "(11) 3886-6541/ 6542",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300697/02c4f457f84a817a16b8c1c1635d95d7016b5b007d0a3cfcd6d091b3d570de68.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300697"
+    },
+    {
+      "id": "361",
+      "nome": "FÁBIO SILVA",
+      "estado": "RJ",
+      "partido": "União",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_152226FabioSilva.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/361?Legislatura=20"
+    },
+    {
+      "id": "2152",
+      "nome": "Felipe Camozzato",
+      "estado": "RS",
+      "partido": "NOVO",
+      "email": "felipe.camozzato@al.rs.gov.br",
+      "telefone": "(51) 32102305",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/3/24/360294_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2152"
+    },
+    {
+      "id": "300670",
+      "nome": "Felipe Franco",
+      "estado": "SP",
+      "partido": "UNIÃO",
+      "email": "felipefranco@al.sp.gov.br",
+      "telefone": "(11) 3886-6506/ 6507",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230321-130525-id=1650-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300670"
+    },
+    {
+      "id": "490",
+      "nome": "FELIPINHO RAVIS",
+      "estado": "RJ",
+      "partido": "PP",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_152406FilipinhoRavis.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/490?Legislatura=20"
+    },
+    {
+      "id": "sc-fernando-krelling",
+      "nome": "Fernando Krelling",
+      "estado": "SC",
+      "partido": "",
+      "email": "fernandokrelling@alesc.sc.gov.br",
+      "telefone": "4832212650",
+      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/fernando-krelling/"
+    },
+    {
+      "id": "384",
+      "nome": "FILIPE SOARES",
+      "estado": "RJ",
+      "partido": "PSDB",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_152308FilipeSoares.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/384?Legislatura=20"
+    },
+    {
+      "id": "429",
+      "nome": "FILIPPE POUBEL",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_152450FilippePoubel.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/429?Legislatura=20"
+    },
+    {
+      "id": "400",
+      "nome": "FLAVIO SERAFINI",
+      "estado": "RJ",
+      "partido": "PSOL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_152535FlavioSerafini.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/400?Legislatura=20"
+    },
+    {
+      "id": "430",
+      "nome": "FRANCIANE MOTTA",
+      "estado": "RJ",
+      "partido": "PODE",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_152700FrancianeMotta.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/430?Legislatura=20"
+    },
+    {
+      "id": "504",
+      "nome": "FRED PACHECO",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_152822FredPacheco.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/504?Legislatura=20"
+    },
+    {
+      "id": "65",
+      "nome": "Frederico Antunes",
+      "estado": "RS",
+      "partido": "PSD",
+      "email": "frederico.antunes@al.rs.gov.br",
+      "telefone": "(51) 32101122",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2019/2/14/238662_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/65"
+    },
+    {
+      "id": "es-gandini",
+      "nome": "Gandini",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3567",
+      "email": "fabriciogandini@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_fabricio_gandine_aquino_mini_322.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/Gandini"
+    },
+    {
+      "id": "2128",
+      "nome": "Gaúcho da Geral",
+      "estado": "RS",
+      "partido": "PP",
+      "email": "gaucho.dageral@al.rs.gov.br",
+      "telefone": "(51) 32101851",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2021/6/1/304061_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2128"
+    },
+    {
+      "id": "28",
+      "nome": "Gerson Burmann",
+      "estado": "RS",
+      "partido": "PDT",
+      "email": "gerson.burmann@al.rs.gov.br",
+      "telefone": "(51) 5132102690",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/3/24/360298_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/28"
+    },
+    {
+      "id": "300627",
+      "nome": "Gil Diniz Bolsonaro",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "gildiniz@al.sp.gov.br",
+      "telefone": "(11) 3886-6313/ 6321",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300627/66d82bc48da44e2c5448551d036be98f99cfd27fb168bb98f10282156ae1b532.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300627"
+    },
+    {
+      "id": "300450",
+      "nome": "Gilmaci Santos",
+      "estado": "SP",
+      "partido": "REPUBLICANOS",
+      "email": "gilmacisantos@al.sp.gov.br",
+      "telefone": "(11) 3886-6560/ 7752",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300450/c9ad70a12d24bbaae991b4b9eebd1bc08a7c02f192e6571553cca7463ba27907.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300450"
+    },
+    {
+      "id": "1505",
+      "nome": "Gilmar Sossella",
+      "estado": "RS",
+      "partido": "PDT",
+      "email": "gilmar.sossella@al.rs.gov.br",
+      "telefone": "(51) 32101290",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2015/3/10/178987_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/1505"
+    },
+    {
+      "id": "431",
+      "nome": "GIOVANI RATINHO",
+      "estado": "RJ",
+      "partido": "MDB",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_152913GiovaniRatinho.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/431?Legislatura=20"
+    },
+    {
+      "id": "482",
+      "nome": "GISELLE MONTEIRO",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_153001GiselleMonteiro.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/482?Legislatura=20"
+    },
+    {
+      "id": "300672",
+      "nome": "Guilherme Cortez",
+      "estado": "SP",
+      "partido": "PSOL",
+      "email": "guilhermecortez@al.sp.gov.br",
+      "telefone": "(11) 3886-6882/ 6883",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230321-130905-id=1646-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300672"
+    },
+    {
+      "id": "479",
+      "nome": "GUILHERME DELAROLI",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_151603Delaroli.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/479?Legislatura=20"
+    },
+    {
+      "id": "2153",
+      "nome": "Guilherme Pasin",
+      "estado": "RS",
+      "partido": "PP",
+      "email": "guilherme.pasin@al.rs.gov.br",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2025/1/7/413285_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2153"
+    },
+    {
+      "id": "495",
+      "nome": "GUILHERME SCHLEDER",
+      "estado": "RJ",
+      "partido": "PSD",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/14062024_175405guilherme2.jpeg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/495?Legislatura=20"
+    },
+    {
+      "id": "374",
+      "nome": "GUSTAVO TUTUCA",
+      "estado": "RJ",
+      "partido": "PP",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/19022019_152535GustavoTutuca_deputado3x4-3959.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/374?Legislatura=20"
+    },
+    {
+      "id": "2154",
+      "nome": "Gustavo Victorino",
+      "estado": "RS",
+      "partido": "REPUBLICANOS",
+      "email": "gustavo.victorino@al.rs.gov.br",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/2/1/356345_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2154"
+    },
+    {
+      "id": "300673",
+      "nome": "Guto Zacarias",
+      "estado": "SP",
+      "partido": "MISSÃO",
+      "email": "gutozacarias@al.sp.gov.br",
+      "telefone": "(11) 3886-6578/ 6579",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230321-131051-id=1645-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300673"
+    },
+    {
+      "id": "2168",
+      "nome": "Halley Lino ",
+      "estado": "RS",
+      "partido": "PT",
+      "email": "halley.lino@al.rs.gov.br",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2025/1/16/413312_G.png",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2168"
+    },
+    {
+      "id": "es-hudsonleal",
+      "nome": "Hudson Leal",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3737",
+      "email": "hudsonleal@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_hudson_soares_leal_mini_99.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/HudsonLeal"
+    },
+    {
+      "id": "485",
+      "nome": "INDIA ARMELAU",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_154118IndiaArmelau.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/485?Legislatura=20"
+    },
+    {
+      "id": "es-irinylopes",
+      "nome": "Iriny Lopes",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3700",
+      "email": "irinylopes@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_iriny_nicolau_corres_lopes_mini_324.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/IrinyLopes"
+    },
+    {
+      "id": "300510",
+      "nome": "Itamar Borges",
+      "estado": "SP",
+      "partido": "MDB",
+      "email": "itamarborges@al.sp.gov.br",
+      "telefone": "(11) 3886-6852/ 6857",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230420-132830-id=141-GRD.png",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300510"
+    },
+    {
+      "id": "sc-ivan-naatz",
+      "nome": "Ivan Naatz",
+      "estado": "SC",
+      "partido": "",
+      "email": "ivannaatz@alesc.sc.gov.br",
+      "telefone": "4832212801",
+      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/ivan-naatz/"
+    },
+    {
+      "id": "385",
+      "nome": "JAIR BITTENCOURT",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_154223JairBittencourt.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/385?Legislatura=20"
+    },
+    {
+      "id": "es-janetedesa",
+      "nome": "Janete de Sá",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3551",
+      "email": "janetedesa@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_janete_santos_de_sa_mini_14.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/JanetedeSa"
+    },
+    {
+      "id": "476",
+      "nome": "JARI OLIVEIRA",
+      "estado": "RJ",
+      "partido": "PSB",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_154528Jari.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/476?Legislatura=20"
+    },
+    {
+      "id": "2036",
+      "nome": "Jeferson Fernandes",
+      "estado": "RS",
+      "partido": "PT",
+      "email": "jeferson.fernandes@al.rs.gov.br",
+      "telefone": "(51) 32102470",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2019/2/14/238674_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2036"
+    },
+    {
+      "id": "es-joaocoser",
+      "nome": "João Coser",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3668",
+      "email": "dep.joaocoser@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_joao_carlos_coser_mini_344.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/JoaoCoser"
+    },
+    {
+      "id": "2155",
+      "nome": "Joel Wilhelm",
+      "estado": "RS",
+      "partido": "PP",
+      "email": "joel.wilhelm@al.rs.gov.br",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/3/21/359659_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2155"
+    },
+    {
+      "id": "300367",
+      "nome": "Jorge Caruso",
+      "estado": "SP",
+      "partido": "MDB",
+      "email": "jcaruso@al.sp.gov.br",
+      "telefone": "(11) 3886-6736/ 6765",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230419-130749-id=84-GRD.png",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300367"
+    },
+    {
+      "id": "389",
+      "nome": "JORGE FELIPPE NETO",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/11062025_114839felippe.jpeg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/389?Legislatura=20"
+    },
+    {
+      "id": "300549",
+      "nome": "Jorge Wilson Xerife do Consumidor",
+      "estado": "SP",
+      "partido": "REPUBLICANOS",
+      "email": "jorgewilsonxerifedoconsumidor@al.sp.gov.br",
+      "telefone": "(11) 3886-6485/ 6487",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20191112-192632-id=274-GRD.png",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300549"
+    },
+    {
+      "id": "500",
+      "nome": "JULIO ROCHA",
+      "estado": "RJ",
+      "partido": "AGIR",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_154857JulioRocha.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/500?Legislatura=20"
+    },
+    {
+      "id": "2103",
+      "nome": "Juvir Costella",
+      "estado": "RS",
+      "partido": "MDB",
+      "email": "juvir.costella@al.rs.gov.br",
+      "telefone": "(51) 32101783",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2016/8/8/203496_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2103"
+    },
+    {
+      "id": "2147",
+      "nome": "Kaká D´Ávila",
+      "estado": "RS",
+      "partido": "PODE",
+      "email": "kaka.davila@al.rs.gov.br",
+      "telefone": "(51) 32101580",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/2/8/356616_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2147"
+    },
+    {
+      "id": "1511",
+      "nome": "Kelly Moraes",
+      "estado": "RS",
+      "partido": "PL",
+      "email": "kelly.moraes@al.rs.gov.br",
+      "telefone": "(51) 32101431",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2019/2/18/238763_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/1511"
+    },
+    {
+      "id": "2156",
+      "nome": "Laura Sito",
+      "estado": "RS",
+      "partido": "PT",
+      "email": "laura.sito@al.rs.gov.br",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2025/6/4/425060_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2156"
+    },
+    {
+      "id": "300513",
+      "nome": "Leci Brandão",
+      "estado": "SP",
+      "partido": "PCdoB",
+      "email": "lecibrandao@al.sp.gov.br",
+      "telefone": "(11) 3886-6790/ 6794",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230718-161931-id=38-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300513"
+    },
+    {
+      "id": "300264",
+      "nome": "Léo Oliveira",
+      "estado": "SP",
+      "partido": "MDB",
+      "email": "leooliveira@al.sp.gov.br",
+      "telefone": "(11) 3886-6386/ 6387",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300264/4480e5e51c390cae6caaa26e6692a785b08df07ff7caaed48d4a351f44e60171.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300264"
+    },
+    {
+      "id": "300675",
+      "nome": "Leonardo Siqueira",
+      "estado": "SP",
+      "partido": "NOVO",
+      "email": "leosiqueira@al.sp.gov.br",
+      "telefone": "(11) 3886-6615/ 6616",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230321-192007-id=1642-GRD.png",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300675"
+    },
+    {
+      "id": "2157",
+      "nome": "Leonel Radde",
+      "estado": "RS",
+      "partido": "PT",
+      "email": "leonel.radde@al.rs.gov.br",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/2/27/357369_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2157"
+    },
+    {
+      "id": "300631",
+      "nome": "Letícia Aguiar",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "leticiaaguiar@al.sp.gov.br",
+      "telefone": "(11) 3886-6227/ 6228",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230315-150330-id=523-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300631"
+    },
+    {
+      "id": "514",
+      "nome": "LILIAN BEHRING",
+      "estado": "RJ",
+      "partido": "PC do B",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/13022025_154823Lilian.jpeg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/514?Legislatura=20"
+    },
+    {
+      "id": "300676",
+      "nome": "Lucas Bove",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "lucasbove@al.sp.gov.br",
+      "telefone": "(11) 3886-6632/ 6634",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230315-170418-id=1640-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300676"
+    },
+    {
+      "id": "es-lucaspolese",
+      "nome": "Lucas Polese",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3571",
+      "email": "dep.lucaspolese@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_lucas_da_re_polese_mini_348.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/LucasPolese"
+    },
+    {
+      "id": "93",
+      "nome": "Luciana Genro",
+      "estado": "RS",
+      "partido": "PSOL",
+      "email": "luciana.genro@al.rs.gov.br",
+      "telefone": "(51) 32102479",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2019/2/14/238676_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/93"
+    },
+    {
+      "id": "2158",
+      "nome": "Luciano Silveira",
+      "estado": "RS",
+      "partido": "MDB",
+      "email": "luciano.silveira@al.rs.gov.br",
+      "telefone": "(51) 32102350",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/3/24/360295_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2158"
+    },
+    {
+      "id": "326",
+      "nome": "LUCINHA",
+      "estado": "RJ",
+      "partido": "PSD",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/09032023_170331Lucinha.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/326?Legislatura=20"
+    },
+    {
+      "id": "300514",
+      "nome": "Luiz Claudio Marcolino",
+      "estado": "SP",
+      "partido": "PT",
+      "email": "lcmarcolino@al.sp.gov.br",
+      "telefone": "(11) 3886-6650/ 6652",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230529-131249-id=1637-GRD.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300514"
+    },
+    {
+      "id": "300545",
+      "nome": "Luiz Fernando T. Ferreira",
+      "estado": "SP",
+      "partido": "PT",
+      "email": "lfernando@al.sp.gov.br",
+      "telefone": "(11) 3886-6666/ 6613",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300545/b25d811e25a8378431dcab7c7b0e4fdb0e0a4989c68c339ba40d03c99abc2019.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300545"
+    },
+    {
+      "id": "2130",
+      "nome": "Luiz Marenco",
+      "estado": "RS",
+      "partido": "PDT",
+      "email": "luiz.marenco@al.rs.gov.br",
+      "telefone": "(51) 32101471",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2019/2/14/238679_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2130"
+    },
+    {
+      "id": "269",
+      "nome": "LUIZ PAULO",
+      "estado": "RJ",
+      "partido": "PSD",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_155116LuizPaulo.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/269?Legislatura=20"
+    },
+    {
+      "id": "300633",
+      "nome": "Major Mecca",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "majormecca@al.sp.gov.br",
+      "telefone": "(11) 3886-6177/ 6178",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230322-111405-id=521-GRD.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300633"
+    },
+    {
+      "id": "300698",
+      "nome": "Marcelo Aguiar",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "marceloaguiar@al.sp.gov.br",
+      "telefone": "(11) 3886-6155/ 6156",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300698/ef72b1b9553180987d06d13e9bb6d8e85e7b2555af8ae381438f8148f37ff6de.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300698"
+    },
+    {
+      "id": "435",
+      "nome": "MARCELO DINO",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_155157MarceloDino.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/435?Legislatura=20"
+    },
+    {
+      "id": "es-marcelosantos",
+      "nome": "Marcelo Santos",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3538",
+      "email": "marcelosantos@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_alexandre_marcelo_coutinho_santos_mini_27.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/MarceloSantos"
+    },
+    {
+      "id": "300534",
+      "nome": "Márcia Lia",
+      "estado": "SP",
+      "partido": "PT",
+      "email": "marcialia@al.sp.gov.br",
+      "telefone": "(11) 3886-6104/ 6614",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230802-131346-id=281-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300534"
+    },
+    {
+      "id": "436",
+      "nome": "MÁRCIO GUALBERTO",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_155243MarcioGualberto.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/436?Legislatura=20"
+    },
+    {
+      "id": "300635",
+      "nome": "Marcio Nakashima",
+      "estado": "SP",
+      "partido": "PSD",
+      "email": "MarcioNakashima@al.sp.gov.br",
+      "telefone": "(11) 3886-6633/ 6596",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300635/e9bff5d91c252b6c5055f1d7e8fc6742223d6af479becb1f88a008887e4df549.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300635"
+    },
+    {
+      "id": "300552",
+      "nome": "Marcos Damasio",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "marcosdamasio@al.sp.gov.br",
+      "telefone": "(11) 3886-6704 / 6705",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230321-192550-id=283-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300552"
+    },
+    {
+      "id": "es-marcosmadureira",
+      "nome": "Marcos Madureira",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3576",
+      "email": "marcosmadureira@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_marcos_miranda_madureira_mini_331.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/MarcosMadureira"
+    },
+    {
+      "id": "2142",
+      "nome": "Marcus Vinícius",
+      "estado": "RS",
+      "partido": "PP",
+      "email": "marcus.vinicius@al.rs.gov.br",
+      "telefone": "(51) 32102554",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2021/10/8/320018_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2142"
+    },
+    {
+      "id": "300415",
+      "nome": "Maria Lúcia Amary",
+      "estado": "SP",
+      "partido": "PSD",
+      "email": "mlamary@al.sp.gov.br",
+      "telefone": "(11) 3886-6840/ 6855",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300415/3f7d0ec72a40338819e60ab5285a10f7ba1940272878a742e14054cf0e420866.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300415"
+    },
+    {
+      "id": "491",
+      "nome": "MARINA DO MST",
+      "estado": "RJ",
+      "partido": "PT",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_155323MarinadoMST.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/491?Legislatura=20"
+    },
+    {
+      "id": "300636",
+      "nome": "Marina Helou",
+      "estado": "SP",
+      "partido": "PSB",
+      "email": "marinahelou@al.sp.gov.br",
+      "telefone": "(11)3886-6084 / 6078",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230302-154543-id=518-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300636"
+    },
+    {
+      "id": "300533",
+      "nome": "Marta Costa",
+      "estado": "SP",
+      "partido": "PSD",
+      "email": "depmartacosta@al.sp.gov.br",
+      "telefone": "(11)3886-6621 / 6624",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20191112-192923-id=284-GRD.png",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300533"
+    },
+    {
+      "id": "390",
+      "nome": "MARTHA ROCHA",
+      "estado": "RJ",
+      "partido": "PDT",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_155359MarthaRocha.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/390?Legislatura=20"
+    },
+    {
+      "id": "2160",
+      "nome": "Matheus Gomes",
+      "estado": "RS",
+      "partido": "PSOL",
+      "email": "matheus.gomes@al.rs.gov.br",
+      "telefone": "(51) 32101918",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/2/17/357230_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2160"
+    },
+    {
+      "id": "300653",
+      "nome": "Maurici",
+      "estado": "SP",
+      "partido": "PT",
+      "email": "depmaurici@al.sp.gov.br",
+      "telefone": "(11) 3886-6753",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300653/be0fae4ebcffd81468e3e343b158bf55482cc405ffaebbff06fbaf3433ffe098.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300653"
+    },
+    {
+      "id": "300098",
+      "nome": "Mauro Bragato",
+      "estado": "SP",
+      "partido": "PSD",
+      "email": "Mbragato@al.sp.gov.br",
+      "telefone": "(11)3886-6400 / 6417",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20190315-144027-id=87-GRD.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300098"
+    },
+    {
+      "id": "es-mazinhodosanjos",
+      "nome": "Mazinho dos Anjos",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27)  3382-3556",
+      "email": "dep.mazinhodosanjos@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_edmar_lorencini_dos_anjos_mini_342.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/MazinhodosAnjos"
+    },
+    {
+      "id": "2161",
+      "nome": "Miguel Rossetto",
+      "estado": "RS",
+      "partido": "PT",
+      "email": "miguel.rossetto@al.rs.gov.br",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/2/8/356501_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2161"
+    },
+    {
+      "id": "300483",
+      "nome": "Milton Leite Filho",
+      "estado": "SP",
+      "partido": "UNIÃO",
+      "email": "mleite@al.sp.gov.br",
+      "telefone": "(11)3886-6550 / 6551",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300483/2ccb4033061c8591a60f18d05a9a3d0c4a172a769cb92e198789e1f9dc05fbf4.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300483"
+    },
+    {
+      "id": "300637",
+      "nome": "Monica Seixas do Movimento Pretas",
+      "estado": "SP",
+      "partido": "PSOL",
+      "email": "movimentopretas@al.sp.gov.br",
+      "telefone": "(11)3886-6639 / 6640",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300637/33861a85d3642f45442e3d20ccb2f7b97634d8b79ca8995492740c8ee237e5f6.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300637"
+    },
+    {
+      "id": "497",
+      "nome": "MUNIR NETO",
+      "estado": "RJ",
+      "partido": "SDD",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_155445MunirNeto.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/497?Legislatura=20"
+    },
+    {
+      "id": "2125",
+      "nome": "Neri, o Carteiro",
+      "estado": "RS",
+      "partido": "PSD",
+      "email": "neri.ocarteiro@al.rs.gov.br",
+      "telefone": "(51) 32101871",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/2/3/356360_G.jpeg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2125"
+    },
+    {
+      "id": "300699",
+      "nome": "Ortiz Junior",
+      "estado": "SP",
+      "partido": "REPUBLICANOS",
+      "email": "ortizjunior@al.sp.gov.br",
+      "telefone": "(11) 3886-6552/6553",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300699/37ce3fff7b655fd2b2dfb18f3f390af9428263851eed3b906fdfee09f279867a.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300699"
+    },
+    {
+      "id": "300677",
+      "nome": "Oseias de Madureira",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "oseiasdemadureira@al.sp.gov.br",
+      "telefone": "(11) 3886-6423/ 6424",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300677/d7b9c3790c2d86c4d225e4738159cf265eb2171b3a09716a53e1430af558316e.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300677"
+    },
+    {
+      "id": "es-pablomuribeca",
+      "nome": "Pablo Muribeca",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3615",
+      "email": "pablomuribeca@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_pablo_aurino_ramos_araujo_mini_343.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/PabloMuribeca"
+    },
+    {
+      "id": "2111",
+      "nome": "Paparico Bacchi",
+      "estado": "RS",
+      "partido": "PL",
+      "email": "paparico.bacchi@al.rs.gov.br",
+      "telefone": "(51) 32101531",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2020/5/14/274202_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2111"
+    },
+    {
+      "id": "2137",
+      "nome": "Patrícia Alba",
+      "estado": "RS",
+      "partido": "MDB",
+      "email": "patricia.alba@al.rs.gov.br",
+      "telefone": "(51) 32101515",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/2/13/356798_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2137"
+    },
+    {
+      "id": "300678",
+      "nome": "Paula da Bancada Feminista",
+      "estado": "SP",
+      "partido": "PSOL",
+      "email": "pauladabancadafeminista@al.sp.gov.br",
+      "telefone": "(11) 3886-6687/ 6688",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230321-110413-id=1635-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300678"
+    },
+    {
+      "id": "300536",
+      "nome": "Paulo Correa Jr",
+      "estado": "SP",
+      "partido": "REPUBLICANOS",
+      "email": "paulocorreajr@al.sp.gov.br",
+      "telefone": "(11)3886-6372 / 6377",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300536/57790d967b293e30c5be2f49ba2949baf359017c07a783f12a05c1ea24cd21c3.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300536"
+    },
+    {
+      "id": "300638",
+      "nome": "Paulo Fiorilo",
+      "estado": "SP",
+      "partido": "PT",
+      "email": "paulofiorilo@al.sp.gov.br",
+      "telefone": "(11)3886-6663/6667",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300638/8724f840684b834e46bb3550cdab9150d23eab9003b2bc6a65ba12320235895a.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300638"
+    },
+    {
+      "id": "300679",
+      "nome": "Paulo Mansur",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "paulomansur@al.sp.gov.br",
+      "telefone": "(11) 3886-6921/ 6922",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230321-195508-id=1634-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300679"
+    },
+    {
+      "id": "1509",
+      "nome": "Pedro Pereira",
+      "estado": "RS",
+      "partido": "PSD",
+      "email": "pedro.pereira@al.rs.gov.br",
+      "telefone": "(51) 32101445",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2019/2/15/238687_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/1509"
+    },
+    {
+      "id": "194",
+      "nome": "Pepe Vargas",
+      "estado": "RS",
+      "partido": "PT",
+      "email": "pepe.vargas@al.rs.gov.br",
+      "telefone": "(51) 32101380",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2019/2/15/238688_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/194"
+    },
+    {
+      "id": "502",
+      "nome": "PROF JOSEMAR",
+      "estado": "RJ",
+      "partido": "PSOL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_155615ProfessorJossemar.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/502?Legislatura=20"
+    },
+    {
+      "id": "2149",
+      "nome": "Prof. Claudio Branchieri ",
+      "estado": "RS",
+      "partido": "PL",
+      "email": "prof.claudio@al.rs.gov.br",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/2/16/357181_G.png",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2149"
+    },
+    {
+      "id": "300700",
+      "nome": "Profª Camila Godoi",
+      "estado": "SP",
+      "partido": "UNIÃO",
+      "email": "profacamilagodoi@al.sp.gov.br",
+      "telefone": "(11) 3886-6830 / 6831",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300700/11fe7d15b87e2f908dd7763d3d8df855623d2f4cb22d84f421fa4ca6428d8eb2.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300700"
+    },
+    {
+      "id": "2163",
+      "nome": "Professor Bonatto",
+      "estado": "RS",
+      "partido": "PSD",
+      "email": "professor.bonatto@al.rs.gov.br",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2024/2/19/383749_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2163"
+    },
+    {
+      "id": "300640",
+      "nome": "Professora Bebel",
+      "estado": "SP",
+      "partido": "PT",
+      "email": "professorabebel@al.sp.gov.br",
+      "telefone": "(011)3886-6645 / 6648",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300640/5792a9cebeacc3b58d496afab642a82010316b056eed3885ae11642bd7932177.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300640"
+    },
+    {
+      "id": "300641",
+      "nome": "Rafa Zimbaldi",
+      "estado": "SP",
+      "partido": "UNIÃO",
+      "email": "rafazimbaldi@al.sp.gov.br",
+      "telefone": "(11)3886-6198 / 6201",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300641/a71cdcd1beaa217117340266ae9c98adb952dae5520a9bb94a63d01f000f4baf.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300641"
+    },
+    {
+      "id": "489",
+      "nome": "RAFAEL NOBRE",
+      "estado": "RJ",
+      "partido": "União",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_155715RafaelNobre.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/489?Legislatura=20"
+    },
+    {
+      "id": "344",
+      "nome": "RAFAEL PICCIANI",
+      "estado": "RJ",
+      "partido": "União",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/01042026_171040rafa 3.4.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/344?Legislatura=20"
+    },
+    {
+      "id": "300680",
+      "nome": "Rafael Saraiva",
+      "estado": "SP",
+      "partido": "UNIÃO",
+      "email": "rafaelsaraiva@al.sp.gov.br",
+      "telefone": "(11) 3886-6740/ 6741",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230315-165421-id=1633-GRD.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300680"
+    },
+    {
+      "id": "300344",
+      "nome": "Rafael Silva",
+      "estado": "SP",
+      "partido": "PSD",
+      "email": "rsilva@al.sp.gov.br",
+      "telefone": "(011)3886-6788 / 6792",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300344/ac72cd78bf495cae533e7d143278c7085ea0cd64991bc9bb0117d7a60a85bcd9.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300344"
+    },
+    {
+      "id": "es-raquellessa",
+      "nome": "Raquel Lessa",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3546",
+      "email": "raquellessa@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_raquel_ferreira_mageste_lessa_mini_103.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/RaquelLessa"
+    },
+    {
+      "id": "300681",
+      "nome": "Reis",
+      "estado": "SP",
+      "partido": "PT",
+      "email": "deputadoreis@al.sp.gov.br",
+      "telefone": "(11) 3886-6743/ 6744",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230321-195741-id=1632-GRD.png",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300681"
+    },
+    {
+      "id": "511",
+      "nome": "RENAN JORDY",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/13052024_131315jordy6.jpeg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/511?Legislatura=20"
+    },
+    {
+      "id": "441",
+      "nome": "RENATA SOUZA",
+      "estado": "RJ",
+      "partido": "PSOL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_155753RenataSouza.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/441?Legislatura=20"
+    },
+    {
+      "id": "506",
+      "nome": "RENATO MACHADO",
+      "estado": "RJ",
+      "partido": "PT",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_155836RenatoMachado.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/506?Legislatura=20"
+    },
+    {
+      "id": "488",
+      "nome": "RENATO MIRANDA",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/19032025_143243renato miranda.jpeg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/488?Legislatura=20"
+    },
+    {
+      "id": "300682",
+      "nome": "Ricardo França",
+      "estado": "SP",
+      "partido": "PODE",
+      "email": "ricardofranca@al.sp.gov.br",
+      "telefone": "(11) 3886-6748",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300682/6e3a648bae583eebc11b13e0955f7105566a8ca3291620dc85be8ce114583717.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300682"
+    },
+    {
+      "id": "300539",
+      "nome": "Ricardo Madalena",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "ricardomadalena@al.sp.gov.br",
+      "telefone": "(011)3886-6403 / 6404",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300539/fe59a1e0800de0f4b2885872269a89c6f637dc61874c691587997295e459f81c.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300539"
+    },
+    {
+      "id": "443",
+      "nome": "RODRIGO AMORIM",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_155958RodrigoAmorim.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/443?Legislatura=20"
+    },
+    {
+      "id": "sc-rodrigo-fachini",
+      "nome": "Rodrigo Fachini",
+      "estado": "SC",
+      "partido": "",
+      "email": "rodrigojfachini@gmail.com",
+      "telefone": "4832212734",
+      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/rodrigo-fachini/"
+    },
+    {
+      "id": "2136",
+      "nome": "Rodrigo Lorenzoni",
+      "estado": "RS",
+      "partido": "PP",
+      "email": "rodrigo.lorenzoni@al.rs.gov.br",
+      "telefone": "(51) 32101746",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/3/13/359004_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2136"
+    },
+    {
+      "id": "300519",
+      "nome": "Rodrigo Moraes",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "deputadorodrigomoraes@al.sp.gov.br",
+      "telefone": "(011)3886-6055 / 6056",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300519/4191e426b16ca3c439c3ee9fc27a611f644d778c805f21a9b741d657377076e9.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300519"
+    },
+    {
+      "id": "300407",
+      "nome": "Rogério Nogueira",
+      "estado": "SP",
+      "partido": "PSD",
+      "email": "rnogueira@al.sp.gov.br",
+      "telefone": "(011) 3886-6842 / 6853",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230714-155311-id=71-GRD.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300407"
+    },
+    {
+      "id": "300683",
+      "nome": "Rogério Santos",
+      "estado": "SP",
+      "partido": "MDB",
+      "email": "rogeriosantos@al.sp.gov.br",
+      "telefone": "(11) 3886-6499/ 6878",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230315-165052-id=1630-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300683"
+    },
+    {
+      "id": "300684",
+      "nome": "Rômulo Fernandes",
+      "estado": "SP",
+      "partido": "PT",
+      "email": "romulofernandes@al.sp.gov.br",
+      "telefone": "(11) 3886-6760/ 6761",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300684/12597211b0cb0c6f4ab9d7d0e068a38610b210692edda9758cd9118b8d798073.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300684"
+    },
+    {
+      "id": "2034",
+      "nome": "Ronaldo Santini",
+      "estado": "RS",
+      "partido": "PODE",
+      "email": "ronaldo.santini@al.rs.gov.br",
+      "telefone": "(51) 32102410",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2026/3/26/451362_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2034"
+    },
+    {
+      "id": "343",
+      "nome": "ROSENVERG REIS",
+      "estado": "RJ",
+      "partido": "MDB",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_160038RonsenvegReis.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/343?Legislatura=20"
+    },
+    {
+      "id": "300685",
+      "nome": "Rui Alves",
+      "estado": "SP",
+      "partido": "REPUBLICANOS",
+      "email": "ruialves@al.sp.gov.br",
+      "telefone": "(11) 3886-6772/ 6773",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300685/532b7a813c9a7534ff42a956c759134ba46c50f34ac747b0b87698241f257bd9.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300685"
+    },
+    {
+      "id": "348",
+      "nome": "SAMUEL MALAFAIA",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_160114SamuelMalafaia.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/348?Legislatura=20"
+    },
+    {
+      "id": "515",
+      "nome": "SARAH PONCIO",
+      "estado": "RJ",
+      "partido": "SDD",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/13022025_154859Sarah.jpeg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/515?Legislatura=20"
+    },
+    {
+      "id": "300520",
+      "nome": "Sebastião Santos",
+      "estado": "SP",
+      "partido": "REPUBLICANOS",
+      "email": "sebastiaosantos@al.sp.gov.br",
+      "telefone": "(011) 3886-6474 / 6475",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230321-200423-id=95-GRD.png",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300520"
+    },
+    {
+      "id": "452",
+      "nome": "SERGIO FERNANDES",
+      "estado": "RJ",
+      "partido": "PSD",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_160156SergioFernades.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/452?Legislatura=20"
+    },
+    {
+      "id": "es-sergiomeneguelli",
+      "nome": "Sergio Meneguelli",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3535",
+      "email": "dep.sergiomeneguelli@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_sergio_meneguelli_mini_349.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/SergioMeneguelli"
+    },
+    {
+      "id": "58",
+      "nome": "Sergio Peres",
+      "estado": "RS",
+      "partido": "REPUBLICANOS",
+      "email": "sergio.peres@al.rs.gov.br",
+      "telefone": "(51) 32102040",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2026/2/13/448523_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/58"
+    },
+    {
+      "id": "1504",
+      "nome": "Silvana Covatti",
+      "estado": "RS",
+      "partido": "PP",
+      "email": "silvana.covatti@al.rs.gov.br",
+      "telefone": "(51) 32102710",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2022/6/10/343293_G.png",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/1504"
+    },
+    {
+      "id": "2122",
+      "nome": "Sofia Cavedon",
+      "estado": "RS",
+      "partido": "PT",
+      "email": "sofia.cavedon@al.rs.gov.br",
+      "telefone": "(51) 32101397",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2019/2/15/238693_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2122"
+    },
+    {
+      "id": "300686",
+      "nome": "Solange Freitas",
+      "estado": "SP",
+      "partido": "UNIÃO",
+      "email": "solangefreitas@al.sp.gov.br",
+      "telefone": "(11) 3886-6834/ 6835",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230619-135455-id=1626-GRD.png",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300686"
+    },
+    {
+      "id": "1500",
+      "nome": "Stela Farias",
+      "estado": "RS",
+      "partido": "PT",
+      "email": "stela.farias@al.rs.gov.br",
+      "telefone": "(51) 32101736",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2024/10/16/404859_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/1500"
+    },
+    {
+      "id": "300646",
+      "nome": "Tenente Coimbra",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "tenentecoimbra@al.sp.gov.br",
+      "telefone": "(11)3886-6776 / 6777",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230807-151348-id=506-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300646"
+    },
+    {
+      "id": "300584",
+      "nome": "Teonilio Barba",
+      "estado": "SP",
+      "partido": "PT",
+      "email": "teoniliobarba@al.sp.gov.br",
+      "telefone": "3886-6495/6493/6233/6232/6617",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300584/68f2d1366ca992ccd95727bfdd789c4b19fce86054251c888c7ca23342f3e448.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300584"
+    },
+    {
+      "id": "300687",
+      "nome": "Thainara Faria",
+      "estado": "SP",
+      "partido": "PT",
+      "email": "thainarafaria@al.sp.gov.br",
+      "telefone": "(11) 3886-6850/ 6851",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300687/54bcd424e77bc8078e63e9e27ace179e7b56ba04fcc11fd917b82cc2d26b26bf.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300687"
+    },
+    {
+      "id": "300648",
+      "nome": "Thiago Auricchio",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "ThiagoAuricchio@al.sp.gov.br",
+      "telefone": "(011)3886-6214 / 6216",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230329-180406-id=504-GRD.jpg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300648"
+    },
+    {
+      "id": "480",
+      "nome": "THIAGO GAGLIASSO",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_160319ThiagoGagliasso.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/480?Legislatura=20"
+    },
+    {
+      "id": "499",
+      "nome": "THIAGO RANGEL",
+      "estado": "RJ",
+      "partido": "Avante",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_160402ThiagoRangel.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/499?Legislatura=20"
+    },
+    {
+      "id": "395",
+      "nome": "TIA JU",
+      "estado": "RJ",
+      "partido": "REP",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_160437TiaJu.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/395?Legislatura=20"
+    },
+    {
+      "id": "300688",
+      "nome": "Tomé Abduch",
+      "estado": "SP",
+      "partido": "REPUBLICANOS",
+      "email": "tomeabduch@al.sp.gov.br",
+      "telefone": "(11) 3886-6867/ 6868",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300688/dffe0759f4d72645639b028e1e5d4f636aeb1b809f61075ffd78ac589a7ac1a5.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300688"
+    },
+    {
+      "id": "es-tyagohoffmann",
+      "nome": "Tyago Hoffmann",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27)  3382-3626",
+      "email": "dep.tyagohoffmann@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_tyago_ribeiro_hoffmann_mini_345.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/TyagoHoffmann"
+    },
+    {
+      "id": "449",
+      "nome": "VAL CEASA",
+      "estado": "RJ",
+      "partido": "PRD",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/19022019_163338ValCeasa_deputado3x4-3752.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/449?Legislatura=20"
+    },
+    {
+      "id": "2032",
+      "nome": "Valdeci Oliveira",
+      "estado": "RS",
+      "partido": "PT",
+      "email": "valdeci.oliveira@al.rs.gov.br",
+      "telefone": "(51) 32102220",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2019/2/14/238603_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2032"
+    },
+    {
+      "id": "450",
+      "nome": "VALDECY DA SAÚDE",
+      "estado": "RJ",
+      "partido": "PL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_160532ValdecyDaSaude.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/450?Legislatura=20"
+    },
+    {
+      "id": "300396",
+      "nome": "Valdomiro Lopes",
+      "estado": "SP",
+      "partido": "PSB",
+      "email": "vlopes@al.sp.gov.br",
+      "telefone": "3886-6251/6252",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230315-164216-id=1623-GRD.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300396"
+    },
+    {
+      "id": "300649",
+      "nome": "Valeria Bolsonaro",
+      "estado": "SP",
+      "partido": "PL",
+      "email": "ValeriaBolsonaro@al.sp.gov.br",
+      "telefone": "(011)3886-6222 / 6223",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230321-201012-id=503-GRD.png",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300649"
+    },
+    {
+      "id": "es-vandinholeite",
+      "nome": "Vandinho Leite",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3589",
+      "email": "dep.vandinholeite@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_vanderson_alonso_leite_mini_22.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/VandinhoLeite"
+    },
+    {
+      "id": "486",
+      "nome": "VERÔNICA LIMA",
+      "estado": "RJ",
+      "partido": "PT",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/03022023_154626Ver&#244;nicaLima_deputado3x4.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/486?Legislatura=20"
+    },
+    {
+      "id": "2100",
+      "nome": "Vilmar Zanchin",
+      "estado": "RS",
+      "partido": "MDB",
+      "email": "zanchin@al.rs.gov.br",
+      "telefone": "(51) 32102489",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2019/2/15/238698_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2100"
+    },
+    {
+      "id": "483",
+      "nome": "VINICIUS  COZZOLINO",
+      "estado": "RJ",
+      "partido": "PSD",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_160629ViniciosCozzolino.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/483?Legislatura=20"
+    },
+    {
+      "id": "300689",
+      "nome": "Vitão do Cachorrão",
+      "estado": "SP",
+      "partido": "PODE",
+      "email": "vitaodocachorrao@al.sp.gov.br",
+      "telefone": "(11) 3886-6864/ 6865",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300689/441b3c202f7582a50d1f7c326aa22fce1b04ba8343267ed2aef73b71c2b8ba4d.jpeg",
+      "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300689"
+    },
+    {
+      "id": "493",
+      "nome": "VITOR JUNIOR",
+      "estado": "RJ",
+      "partido": "PDT",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/09032023_155508VitorJunior.jpg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/493?Legislatura=20"
+    },
+    {
+      "id": "503",
+      "nome": "YURI MOURA",
+      "estado": "RJ",
+      "partido": "PSOL",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/04052023_155353Yuri.jpeg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/503?Legislatura=20"
+    },
+    {
+      "id": "2095",
+      "nome": "Zé Nunes",
+      "estado": "RS",
+      "partido": "PT",
+      "email": "ze.nunes@al.rs.gov.br",
+      "telefone": "(51) 32101350",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2015/2/23/177876_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2095"
+    },
+    {
+      "id": "es-zepreto",
+      "nome": "Zé Preto",
+      "estado": "ES",
+      "partido": "",
+      "telefone": "(27) 3382-3541",
+      "email": "dep.ademirpereira@al.es.gov.br",
+      "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_ademir_jose_gomes_pereira_mini_346.jpg",
+      "urlPerfil": "https://www.al.es.gov.br/Deputado/ZePreto"
+    },
+    {
+      "id": "402",
+      "nome": "ZEIDAN",
+      "estado": "RJ",
+      "partido": "PT",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/06022026_161639Zei.jpeg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/402?Legislatura=20"
+    }
+  ]
+}

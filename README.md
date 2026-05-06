@@ -14,8 +14,10 @@ Aplicação web SPA para consulta pública de políticos brasileiros, com foco a
 ## Funcionalidades implementadas
 
 - Landing com entrada para busca por estado
+- Busca global por nome, partido e cargo com filtros clicáveis
 - Seleção de estado por mapa do Brasil e lista de UFs
 - Lista de deputados federais por UF com busca por nome/partido
+- Lista de senadores por UF com busca por nome/partido
 - Detalhe de deputado com:
   - dados gerais
   - proposições com filtros e carregamento incremental
@@ -27,10 +29,9 @@ Aplicação web SPA para consulta pública de políticos brasileiros, com foco a
 
 ## Funcionalidades não implementadas (roadmap)
 
-- Busca direta global por nome
 - Favoritos
 - Comparação entre políticos
-- Consulta funcional para senador e deputado estadual
+- Consulta para deputado estadual
 - Candidatos futuros
 
 Detalhes em `documentacao/roadmap-nao-implementado.md`.
@@ -38,9 +39,12 @@ Detalhes em `documentacao/roadmap-nao-implementado.md`.
 ## Rotas principais
 
 - `/`
+- `/busca`
 - `/por-estado`
 - `/por-estado/:uf/deputado-federal`
 - `/por-estado/:uf/deputado-federal/:deputyId`
+- `/senadores/:uf`
+- `/senador/:senatorId`
 - `/presidente`
 - `/presidente/:presidentId`
 - `/sobre`
@@ -82,11 +86,14 @@ Frontend (Vite):
 
 Serverless (Vercel):
 
+- `SITE_URL`
 - `TURNSTILE_SECRET_KEY`
 - `RESEND_API_KEY`
 - `SUGESTOES_DEST_EMAIL`
 - `SUGESTOES_FROM_EMAIL` (opcional)
 - `SUGESTOES_RATE_LIMIT_MAX` (opcional, padrão `5`)
+- `BETTER_AUTH_SECRET` (futuro login; gere com 32+ caracteres)
+- `BETTER_AUTH_TRUSTED_ORIGINS` (origens confiáveis separadas por vírgula)
 
 ## Checklist de deploy na Vercel
 

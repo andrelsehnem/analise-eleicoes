@@ -59,6 +59,10 @@
   user-select: none;
 }
 
+.feature[role='button'] {
+  cursor: pointer;
+}
+
 .feature:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 24px rgba(10, 22, 40, 0.35);

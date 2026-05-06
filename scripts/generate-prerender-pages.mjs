@@ -8,6 +8,7 @@ const projectRoot = path.resolve(__dirname, '..')
 const distDir = path.join(projectRoot, 'dist')
 const distIndexPath = path.join(distDir, 'index.html')
 const routeManifestPath = path.join(projectRoot, 'public', 'prerender-routes.json')
+const politiciansIndexPath = path.join(projectRoot, 'public', 'politicians-index.json')
 
 const SITE_NAME = 'Mandato Transparente'
 const SITE_URL = 'https://www.mandatotransparente.com.br'
@@ -137,10 +138,35 @@ async function buildSenatorNameMap() {
   }
 }
 
-function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById) {
+async function buildStateDeputyNameMap() {
+  try {
+    const data = await readFile(politiciansIndexPath, 'utf-8')
+    const json = JSON.parse(data)
+    const items = Array.isArray(json?.['deputados-estaduais']) ? json['deputados-estaduais'] : []
+    const map = new Map()
+
+    items.forEach((item) => {
+      const uf = String(item?.estado || '').toUpperCase()
+      const id = String(item?.id || '')
+      const name = String(item?.nome || '').trim()
+
+      if (uf && id && name) {
+        map.set(`${uf}:${id}`, name)
+      }
+    })
+
+    return map
+  } catch {
+    return new Map()
+  }
+}
+
+function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDeputyNameByKey) {
   const normalizedPath = normalizePath(routePath)
   const deputyDetailMatch = normalizedPath.match(/^\/por-estado\/([a-z]{2})\/deputado-federal\/(\d+)$/i)
   const deputyListMatch = normalizedPath.match(/^\/por-estado\/([a-z]{2})\/deputado-federal$/i)
+  const stateDeputyDetailMatch = normalizedPath.match(/^\/por-estado\/([a-z]{2})\/deputado-estadual\/([a-z0-9-]+)$/i)
+  const stateDeputyListMatch = normalizedPath.match(/^\/por-estado\/([a-z]{2})\/deputado-estadual$/i)
   const senatorDetailMatch = normalizedPath.match(/^\/senador\/(\d+)$/i)
   const senatorListMatch = normalizedPath.match(/^\/senadores\/([a-z]{2})$/i)
   const presidentDetailMatch = normalizedPath.match(/^\/presidente\/([a-z0-9-]+)$/i)
@@ -163,6 +189,26 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById) {
     return {
       title: `Deputados federais de ${uf}`,
       description: `Veja a lista de deputados federais de ${uf}, filtre por nome ou partido e abra o histórico de atuação parlamentar.`,
+    }
+  }
+
+  if (stateDeputyDetailMatch) {
+    const uf = stateDeputyDetailMatch[1].toUpperCase()
+    const deputyId = stateDeputyDetailMatch[2]
+    const name = stateDeputyNameByKey.get(`${uf}:${deputyId}`) || `Deputado estadual ${deputyId}`
+
+    return {
+      title: `Perfil de ${name}`,
+      description: `Acompanhe dados públicos de ${name}, deputado estadual por ${uf}.`,
+    }
+  }
+
+  if (stateDeputyListMatch) {
+    const uf = stateDeputyListMatch[1].toUpperCase()
+
+    return {
+      title: `Deputados estaduais de ${uf}`,
+      description: `Veja a lista de deputados estaduais de ${uf}, filtre por nome ou partido e acesse os perfis oficiais.`,
     }
   }
 
@@ -369,14 +415,15 @@ async function main() {
   const routeManifest = JSON.parse(routeManifestRaw)
   const routes = Array.isArray(routeManifest?.paths) ? routeManifest.paths : ['/']
 
-  const [deputyNameByUf, senatorNameById] = await Promise.all([
+  const [deputyNameByUf, senatorNameById, stateDeputyNameByKey] = await Promise.all([
     buildDeputyNameMap(routes),
     buildSenatorNameMap(),
+    buildStateDeputyNameMap(),
   ])
 
   await Promise.all(
     routes.map(async (routePath) => {
-      const meta = buildMetaForRoute(routePath, deputyNameByUf, senatorNameById)
+      const meta = buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDeputyNameByKey)
       const html = applyHeadMeta(distHtml, routePath, meta.title, meta.description)
       await writeRouteHtml(routePath, html)
     }),

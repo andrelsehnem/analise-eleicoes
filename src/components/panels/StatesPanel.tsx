@@ -15,7 +15,7 @@ type StatesPanelProps = {
 
 const OFFICE_OPTIONS: Array<{ value: OfficeType; label: string; implemented: boolean }> = [
   { value: 'deputado-federal', label: 'Deputado Federal', implemented: true },
-  { value: 'deputado-estadual', label: 'Deputado Estadual', implemented: false },
+  { value: 'deputado-estadual', label: 'Deputado Estadual', implemented: true },
   { value: 'senador', label: 'Senador', implemented: true },
   { value: 'presidente', label: 'Presidente', implemented: true },
 ]
@@ -31,6 +31,7 @@ type BrazilLocation = {
 }
 
 const mapLocations = brazilMap.locations as BrazilLocation[]
+const ENABLED_STATE_DEPUTY_UFS = new Set(['PR', 'SC', 'RS', 'SP', 'RJ', 'MG', 'ES'])
 
 function buildStateListPath(uf: string, office: OfficeType): string {
   const normalizedUf = uf.toLowerCase()
@@ -41,6 +42,10 @@ function buildStateListPath(uf: string, office: OfficeType): string {
 
   if (office === 'deputado-federal') {
     return `/por-estado/${normalizedUf}/deputado-federal`
+  }
+
+  if (office === 'deputado-estadual') {
+    return `/por-estado/${normalizedUf}/deputado-estadual`
   }
 
   return '/por-estado'
@@ -54,7 +59,17 @@ export function StatesPanel({
 }: StatesPanelProps) {
   const svgRef = useRef<SVGSVGElement>(null)
   const isStateSelectionEnabled =
-    selectedOffice === 'deputado-federal' || selectedOffice === 'senador'
+    selectedOffice === 'deputado-federal' ||
+    selectedOffice === 'senador' ||
+    selectedOffice === 'deputado-estadual'
+
+  const isStateEnabled = (uf: string): boolean => {
+    if (selectedOffice !== 'deputado-estadual') {
+      return isStateSelectionEnabled
+    }
+
+    return ENABLED_STATE_DEPUTY_UFS.has(uf)
+  }
 
   // Calcula as posições dos rótulos de UF dentro de cada estado
   useEffect(() => {
@@ -94,7 +109,7 @@ export function StatesPanel({
     uf: string,
     name: string,
   ) => {
-    if (!isStateSelectionEnabled) {
+    if (!isStateEnabled(uf)) {
       return
     }
 
@@ -154,20 +169,21 @@ export function StatesPanel({
             const uf = location.id.toUpperCase()
             const name = stateNameByUf.get(uf) ?? location.name
             const isSelected = selectedUf === uf
+            const isEnabled = isStateEnabled(uf)
 
             return (
               <g key={location.id}>
                 <path
                   aria-label={`Selecionar ${name}`}
-                  aria-disabled={!isStateSelectionEnabled}
+                  aria-disabled={!isEnabled}
                   aria-pressed={isSelected}
                   className={`map-state ${isSelected ? 'selected' : ''} ${
-                    !isStateSelectionEnabled ? 'disabled' : ''
+                    !isEnabled ? 'disabled' : ''
                   }`}
                   d={location.path}
                   data-state-id={location.id}
                   onClick={() => {
-                    if (!isStateSelectionEnabled) {
+                    if (!isEnabled) {
                       return
                     }
 
@@ -175,7 +191,7 @@ export function StatesPanel({
                   }}
                   onKeyDown={(event) => handleKeyDown(event, uf, name)}
                   role="button"
-                  tabIndex={isStateSelectionEnabled ? 0 : -1}
+                  tabIndex={isEnabled ? 0 : -1}
                 >
                   <title>{`${name} (${uf})`}</title>
                 </path>
@@ -199,7 +215,9 @@ export function StatesPanel({
           {isStateSelectionEnabled
             ? selectedOffice === 'senador'
               ? 'Clique em um estado para carregar os senadores da UF selecionada.'
-              : 'Clique em um estado para carregar os deputados federais da UF selecionada.'
+              : selectedOffice === 'deputado-estadual'
+                ? 'Deputado estadual está disponível para PR, SC, RS, SP, RJ, MG e ES.'
+                : 'Clique em um estado para carregar os deputados federais da UF selecionada.'
             : 'Consulta por este cargo estará disponível em breve.'}
         </p>
       </div>
@@ -209,8 +227,9 @@ export function StatesPanel({
         <div className="state-grid">
           {STATES.map((state) => {
             const className = `state-btn ${selectedUf === state.uf ? 'selected' : ''}`
+            const isEnabled = isStateEnabled(state.uf)
 
-            if (!isStateSelectionEnabled) {
+            if (!isEnabled) {
               return (
                 <AppButton className={className} disabled={true} key={state.uf} type="button">
                   <span className="state-uf">{state.uf}</span>
