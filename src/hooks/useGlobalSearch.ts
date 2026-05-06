@@ -3,10 +3,18 @@ import { fetchPoliticiansIndex } from '../api/camaraApi'
 import type { GlobalSearchItem } from '../types/camara'
 import { normalizeSearchText, scoreGlobalSearchMatch } from '../utils/format'
 
-const OFFICE_ORDER = ['deputado-federal', 'senador'] as const
+const OFFICE_ORDER = ['deputado-federal', 'deputado-estadual', 'senador'] as const
 
 function getOfficeLabel(office: (typeof OFFICE_ORDER)[number]): string {
-  return office === 'deputado-federal' ? 'Deputado federal' : 'Senador'
+  if (office === 'deputado-federal') {
+    return 'Deputado federal'
+  }
+
+  if (office === 'deputado-estadual') {
+    return 'Deputado estadual'
+  }
+
+  return 'Senador'
 }
 
 export function useGlobalSearch() {

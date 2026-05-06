@@ -1,4 +1,4 @@
-import { writeFile } from 'node:fs/promises'
+import { readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -6,6 +6,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const projectRoot = path.resolve(__dirname, '..')
 const outputPath = path.join(projectRoot, 'public', 'sitemap.xml')
+const politiciansIndexPath = path.join(projectRoot, 'public', 'politicians-index.json')
 
 const SITE_URL = 'https://www.mandatotransparente.com.br'
 const CAMARA_API = 'https://dadosabertos.camara.leg.br/api/v2'
@@ -22,6 +23,7 @@ const CORE_PAGES = [
   { path: '/', changefreq: 'daily', priority: '1.0' },
   { path: '/por-estado', changefreq: 'weekly', priority: '0.9' },
   { path: '/por-estado/deputado-federal', changefreq: 'weekly', priority: '0.8' },
+  { path: '/por-estado/deputado-estadual', changefreq: 'weekly', priority: '0.8' },
   { path: '/por-estado/senador', changefreq: 'weekly', priority: '0.8' },
   { path: '/presidente', changefreq: 'weekly', priority: '0.9' },
   { path: '/sobre', changefreq: 'monthly', priority: '0.6' },
@@ -158,13 +160,48 @@ function loadPresidentPaths() {
   }))
 }
 
+async function loadStateDeputyPaths() {
+  try {
+    const raw = await readFile(politiciansIndexPath, 'utf-8')
+    const json = JSON.parse(raw)
+    const items = Array.isArray(json?.['deputados-estaduais']) ? json['deputados-estaduais'] : []
+    const ufs = [...new Set(items.map((item) => String(item?.estado || '').toUpperCase()).filter(Boolean))]
+
+    const paths = ufs.map((uf) => ({
+      path: `/por-estado/${uf.toLowerCase()}/deputado-estadual`,
+      changefreq: 'daily',
+      priority: '0.8',
+    }))
+
+    items.forEach((item) => {
+      const uf = String(item?.estado || '').toLowerCase()
+      const id = String(item?.id || '')
+
+      if (!uf || !id) {
+        return
+      }
+
+      paths.push({
+        path: `/por-estado/${uf}/deputado-estadual/${id}`,
+        changefreq: 'daily',
+        priority: '0.8',
+      })
+    })
+
+    return paths
+  } catch {
+    return []
+  }
+}
+
 async function main() {
-  const [deputyPaths, senatorPaths] = await Promise.all([
+  const [deputyPaths, senatorPaths, stateDeputyPaths] = await Promise.all([
     loadDeputyDetailPaths(),
     loadSenatorPaths(),
+    loadStateDeputyPaths(),
   ])
 
-  const entries = [...CORE_PAGES, ...deputyPaths, ...senatorPaths, ...loadPresidentPaths()]
+  const entries = [...CORE_PAGES, ...deputyPaths, ...senatorPaths, ...stateDeputyPaths, ...loadPresidentPaths()]
   const uniqueByPath = new Map(entries.map((entry) => [entry.path, entry]))
   const normalizedEntries = [...uniqueByPath.values()].sort((a, b) => a.path.localeCompare(b.path))
 

@@ -11,13 +11,22 @@
 3. **Senado Federal (Dados Abertos)**
    - Base: `https://legis.senado.leg.br/dadosabertos`
    - Uso: lista de senadores em exercício por UF, detalhe de senador, mandatos, comissões e cargos.
-4. **Dados locais do projeto**
+4. **Assembleias Legislativas Estaduais (Sul + Sudeste)**
+   - RS: `https://ww4.al.rs.gov.br:5000/listarDestaqueDeputados`
+   - SC: `https://www.alesc.sc.gov.br/post_team-sitemap.xml` + páginas `/deputado/{slug}`
+   - PR: `https://www.assembleia.pr.leg.br` (fonte oficial em integração gradual)
+   - SP: `https://legis-api-portal.pub.al.sp.gov.br/parlamentar-portal` (filtro por legislatura atual e em exercício)
+   - RJ: `https://www.alerj.rj.gov.br/Deputados/QuemSao` (scraping da lista oficial da legislatura atual)
+   - MG: `https://www.almg.gov.br/a-assembleia/deputados/inicial/` (scraping da lista oficial)
+   - ES: `http://www.al.es.gov.br/Deputado/Lista` (scraping da lista oficial; HTTP por limitação de certificado TLS na origem HTTPS)
+   - Uso: geração do grupo `deputados-estaduais` no índice local (`public/politicians-index.json`).
+5. **Dados locais do projeto**
    - `src/constants/presidents.ts`
    - Uso: diretório de presidente/vice e fallback de detalhe.
-5. **Cloudflare Turnstile**
+6. **Cloudflare Turnstile**
    - Base: `https://challenges.cloudflare.com/turnstile/v0/siteverify`
    - Uso: validação anti-spam no envio de sugestões.
-6. **Resend API**
+7. **Resend API**
    - Base: `https://api.resend.com/emails`
    - Uso: entrega por e-mail das sugestões recebidas no formulário.
 
@@ -30,6 +39,7 @@
 - `fetchPropositionVotes(propositionId)`
 - `fetchPresidents()`
 - `fetchPresidentDetail(id)`
+- `fetchStateDeputiesByState(uf)`
 - `fetchSenatorsByState(uf)`
 - `fetchSenatorDetailBundle(id)`
 

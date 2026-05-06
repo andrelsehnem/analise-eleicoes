@@ -20,7 +20,7 @@ function isOfficeType(value: string): value is OfficeType {
 export function StateSelectionPage() {
   const { office } = useParams<{ office?: string }>()
   const navigate = useNavigate()
-  const { goToDeputies, goToPresidents, goToSenators, goToStateSelection } = useAppNavigation()
+  const { goToDeputies, goToPresidents, goToSenators, goToStateDeputies, goToStateSelection } = useAppNavigation()
   const [selectedUf, setSelectedUf] = useState<string | null>(null)
 
   const selectedOffice: OfficeType = office && isOfficeType(office) ? office : 'deputado-federal'
@@ -45,6 +45,11 @@ export function StateSelectionPage() {
 
     if (selectedOffice === 'senador') {
       goToSenators(uf)
+      return
+    }
+
+    if (selectedOffice === 'deputado-estadual') {
+      goToStateDeputies(uf)
     }
   }
 

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import type { Deputy, OfficeType, President, Senator } from '../types/camara'
+import type { Deputy, OfficeType, President, Senator, StateDeputy } from '../types/camara'
 
 export function useAppNavigation() {
   const navigate = useNavigate()
@@ -21,6 +21,10 @@ export function useAppNavigation() {
     navigate(`/por-estado/${uf.toLowerCase()}/deputado-federal`)
   }
 
+  function goToStateDeputies(uf: string) {
+    navigate(`/por-estado/${uf.toLowerCase()}/deputado-estadual`)
+  }
+
   function goToSenators(uf: string) {
     navigate(`/senadores/${uf.toLowerCase()}`)
   }
@@ -35,6 +39,12 @@ export function useAppNavigation() {
 
   function goToDeputyDetail(uf: string, deputy: Deputy) {
     navigate(`/por-estado/${uf.toLowerCase()}/deputado-federal/${deputy.id}`, {
+      state: { selectedDeputy: deputy },
+    })
+  }
+
+  function goToStateDeputyDetail(uf: string, deputy: StateDeputy) {
+    navigate(`/por-estado/${uf.toLowerCase()}/deputado-estadual/${deputy.id}`, {
       state: { selectedDeputy: deputy },
     })
   }
@@ -71,10 +81,12 @@ export function useAppNavigation() {
     goToHome,
     goToStateSelection,
     goToDeputies,
+    goToStateDeputies,
     goToSenators,
     goToPresidents,
     goToGlobalSearch,
     goToDeputyDetail,
+    goToStateDeputyDetail,
     goToSenatorDetail,
     goToPresidentDetail,
     goToPresidentDetailById,

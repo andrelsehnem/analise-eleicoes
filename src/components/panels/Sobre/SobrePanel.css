@@ -186,7 +186,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-top: 2rem;
+  margin: 1.5rem 0;
   padding: 1.25rem 1.5rem;
   background: rgba(17, 34, 64, 0.65);
   border: 1px solid var(--border-bright);
@@ -225,7 +225,7 @@
 
 /* Disclaimer bottom */
 .sobre-footer-note {
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
   text-align: center;
   font-size: 0.825rem;
   color: var(--silver);

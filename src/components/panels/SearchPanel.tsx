@@ -33,12 +33,20 @@ function getCardSubtitle(item: GlobalSearchItem): string {
     return `Deputado federal · ${item.estado}`
   }
 
+  if (item.grupo === 'deputados-estaduais') {
+    return `Deputado estadual · ${item.estado}`
+  }
+
   return `Senador · ${item.estado || 'UF não informada'}`
 }
 
 function getResultLink(item: GlobalSearchItem): string {
   if (item.grupo === 'deputados-federais') {
     return `/por-estado/${item.estado.toLowerCase()}/deputado-federal/${item.id}`
+  }
+
+  if (item.grupo === 'deputados-estaduais') {
+    return `/por-estado/${item.estado.toLowerCase()}/deputado-estadual/${item.id}`
   }
 
   return `/senador/${item.id}`

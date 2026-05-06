@@ -9,7 +9,7 @@ Este arquivo separa funcionalidades planejadas/indicadas na interface das que j�
 
 ## Parcialmente representadas, mas sem fluxo completo
 
-1. Cargo `deputado-estadual` na seleção por estado (opção existe, fluxo não habilitado).
+1. Cargo `deputado-estadual` habilitado para PR, SC, RS, SP, RJ, MG e ES (demais UFs ainda em expansão).
 
 ## Previstas nas instruções do projeto, sem implementação encontrada
 
