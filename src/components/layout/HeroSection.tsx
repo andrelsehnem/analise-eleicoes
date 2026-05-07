@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { SupportProjectButton } from '../common/SupportProjectButton'
 
 const HIGHLIGHT_WORDS: string[] = [
   'cada político',
@@ -49,6 +50,8 @@ export function HeroSection() {
         Analise projetos de lei, votações e posicionamentos dos seus representantes. Dados
         oficiais dos orgãos públicos para uma escolha consciente.
       </p>
+
+      <SupportProjectButton />
     </div>
   )
 }

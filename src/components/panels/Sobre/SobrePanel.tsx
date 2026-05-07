@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import brazilLogo from '../../../assets/brazil-svgrepo-com.svg'
+import { SupportProjectButton } from '../../common/SupportProjectButton'
 
 import './SobrePanel.css'
 
@@ -21,6 +22,7 @@ export function SobrePanel() {
           possa conhecer o histórico de seus representantes políticos antes
           de ir às urnas.
         </p>
+        <SupportProjectButton className="sobre-support-action" />
       </div>
 
       {/* A ideia */}
