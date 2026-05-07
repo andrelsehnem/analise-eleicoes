@@ -11,6 +11,7 @@ Apresentar formas de pesquisa e iniciar o fluxo principal de consulta.
 
 ## Comportamento atual
 
+- Hero da home inclui botão **Apoie o projeto**, que abre modal com texto de incentivo e chave Pix copiável.
 - Card ativo: **Selecione por estado** (aciona navegação para `/por-estado`).
 - Cards ativos:
   - **Busque por partido** (aciona navegação para `/busca`)

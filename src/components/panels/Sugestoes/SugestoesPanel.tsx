@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { AppButton } from '../../common/AppButton'
 import { ErrorBox } from '../../common/ErrorBox'
+import { SupportProjectButton } from '../../common/SupportProjectButton'
 import { useSuggestionForm } from '../../../hooks/useSuggestionForm'
 
 import './SugestoesPanel.css'
@@ -193,6 +194,7 @@ export function SugestoesPanel() {
         <p>
           Preencha abaixo ou então encaminhe um e-mail para andrelsehnem@gmail.com
         </p>
+        <SupportProjectButton className="sugestoes-support-action" />
       </div>
 
       <form className="sugestoes-form" onSubmit={handleSubmit} noValidate>
