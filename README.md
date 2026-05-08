@@ -97,3 +97,8 @@ src/
 ## Documentação detalhada
 
 A documentação técnica e funcional consolidada está em `documentacao/`.
+
+## Integrações globais no shell HTML
+
+- O Social Bar da Adsterra é carregado globalmente em `index.html`, logo antes do fechamento do `body`, para ficar disponível em todas as rotas da SPA.
+- Ao alterar scripts externos globais, também ajuste a política de segurança em `vercel.json` para liberar os domínios necessários no CSP.
