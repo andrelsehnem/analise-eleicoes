@@ -40,6 +40,9 @@ const SobrePage = lazy(async () => ({
 const SugestoesPage = lazy(async () => ({
   default: (await import('./components/pages/SugestoesPage')).SugestoesPage,
 }))
+const PrivacyPolicyPage = lazy(async () => ({
+  default: (await import('./components/pages/PrivacyPolicyPage')).PrivacyPolicyPage,
+}))
 const SearchPage = lazy(async () => ({
   default: (await import('./components/pages/SearchPage')).SearchPage,
 }))
@@ -166,6 +169,16 @@ function App() {
           <AppLayout showStepsNav={false}>
             <Suspense fallback={<Loader />}>
               <SobrePage />
+            </Suspense>
+          </AppLayout>
+        }
+      />
+      <Route
+        path="/privacidade"
+        element={
+          <AppLayout showStepsNav={false}>
+            <Suspense fallback={<Loader />}>
+              <PrivacyPolicyPage />
             </Suspense>
           </AppLayout>
         }

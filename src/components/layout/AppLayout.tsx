@@ -3,6 +3,7 @@ import { AppHeader } from '../layout/AppHeader'
 import { Disclaimer } from '../layout/Disclaimer'
 import { HeroSection } from '../layout/HeroSection'
 import { StepsNav } from '../layout/StepsNav'
+import { CookieBanner } from '../common/CookieBanner'
 import { useLocation, useParams } from 'react-router-dom'
 import { STATES } from '../../constants/states'
 
@@ -57,6 +58,7 @@ export function AppLayout({
         {children}
       </main>
 
+      <CookieBanner />
       <Disclaimer />
     </div>
   )

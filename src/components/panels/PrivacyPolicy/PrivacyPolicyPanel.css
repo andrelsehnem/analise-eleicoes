@@ -1,0 +1,78 @@
+.privacy-panel {
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.privacy-panel__header {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(17, 34, 64, 0.65);
+  padding: 1.35rem 1.4rem;
+}
+
+.privacy-panel__label {
+  display: inline-flex;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.7rem;
+}
+
+.privacy-panel__header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.3vw, 2.4rem);
+  margin-bottom: 0.8rem;
+  color: var(--white);
+}
+
+.privacy-panel__header p {
+  font-size: 0.97rem;
+  line-height: 1.65;
+  color: var(--white-dim);
+}
+
+.privacy-panel__section {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(17, 34, 64, 0.5);
+  padding: 1.1rem 1.25rem;
+}
+
+.privacy-panel__section h2 {
+  font-size: 1.03rem;
+  color: var(--white);
+  margin-bottom: 0.55rem;
+}
+
+.privacy-panel__section p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--white-dim);
+}
+
+.privacy-panel__section p + p {
+  margin-top: 0.6rem;
+}
+
+.privacy-panel__section a,
+.privacy-panel__footer a {
+  color: var(--gold-light);
+  text-decoration: none;
+}
+
+.privacy-panel__section a:hover,
+.privacy-panel__footer a:hover {
+  text-decoration: underline;
+}
+
+.privacy-panel__footer {
+  border-top: 1px solid var(--border);
+  margin-top: 0.25rem;
+  padding-top: 0.8rem;
+  font-size: 0.85rem;
+  color: var(--silver);
+}

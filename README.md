@@ -25,6 +25,7 @@ Aplicação web SPA para consulta pública de políticos brasileiros, com foco a
   - órgãos de atuação
 - Lista e detalhe da Presidência (presidente e vice)
 - Página Sobre
+- Página de Privacidade e Cookies
 - Página de Sugestões com envio para endpoint serverless
 
 ## Funcionalidades não implementadas (roadmap)
@@ -48,6 +49,7 @@ Detalhes em `documentacao/roadmap-nao-implementado.md`.
 - `/presidente`
 - `/presidente/:presidentId`
 - `/sobre`
+- `/privacidade`
 - `/sugestoes`
 
 ## Fontes de dados
@@ -100,5 +102,8 @@ A documentação técnica e funcional consolidada está em `documentacao/`.
 
 ## Integrações globais no shell HTML
 
-- O Social Bar da Adsterra é carregado globalmente em `index.html`, logo antes do fechamento do `body`, para ficar disponível em todas as rotas da SPA.
-- Ao alterar scripts externos globais, também ajuste a política de segurança em `vercel.json` para liberar os domínios necessários no CSP.
+- Scripts de rastreamento são carregados somente após consentimento explícito no banner de cookies.
+- O banner usa localStorage para registrar decisão de aceite/rejeição e ocultação temporária por 30 dias ao fechar no `X`.
+- O carregamento condicional de scripts está em `src/utils/trackingConsent.ts`.
+- IDs opcionais para GA/GTM podem ser configurados via `VITE_GA_MEASUREMENT_ID` e `VITE_GTM_CONTAINER_ID`.
+- Ao alterar scripts externos de rastreamento, ajuste também a política de segurança em `vercel.json` para liberar os domínios necessários no CSP.
