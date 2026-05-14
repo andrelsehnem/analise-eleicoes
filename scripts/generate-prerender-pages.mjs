@@ -268,6 +268,14 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
     }
   }
 
+  if (normalizedPath === '/privacidade') {
+    return {
+      title: 'Política de Privacidade e Cookies',
+      description:
+        'Entenda como o Mandato Transparente trata consentimento de cookies e o carregamento de scripts de rastreamento.',
+    }
+  }
+
   if (normalizedPath === '/sugestoes') {
     return {
       title: 'Sugestões',

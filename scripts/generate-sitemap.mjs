@@ -27,6 +27,7 @@ const CORE_PAGES = [
   { path: '/por-estado/senador', changefreq: 'weekly', priority: '0.8' },
   { path: '/presidente', changefreq: 'weekly', priority: '0.9' },
   { path: '/sobre', changefreq: 'monthly', priority: '0.6' },
+  { path: '/privacidade', changefreq: 'monthly', priority: '0.5' },
   { path: '/sugestoes', changefreq: 'monthly', priority: '0.5' },
 ]
 

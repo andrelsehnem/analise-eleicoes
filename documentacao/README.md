@@ -15,6 +15,7 @@ Esta pasta consolida a documentação do que está implementado no projeto hoje.
 - [modulos/06-presidencia-detalhe.md](./modulos/06-presidencia-detalhe.md)
 - [modulos/07-sobre.md](./modulos/07-sobre.md)
 - [modulos/08-componentes-comuns-e-utils.md](./modulos/08-componentes-comuns-e-utils.md)
+- [modulos/09-politica-privacidade-cookies.md](./modulos/09-politica-privacidade-cookies.md)
 - [roadmap-nao-implementado.md](./roadmap-nao-implementado.md)
 - [apendices/01-legado-useCamaraData.md](./apendices/01-legado-useCamaraData.md)
 - [analises/01-melhorias-copilot-e-readme.md](./analises/01-melhorias-copilot-e-readme.md)

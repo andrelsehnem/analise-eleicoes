@@ -21,6 +21,7 @@
 - `/presidente` → `PresidentsListPage`
 - `/presidente/:presidentId` → `PresidentDetailPage`
 - `/sobre` → `SobrePage`
+- `/privacidade` → `PrivacyPolicyPage`
 - `/sugestoes` → `SugestoesPage`
 
 ## SEO técnico por rota
@@ -38,6 +39,7 @@
 	- `/por-estado`
 	- `/presidente`
 	- `/sobre`
+	- `/privacidade`
 	- `/sugestoes`
 
 ## Performance de carregamento
@@ -74,4 +76,5 @@
 ## Composição de layout
 
 - `AppLayout` estrutura cabeçalho, hero, navegação de etapas (quando aplicável) e conteúdo.
+- O banner de cookies é renderizado globalmente no `AppLayout`, com persistência de decisão em localStorage.
 - Algumas rotas não usam StepsNav (`showStepsNav={false}`), especialmente presidência e sobre.
