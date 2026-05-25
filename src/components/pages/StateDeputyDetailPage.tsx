@@ -13,7 +13,7 @@ type StateDeputyDetailLocationState = {
   fromGlobalSearch?: boolean
 }
 
-const ENABLED_UFS = new Set(['PR', 'SC', 'RS', 'SP', 'RJ', 'MG', 'ES'])
+const ENABLED_UFS = new Set(STATES.map((state) => state.uf))
 
 export function StateDeputyDetailPage() {
   const { uf, deputyId } = useParams<{ uf: string; deputyId: string }>()

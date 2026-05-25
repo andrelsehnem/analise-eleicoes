@@ -7,10 +7,6 @@ Este arquivo separa funcionalidades planejadas/indicadas na interface das que j�
 1. Busca por cargo (landing, como fluxo dedicado).
 2. Candidatos 2026.
 
-## Parcialmente representadas, mas sem fluxo completo
-
-1. Cargo `deputado-estadual` habilitado para PR, SC, RS, SP, RJ, MG e ES (demais UFs ainda em expansão).
-
 ## Previstas nas instruções do projeto, sem implementação encontrada
 
 1. Favoritar políticos.

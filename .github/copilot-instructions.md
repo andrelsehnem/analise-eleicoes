@@ -10,10 +10,17 @@ No estado atual do projeto, os fluxos implementados são:
 2. **Seleção por estado** via mapa SVG e lista de UFs
 3. **Consulta de Deputado Federal por UF** (lista com busca por nome/partido)
 4. **Detalhe de deputado** (dados gerais, proposições, votos e órgãos)
-5. **Consulta da Presidência** (presidente e vice, lista e detalhe)
-6. **Página Sobre**
+5. **Consulta de Deputado Estadual por UF** (lista com busca por nome/partido)
+6. **Detalhe de deputado estadual**
+7. **Consulta de Senadores por UF** (lista com busca por nome/partido)
+8. **Detalhe de senador**
+9. **Busca global** (nome/partido/cargo)
+10. **Consulta da Presidência** (presidente e vice, lista e detalhe)
+11. **Página Sobre**
+12. **Política de Privacidade**
+13. **Página de Sugestões**
 
-Fluxos como busca direta global por nome, favoritos, comparação, candidatos futuros, senador e deputado estadual serão implementados em versões futuras.
+Fluxos como favoritos, comparação e candidatos futuros serão implementados em versões futuras.
 
 ---
 
@@ -84,14 +91,16 @@ type Tab         = 'proposicoes' | 'votacoes'
 - Todas as respostas têm envelope `{ dados: T }`
 - Funções exportadas:
   - `fetchDeputiesByState(uf: string): Promise<Deputy[]>`
+  - `fetchStateDeputiesByState(uf: string): Promise<StateDeputy[]>`
   - `fetchDeputyPropositionsPage(id: number, page: number, options?): Promise<DeputyPropositionsPage>`
   - `fetchDeputyDetailBundle(id: number, options?): Promise<{ info, professions, propositions, hasMorePropositions, propositionsPage }>`
   - `fetchDeputyOrgaos(id: number): Promise<DeputyOrgan[]>`
   - `fetchPropositionVotes(propositionId: number): Promise<PropositionVote[]>`
   - `fetchPresidents(): Promise<President[]>`
   - `fetchPresidentDetail(id: string): Promise<PresidentDetail>`
+  - `fetchPoliticiansIndex(): Promise<GlobalSearchItem[]>`
   - `fetchSenatorsByState(uf: string): Promise<Senator[]>`
-  - `fetchSenatorDetailBundle(id: number): Promise<SenatorDetail>`
+  - `fetchSenatorDetailBundle(id: string): Promise<SenatorDetail>`
 - Erros de HTTP lançam `Error` com mensagem em português
 
 ### URLs de API de Listagem (usadas no índice de políticos)
@@ -100,6 +109,7 @@ type Tab         = 'proposicoes' | 'votacoes'
 |---|---|
 | `deputados-federais` | `GET https://dadosabertos.camara.leg.br/api/v2/deputados` (por UF) |
 | `senadores` | `GET https://legis.senado.leg.br/dadosabertos/senador/lista/atual` |
+| `deputados-estaduais` | múltiplas fontes oficiais por UF (APIs e portais das assembleias), consolidadas em `scripts/generate-politicians-index.mjs` |
 
 > **Ao integrar uma nova API com listagem de políticos:** adicionar um novo grupo em `scripts/generate-politicians-index.mjs` seguindo o padrão existente (função `load<Tipo>` + entrada no objeto `index`) e registrar a URL na tabela acima. O JSON `public/politicians-index.json` é gerado automaticamente no `pnpm build` e também via `pnpm generate:politicians`.
 
@@ -111,7 +121,11 @@ type Tab         = 'proposicoes' | 'votacoes'
 |---|---|
 | `useAppNavigation` | Navegação por rotas da aplicação |
 | `useDeputies` | Carrega/filtra lista de deputados por UF |
+| `useStateDeputies` | Carrega/filtra lista de deputados estaduais por UF |
 | `useDeputyDetail` | Carrega detalhes, proposições e votações de um deputado |
+| `useGlobalSearch` | Busca global no índice local de políticos |
+| `useSenators` | Carrega/filtra lista de senadores por UF |
+| `useSenatorDetail` | Carrega detalhes do perfil de senador |
 | `usePresidents` | Carrega/filtra lista de presidente e vice |
 | `usePresidentDetail` | Carrega detalhes do perfil de presidente/vice |
 

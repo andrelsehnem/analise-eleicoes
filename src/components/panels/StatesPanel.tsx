@@ -31,7 +31,7 @@ type BrazilLocation = {
 }
 
 const mapLocations = brazilMap.locations as BrazilLocation[]
-const ENABLED_STATE_DEPUTY_UFS = new Set(['PR', 'SC', 'RS', 'SP', 'RJ', 'MG', 'ES'])
+const ENABLED_STATE_DEPUTY_UFS = new Set(STATES.map((state) => state.uf))
 
 function buildStateListPath(uf: string, office: OfficeType): string {
   const normalizedUf = uf.toLowerCase()
@@ -216,7 +216,7 @@ export function StatesPanel({
             ? selectedOffice === 'senador'
               ? 'Clique em um estado para carregar os senadores da UF selecionada.'
               : selectedOffice === 'deputado-estadual'
-                ? 'Deputado estadual está disponível para PR, SC, RS, SP, RJ, MG e ES.'
+                ? 'Clique em um estado para carregar os deputados estaduais da UF selecionada.'
                 : 'Clique em um estado para carregar os deputados federais da UF selecionada.'
             : 'Consulta por este cargo estará disponível em breve.'}
         </p>

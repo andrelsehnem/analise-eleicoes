@@ -69,7 +69,7 @@
 - `useDeputyDetail`: detalhe, proposições paginadas, votos, órgãos.
 - `useSenators`: lista/busca de senadores por UF.
 - `useSenatorDetail`: detalhe de senador com mandatos, comissões e cargos.
-- `useStateDeputies`: lista/busca de deputados estaduais por UF (PR, SC, RS, SP, RJ, MG e ES; PR segue em integração gradual de fonte).
+- `useStateDeputies`: lista/busca de deputados estaduais por UF (cobertura nacional).
 - `usePresidents`: lista e busca em presidência.
 - `usePresidentDetail`: detalhe de presidente/vice.
 
