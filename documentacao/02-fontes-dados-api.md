@@ -80,6 +80,29 @@
    - verificação de captcha no Turnstile
    - rate limit em memória por IP (janela de 10 minutos)
 
+## Endpoints internos de autenticação e perfil
+
+- `GET /api/auth/csrf`
+   - emite token CSRF e cookie `mt_csrf`
+- `POST /api/auth/session`
+   - recebe ID token Firebase, valida no backend e cria cookie `mt_session` (httpOnly)
+- `DELETE /api/auth/session`
+   - encerra sessão e limpa cookies de autenticação
+- `GET /api/auth/me`
+   - valida sessão atual e retorna usuário autenticado
+- `GET /api/profile`
+   - retorna perfil do usuário autenticado
+- `PUT /api/profile`
+   - atualiza perfil do usuário autenticado
+
+Regras de proteção aplicadas:
+
+- validação de origem confiável (`Origin`) para endpoints sensíveis
+- token CSRF obrigatório em métodos mutáveis
+- rate limit em memória por IP para auth/profile
+- sessão em cookie httpOnly com `SameSite` e `Secure` em produção
+- validação de sessão no backend via Firebase Admin
+
 ## Regras relevantes de negócio
 
 - Proposições são filtradas para o período de mandato atual (`2022` a `2026`).

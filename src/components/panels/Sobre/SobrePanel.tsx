@@ -52,24 +52,6 @@ export function SobrePanel() {
         </p>
       </div>
 
-      {/* Criadores */}
-      <div className="sobre-section sobre-section--oculta">
-        <div className="sobre-section-header">
-          <span className="sobre-section-icon">👥</span>
-          <h2>Criadores</h2>
-        </div>
-        <div className="sobre-creators">
-          <div className="sobre-creator-card">
-            <div className="sobre-creator-avatar">F</div>
-            <div className="sobre-creator-name">Fulano</div>
-          </div>
-          <div className="sobre-creator-card">
-            <div className="sobre-creator-avatar">C</div>
-            <div className="sobre-creator-name">Ciclano</div>
-          </div>
-        </div>
-      </div>
-
       <div className="sobre-github-banner">
         <span className="sobre-github-icon">💻</span>
         <div className="sobre-github-text">
@@ -83,6 +65,28 @@ export function SobrePanel() {
           </a>
         </div>
       </div>
+
+      {/* Criadores */}
+      <div className="sobre-section">
+        <div className="sobre-section-header">
+          <span className="sobre-section-icon">👥</span>
+          <h2>Criador</h2>
+        </div>
+        <div className="sobre-creators">
+          <a
+            className="sobre-creator-card"
+            href="https://andre100.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Abrir o site andre100.dev de André Luis Sehnem em uma nova aba"
+          >
+            <div className="sobre-creator-avatar">A</div>
+            <span className="sobre-creator-name">André Luis Sehnem</span>
+          </a>
+        </div>
+      </div>
+
+
 
       {/* Fontes de dados */}
       <div className="sobre-section">

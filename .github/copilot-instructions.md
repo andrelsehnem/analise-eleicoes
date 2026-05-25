@@ -19,6 +19,8 @@ No estado atual do projeto, os fluxos implementados são:
 11. **Página Sobre**
 12. **Política de Privacidade**
 13. **Página de Sugestões**
+14. **Login de usuário** (`/login`) com Firebase Auth (Google e e-mail/senha)
+15. **Perfil de usuário** (`/perfil`) com rota protegida e sessão segura
 
 Fluxos como favoritos, comparação e candidatos futuros serão implementados em versões futuras.
 
@@ -32,7 +34,8 @@ Fluxos como favoritos, comparação e candidatos futuros serão implementados em
 - **Roteamento:** `react-router-dom`
 - **Mapa:** `@svg-maps/brazil`
 - **Analytics:** `@vercel/analytics`
-- **Sem biblioteca de estado global** (apenas `useState` / hooks customizados)
+- **Autenticação:** Firebase Auth (cliente) + Firebase Admin (backend serverless)
+- **Estado global sem libs externas** (Context API + hooks customizados; sem Redux/Zustand)
 - **Sem biblioteca CSS externa** (CSS puro com variáveis customizadas)
 
 ---
@@ -52,6 +55,8 @@ src/
   hooks/         # Hooks customizados de lógica de negócio
   types/         # Tipos TypeScript compartilhados (camara.ts)
   utils/         # Utilitários puros (format.ts, ui.ts)
+
+api/             # Vercel Functions (ex.: sugestões, auth, perfil)
 ```
 
 ---
@@ -128,6 +133,9 @@ type Tab         = 'proposicoes' | 'votacoes'
 | `useSenatorDetail` | Carrega detalhes do perfil de senador |
 | `usePresidents` | Carrega/filtra lista de presidente e vice |
 | `usePresidentDetail` | Carrega detalhes do perfil de presidente/vice |
+| `useAuth` | Consome estado e ações de autenticação no frontend |
+
+Observação: `AuthProvider` é responsável pelo estado global de autenticação e bootstrap da sessão via backend.
 
 Observação: `useCamaraData` existe como legado e não é o fluxo principal atual.
 
@@ -138,7 +146,9 @@ Observação: `useCamaraData` existe como legado e não é o fluxo principal atu
 1. **Novos componentes** devem ir em `src/components/common/` (genérico) ou no módulo correto (`pages`, `panels`, `layout`) e devem ter seu próprio arquivo `.css` para estilos específicos, sempre seguindo o padrão do projeto para cores e fontes.
 2. **Novos hooks** devem ir em `src/hooks/` e seguir o padrão `use<Nome>`.
 3. **Novos tipos** devem ser adicionados em `src/types/camara.ts`.
-4. **Novas chamadas de API** devem ser adicionadas em `src/api/camaraApi.ts` usando a função `fetchApi<T>` interna.
+4. **Novas chamadas de API**:
+  - para dados da Câmara/Senado e integrações públicas, usar `src/api/camaraApi.ts`;
+  - para endpoints internos (`/api/*`), criar arquivos dedicados em `src/api/` (ex.: `authApi.ts`, `profileApi.ts`).
 5. **Textos na UI** devem estar em português do Brasil.
 6. **Acessibilidade:** manter atributos `aria-*`, `role` e suporte a teclado nos elementos interativos.
 7. **CSS:** adicionar estilos no arquivo `.css` correspondente ao componente; usar variáveis CSS já definidas quando disponíveis. Nunca utilizar tailwind.

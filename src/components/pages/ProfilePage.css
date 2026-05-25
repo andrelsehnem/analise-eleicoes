@@ -1,0 +1,106 @@
+.profile-panel {
+  max-width: 620px;
+  margin: 2rem auto 0;
+  padding: 1.6rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(17, 34, 64, 0.65);
+}
+
+.profile-description {
+  color: var(--silver);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.profile-success {
+  border: 1px solid rgba(39, 174, 96, 0.35);
+  background: rgba(39, 174, 96, 0.1);
+  color: var(--green-bright);
+  border-radius: 8px;
+  padding: 0.7rem 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+.profile-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.profile-field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.profile-field label {
+  color: var(--white-dim);
+  font-size: 0.84rem;
+}
+
+.profile-field input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(10, 22, 40, 0.7);
+  color: var(--white);
+  padding: 0.7rem 0.8rem;
+}
+
+.profile-field input:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.profile-field input:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 2px;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.profile-save-button,
+.profile-logout-button {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.profile-save-button {
+  background: rgba(201, 168, 76, 0.15);
+}
+
+.profile-save-button:hover {
+  border-color: var(--gold);
+  background: rgba(201, 168, 76, 0.22);
+}
+
+.profile-logout-button {
+  background: rgba(10, 22, 40, 0.7);
+}
+
+.profile-logout-button:hover {
+  border-color: var(--border-bright);
+}
+
+.profile-save-button:focus-visible,
+.profile-logout-button:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+  .profile-panel {
+    margin-top: 1.2rem;
+    padding: 1rem;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+  }
+}
