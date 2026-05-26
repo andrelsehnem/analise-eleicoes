@@ -7,7 +7,7 @@ import { SeoHead } from '../common/SeoHead'
 import { StateDeputiesPanel } from '../panels/StateDeputiesPanel'
 import { buildBreadcrumbSchema, buildCollectionPageSchema } from '../../utils/seo'
 
-const ENABLED_UFS = new Set(['PR', 'SC', 'RS', 'SP', 'RJ', 'MG', 'ES'])
+const ENABLED_UFS = new Set(STATES.map((state) => state.uf))
 
 export function StateDeputiesListPage() {
   const { uf } = useParams<{ uf: string }>()

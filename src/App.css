@@ -160,6 +160,45 @@ header {
   opacity: 0.8;
 }
 
+.header-profile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.36rem 0.7rem;
+  color: var(--gold);
+  background: rgba(201, 168, 76, 0.08);
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.header-profile-link:hover {
+  border-color: var(--gold);
+  background: rgba(201, 168, 76, 0.16);
+  transform: translateY(-1px);
+}
+
+.header-profile-link:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 2px;
+}
+
+.header-profile-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-profile-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .main {
   max-width: 1400px;
   margin: 0 auto;

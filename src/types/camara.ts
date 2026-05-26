@@ -356,3 +356,20 @@ export type SuggestionSuccessResponse = {
   success: true
   message: string
 }
+
+export type AuthProfile = {
+  uid: string
+  email: string
+  displayName: string
+  picture?: string
+  photoURL?: string
+}
+
+export type ProfileData = {
+  uid: string
+  email: string
+  displayName: string
+  photoURL?: string
+  createdAt?: string
+  updatedAt?: string
+}

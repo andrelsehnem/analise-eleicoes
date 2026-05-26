@@ -740,7 +740,7 @@ export async function fetchSenatorsByState(uf: string): Promise<Senator[]> {
 
 /**
  * Retorna a lista de deputados estaduais de uma UF a partir do índice pré-gerado.
- * Apenas PR, SC e RS estão disponíveis.
+* Disponível para todas as UFs (incluindo DF) via índice gerado.
  */
 export async function fetchStateDeputiesByState(uf: string): Promise<StateDeputy[]> {
   const normalizedUf = uf.trim().toUpperCase()

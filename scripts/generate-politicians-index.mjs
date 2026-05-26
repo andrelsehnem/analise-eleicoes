@@ -1,8 +1,7 @@
 /**
  * Gera public/politicians-index.json com todos os políticos disponíveis,
- * organizados por tipo (deputados-federais, senadores).
-
- * rodado de forma independente via `pnpm generate:politicians`.
+ * organizado por tipo (deputados-federais, senadores e deputados-estaduais).
+ * Pode ser rodado de forma independente via `pnpm generate:politicians`.
  *
  * ─────────────────────────────────────────────────────────────────────────────
  * ATENÇÃO: ao integrar uma nova fonte de dados com listagem de políticos,
@@ -11,16 +10,16 @@
  * ─────────────────────────────────────────────────────────────────────────────
  *
  * Grupos atuais:
- *   - deputados-federais  → https://dadosabertos.camara.leg.br/api/v2/deputados
- *   - senadores           → https://legis.senado.leg.br/dadosabertos/senador/lista/atual
-
-
- * Grupos atuais:
  *   - deputados-federais   → https://dadosabertos.camara.leg.br/api/v2/deputados
  *   - senadores            → https://legis.senado.leg.br/dadosabertos/senador/lista/atual
- *   - deputados-estaduais  → RS: https://ww4.al.rs.gov.br:5000/listarDestaqueDeputados
- *                            SC: https://www.alesc.sc.gov.br/post_team-sitemap.xml (HTML scraping)
- *                            PR: https://www.assembleia.pr.leg.br (indisponível — lista vazia)
+ *   - deputados-estaduais  → cobertura nacional (múltiplas fontes oficiais por UF)
+ *                            Ex.: RS https://ww4.al.rs.gov.br:5000/listarDestaqueDeputados
+ *                                 SP https://legis-api-portal.pub.al.sp.gov.br/parlamentar-portal
+ *                                 DF https://www.cl.df.gov.br/deputados-2023-2026
+ *                                 GO https://portal.al.go.leg.br/deputados/em-exercicio
+ *                                 PA https://www.alepa.pa.gov.br/Home/Page/Deputados
+ *                                 AC/AL/AM/PB/PI/RO/RR/TO via SAPL (.../api/parlamentares/...)
+ *                                 PR https://www.assembleia.pr.leg.br/deputados/conheca
  */
 
 import { writeFile } from 'node:fs/promises'
@@ -42,6 +41,26 @@ const ALERJ_BASE = 'https://www.alerj.rj.gov.br'
 const ALMG_BASE = 'https://www.almg.gov.br'
 const ALES_BASE = 'https://www.al.es.gov.br'
 const ALES_FETCH_BASE = 'http://www.al.es.gov.br'
+const ALBA_BASE = 'https://www.al.ba.gov.br'
+const ALCE_BASE = 'https://www.al.ce.gov.br'
+const ALMA_BASE = 'https://www.al.ma.leg.br'
+const ALEPE_BASE = 'https://www.alepe.pe.gov.br'
+const ALRN_BASE = 'https://www.al.rn.leg.br'
+const SE_SPL_BASE = 'https://aleselegis.al.se.leg.br/spl'
+const SAPL_AL_BASE = 'https://sapl.al.al.leg.br'
+const SAPL_PI_BASE = 'https://sapl.al.pi.leg.br'
+const SAPL_PB_BASE = 'https://sapl.al.pb.leg.br'
+const SAPL_AC_BASE = 'https://sapl.al.ac.leg.br'
+const SAPL_AM_BASE = 'https://sapl.al.am.leg.br'
+const SAPL_RO_BASE = 'https://sapl.al.ro.leg.br'
+const SAPL_RR_BASE = 'https://sapl.al.rr.leg.br'
+const SAPL_TO_BASE = 'https://sapl.al.to.leg.br'
+const ALEGO_BASE = 'https://portal.al.go.leg.br'
+const ALEPA_BASE = 'https://www.alepa.pa.gov.br'
+const CLDF_BASE = 'https://www.cl.df.gov.br'
+const ALMT_BASE = 'https://www.al.mt.gov.br'
+const ALMS_BASE = 'https://www.al.ms.gov.br'
+const ALAP_BASE = 'https://www.al.ap.leg.br'
 const SC_SITEMAP_TIMEOUT_MS = 12000
 const SC_DEPUTY_REQUEST_TIMEOUT_MS = 10000
 const SC_MAX_DURATION_MS = 120000
@@ -131,6 +150,59 @@ function decodeHtml(value) {
     .replace(/&gt;/g, '>')
     .replace(/&nbsp;/g, ' ')
     .trim()
+}
+
+/**
+ * Garante URL absoluta a partir de base + caminho relativo.
+ * @param {string} base
+ * @param {string | undefined} raw
+ * @returns {string | undefined}
+ */
+function toAbsoluteUrl(base, raw) {
+  if (!raw) {
+    return undefined
+  }
+
+  const value = String(raw).trim()
+
+  if (!value) {
+    return undefined
+  }
+
+  if (value.startsWith('http://') || value.startsWith('https://')) {
+    return value
+  }
+
+  return `${base}${value.startsWith('/') ? '' : '/'}${value}`
+}
+
+/**
+ * Extrai sigla de partido de textos como "Partido Liberal(PL)".
+ * @param {string} raw
+ * @returns {string}
+ */
+function extractPartyAcronym(raw) {
+  const value = decodeHtml(raw)
+  const acronymMatch = value.match(/\(([A-Za-zÀ-ÿ.\-\s]{2,20})\)\s*$/)
+  if (acronymMatch) {
+    return acronymMatch[1].trim().toUpperCase()
+  }
+
+  return value.trim()
+}
+
+/**
+ * Gera slug estável para IDs sintéticos.
+ * @param {string} value
+ * @returns {string}
+ */
+function toSlug(value) {
+  return decodeHtml(value)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
 }
 
 /**
@@ -346,12 +418,40 @@ async function loadDeputadosEstaduaisSC() {
 
 /**
  * Retorna lista de deputados do PR.
- * O site da ALEP (assembleia.pr.leg.br) frequentemente está inacessível.
+ * Fonte: GET https://www.assembleia.pr.leg.br/deputados/conheca
  * @returns {Promise<PoliticianEntry[]>}
  */
 async function loadDeputadosEstaduaisPR() {
-  console.log('⚠️  PR (ALEP): site indisponível via script. Retornando lista vazia.')
-  return []
+  const html = await fetchText('https://www.assembleia.pr.leg.br/deputados/conheca')
+  const matches = [
+    ...html.matchAll(
+      /<a\s+href="(https:\/\/www\.assembleia\.pr\.leg\.br\/deputados\/perfil\/([^"?#]+))"[\s\S]*?<img\s+src="([^"]+)"[\s\S]*?<h3[^>]*>\s*([^<]+)\s*<\/h3>[\s\S]*?<p\s+class="text-gray-500\s+text-sm\s+italic">\s*([^<]*)\s*<\/p>/gi,
+    ),
+  ]
+
+  return matches
+    .map((match) => {
+      const href = String(match[1] || '').trim()
+      const slug = String(match[2] || '').trim()
+      const foto = decodeHtml(String(match[3] || '').trim())
+      const nome = decodeHtml(String(match[4] || '')).trim()
+      const partidoRaw = decodeHtml(String(match[5] || '')).trim()
+
+      if (!href || !nome) {
+        return null
+      }
+
+      return {
+        id: `pr-${slug || toSlug(nome)}`,
+        nome,
+        estado: 'PR',
+        partido: extractPartyAcronym(partidoRaw),
+        urlFoto: toAbsoluteUrl('https://www.assembleia.pr.leg.br', foto),
+        urlPerfil: href,
+      }
+    })
+    .filter((item) => item !== null)
+    .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
 }
 
 /**
@@ -437,7 +537,7 @@ async function loadDeputadosEstaduaisMG() {
   const html = await fetchText(`${ALMG_BASE}/a-assembleia/deputados/inicial/`)
   const matches = [
     ...html.matchAll(
-      /<a title="([^"]+)" href="(\/deputados\/[^"?#]+\/(\d+))"[^>]*>[\s\S]*?<img src="([^"]+)"[^>]*>[\s\S]*?<div class="badge[^>]*">([^<]+)<\/div>/gi,
+      /<a[^>]*title="([^"]+)"[^>]*href="(\/deputados\/[^"?#]+\/(\d+))"[^>]*>[\s\S]*?<img src="([^"]+)"[^>]*>[\s\S]*?<span class="badge[^>]*">\s*([^<]*)\s*<\/span>/gi,
     ),
   ]
 
@@ -464,6 +564,301 @@ async function loadDeputadosEstaduaisMG() {
     })
     .filter((item) => item !== null)
     .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+}
+
+/**
+ * Retorna lista de deputados de BA.
+ * Fonte: GET https://www.al.ba.gov.br/deputados
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisBA() {
+  const html = await fetchText(`${ALBA_BASE}/deputados`)
+  const matches = [
+    ...html.matchAll(
+      /<a href="(\/deputados\/deputado-estadual\/(\d+))"[^>]*>[\s\S]*?<img src="([^"]+)"[^>]*>[\s\S]*?<div class="deputado-nome">[\s\S]*?<span>\s*([^<]+)\s*<\/span>[\s\S]*?<div class="partido-nome">\s*([^<]*)\s*<\/div>/gi,
+    ),
+  ]
+
+  return matches
+    .map((match) => {
+      const href = String(match[1] || '').trim()
+      const id = String(match[2] || '').trim()
+      const foto = String(match[3] || '').trim()
+      const nome = decodeHtml(String(match[4] || ''))
+      const partido = decodeHtml(String(match[5] || ''))
+
+      if (!id || !nome || !href) {
+        return null
+      }
+
+      return {
+        id,
+        nome,
+        estado: 'BA',
+        partido,
+        urlFoto: foto ? (foto.startsWith('http://') || foto.startsWith('https://') ? foto : `${ALBA_BASE}${foto}`) : undefined,
+        urlPerfil: `${ALBA_BASE}${href}`,
+      }
+    })
+    .filter((item) => item !== null)
+    .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+}
+
+/**
+ * Retorna lista de deputados de CE.
+ * Fonte: GET https://www.al.ce.gov.br/deputados
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisCE() {
+  const html = await fetchText(`${ALCE_BASE}/deputados`)
+  const matches = [
+    ...html.matchAll(
+      /<div\s+class="deputado_card[^"]*"[\s\S]*?<img[\s\S]*?src="([^"]+)"[\s\S]*?<p\s+class="deputado_card--nome[^>]*><a\s+href="([^"]+)">\s*([^<]+?)\s*<\/a><\/p>[\s\S]*?<p\s+class="deputado_card--partido[^>]*>\s*([^<]*)\s*<\/p>/gi,
+    ),
+  ]
+
+  return matches
+    .map((match) => {
+      const foto = String(match[1] || '').trim()
+      const href = String(match[2] || '').trim()
+      const nome = decodeHtml(String(match[3] || ''))
+      const partido = decodeHtml(String(match[4] || '')).toUpperCase()
+
+      if (!href || !nome) {
+        return null
+      }
+
+      const slug = href.split('/').filter(Boolean).at(-1) || ''
+
+      return {
+        id: `ce-${slug}`,
+        nome,
+        estado: 'CE',
+        partido,
+        urlFoto: toAbsoluteUrl(ALCE_BASE, foto),
+        urlPerfil: toAbsoluteUrl(ALCE_BASE, href),
+      }
+    })
+    .filter((item) => item !== null)
+    .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+}
+
+/**
+ * Retorna lista de deputados de MA.
+ * Fonte: GET https://www.al.ma.leg.br/deputados
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisMA() {
+  const html = await fetchText(`${ALMA_BASE}/deputados`)
+  const matches = [
+    ...html.matchAll(
+      /<div\s+class="news-card">[\s\S]*?<img\s+src="([^"]+)"[^>]*alt="([^"]*)"[\s\S]*?<h3\s+class="news-card-title"><a\s+href="([^"]+)">([^<]+)<\/a><\/h3>[\s\S]*?<p\s+class="news-card-chapeu">\s*([^<]*)\s*<\/p>/gi,
+    ),
+  ]
+
+  return matches
+    .map((match) => {
+      const foto = String(match[1] || '').trim()
+      const href = String(match[3] || '').trim()
+      const nome = decodeHtml(String(match[4] || match[2] || ''))
+      const partido = decodeHtml(String(match[5] || '')).toUpperCase()
+
+      if (!href || !nome) {
+        return null
+      }
+
+      const slug = href.split('/').filter(Boolean).at(-1) || ''
+
+      return {
+        id: `ma-${slug}`,
+        nome,
+        estado: 'MA',
+        partido,
+        urlFoto: toAbsoluteUrl(ALMA_BASE, foto),
+        urlPerfil: toAbsoluteUrl(ALMA_BASE, href),
+      }
+    })
+    .filter((item) => item !== null)
+    .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+}
+
+/**
+ * Retorna lista de deputados de PE.
+ * Fonte: GET https://www.alepe.pe.gov.br/parlamentares/
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisPE() {
+  const html = await fetchText(`${ALEPE_BASE}/parlamentares/`)
+  const matches = [
+    ...html.matchAll(
+      /dep(\d+)\.?'?\)??\.jqxTooltip\([\s\S]*?content:\s*"<img class='circle' src='([^']+)' \/>" \+ '<div class="tooltip-nome">([^<]+)<\/div>' \+ ' <br> Partido: ' \+ '([^']*)' \+ '<br>' \+ '([^']*)'/gi,
+    ),
+  ]
+
+  return matches
+    .map((match) => {
+      const id = String(match[1] || '').trim()
+      const foto = String(match[2] || '').trim()
+      const nome = decodeHtml(String(match[3] || ''))
+      const partido = decodeHtml(String(match[4] || '')).toUpperCase()
+      const email = decodeHtml(String(match[5] || '')).toLowerCase()
+
+      if (!id || !nome) {
+        return null
+      }
+
+      return {
+        id,
+        nome,
+        estado: 'PE',
+        partido,
+        email: email || undefined,
+        urlFoto: toAbsoluteUrl(ALEPE_BASE, foto),
+      }
+    })
+    .filter((item) => item !== null)
+    .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+}
+
+/**
+ * Retorna lista de deputados de RN.
+ * Fonte: GET https://www.al.rn.leg.br/deputados
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisRN() {
+  const html = await fetchText(`${ALRN_BASE}/deputados`)
+  const matches = [
+    ...html.matchAll(
+      /<a href="(https:\/\/www\.al\.rn\.leg\.br\/deputado\/(\d+)\/[^"]+)" class="card-deputies card-deputies-inner">[\s\S]*?background-image:\s*url\('([^']+)'\)[\s\S]*?<strong class="name-deputies">([^<]+)<\/strong>[\s\S]*?<p class="party-deputies">([^<]+)<\/p>/gi,
+    ),
+  ]
+
+  return matches
+    .map((match) => {
+      const href = String(match[1] || '').trim()
+      const id = String(match[2] || '').trim()
+      const foto = String(match[3] || '').trim()
+      const nome = decodeHtml(String(match[4] || ''))
+      const partidoRaw = String(match[5] || '')
+
+      if (!id || !nome || !href) {
+        return null
+      }
+
+      return {
+        id,
+        nome,
+        estado: 'RN',
+        partido: extractPartyAcronym(partidoRaw),
+        urlFoto: toAbsoluteUrl(ALRN_BASE, foto),
+        urlPerfil: href,
+      }
+    })
+    .filter((item) => item !== null)
+    .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+}
+
+/**
+ * Retorna lista de deputados de SE.
+ * Fonte: GET https://aleselegis.al.se.leg.br/spl/parlamentares.aspx
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisSE() {
+  const html = await fetchText(`${SE_SPL_BASE}/parlamentares.aspx`)
+  const matches = [
+    ...html.matchAll(
+      /<a href='parlamentar\.aspx\?id=(\d+)' title='([^']+)'>([\s\S]*?)<img class='kt-widget__img' src='([^']+)' alt='[^']*'>[\s\S]*?<a href='parlamentar\.aspx\?id=\d+' class='kt-widget__username pb-1'>\s*([^<]+?)\s*<\/a>[\s\S]*?<small>\(([^)]*)\)<\/small>/gi,
+    ),
+  ]
+
+  return matches
+    .map((match) => {
+      const id = String(match[1] || '').trim()
+      const nome = decodeHtml(String(match[5] || match[2] || ''))
+      const foto = String(match[4] || '').trim()
+      const partido = decodeHtml(String(match[6] || '')).toUpperCase()
+
+      if (!id || !nome) {
+        return null
+      }
+
+      return {
+        id,
+        nome,
+        estado: 'SE',
+        partido,
+        urlFoto: toAbsoluteUrl(SE_SPL_BASE, foto),
+        urlPerfil: `${SE_SPL_BASE}/parlamentar.aspx?id=${id}`,
+      }
+    })
+    .filter((item) => item !== null)
+    .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+}
+
+/**
+ * Busca deputados estaduais usando endpoints SAPL de parlamentares.
+ * @param {'AL' | 'PI' | 'PB'} uf
+ * @param {string} host
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisBySapl(uf, host) {
+  const legislaturas = await fetchJson(`${host}/api/parlamentares/legislatura/?get_all=true`)
+  const allLegislaturas = Array.isArray(legislaturas) ? legislaturas : []
+
+  if (allLegislaturas.length === 0) {
+    return []
+  }
+
+  const currentYear = new Date().getFullYear()
+  const currentLegislatura = allLegislaturas.find((item) => {
+    const start = new Date(`${item.data_inicio || ''} 00:00`).getFullYear()
+    const end = new Date(`${item.data_fim || ''} 00:00`).getFullYear()
+    return Number.isFinite(start) && Number.isFinite(end) && start <= currentYear && currentYear <= end
+  })
+
+  const sortedLegislaturas = [...allLegislaturas].sort((left, right) => Number(right.id) - Number(left.id))
+  const legislatura = currentLegislatura || sortedLegislaturas[0]
+
+  const parlamentares = await fetchJson(
+    `${host}/api/parlamentares/legislatura/${legislatura.id}/parlamentares/?get_all=true`,
+  )
+  const allParlamentares = Array.isArray(parlamentares) ? parlamentares : []
+
+  return allParlamentares
+    .filter((item) => item?.id && item?.nome_parlamentar)
+    .map((item) => ({
+      id: String(item.id),
+      nome: decodeHtml(String(item.nome_parlamentar || '')),
+      estado: uf,
+      partido: decodeHtml(String(item.partido || '')).toUpperCase(),
+      urlFoto: toAbsoluteUrl(host, item.fotografia_cropped || item.fotografia || ''),
+      urlPerfil: `${host}/parlamentar/${String(item.id)}`,
+    }))
+    .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+}
+
+/**
+ * Retorna lista de deputados de AL via SAPL.
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisAL() {
+  return loadDeputadosEstaduaisBySapl('AL', SAPL_AL_BASE)
+}
+
+/**
+ * Retorna lista de deputados de PI via SAPL.
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisPI() {
+  return loadDeputadosEstaduaisBySapl('PI', SAPL_PI_BASE)
+}
+
+/**
+ * Retorna lista de deputados de PB via SAPL.
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisPB() {
+  return loadDeputadosEstaduaisBySapl('PB', SAPL_PB_BASE)
 }
 
 /**
@@ -507,11 +902,316 @@ async function loadDeputadosEstaduaisES() {
 }
 
 /**
- * Consolida deputados estaduais (Sul + Sudeste).
+ * Retorna lista de deputados de AC via SAPL.
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisAC() {
+  return loadDeputadosEstaduaisBySapl('AC', SAPL_AC_BASE)
+}
+
+/**
+ * Retorna lista de deputados de AM via SAPL.
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisAM() {
+  return loadDeputadosEstaduaisBySapl('AM', SAPL_AM_BASE)
+}
+
+/**
+ * Retorna lista de deputados de GO.
+ * Fonte: GET https://portal.al.go.leg.br/deputados/em-exercicio
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisGO() {
+  const html = await fetchText(`${ALEGO_BASE}/deputados/em-exercicio`)
+  const matches = [
+    ...html.matchAll(
+      /<tr[^>]*data-target="search\.filterable"[^>]*>[\s\S]*?<a\s+class="link"\s+href=\/deputados\/perfil\/(\d+)[^>]*>([^<]+)<\/a>[\s\S]*?<td\s+data-title="Partido">\s*([^<]*)\s*<\/td>[\s\S]*?(?:mailto:([^"'\s<]+))?/gi,
+    ),
+  ]
+
+  return matches
+    .map((match) => {
+      const id = String(match[1] || '').trim()
+      const nome = decodeHtml(String(match[2] || ''))
+      const partidoRaw = decodeHtml(String(match[3] || ''))
+      const email = String(match[4] || '').trim().toLowerCase()
+
+      if (!id || !nome) {
+        return null
+      }
+
+      return {
+        id,
+        nome,
+        estado: 'GO',
+        partido: extractPartyAcronym(partidoRaw),
+        email: email || undefined,
+        urlPerfil: `${ALEGO_BASE}/deputados/perfil/${id}`,
+      }
+    })
+    .filter((item) => item !== null)
+    .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+}
+
+/**
+ * Retorna lista de deputados de MT.
+ * Fonte: GET https://www.al.mt.gov.br/parlamento/deputados
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisMT() {
+  const html = await fetchText(`${ALMT_BASE}/parlamento/deputados`)
+  const matches = [
+    ...html.matchAll(
+      /<a\s+href="(\/parlamento\/deputados\/(\d+)\/perfil)"[^>]*>[\s\S]*?<img[^>]*src="([^"]+)"[^>]*alt="([^"]+)"[\s\S]*?<span\s+class="badge[^>]*>\s*([^<]*)\s*<\/span>/gi,
+    ),
+  ]
+
+  return matches
+    .map((match) => {
+      const href = String(match[1] || '').trim()
+      const id = String(match[2] || '').trim()
+      const foto = decodeHtml(String(match[3] || '').trim())
+      const nome = decodeHtml(String(match[4] || ''))
+      const partido = decodeHtml(String(match[5] || '')).toUpperCase()
+
+      if (!id || !href || !nome) {
+        return null
+      }
+
+      return {
+        id,
+        nome,
+        estado: 'MT',
+        partido,
+        urlFoto: toAbsoluteUrl(ALMT_BASE, foto),
+        urlPerfil: toAbsoluteUrl(ALMT_BASE, href),
+      }
+    })
+    .filter((item) => item !== null)
+    .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+}
+
+/**
+ * Retorna lista de deputados de DF.
+ * Fonte: GET https://www.cl.df.gov.br/deputados-2023-2026
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisDF() {
+  const html = await fetchText(`${CLDF_BASE}/deputados-2023-2026`)
+  const matches = [
+    ...html.matchAll(
+      /<a\s+class="card[^"]*"\s+href="([^"#?]+)"[\s\S]*?<img\s+src="([^"]+)"[\s\S]*?<span\s+class="card-title">([^<]+)<\/span>[\s\S]*?<span\s+class="card-text">([^<]+)<\/span>/gi,
+    ),
+  ]
+
+  return matches
+    .map((match) => {
+      const href = String(match[1] || '').trim()
+      const foto = decodeHtml(String(match[2] || '').trim())
+      const nome = decodeHtml(String(match[3] || ''))
+      const partidoRaw = decodeHtml(String(match[4] || ''))
+
+      if (!href || !nome) {
+        return null
+      }
+
+      const slug = href.split('/').filter(Boolean).at(-1) || toSlug(nome)
+
+      return {
+        id: `df-${slug}`,
+        nome,
+        estado: 'DF',
+        partido: extractPartyAcronym(partidoRaw),
+        urlFoto: toAbsoluteUrl(CLDF_BASE, foto),
+        urlPerfil: toAbsoluteUrl(CLDF_BASE, href),
+      }
+    })
+    .filter((item) => item !== null)
+    .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+}
+
+/**
+ * Retorna lista de deputados de AP.
+ * Fontes:
+ *   - GET https://www.al.ap.leg.br
+ *   - GET https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=86
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisAP() {
+  const [homeHtml, profileHtml] = await Promise.all([
+    fetchText(ALAP_BASE),
+    fetchText(`${ALAP_BASE}/pagina.php?pg=exibir_parlamentar&iddeputado=86`),
+  ])
+
+  const photoMatches = [
+    ...homeHtml.matchAll(
+      /<a\s+href="pagina\.php\?pg=exibir_parlamentar&iddeputado=(\d+)"[^>]*title="([^"]+)"[^>]*><img\s+src="([^"]+)"/gi,
+    ),
+  ]
+  const photoById = new Map(
+    photoMatches.map((match) => [
+      String(match[1] || '').trim(),
+      decodeHtml(String(match[3] || '').trim()),
+    ]),
+  )
+
+  const optionMatches = [
+    ...profileHtml.matchAll(
+      /<option\s+value="pagina\.php\?pg=exibir_parlamentar&iddeputado=(\d+)"[^>]*>\s*([^<\-]+?)\s*-\s*([^<]+?)\s*<\/option>/gi,
+    ),
+  ]
+
+  return optionMatches
+    .map((match) => {
+      const id = String(match[1] || '').trim()
+      const nome = decodeHtml(String(match[2] || '')).trim()
+      const partidoRaw = decodeHtml(String(match[3] || '')).trim()
+
+      if (!id || !nome) {
+        return null
+      }
+
+      return {
+        id,
+        nome,
+        estado: 'AP',
+        partido: extractPartyAcronym(partidoRaw),
+        urlFoto: toAbsoluteUrl(ALAP_BASE, photoById.get(id)),
+        urlPerfil: `${ALAP_BASE}/pagina.php?pg=exibir_parlamentar&iddeputado=${id}`,
+      }
+    })
+    .filter((item) => item !== null)
+    .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+}
+
+/**
+ * Retorna lista de deputados de MS.
+ * Fonte: GET https://www.al.ms.gov.br (opções de contato dos gabinetes)
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisMS() {
+  const html = await fetchText(ALMS_BASE)
+  const matches = [
+    ...html.matchAll(/<option\s+value="(\d+)">\s*Dep\.\s*([^<(]+?)\s*\(([^)]+)\)\s*<\/option>/gi),
+  ]
+
+  return matches
+    .map((match) => {
+      const id = String(match[1] || '').trim()
+      const nome = decodeHtml(String(match[2] || '')).trim()
+      const partidoRaw = decodeHtml(String(match[3] || '')).trim()
+
+      if (!id || !nome) {
+        return null
+      }
+
+      return {
+        id,
+        nome,
+        estado: 'MS',
+        partido: extractPartyAcronym(partidoRaw),
+      }
+    })
+    .filter((item) => item !== null)
+    .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+}
+
+/**
+ * Retorna lista de deputados de PA.
+ * Fonte: GET https://www.alepa.pa.gov.br/Home/Page/Deputados
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisPA() {
+  const html = await fetchText(`${ALEPA_BASE}/Home/Page/Deputados`)
+  const matches = [
+    ...html.matchAll(
+      /<div\s+class='card-wrapper-deputado'>[\s\S]*?<img\s+class='deputado-image'\s+src='([^']+)'[^>]*>[\s\S]*?<div\s+class='card-info'><span>[^<]+<\/span><span>([^<]+)<\/span><p>([^<]*)<\/p>/gi,
+    ),
+  ]
+
+  return matches
+    .map((match) => {
+      const foto = decodeHtml(String(match[1] || '').trim().replace(/\\/g, '/'))
+      const nome = decodeHtml(String(match[2] || '')).trim()
+      const partido = decodeHtml(String(match[3] || '')).trim().toUpperCase()
+
+      if (!nome) {
+        return null
+      }
+
+      const slug = toSlug(nome)
+
+      return {
+        id: `pa-${slug}`,
+        nome,
+        estado: 'PA',
+        partido,
+        urlFoto: toAbsoluteUrl(ALEPA_BASE, foto),
+      }
+    })
+    .filter((item) => item !== null)
+    .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+}
+
+/**
+ * Retorna lista de deputados de RO via SAPL.
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisRO() {
+  return loadDeputadosEstaduaisBySapl('RO', SAPL_RO_BASE)
+}
+
+/**
+ * Retorna lista de deputados de RR via SAPL.
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisRR() {
+  return loadDeputadosEstaduaisBySapl('RR', SAPL_RR_BASE)
+}
+
+/**
+ * Retorna lista de deputados de TO via SAPL.
+ * @returns {Promise<PoliticianEntry[]>}
+ */
+async function loadDeputadosEstaduaisTO() {
+  return loadDeputadosEstaduaisBySapl('TO', SAPL_TO_BASE)
+}
+
+/**
+ * Consolida deputados estaduais (cobertura nacional).
  * @returns {Promise<PoliticianEntry[]>}
  */
 async function loadDeputadosEstaduais() {
-  const [rs, sc, pr, sp, rj, mg, es] = await Promise.allSettled([
+  const [
+    rs,
+    sc,
+    pr,
+    sp,
+    rj,
+    mg,
+    es,
+    ba,
+    ce,
+    ma,
+    pe,
+    rn,
+    se,
+    al,
+    pi,
+    pb,
+    ac,
+    am,
+    ap,
+    df,
+    go,
+    ms,
+    mt,
+    pa,
+    ro,
+    rr,
+    to,
+  ] = await Promise.allSettled([
     loadDeputadosEstaduaisRS(),
     loadDeputadosEstaduaisSC(),
     loadDeputadosEstaduaisPR(),
@@ -519,6 +1219,26 @@ async function loadDeputadosEstaduais() {
     loadDeputadosEstaduaisRJ(),
     loadDeputadosEstaduaisMG(),
     loadDeputadosEstaduaisES(),
+    loadDeputadosEstaduaisBA(),
+    loadDeputadosEstaduaisCE(),
+    loadDeputadosEstaduaisMA(),
+    loadDeputadosEstaduaisPE(),
+    loadDeputadosEstaduaisRN(),
+    loadDeputadosEstaduaisSE(),
+    loadDeputadosEstaduaisAL(),
+    loadDeputadosEstaduaisPI(),
+    loadDeputadosEstaduaisPB(),
+    loadDeputadosEstaduaisAC(),
+    loadDeputadosEstaduaisAM(),
+    loadDeputadosEstaduaisAP(),
+    loadDeputadosEstaduaisDF(),
+    loadDeputadosEstaduaisGO(),
+    loadDeputadosEstaduaisMS(),
+    loadDeputadosEstaduaisMT(),
+    loadDeputadosEstaduaisPA(),
+    loadDeputadosEstaduaisRO(),
+    loadDeputadosEstaduaisRR(),
+    loadDeputadosEstaduaisTO(),
   ])
   if (rs.status === 'rejected') console.error('❌ Falha ao carregar deputados RS:', rs.reason)
   if (sc.status === 'rejected') console.error('❌ Falha ao carregar deputados SC:', sc.reason)
@@ -527,6 +1247,26 @@ async function loadDeputadosEstaduais() {
   if (rj.status === 'rejected') console.error('❌ Falha ao carregar deputados RJ:', rj.reason)
   if (mg.status === 'rejected') console.error('❌ Falha ao carregar deputados MG:', mg.reason)
   if (es.status === 'rejected') console.error('❌ Falha ao carregar deputados ES:', es.reason)
+  if (ba.status === 'rejected') console.error('❌ Falha ao carregar deputados BA:', ba.reason)
+  if (ce.status === 'rejected') console.error('❌ Falha ao carregar deputados CE:', ce.reason)
+  if (ma.status === 'rejected') console.error('❌ Falha ao carregar deputados MA:', ma.reason)
+  if (pe.status === 'rejected') console.error('❌ Falha ao carregar deputados PE:', pe.reason)
+  if (rn.status === 'rejected') console.error('❌ Falha ao carregar deputados RN:', rn.reason)
+  if (se.status === 'rejected') console.error('❌ Falha ao carregar deputados SE:', se.reason)
+  if (al.status === 'rejected') console.error('❌ Falha ao carregar deputados AL:', al.reason)
+  if (pi.status === 'rejected') console.error('❌ Falha ao carregar deputados PI:', pi.reason)
+  if (pb.status === 'rejected') console.error('❌ Falha ao carregar deputados PB:', pb.reason)
+  if (ac.status === 'rejected') console.error('❌ Falha ao carregar deputados AC:', ac.reason)
+  if (am.status === 'rejected') console.error('❌ Falha ao carregar deputados AM:', am.reason)
+  if (ap.status === 'rejected') console.error('❌ Falha ao carregar deputados AP:', ap.reason)
+  if (df.status === 'rejected') console.error('❌ Falha ao carregar deputados DF:', df.reason)
+  if (go.status === 'rejected') console.error('❌ Falha ao carregar deputados GO:', go.reason)
+  if (ms.status === 'rejected') console.error('❌ Falha ao carregar deputados MS:', ms.reason)
+  if (mt.status === 'rejected') console.error('❌ Falha ao carregar deputados MT:', mt.reason)
+  if (pa.status === 'rejected') console.error('❌ Falha ao carregar deputados PA:', pa.reason)
+  if (ro.status === 'rejected') console.error('❌ Falha ao carregar deputados RO:', ro.reason)
+  if (rr.status === 'rejected') console.error('❌ Falha ao carregar deputados RR:', rr.reason)
+  if (to.status === 'rejected') console.error('❌ Falha ao carregar deputados TO:', to.reason)
   return [
     ...(rs.status === 'fulfilled' ? rs.value : []),
     ...(sc.status === 'fulfilled' ? sc.value : []),
@@ -535,6 +1275,26 @@ async function loadDeputadosEstaduais() {
     ...(rj.status === 'fulfilled' ? rj.value : []),
     ...(mg.status === 'fulfilled' ? mg.value : []),
     ...(es.status === 'fulfilled' ? es.value : []),
+    ...(ba.status === 'fulfilled' ? ba.value : []),
+    ...(ce.status === 'fulfilled' ? ce.value : []),
+    ...(ma.status === 'fulfilled' ? ma.value : []),
+    ...(pe.status === 'fulfilled' ? pe.value : []),
+    ...(rn.status === 'fulfilled' ? rn.value : []),
+    ...(se.status === 'fulfilled' ? se.value : []),
+    ...(al.status === 'fulfilled' ? al.value : []),
+    ...(pi.status === 'fulfilled' ? pi.value : []),
+    ...(pb.status === 'fulfilled' ? pb.value : []),
+    ...(ac.status === 'fulfilled' ? ac.value : []),
+    ...(am.status === 'fulfilled' ? am.value : []),
+    ...(ap.status === 'fulfilled' ? ap.value : []),
+    ...(df.status === 'fulfilled' ? df.value : []),
+    ...(go.status === 'fulfilled' ? go.value : []),
+    ...(ms.status === 'fulfilled' ? ms.value : []),
+    ...(mt.status === 'fulfilled' ? mt.value : []),
+    ...(pa.status === 'fulfilled' ? pa.value : []),
+    ...(ro.status === 'fulfilled' ? ro.value : []),
+    ...(rr.status === 'fulfilled' ? rr.value : []),
+    ...(to.status === 'fulfilled' ? to.value : []),
   ].sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
 }
 
@@ -576,7 +1336,7 @@ async function main() {
   console.log(`✅ Índice gerado em ${outputPath}`)
   console.log(`   • Deputados federais: ${totalDeputados}`)
   console.log(`   • Senadores: ${totalSenadores}`)
-  console.log(`   • Deputados estaduais (PR/SC/RS/SP/RJ/MG/ES): ${totalEstaduais}`)
+  console.log(`   • Deputados estaduais (cobertura nacional): ${totalEstaduais}`)
 }
 
 void main().catch((error) => {

@@ -1,6 +1,6 @@
 # Analise-Eleicoes
 
-Aplicação web SPA para consulta pública de políticos brasileiros, com foco atual em deputados federais por estado e consulta da Presidência da República.
+Aplicação web SPA para consulta pública de políticos brasileiros.
 
 ## Stack
 
@@ -14,36 +14,28 @@ Aplicação web SPA para consulta pública de políticos brasileiros, com foco a
 ## Funcionalidades implementadas
 
 - Landing com entrada para busca por estado
-- Busca global por nome, partido e cargo com filtros clicáveis
-- Seleção de estado por mapa do Brasil e lista de UFs
-- Lista de deputados federais por UF com busca por nome/partido
-- Lista de senadores por UF com busca por nome/partido
-- Detalhe de deputado com:
-  - dados gerais
-  - proposições com filtros e carregamento incremental
-  - votos por proposição
-  - órgãos de atuação
-- Lista e detalhe da Presidência (presidente e vice)
+- Busca global por nome, partido e cargo
+- Seleção de estado por mapa e lista de UFs
+- Lista e detalhe de deputados federais
+- Lista e detalhe de deputados estaduais
+- Lista e detalhe de senadores
+- Lista e detalhe da presidência
 - Página Sobre
 - Página de Privacidade e Cookies
-- Página de Sugestões com envio para endpoint serverless
-
-## Funcionalidades não implementadas (roadmap)
-
-- Favoritos
-- Comparação entre políticos
-- Consulta para deputado estadual
-- Candidatos futuros
-
-Detalhes em `documentacao/roadmap-nao-implementado.md`.
+- Página de Sugestões com endpoint serverless
+- Login de usuário com Firebase (Google e e-mail/senha)
+- Página de perfil protegida por sessão segura em cookie httpOnly
 
 ## Rotas principais
 
 - `/`
 - `/busca`
 - `/por-estado`
-- `/por-estado/deputado-federal`
-- `/por-estado/deputado-estadual`
+- `/por-estado/:office`
+- `/por-estado/:uf/deputado-federal`
+- `/por-estado/:uf/deputado-federal/:deputyId`
+- `/por-estado/:uf/deputado-estadual`
+- `/por-estado/:uf/deputado-estadual/:deputyId`
 - `/senadores/:uf`
 - `/senador/:senatorId`
 - `/presidente`
@@ -51,19 +43,15 @@ Detalhes em `documentacao/roadmap-nao-implementado.md`.
 - `/sobre`
 - `/privacidade`
 - `/sugestoes`
-
-## Fontes de dados
-
-- API Dados Abertos da Câmara: `https://dadosabertos.camara.leg.br/api/v2`
-- Wikipedia REST (resumo complementar da Presidência): `https://pt.wikipedia.org/api/rest_v1/page/summary`
-- Dados locais em `src/constants/presidents.ts`
+- `/login`
+- `/perfil`
 
 ## Como executar
 
 ### Pré-requisitos
 
 - Node.js 20+
-- npm
+- npm ou pnpm
 
 ### Comandos
 
@@ -79,6 +67,35 @@ npm run build
 npm run lint
 npm run preview
 ```
+
+## Configuração de autenticação Firebase
+
+Para habilitar login e perfil, configure as variáveis abaixo no `.env` (veja [.env.example](.env.example)):
+
+- Frontend (`VITE_*`):
+  - `VITE_FIREBASE_API_KEY`
+  - `VITE_FIREBASE_AUTH_DOMAIN`
+  - `VITE_FIREBASE_PROJECT_ID`
+  - `VITE_FIREBASE_APP_ID`
+  - `VITE_FIREBASE_STORAGE_BUCKET`
+  - `VITE_FIREBASE_MESSAGING_SENDER_ID`
+- Backend (Firebase Admin):
+  - `FIREBASE_PROJECT_ID`
+  - `FIREBASE_CLIENT_EMAIL`
+  - `FIREBASE_PRIVATE_KEY`
+  - ou `FIREBASE_SERVICE_ACCOUNT_JSON`
+- Segurança de sessão:
+  - `AUTH_SESSION_TTL_MS`
+  - `AUTH_RATE_LIMIT_MAX`
+  - `PROFILE_RATE_LIMIT_MAX`
+
+Fluxo implementado:
+
+- Login Google com Firebase Auth
+- Login e-mail/senha
+- Criação automática de conta ao tentar login com e-mail inexistente
+- Troca de ID token por sessão segura no backend (`/api/auth/session`)
+- Proteção da rota `/perfil` com redirecionamento para `/login`
 
 ## Estrutura resumida
 
@@ -99,11 +116,3 @@ src/
 ## Documentação detalhada
 
 A documentação técnica e funcional consolidada está em `documentacao/`.
-
-## Integrações globais no shell HTML
-
-- Scripts de rastreamento são carregados somente após consentimento explícito no banner de cookies.
-- O banner usa localStorage para registrar decisão de aceite/rejeição e ocultação temporária por 30 dias ao fechar no `X`.
-- O carregamento condicional de scripts está em `src/utils/trackingConsent.ts`.
-- IDs opcionais para GA/GTM podem ser configurados via `VITE_GA_MEASUREMENT_ID` e `VITE_GTM_CONTAINER_ID`.
-- Ao alterar scripts externos de rastreamento, ajuste também a política de segurança em `vercel.json` para liberar os domínios necessários no CSP.

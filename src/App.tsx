@@ -3,6 +3,7 @@ import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { AppLayout } from './components/layout/AppLayout'
 import { Loader } from './components/common/Loader'
+import { ProtectedRoute } from './components/common/ProtectedRoute'
 
 const LandingPage = lazy(async () => ({
   default: (await import('./components/pages/LandingPage')).LandingPage,
@@ -45,6 +46,12 @@ const PrivacyPolicyPage = lazy(async () => ({
 }))
 const SearchPage = lazy(async () => ({
   default: (await import('./components/pages/SearchPage')).SearchPage,
+}))
+const LoginPage = lazy(async () => ({
+  default: (await import('./components/pages/LoginPage')).LoginPage,
+}))
+const ProfilePage = lazy(async () => ({
+  default: (await import('./components/pages/ProfilePage')).ProfilePage,
 }))
 const NotFoundPage = lazy(async () => ({
   default: (await import('./components/pages/NotFoundPage')).NotFoundPage,
@@ -201,6 +208,28 @@ function App() {
               <SearchPage />
             </Suspense>
           </AppLayout>
+        }
+      />
+      <Route
+        path="/login"
+        element={
+          <AppLayout showStepsNav={false}>
+            <Suspense fallback={<Loader />}>
+              <LoginPage />
+            </Suspense>
+          </AppLayout>
+        }
+      />
+      <Route
+        path="/perfil"
+        element={
+          <ProtectedRoute>
+            <AppLayout showStepsNav={false}>
+              <Suspense fallback={<Loader />}>
+                <ProfilePage />
+              </Suspense>
+            </AppLayout>
+          </ProtectedRoute>
         }
       />
       <Route

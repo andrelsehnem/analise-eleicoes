@@ -5,14 +5,17 @@ import './index.css'
 import App from './App.tsx'
 import { CookieConsentProvider } from './hooks/CookieConsentProvider'
 import { ConsentAwareAnalytics } from './components/common/ConsentAwareAnalytics'
+import { AuthProvider } from './hooks/AuthProvider'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <CookieConsentProvider>
-      <BrowserRouter>
-        <App />
-        <ConsentAwareAnalytics />
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <App />
+          <ConsentAwareAnalytics />
+        </BrowserRouter>
+      </AuthProvider>
     </CookieConsentProvider>
   </StrictMode>,
 )

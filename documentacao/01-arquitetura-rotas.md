@@ -23,6 +23,16 @@
 - `/sobre` → `SobrePage`
 - `/privacidade` → `PrivacyPolicyPage`
 - `/sugestoes` → `SugestoesPage`
+- `/login` → `LoginPage`
+- `/perfil` → `ProfilePage` (rota protegida)
+
+## Autenticação e proteção de rota
+
+- A aplicação usa Firebase Auth no cliente para iniciar login (Google e e-mail/senha).
+- Após autenticar no Firebase, o frontend envia o ID token para o backend em `/api/auth/session`.
+- O backend valida o token com Firebase Admin e cria cookie de sessão `mt_session` (httpOnly).
+- A rota `/perfil` é protegida por `ProtectedRoute`; sem sessão válida, o usuário é redirecionado para `/login`.
+- O estado global de autenticação é centralizado por `AuthProvider`.
 
 ## SEO técnico por rota
 
@@ -69,7 +79,7 @@
 - `useDeputyDetail`: detalhe, proposições paginadas, votos, órgãos.
 - `useSenators`: lista/busca de senadores por UF.
 - `useSenatorDetail`: detalhe de senador com mandatos, comissões e cargos.
-- `useStateDeputies`: lista/busca de deputados estaduais por UF (PR, SC, RS, SP, RJ, MG e ES; PR segue em integração gradual de fonte).
+- `useStateDeputies`: lista/busca de deputados estaduais por UF (cobertura nacional).
 - `usePresidents`: lista e busca em presidência.
 - `usePresidentDetail`: detalhe de presidente/vice.
 
