@@ -2,8 +2,11 @@ import { useEffect, useMemo } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { STATES } from '../../constants/states'
 import { useAppNavigation } from '../../hooks/useAppNavigation'
+import { useAuth } from '../../hooks/useAuth'
+import { getFavoritePoliticianKey, useFavoritePoliticians } from '../../hooks/useFavoritePoliticians'
 import { useStateDeputies } from '../../hooks/useStateDeputies'
 import type { StateDeputy } from '../../types/camara'
+import { toStateDeputyFavorite } from '../../utils/favorites'
 import { SeoHead } from '../common/SeoHead'
 import { StateDeputyDetailPanel } from '../panels/StateDeputyDetailPanel'
 import { buildBreadcrumbSchema, buildPersonProfileSchema } from '../../utils/seo'
@@ -20,7 +23,17 @@ export function StateDeputyDetailPage() {
   const navigate = useNavigate()
   const location = useLocation()
   const { goToStateDeputies } = useAppNavigation()
+  const { authStatus } = useAuth()
   const { allDeputies, loadingDeputies, deputiesError, loadDeputies, findDeputyById } = useStateDeputies()
+  const {
+    favoriteKeys,
+    savingFavorite,
+    favoritesError,
+    toggleFavorite,
+    clearFavoritesError,
+  } = useFavoritePoliticians({
+    isAuthenticated: authStatus === 'authenticated',
+  })
   const locationState = location.state as StateDeputyDetailLocationState | null
   const fromGlobalSearch = Boolean(locationState?.fromGlobalSearch)
   const selectedDeputyFromState = locationState?.selectedDeputy
@@ -66,6 +79,8 @@ export function StateDeputyDetailPage() {
     party: selectedDeputy?.siglaPartido,
     worksFor: 'Assembleia Legislativa Estadual',
   })
+  const favoriteDeputy = selectedDeputy ? toStateDeputyFavorite(selectedDeputy) : null
+  const isFavorite = favoriteDeputy ? favoriteKeys.has(getFavoritePoliticianKey(favoriteDeputy)) : false
 
   if (!loadingDeputies && !selectedDeputy) {
     return (
@@ -102,6 +117,11 @@ export function StateDeputyDetailPage() {
         deputy={selectedDeputy}
         loading={loadingDeputies}
         error={deputiesError}
+        favorite={favoriteDeputy}
+        isFavorite={isFavorite}
+        canFavorite={authStatus === 'authenticated'}
+        savingFavorite={savingFavorite}
+        favoritesError={favoritesError}
         onBack={() => {
           if (fromGlobalSearch) {
             navigate('/busca')
@@ -110,6 +130,14 @@ export function StateDeputyDetailPage() {
 
           goToStateDeputies(uf || '')
         }}
+        onToggleFavorite={() => {
+          if (!favoriteDeputy) {
+            return
+          }
+
+          void toggleFavorite(favoriteDeputy)
+        }}
+        onClearFavoritesError={clearFavoritesError}
       />
     </>
   )

@@ -1,15 +1,23 @@
-import type { PresidentDetail } from '../../types/camara'
+import type { FavoritePolitician, PresidentDetail } from '../../types/camara'
 import { formatDate } from '../../utils/format'
 import { FALLBACK_AVATAR } from '../../utils/ui'
 import { AppButton } from '../common/AppButton'
 import { ErrorBox } from '../common/ErrorBox'
+import { FavoriteStarButton } from '../common/FavoriteStarButton'
 import { Loader } from '../common/Loader'
 
 type PresidentDetailPanelProps = {
   presidentDetail: PresidentDetail | null
   loading: boolean
   error: string
+  favorite: FavoritePolitician | null
+  isFavorite: boolean
+  canFavorite: boolean
+  savingFavorite: boolean
+  favoritesError: string
   onBack: () => void
+  onToggleFavorite: () => void
+  onClearFavoritesError: () => void
 }
 
 function ensureUrl(value: string) {
@@ -24,7 +32,14 @@ export function PresidentDetailPanel({
   presidentDetail,
   loading,
   error,
+  favorite,
+  isFavorite,
+  canFavorite,
+  savingFavorite,
+  favoritesError,
   onBack,
+  onToggleFavorite,
+  onClearFavoritesError,
 }: PresidentDetailPanelProps) {
   const canRenderContent = !error && Boolean(presidentDetail)
 
@@ -37,8 +52,25 @@ export function PresidentDetailPanel({
       {loading && <Loader />}
       {!loading && error && <ErrorBox message={error} />}
 
+      {favoritesError && (
+        <div className="search-favorites-error-wrap">
+          <ErrorBox message={favoritesError} />
+          <button className="party-filter-clear" type="button" onClick={onClearFavoritesError}>
+            Fechar
+          </button>
+        </div>
+      )}
+
       {canRenderContent && presidentDetail && (
-        <PresidentDetailContent key={presidentDetail.id} presidentDetail={presidentDetail} />
+        <PresidentDetailContent
+          key={presidentDetail.id}
+          presidentDetail={presidentDetail}
+          favorite={favorite}
+          isFavorite={isFavorite}
+          canFavorite={canFavorite}
+          savingFavorite={savingFavorite}
+          onToggleFavorite={onToggleFavorite}
+        />
       )}
     </div>
   )
@@ -46,9 +78,21 @@ export function PresidentDetailPanel({
 
 type PresidentDetailContentProps = {
   presidentDetail: PresidentDetail
+  favorite: FavoritePolitician | null
+  isFavorite: boolean
+  canFavorite: boolean
+  savingFavorite: boolean
+  onToggleFavorite: () => void
 }
 
-function PresidentDetailContent({ presidentDetail }: PresidentDetailContentProps) {
+function PresidentDetailContent({
+  presidentDetail,
+  favorite,
+  isFavorite,
+  canFavorite,
+  savingFavorite,
+  onToggleFavorite,
+}: PresidentDetailContentProps) {
   const isViceProfile = presidentDetail.cargo.toLowerCase().includes('vice')
   const profileLabel = isViceProfile ? 'vice-presidente' : 'presidente'
   const mandatesTitle = isViceProfile ? 'Mandatos no Executivo' : 'Mandatos presidenciais'
@@ -68,7 +112,17 @@ function PresidentDetailContent({ presidentDetail }: PresidentDetailContentProps
             }}
           />
           <div className="deputy-detail-info">
-            <h1 className="deputy-detail-name">{presidentDetail.nome}</h1>
+            <div className="detail-name-row">
+              <h1 className="deputy-detail-name">{presidentDetail.nome}</h1>
+              {favorite && (
+                <FavoriteStarButton
+                  isActive={isFavorite}
+                  canFavorite={canFavorite}
+                  disabled={savingFavorite}
+                  onToggle={onToggleFavorite}
+                />
+              )}
+            </div>
             {presidentDetail.descricao && (
               <div className="president-detail-subtitle">{presidentDetail.descricao}</div>
             )}

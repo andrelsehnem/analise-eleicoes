@@ -4,8 +4,11 @@ import { DeputyDetailPanel } from '../panels/DeputyDetailPanel'
 import { useDeputies } from '../../hooks/useDeputies'
 import { useDeputyDetail } from '../../hooks/useDeputyDetail'
 import { useAppNavigation } from '../../hooks/useAppNavigation'
+import { useAuth } from '../../hooks/useAuth'
 import { STATES } from '../../constants/states'
 import type { Deputy } from '../../types/camara'
+import { getFavoritePoliticianKey, useFavoritePoliticians } from '../../hooks/useFavoritePoliticians'
+import { toDeputyFavorite } from '../../utils/favorites'
 import { SeoHead } from '../common/SeoHead'
 import { buildBreadcrumbSchema, buildPersonProfileSchema } from '../../utils/seo'
 
@@ -19,6 +22,7 @@ export function DeputyDetailPage() {
   const location = useLocation()
   const navigate = useNavigate()
   const { goToDeputies } = useAppNavigation()
+  const { authStatus } = useAuth()
   const { findDeputyById, allDeputies, loadDeputies, loadingDeputies } = useDeputies()
   const {
     includeRequirements,
@@ -43,6 +47,15 @@ export function DeputyDetailPage() {
     clearPropositionVotesState,
     loadDeputyOrgaos,
   } = useDeputyDetail()
+  const {
+    favoriteKeys,
+    savingFavorite,
+    favoritesError,
+    toggleFavorite,
+    clearFavoritesError,
+  } = useFavoritePoliticians({
+    isAuthenticated: authStatus === 'authenticated',
+  })
   const [isInitializing, setIsInitializing] = useState(true)
   const locationState = location.state as DeputyDetailLocationState | null
   const routeSelectedDeputy = locationState?.selectedDeputy || null
@@ -112,6 +125,8 @@ export function DeputyDetailPage() {
     sameAs: [deputyInfo?.urlWebsite || '', ...(deputyInfo?.redeSocial || [])],
     worksFor: 'Câmara dos Deputados',
   })
+  const favoriteDeputy = selectedDeputy ? toDeputyFavorite(selectedDeputy) : null
+  const isFavorite = favoriteDeputy ? favoriteKeys.has(getFavoritePoliticianKey(favoriteDeputy)) : false
 
   if (!hasDeputyData && !isPageLoading && !detailError) {
     return (
@@ -177,7 +192,20 @@ export function DeputyDetailPage() {
         orgaosError={orgaosError}
         loading={isPageLoading}
         error={detailError}
+        favorite={favoriteDeputy}
+        isFavorite={isFavorite}
+        canFavorite={authStatus === 'authenticated'}
+        savingFavorite={savingFavorite}
+        favoritesError={favoritesError}
         onBack={handleBack}
+        onToggleFavorite={() => {
+          if (!favoriteDeputy) {
+            return
+          }
+
+          void toggleFavorite(favoriteDeputy)
+        }}
+        onClearFavoritesError={clearFavoritesError}
         onToggleIncludeRequirements={toggleIncludeRequirements}
         onLoadMorePropositions={loadMorePropositions}
         onOpenPropositionVotes={loadPropositionVotes}

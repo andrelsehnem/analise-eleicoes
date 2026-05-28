@@ -3,6 +3,9 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { PresidentDetailPanel } from '../panels/PresidentDetailPanel'
 import { usePresidentDetail } from '../../hooks/usePresidentDetail'
 import { useAppNavigation } from '../../hooks/useAppNavigation'
+import { useAuth } from '../../hooks/useAuth'
+import { getFavoritePoliticianKey, useFavoritePoliticians } from '../../hooks/useFavoritePoliticians'
+import { toPresidentFavorite } from '../../utils/favorites'
 import { SeoHead } from '../common/SeoHead'
 import { buildBreadcrumbSchema, buildPersonProfileSchema } from '../../utils/seo'
 
@@ -10,7 +13,17 @@ export function PresidentDetailPage() {
   const { presidentId } = useParams<{ presidentId: string }>()
   const navigate = useNavigate()
   const { goToPresidents } = useAppNavigation()
+  const { authStatus } = useAuth()
   const { loadingDetail, detailError, presidentDetail, loadPresidentDetail } = usePresidentDetail()
+  const {
+    favoriteKeys,
+    savingFavorite,
+    favoritesError,
+    toggleFavorite,
+    clearFavoritesError,
+  } = useFavoritePoliticians({
+    isAuthenticated: authStatus === 'authenticated',
+  })
   const profileName = presidentDetail?.nome || 'Perfil da presidência'
   const detailPath = presidentId ? `/presidente/${presidentId}` : '/presidente'
   const profileDescription = presidentDetail
@@ -25,6 +38,8 @@ export function PresidentDetailPage() {
     sameAs: [presidentDetail?.officialWebsite || '', ...(presidentDetail?.links.map((link) => link.url) || [])],
     worksFor: 'Presidência da República',
   })
+  const favoritePresident = presidentDetail ? toPresidentFavorite(presidentDetail) : null
+  const isFavorite = favoritePresident ? favoriteKeys.has(getFavoritePoliticianKey(favoritePresident)) : false
 
   useEffect(() => {
     if (!presidentId) {
@@ -66,7 +81,20 @@ export function PresidentDetailPage() {
         presidentDetail={presidentDetail}
         loading={loadingDetail}
         error={detailError}
+        favorite={favoritePresident}
+        isFavorite={isFavorite}
+        canFavorite={authStatus === 'authenticated'}
+        savingFavorite={savingFavorite}
+        favoritesError={favoritesError}
         onBack={goToPresidents}
+        onToggleFavorite={() => {
+          if (!favoritePresident) {
+            return
+          }
+
+          void toggleFavorite(favoritePresident)
+        }}
+        onClearFavoritesError={clearFavoritesError}
       />
     </>
   )

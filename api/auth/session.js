@@ -64,7 +64,7 @@ export default async function handler(req, res) {
 
   const ip = getClientIp(req)
 
-  if (!isTrustedOrigin(req)) {
+  if (!isTrustedOrigin(req, { allowMissingOrigin: false })) {
     logSecurityEvent('auth.session.invalid_origin', {
       ip,
       origin: typeof req.headers.origin === 'string' ? req.headers.origin : 'unknown',
@@ -103,7 +103,7 @@ export default async function handler(req, res) {
     })
   }
 
-  if (isRateLimited({
+  if (await isRateLimited({
     prefix: 'auth.session',
     key: ip,
     maxRequests: AUTH_RATE_LIMIT_MAX,

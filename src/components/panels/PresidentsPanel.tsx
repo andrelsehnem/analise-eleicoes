@@ -1,9 +1,12 @@
-import type { President } from '../../types/camara'
+import type { FavoritePolitician, President } from '../../types/camara'
 import { Link } from 'react-router-dom'
+import { getFavoritePoliticianKey } from '../../hooks/useFavoritePoliticians'
+import { toPresidentFavorite, toViceFavorite } from '../../utils/favorites'
 import { FALLBACK_AVATAR } from '../../utils/ui'
 import { AppButton } from '../common/AppButton'
 import { EmptyState } from '../common/EmptyState'
 import { ErrorBox } from '../common/ErrorBox'
+import { FavoriteStarButton } from '../common/FavoriteStarButton'
 import { Loader } from '../common/Loader'
 
 type PresidentDirectoryCard = {
@@ -13,6 +16,7 @@ type PresidentDirectoryCard = {
   siglaPartido: string
   periodo: string
   urlFoto?: string
+  favorite: FavoritePolitician
 }
 
 type PresidentsPanelProps = {
@@ -21,6 +25,12 @@ type PresidentsPanelProps = {
   loading: boolean
   error: string
   presidents: President[]
+  favoriteKeys: Set<string>
+  canFavorite: boolean
+  savingFavorite: boolean
+  favoritesError: string
+  onToggleFavorite: (favorite: FavoritePolitician) => Promise<void>
+  onClearFavoritesError: () => void
   onBack: () => void
 }
 
@@ -30,6 +40,12 @@ export function PresidentsPanel({
   loading,
   error,
   presidents,
+  favoriteKeys,
+  canFavorite,
+  savingFavorite,
+  favoritesError,
+  onToggleFavorite,
+  onClearFavoritesError,
   onBack,
 }: PresidentsPanelProps) {
   const directoryCards: PresidentDirectoryCard[] = presidents.flatMap((president) => {
@@ -40,6 +56,7 @@ export function PresidentsPanel({
       siglaPartido: president.siglaPartido,
       periodo: president.periodo,
       urlFoto: president.urlFoto,
+      favorite: toPresidentFavorite(president),
     }
 
     const viceCard: PresidentDirectoryCard[] = president.vice
@@ -51,6 +68,7 @@ export function PresidentsPanel({
             siglaPartido: president.vice.siglaPartido || 'Partido não informado',
             periodo: president.vice.periodo || president.periodo,
             urlFoto: president.vice.urlFoto,
+            favorite: toViceFavorite(president.vice),
           },
         ]
       : []
@@ -77,6 +95,21 @@ export function PresidentsPanel({
         Consulte o presidente e o vice-presidente atuais, com acesso rápido ao mandato,
         partido e fontes públicas relacionadas.
       </p>
+
+      {!canFavorite && (
+        <p className="search-favorites-hint" role="status" aria-live="polite">
+          Entre na sua conta para favoritar políticos.
+        </p>
+      )}
+
+      {favoritesError && (
+        <div className="search-favorites-error-wrap">
+          <ErrorBox message={favoritesError} />
+          <button className="party-filter-clear" type="button" onClick={onClearFavoritesError}>
+            Fechar
+          </button>
+        </div>
+      )}
 
       <div className="search-box">
         <span className="search-icon">🔍</span>
@@ -112,7 +145,17 @@ export function PresidentsPanel({
                   }}
                 />
                 <div className="deputy-info">
-                  <div className="deputy-name">{card.nome}</div>
+                  <div className="deputy-name-row">
+                    <div className="deputy-name">{card.nome}</div>
+                    <FavoriteStarButton
+                      isActive={favoriteKeys.has(getFavoritePoliticianKey(card.favorite))}
+                      canFavorite={canFavorite}
+                      disabled={savingFavorite}
+                      onToggle={() => {
+                        void onToggleFavorite(card.favorite)
+                      }}
+                    />
+                  </div>
                   <div className="deputy-party">{card.siglaPartido}</div>
                   <div className="deputy-meta">
                     {card.cargo} · {card.periodo}

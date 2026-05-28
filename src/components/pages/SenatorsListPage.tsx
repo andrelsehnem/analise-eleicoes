@@ -6,11 +6,15 @@ import { useSenators } from '../../hooks/useSenators'
 import { buildBreadcrumbSchema, buildCollectionPageSchema } from '../../utils/seo'
 import { SeoHead } from '../common/SeoHead'
 import { SenatorsPanel } from '../panels/SenatorsPanel'
+import { useAuth } from '../../hooks/useAuth'
+import { useFavoritePoliticians } from '../../hooks/useFavoritePoliticians'
+import { toSenatorFavorite } from '../../utils/favorites'
 
 export function SenatorsListPage() {
   const { uf } = useParams<{ uf: string }>()
   const navigate = useNavigate()
   const { goToStateSelection } = useAppNavigation()
+  const { authStatus } = useAuth()
   const {
     allSenators,
     search,
@@ -20,6 +24,15 @@ export function SenatorsListPage() {
     setSearch,
     loadSenators,
   } = useSenators()
+  const {
+    favoriteKeys,
+    savingFavorite,
+    favoritesError,
+    toggleFavorite,
+    clearFavoritesError,
+  } = useFavoritePoliticians({
+    isAuthenticated: authStatus === 'authenticated',
+  })
 
   useEffect(() => {
     if (!uf) {
@@ -43,6 +56,10 @@ export function SenatorsListPage() {
 
   const stateName: string =
     STATES.find((state) => state.uf.toLowerCase() === uf?.toLowerCase())?.name || uf || ''
+
+  async function handleToggleFavorite(senator: (typeof filteredSenators)[number]) {
+    await toggleFavorite(toSenatorFavorite(senator))
+  }
 
   return (
     <>
@@ -79,6 +96,12 @@ export function SenatorsListPage() {
         loading={loadingSenators}
         error={senatorsError}
         senators={filteredSenators}
+        favoriteKeys={favoriteKeys}
+        canFavorite={authStatus === 'authenticated'}
+        savingFavorite={savingFavorite}
+        favoritesError={favoritesError}
+        onToggleFavorite={handleToggleFavorite}
+        onClearFavoritesError={clearFavoritesError}
         onBack={() => goToStateSelection('senador')}
       />
     </>

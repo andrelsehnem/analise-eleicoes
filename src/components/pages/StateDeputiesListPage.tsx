@@ -6,6 +6,9 @@ import { useStateDeputies } from '../../hooks/useStateDeputies'
 import { SeoHead } from '../common/SeoHead'
 import { StateDeputiesPanel } from '../panels/StateDeputiesPanel'
 import { buildBreadcrumbSchema, buildCollectionPageSchema } from '../../utils/seo'
+import { useAuth } from '../../hooks/useAuth'
+import { useFavoritePoliticians } from '../../hooks/useFavoritePoliticians'
+import { toStateDeputyFavorite } from '../../utils/favorites'
 
 const ENABLED_UFS = new Set(STATES.map((state) => state.uf))
 
@@ -13,6 +16,7 @@ export function StateDeputiesListPage() {
   const { uf } = useParams<{ uf: string }>()
   const navigate = useNavigate()
   const { goToStateSelection } = useAppNavigation()
+  const { authStatus } = useAuth()
   const {
     allDeputies,
     search,
@@ -22,6 +26,15 @@ export function StateDeputiesListPage() {
     setSearch,
     loadDeputies,
   } = useStateDeputies()
+  const {
+    favoriteKeys,
+    savingFavorite,
+    favoritesError,
+    toggleFavorite,
+    clearFavoritesError,
+  } = useFavoritePoliticians({
+    isAuthenticated: authStatus === 'authenticated',
+  })
 
   useEffect(() => {
     if (!uf) {
@@ -43,6 +56,10 @@ export function StateDeputiesListPage() {
   const normalizedUf = uf?.toUpperCase() ?? ''
   const stateName = STATES.find((state) => state.uf === normalizedUf)?.name || normalizedUf
   const path = uf ? `/por-estado/${uf.toLowerCase()}/deputado-estadual` : '/por-estado/deputado-estadual'
+
+  async function handleToggleFavorite(deputy: (typeof filteredDeputies)[number]) {
+    await toggleFavorite(toStateDeputyFavorite(deputy))
+  }
 
   return (
     <>
@@ -79,6 +96,12 @@ export function StateDeputiesListPage() {
         loading={loadingDeputies}
         error={deputiesError}
         deputies={filteredDeputies}
+        favoriteKeys={favoriteKeys}
+        canFavorite={authStatus === 'authenticated'}
+        savingFavorite={savingFavorite}
+        favoritesError={favoritesError}
+        onToggleFavorite={handleToggleFavorite}
+        onClearFavoritesError={clearFavoritesError}
         onBack={() => goToStateSelection('deputado-estadual')}
       />
     </>

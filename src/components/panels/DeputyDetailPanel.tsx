@@ -1,5 +1,6 @@
 import type {
   Deputy,
+  FavoritePolitician,
   DeputyInfo,
   DeputyOrgan,
   PropositionVote,
@@ -17,6 +18,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { AppButton } from '../common/AppButton'
 import { EmptyState } from '../common/EmptyState'
 import { ErrorBox } from '../common/ErrorBox'
+import { FavoriteStarButton } from '../common/FavoriteStarButton'
 import { Loader } from '../common/Loader'
 
 type DeputyDetailPanelProps = {
@@ -37,7 +39,14 @@ type DeputyDetailPanelProps = {
   orgaosError: string
   loading: boolean
   error: string
+  favorite: FavoritePolitician | null
+  isFavorite: boolean
+  canFavorite: boolean
+  savingFavorite: boolean
+  favoritesError: string
   onBack: () => void
+  onToggleFavorite: () => void
+  onClearFavoritesError: () => void
   onToggleIncludeRequirements: () => void
   onLoadMorePropositions: () => void
   onOpenPropositionVotes: (proposition: Proposition) => void
@@ -63,7 +72,14 @@ export function DeputyDetailPanel({
   orgaosError,
   loading,
   error,
+  favorite,
+  isFavorite,
+  canFavorite,
+  savingFavorite,
+  favoritesError,
   onBack,
+  onToggleFavorite,
+  onClearFavoritesError,
   onToggleIncludeRequirements,
   onLoadMorePropositions,
   onOpenPropositionVotes,
@@ -409,6 +425,15 @@ export function DeputyDetailPanel({
       {loading && <Loader />}
       {!loading && error && <ErrorBox message={error} />}
 
+      {favoritesError && (
+        <div className="search-favorites-error-wrap">
+          <ErrorBox message={favoritesError} />
+          <button className="party-filter-clear" type="button" onClick={onClearFavoritesError}>
+            Fechar
+          </button>
+        </div>
+      )}
+
       {canRenderContent && (
         <>
           <div className="deputy-detail-header">
@@ -423,7 +448,17 @@ export function DeputyDetailPanel({
               }}
             />
             <div className="deputy-detail-info">
-              <h1 className="deputy-detail-name">{deputyDisplayName}</h1>
+              <div className="detail-name-row">
+                <h1 className="deputy-detail-name">{deputyDisplayName}</h1>
+                {favorite && (
+                  <FavoriteStarButton
+                    isActive={isFavorite}
+                    canFavorite={canFavorite}
+                    disabled={savingFavorite}
+                    onToggle={onToggleFavorite}
+                  />
+                )}
+              </div>
               <div className="deputy-tags">
                 <span className="tag tag-party">🏛 {deputyParty}</span>
                 <span className="tag tag-state">📍 {deputyUf}</span>

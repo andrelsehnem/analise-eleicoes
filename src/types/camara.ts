@@ -334,6 +334,17 @@ export type GlobalSearchItem = PoliticianIndexItem & {
   cargo: 'deputado-federal' | 'senador' | 'deputado-estadual'
 }
 
+export type FavoritePoliticianGroup = PoliticiansIndexGroup | 'presidentes'
+
+export type FavoritePolitician = {
+  id: string
+  nome: string
+  estado: string
+  partido: string
+  grupo: FavoritePoliticianGroup
+  cargo: OfficeType
+}
+
 export type OfficeType =
   | 'deputado-federal'
   | 'deputado-estadual'
@@ -372,4 +383,5 @@ export type ProfileData = {
   photoURL?: string
   createdAt?: string
   updatedAt?: string
+  favorites?: FavoritePolitician[]
 }

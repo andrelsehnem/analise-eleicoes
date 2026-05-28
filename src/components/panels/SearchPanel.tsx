@@ -3,6 +3,7 @@ import type { GlobalSearchItem } from '../../types/camara'
 import { AppButton } from '../common/AppButton'
 import { EmptyState } from '../common/EmptyState'
 import { ErrorBox } from '../common/ErrorBox'
+import { FavoriteStarButton } from '../common/FavoriteStarButton'
 import { Loader } from '../common/Loader'
 
 type OfficeOption = {
@@ -20,12 +21,23 @@ type SearchPanelProps = {
   loading: boolean
   error: string
   results: GlobalSearchItem[]
+  favoriteKeys: Set<string>
+  canFavorite: boolean
+  loadingFavorites: boolean
+  savingFavorite: boolean
+  favoritesError: string
   onSearchChange: (value: string) => void
   onSelectParty: (party: string) => void
   onSelectOffice: (office: string) => void
   onClearParty: () => void
   onClearOffice: () => void
+  onToggleFavorite: (item: GlobalSearchItem) => Promise<void>
+  onClearFavoritesError: () => void
   onBack: () => void
+}
+
+function getFavoriteKey(item: GlobalSearchItem): string {
+  return `${item.grupo}:${item.id}`
 }
 
 function getCardSubtitle(item: GlobalSearchItem): string {
@@ -62,14 +74,22 @@ export function SearchPanel({
   loading,
   error,
   results,
+  favoriteKeys,
+  canFavorite,
+  loadingFavorites,
+  savingFavorite,
+  favoritesError,
   onSearchChange,
   onSelectParty,
   onSelectOffice,
   onClearParty,
   onClearOffice,
+  onToggleFavorite,
+  onClearFavoritesError,
   onBack,
 }: SearchPanelProps) {
   const shouldShowHint = !loading && !error && !search.trim() && !selectedParty && !selectedOffice
+  const showSearchLoading = loading || loadingFavorites
 
   return (
     <div className="panel active" id="panel-global-search">
@@ -89,6 +109,21 @@ export function SearchPanel({
       <p className="president-panel-description">
         Digite o nome do político para busca em tempo real e refine os resultados por partido e cargo.
       </p>
+
+      {!canFavorite && (
+        <p className="search-favorites-hint" role="status" aria-live="polite">
+          Entre na sua conta para favoritar políticos.
+        </p>
+      )}
+
+      {favoritesError && (
+        <div className="search-favorites-error-wrap">
+          <ErrorBox message={favoritesError} />
+          <button className="party-filter-clear" type="button" onClick={onClearFavoritesError}>
+            Fechar
+          </button>
+        </div>
+      )}
 
       <div className="search-box">
         <span className="search-icon">🔍</span>
@@ -147,8 +182,8 @@ export function SearchPanel({
         </div>
       </div>
 
-      {loading && <Loader />}
-      {!loading && error && <ErrorBox message={error} />}
+      {showSearchLoading && <Loader />}
+      {!showSearchLoading && error && <ErrorBox message={error} />}
 
       {shouldShowHint && (
         <EmptyState
@@ -157,11 +192,11 @@ export function SearchPanel({
         />
       )}
 
-      {!loading && !error && !shouldShowHint && results.length === 0 && (
+      {!showSearchLoading && !error && !shouldShowHint && results.length === 0 && (
         <EmptyState icon="📭" message="Nenhum político encontrado com os filtros informados." />
       )}
 
-      {!loading && !error && results.length > 0 && (
+      {!showSearchLoading && !error && results.length > 0 && (
         <div className="deputy-grid">
           {results.map((item) => (
             <Link
@@ -175,7 +210,17 @@ export function SearchPanel({
               to={getResultLink(item)}
             >
               <div className="deputy-info">
-                <div className="deputy-name">{item.nome}</div>
+                <div className="deputy-name-row">
+                  <div className="deputy-name">{item.nome}</div>
+                  <FavoriteStarButton
+                    isActive={favoriteKeys.has(getFavoriteKey(item))}
+                    canFavorite={canFavorite}
+                    disabled={savingFavorite}
+                    onToggle={() => {
+                      void onToggleFavorite(item)
+                    }}
+                  />
+                </div>
                 <div className="deputy-party">{item.partido}</div>
                 <div className="deputy-meta">{getCardSubtitle(item)}</div>
               </div>
