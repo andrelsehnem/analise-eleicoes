@@ -1,132 +1,14 @@
-const rateLimitBuckets = new Map()
+import {
+  applySecurityHeaders,
+  getClientIp,
+  isRateLimited,
+  isTrustedOrigin,
+  jsonResponse,
+  logSecurityEvent,
+} from './_lib/security.js'
+
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000
 const RATE_LIMIT_MAX_REQUESTS = Number(process.env.SUGESTOES_RATE_LIMIT_MAX || 5)
-
-function applySecurityHeaders(res) {
-  res.setHeader('Cache-Control', 'no-store')
-  res.setHeader('Vary', 'Origin')
-}
-
-function normalizeOrigin(value) {
-  if (!value || typeof value !== 'string') {
-    return ''
-  }
-
-  const trimmed = value.trim()
-
-  if (!trimmed) {
-    return ''
-  }
-
-  const candidate = trimmed.includes('://') ? trimmed : `https://${trimmed}`
-
-  try {
-    return new URL(candidate).origin
-  } catch {
-    return ''
-  }
-}
-
-function getTrustedOrigins() {
-  const origins = new Set()
-  const configuredOrigins = [
-    process.env.SITE_URL,
-    process.env.BETTER_AUTH_URL,
-    process.env.VERCEL_PROJECT_PRODUCTION_URL,
-    process.env.VERCEL_URL,
-  ]
-
-  for (const value of configuredOrigins) {
-    const normalized = normalizeOrigin(value)
-
-    if (normalized) {
-      origins.add(normalized)
-    }
-  }
-
-  const trustedOriginsEnv = process.env.BETTER_AUTH_TRUSTED_ORIGINS || process.env.TRUSTED_ORIGINS || ''
-
-  for (const value of trustedOriginsEnv.split(',')) {
-    const normalized = normalizeOrigin(value)
-
-    if (normalized) {
-      origins.add(normalized)
-    }
-  }
-
-  if (process.env.NODE_ENV !== 'production') {
-    origins.add('http://localhost:5173')
-    origins.add('http://127.0.0.1:5173')
-    origins.add('http://localhost:4173')
-    origins.add('http://127.0.0.1:4173')
-  }
-
-  return origins
-}
-
-function isTrustedOrigin(req) {
-  const originHeader = req.headers.origin
-
-  if (!originHeader || typeof originHeader !== 'string') {
-    return true
-  }
-
-  const requestOrigin = normalizeOrigin(originHeader)
-
-  if (!requestOrigin) {
-    return false
-  }
-
-  return getTrustedOrigins().has(requestOrigin)
-}
-
-function logSecurityEvent(eventName, details) {
-  console.warn(
-    `[security] ${eventName}`,
-    JSON.stringify({
-      at: new Date().toISOString(),
-      ...details,
-    }),
-  )
-}
-
-function jsonResponse(res, statusCode, body) {
-  applySecurityHeaders(res)
-  res.status(statusCode).json(body)
-}
-
-function getClientIp(req) {
-  const forwarded = req.headers['x-forwarded-for']
-
-  if (Array.isArray(forwarded)) {
-    return forwarded[0] || 'unknown'
-  }
-
-  if (typeof forwarded === 'string') {
-    return forwarded.split(',')[0]?.trim() || 'unknown'
-  }
-
-  return req.socket?.remoteAddress || 'unknown'
-}
-
-function isRateLimited(ip) {
-  const now = Date.now()
-  const existing = rateLimitBuckets.get(ip)
-
-  if (!existing || now - existing.windowStart > RATE_LIMIT_WINDOW_MS) {
-    rateLimitBuckets.set(ip, { count: 1, windowStart: now })
-    return false
-  }
-
-  existing.count += 1
-
-  if (existing.count > RATE_LIMIT_MAX_REQUESTS) {
-    return true
-  }
-
-  rateLimitBuckets.set(ip, existing)
-  return false
-}
 
 function validateBody(body) {
   if (!body || typeof body !== 'object') {
@@ -293,7 +175,7 @@ export default async function handler(req, res) {
 
   const ip = getClientIp(req)
 
-  if (!isTrustedOrigin(req)) {
+  if (!isTrustedOrigin(req, { allowMissingOrigin: false })) {
     logSecurityEvent('sugestoes.invalid_origin', {
       ip,
       origin: typeof req.headers.origin === 'string' ? req.headers.origin : 'unknown',
@@ -304,7 +186,12 @@ export default async function handler(req, res) {
     })
   }
 
-  if (isRateLimited(ip)) {
+  if (await isRateLimited({
+    prefix: 'sugestoes',
+    key: ip,
+    maxRequests: RATE_LIMIT_MAX_REQUESTS,
+    windowMs: RATE_LIMIT_WINDOW_MS,
+  })) {
     res.setHeader('Retry-After', String(Math.ceil(RATE_LIMIT_WINDOW_MS / 1000)))
     logSecurityEvent('sugestoes.rate_limited', { ip })
 

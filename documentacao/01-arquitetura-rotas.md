@@ -76,12 +76,26 @@
 - `useAppNavigation`: centraliza navegação por rota.
 - `useDeputies`: lista/busca de deputados por UF.
 - `useGlobalSearch`: busca global por nome, partido e cargo (deputados federais, estaduais e senadores via índice local).
+- `useFavoritePoliticians`: leitura e atualização de favoritos da busca global no perfil autenticado.
 - `useDeputyDetail`: detalhe, proposições paginadas, votos, órgãos.
 - `useSenators`: lista/busca de senadores por UF.
 - `useSenatorDetail`: detalhe de senador com mandatos, comissões e cargos.
 - `useStateDeputies`: lista/busca de deputados estaduais por UF (cobertura nacional).
 - `usePresidents`: lista e busca em presidência.
 - `usePresidentDetail`: detalhe de presidente/vice.
+
+## Comportamento da rota `/busca`
+
+- Cada card de resultado possui ação de estrela para favoritar/desfavoritar.
+- A estrela fica ao lado do nome do político.
+- Favoritos são persistidos no perfil do usuário (Firestore) via `PUT /api/profile`.
+- Usuários não autenticados visualizam a estrela desabilitada.
+
+## Comportamento de favoritos em outras rotas
+
+- A estrela de favoritar também está presente em listas por estado e perfis de detalhe.
+- Rotas cobertas: deputados federais, deputados estaduais, senadores e presidência (incluindo vice).
+- O mesmo estado de autenticação e persistência é reaproveitado em todas as rotas.
 
 ## Composição de layout
 

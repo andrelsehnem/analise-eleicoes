@@ -1,7 +1,10 @@
 import { useEffect } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useAppNavigation } from '../../hooks/useAppNavigation'
+import { useAuth } from '../../hooks/useAuth'
+import { getFavoritePoliticianKey, useFavoritePoliticians } from '../../hooks/useFavoritePoliticians'
 import { useSenatorDetail } from '../../hooks/useSenatorDetail'
+import { toSenatorFavorite } from '../../utils/favorites'
 import { buildBreadcrumbSchema, buildPersonProfileSchema } from '../../utils/seo'
 import { SeoHead } from '../common/SeoHead'
 import { SenatorDetailPanel } from '../panels/SenatorDetailPanel'
@@ -16,7 +19,17 @@ export function SenatorDetailPage() {
   const location = useLocation()
   const navigate = useNavigate()
   const { goToSenators, goToStateSelection } = useAppNavigation()
+  const { authStatus } = useAuth()
   const { loadingDetail, detailError, senatorDetail, loadSenatorDetail } = useSenatorDetail()
+  const {
+    favoriteKeys,
+    savingFavorite,
+    favoritesError,
+    toggleFavorite,
+    clearFavoritesError,
+  } = useFavoritePoliticians({
+    isAuthenticated: authStatus === 'authenticated',
+  })
   const locationState = location.state as SenatorDetailLocationState | null
   const fromGlobalSearch = Boolean(locationState?.fromGlobalSearch)
 
@@ -47,6 +60,8 @@ export function SenatorDetailPage() {
     ],
     worksFor: 'Senado Federal',
   })
+  const favoriteSenator = senatorDetail ? toSenatorFavorite(senatorDetail) : null
+  const isFavorite = favoriteSenator ? favoriteKeys.has(getFavoritePoliticianKey(favoriteSenator)) : false
 
   function handleBack() {
     if (fromGlobalSearch) {
@@ -101,7 +116,20 @@ export function SenatorDetailPage() {
         senatorDetail={senatorDetail}
         loading={loadingDetail}
         error={detailError}
+        favorite={favoriteSenator}
+        isFavorite={isFavorite}
+        canFavorite={authStatus === 'authenticated'}
+        savingFavorite={savingFavorite}
+        favoritesError={favoritesError}
         onBack={handleBack}
+        onToggleFavorite={() => {
+          if (!favoriteSenator) {
+            return
+          }
+
+          void toggleFavorite(favoriteSenator)
+        }}
+        onClearFavoritesError={clearFavoritesError}
       />
     </>
   )

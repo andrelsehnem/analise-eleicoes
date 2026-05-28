@@ -10,6 +10,7 @@ import {
   fetchSenatorVotacoes,
 } from '../../api/camaraApi'
 import type {
+  FavoritePolitician,
   SenatorAparte,
   SenatorCommission,
   SenatorDetail,
@@ -27,13 +28,21 @@ import { FALLBACK_AVATAR } from '../../utils/ui'
 import { AppButton } from '../common/AppButton'
 import { EmptyState } from '../common/EmptyState'
 import { ErrorBox } from '../common/ErrorBox'
+import { FavoriteStarButton } from '../common/FavoriteStarButton'
 import { Loader } from '../common/Loader'
 
 type SenatorDetailPanelProps = {
   senatorDetail: SenatorDetail | null
   loading: boolean
   error: string
+  favorite: FavoritePolitician | null
+  isFavorite: boolean
+  canFavorite: boolean
+  savingFavorite: boolean
+  favoritesError: string
   onBack: () => void
+  onToggleFavorite: () => void
+  onClearFavoritesError: () => void
 }
 
 type ServiceLinkView = {
@@ -126,7 +135,19 @@ type ServiceDataState =
   | { kind: 'comissoes'; items: SenatorCommission[] }
   | { kind: 'votacoes'; items: SenatorVotacao[] }
 
-export function SenatorDetailPanel({ senatorDetail, loading, error, onBack }: SenatorDetailPanelProps) {
+export function SenatorDetailPanel({
+  senatorDetail,
+  loading,
+  error,
+  favorite,
+  isFavorite,
+  canFavorite,
+  savingFavorite,
+  favoritesError,
+  onBack,
+  onToggleFavorite,
+  onClearFavoritesError,
+}: SenatorDetailPanelProps) {
   const canRenderContent = !error && Boolean(senatorDetail)
   const [selectedService, setSelectedService] = useState<ServiceLinkView | null>(null)
   const [serviceData, setServiceData] = useState<ServiceDataState>({ kind: 'idle' })
@@ -258,6 +279,15 @@ export function SenatorDetailPanel({ senatorDetail, loading, error, onBack }: Se
       {loading && <Loader />}
       {!loading && error && <ErrorBox message={error} />}
 
+      {favoritesError && (
+        <div className="search-favorites-error-wrap">
+          <ErrorBox message={favoritesError} />
+          <button className="party-filter-clear" type="button" onClick={onClearFavoritesError}>
+            Fechar
+          </button>
+        </div>
+      )}
+
       {!loading && !error && !senatorDetail && (
         <EmptyState icon="🏛" message="Perfil de senador não encontrado." />
       )}
@@ -276,7 +306,17 @@ export function SenatorDetailPanel({ senatorDetail, loading, error, onBack }: Se
               }}
             />
             <div className="deputy-detail-info">
-              <h1 className="deputy-detail-name">{senatorDetail.nome}</h1>
+              <div className="detail-name-row">
+                <h1 className="deputy-detail-name">{senatorDetail.nome}</h1>
+                {favorite && (
+                  <FavoriteStarButton
+                    isActive={isFavorite}
+                    canFavorite={canFavorite}
+                    disabled={savingFavorite}
+                    onToggle={onToggleFavorite}
+                  />
+                )}
+              </div>
               <div className="deputy-tags">
                 <span className="tag tag-party">🏛 {senatorDetail.siglaPartido}</span>
                 <span className="tag tag-state">📍 {senatorDetail.siglaUf}</span>

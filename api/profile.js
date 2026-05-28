@@ -12,6 +12,9 @@ import {
 
 const PROFILE_RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000
 const PROFILE_RATE_LIMIT_MAX = Number(process.env.PROFILE_RATE_LIMIT_MAX || 20)
+const FAVORITES_LIMIT = 100
+const VALID_GROUPS = new Set(['deputados-federais', 'senadores', 'deputados-estaduais', 'presidentes'])
+const VALID_CARGOS = new Set(['deputado-federal', 'senador', 'deputado-estadual', 'presidente'])
 
 function normalizeDisplayName(value) {
   if (typeof value !== 'string') {
@@ -21,18 +24,135 @@ function normalizeDisplayName(value) {
   return value.trim().replace(/\s+/g, ' ')
 }
 
-function validateProfilePayload(body) {
+function normalizeText(value, maxLength) {
+  if (typeof value !== 'string') {
+    return ''
+  }
+
+  return value.trim().replace(/\s+/g, ' ').slice(0, maxLength)
+}
+
+function normalizeFavorite(entry) {
+  if (!entry || typeof entry !== 'object') {
+    return null
+  }
+
+  const id = normalizeText(entry.id, 120)
+  const nome = normalizeText(entry.nome, 140)
+  const estado = normalizeText(entry.estado, 32).toUpperCase()
+  const partido = normalizeText(entry.partido, 32).toUpperCase()
+  const grupo = normalizeText(entry.grupo, 32)
+  const cargo = normalizeText(entry.cargo, 32)
+
+  if (!id || !nome || !estado || !partido) {
+    return null
+  }
+
+  if (!VALID_GROUPS.has(grupo) || !VALID_CARGOS.has(cargo)) {
+    return null
+  }
+
+  return {
+    id,
+    nome,
+    estado,
+    partido,
+    grupo,
+    cargo,
+  }
+}
+
+function normalizeFavorites(value) {
+  if (!Array.isArray(value)) {
+    return []
+  }
+
+  const favoriteMap = new Map()
+
+  for (const entry of value) {
+    const normalized = normalizeFavorite(entry)
+
+    if (!normalized) {
+      continue
+    }
+
+    const key = `${normalized.grupo}:${normalized.id}`
+    favoriteMap.set(key, normalized)
+
+    if (favoriteMap.size >= FAVORITES_LIMIT) {
+      break
+    }
+  }
+
+  return Array.from(favoriteMap.values())
+}
+
+function parseProfilePayload(body) {
   if (!body || typeof body !== 'object') {
-    return 'Payload inválido.'
+    return {
+      error: 'Payload inválido.',
+      displayName: '',
+      favorites: [],
+      hasDisplayName: false,
+      hasFavorites: false,
+    }
   }
 
-  const displayName = normalizeDisplayName(body.displayName)
+  const hasDisplayName = Object.prototype.hasOwnProperty.call(body, 'displayName')
+  const hasFavorites = Object.prototype.hasOwnProperty.call(body, 'favorites')
 
-  if (!displayName || displayName.length < 2 || displayName.length > 80) {
-    return 'Nome inválido. Use entre 2 e 80 caracteres.'
+  if (!hasDisplayName && !hasFavorites) {
+    return {
+      error: 'Payload inválido.',
+      displayName: '',
+      favorites: [],
+      hasDisplayName,
+      hasFavorites,
+    }
   }
 
-  return ''
+  const displayName = hasDisplayName ? normalizeDisplayName(body.displayName) : ''
+  const favorites = hasFavorites ? normalizeFavorites(body.favorites) : []
+
+  if (hasDisplayName && (!displayName || displayName.length < 2 || displayName.length > 80)) {
+    return {
+      error: 'Nome inválido. Use entre 2 e 80 caracteres.',
+      displayName,
+      favorites,
+      hasDisplayName,
+      hasFavorites,
+    }
+  }
+
+  if (hasFavorites) {
+    if (!Array.isArray(body.favorites)) {
+      return {
+        error: 'Favoritos inválidos.',
+        displayName,
+        favorites,
+        hasDisplayName,
+        hasFavorites,
+      }
+    }
+
+    if (body.favorites.length > FAVORITES_LIMIT) {
+      return {
+        error: `Limite de ${FAVORITES_LIMIT} favoritos excedido.`,
+        displayName,
+        favorites,
+        hasDisplayName,
+        hasFavorites,
+      }
+    }
+  }
+
+  return {
+    error: '',
+    displayName,
+    favorites,
+    hasDisplayName,
+    hasFavorites,
+  }
 }
 
 async function readProfile(uid) {
@@ -52,6 +172,7 @@ async function readProfile(uid) {
     photoURL: typeof data.photoURL === 'string' ? data.photoURL : '',
     createdAt: typeof data.createdAt === 'string' ? data.createdAt : '',
     updatedAt: typeof data.updatedAt === 'string' ? data.updatedAt : '',
+    favorites: normalizeFavorites(data.favorites),
   }
 }
 
@@ -65,7 +186,7 @@ export default async function handler(req, res) {
 
   const ip = getClientIp(req)
 
-  if (!isTrustedOrigin(req)) {
+  if (!isTrustedOrigin(req, { allowMissingOrigin: false })) {
     logSecurityEvent('profile.invalid_origin', {
       ip,
       origin: typeof req.headers.origin === 'string' ? req.headers.origin : 'unknown',
@@ -76,7 +197,7 @@ export default async function handler(req, res) {
     })
   }
 
-  if (isRateLimited({
+  if (await isRateLimited({
     prefix: 'profile',
     key: ip,
     maxRequests: PROFILE_RATE_LIMIT_MAX,
@@ -109,6 +230,7 @@ export default async function handler(req, res) {
         photoURL: profile?.photoURL || session.picture,
         createdAt: profile?.createdAt || '',
         updatedAt: profile?.updatedAt || '',
+        favorites: profile?.favorites || [],
       },
     })
   }
@@ -158,15 +280,22 @@ export default async function handler(req, res) {
     })
   }
 
-  const validationError = validateProfilePayload(req.body)
+  const payload = parseProfilePayload(req.body)
 
-  if (validationError) {
-    return jsonResponse(res, 400, { message: validationError })
+  if (payload.error) {
+    return jsonResponse(res, 400, { message: payload.error })
   }
 
-  const displayName = normalizeDisplayName(req.body.displayName)
+  const currentProfile = await readProfile(session.uid)
+  const displayName = payload.hasDisplayName
+    ? payload.displayName
+    : currentProfile?.displayName || session.displayName
+  const favorites = payload.hasFavorites
+    ? payload.favorites
+    : currentProfile?.favorites || []
   const now = new Date().toISOString()
   const db = getFirebaseAdminDb()
+  const createdAt = currentProfile?.createdAt || now
 
   await db.collection('users').doc(session.uid).set(
     {
@@ -175,7 +304,8 @@ export default async function handler(req, res) {
       displayName,
       photoURL: session.picture || '',
       updatedAt: now,
-      createdAt: now,
+      createdAt,
+      ...(payload.hasFavorites ? { favorites } : {}),
     },
     { merge: true },
   )
@@ -187,7 +317,9 @@ export default async function handler(req, res) {
       email: session.email,
       displayName,
       photoURL: session.picture || '',
+      createdAt,
       updatedAt: now,
+      favorites,
     },
   })
 }

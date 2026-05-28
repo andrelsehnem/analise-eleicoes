@@ -2,11 +2,14 @@ import { useEffect } from 'react'
 import { PresidentsPanel } from '../panels/PresidentsPanel'
 import { usePresidents } from '../../hooks/usePresidents'
 import { useAppNavigation } from '../../hooks/useAppNavigation'
+import { useAuth } from '../../hooks/useAuth'
+import { useFavoritePoliticians } from '../../hooks/useFavoritePoliticians'
 import { SeoHead } from '../common/SeoHead'
 import { buildBreadcrumbSchema, buildCollectionPageSchema } from '../../utils/seo'
 
 export function PresidentsListPage() {
   const { goToStateSelection } = useAppNavigation()
+  const { authStatus } = useAuth()
   const {
     search,
     loadingPresidents,
@@ -15,6 +18,15 @@ export function PresidentsListPage() {
     setSearch,
     loadPresidents,
   } = usePresidents()
+  const {
+    favoriteKeys,
+    savingFavorite,
+    favoritesError,
+    toggleFavorite,
+    clearFavoritesError,
+  } = useFavoritePoliticians({
+    isAuthenticated: authStatus === 'authenticated',
+  })
 
   useEffect(() => {
     void loadPresidents()
@@ -43,6 +55,12 @@ export function PresidentsListPage() {
         loading={loadingPresidents}
         error={presidentsError}
         presidents={filteredPresidents}
+        favoriteKeys={favoriteKeys}
+        canFavorite={authStatus === 'authenticated'}
+        savingFavorite={savingFavorite}
+        favoritesError={favoritesError}
+        onToggleFavorite={toggleFavorite}
+        onClearFavoritesError={clearFavoritesError}
         onBack={goToStateSelection}
       />
     </>

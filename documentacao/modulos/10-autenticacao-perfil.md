@@ -16,6 +16,7 @@ Adicionar autenticação de usuário e um perfil protegido para preparar funcion
 - Página `/perfil` com leitura e atualização de nome de exibição.
 - Página `/perfil` com leitura, atualização de nome de exibição e exclusão permanente de conta.
 - Logout com encerramento de sessão no backend.
+- Favoritos de políticos em listas e detalhes (`/busca`, rotas por estado, senadores e presidência) com persistência no perfil do usuário autenticado.
 
 ## Arquitetura técnica
 
@@ -33,8 +34,28 @@ Adicionar autenticação de usuário e um perfil protegido para preparar funcion
 - `DELETE /api/auth/session`: encerra sessão e limpa cookies de autenticação.
 - `GET /api/auth/me`: retorna usuário autenticado da sessão atual.
 - `GET /api/profile`: lê perfil do usuário autenticado.
-- `PUT /api/profile`: atualiza perfil do usuário autenticado.
+- `PUT /api/profile`: atualiza perfil do usuário autenticado (nome e/ou favoritos).
 - `DELETE /api/profile`: exclui usuário no Firebase Authentication, remove documento de perfil no Firestore e encerra a sessão.
+
+## Favoritos no perfil
+
+- Os favoritos são persistidos no mesmo documento `users/{uid}` no Firestore.
+- Estrutura de cada favorito:
+  - `id`
+  - `nome`
+  - `partido`
+  - `estado`
+  - `cargo` (`deputado-federal`, `deputado-estadual`, `senador`)
+  - `grupo` (`deputados-federais`, `deputados-estaduais`, `senadores`)
+- Limite inicial: até 100 favoritos por usuário.
+- Favoritos são normalizados no backend (deduplicação por `grupo:id` e sanitização de campos).
+- Sem sessão autenticada, a ação de favoritar fica desabilitada na UI.
+- Ação de favoritar disponível em:
+  - Busca global
+  - Lista por estado (deputados federais e estaduais)
+  - Lista de senadores por estado
+  - Lista de presidência (presidente e vice)
+  - Perfis de detalhe (deputado federal, deputado estadual, senador e presidência)
 
 ## Segurança aplicada
 

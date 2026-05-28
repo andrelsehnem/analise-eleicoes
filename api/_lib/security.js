@@ -1,6 +1,8 @@
 import { randomBytes, timingSafeEqual } from 'node:crypto'
+import { getFirebaseAdminDb } from './firebaseAdmin.js'
 
 const rateLimitBuckets = new Map()
+const FIRESTORE_RATE_LIMIT_COLLECTION = process.env.RATE_LIMIT_COLLECTION || 'securityRateLimits'
 
 export function applySecurityHeaders(res) {
   res.setHeader('Cache-Control', 'no-store')
@@ -69,11 +71,12 @@ export function getTrustedOrigins() {
   return origins
 }
 
-export function isTrustedOrigin(req) {
+export function isTrustedOrigin(req, options = {}) {
+  const allowMissingOrigin = options.allowMissingOrigin ?? true
   const originHeader = req.headers.origin
 
   if (!originHeader || typeof originHeader !== 'string') {
-    return true
+    return allowMissingOrigin
   }
 
   const requestOrigin = normalizeOrigin(originHeader)
@@ -96,14 +99,36 @@ export function logSecurityEvent(eventName, details) {
 }
 
 export function getClientIp(req) {
-  const forwarded = req.headers['x-forwarded-for']
+  const vercelForwarded = req.headers['x-vercel-forwarded-for']
 
-  if (Array.isArray(forwarded)) {
-    return forwarded[0] || 'unknown'
+  if (typeof vercelForwarded === 'string' && vercelForwarded.trim()) {
+    return vercelForwarded.split(',')[0]?.trim() || 'unknown'
   }
 
-  if (typeof forwarded === 'string') {
-    return forwarded.split(',')[0]?.trim() || 'unknown'
+  const cloudflareConnectingIp = req.headers['cf-connecting-ip']
+
+  if (typeof cloudflareConnectingIp === 'string' && cloudflareConnectingIp.trim()) {
+    return cloudflareConnectingIp.trim()
+  }
+
+  const trustProxyHeaders = process.env.TRUST_PROXY_HEADERS === 'true'
+
+  if (trustProxyHeaders) {
+    const realIp = req.headers['x-real-ip']
+
+    if (typeof realIp === 'string' && realIp.trim()) {
+      return realIp.trim()
+    }
+
+    const forwarded = req.headers['x-forwarded-for']
+
+    if (Array.isArray(forwarded)) {
+      return forwarded[0] || 'unknown'
+    }
+
+    if (typeof forwarded === 'string') {
+      return forwarded.split(',')[0]?.trim() || 'unknown'
+    }
   }
 
   return req.socket?.remoteAddress || 'unknown'
@@ -113,8 +138,46 @@ function createRateLimitKey(prefix, key) {
   return `${prefix}:${key}`
 }
 
-export function isRateLimited({ prefix, key, maxRequests, windowMs }) {
-  const bucketKey = createRateLimitKey(prefix, key)
+async function isRateLimitedInFirestore({ bucketKey, maxRequests, windowMs }) {
+  const db = getFirebaseAdminDb()
+  const docRef = db.collection(FIRESTORE_RATE_LIMIT_COLLECTION).doc(bucketKey)
+  const now = Date.now()
+  let isLimited = false
+
+  await db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(docRef)
+    const data = snapshot.exists ? snapshot.data() || {} : {}
+    const windowStart = typeof data.windowStart === 'number' ? data.windowStart : 0
+    const count = typeof data.count === 'number' ? data.count : 0
+
+    if (!snapshot.exists || now - windowStart > windowMs) {
+      transaction.set(docRef, {
+        count: 1,
+        windowStart: now,
+        expiresAt: new Date(now + windowMs),
+      })
+      isLimited = false
+      return
+    }
+
+    const nextCount = count + 1
+    isLimited = nextCount > maxRequests
+
+    transaction.set(
+      docRef,
+      {
+        count: nextCount,
+        windowStart,
+        expiresAt: new Date(windowStart + windowMs),
+      },
+      { merge: true },
+    )
+  })
+
+  return isLimited
+}
+
+function isRateLimitedInMemory({ bucketKey, maxRequests, windowMs }) {
   const now = Date.now()
   const existing = rateLimitBuckets.get(bucketKey)
 
@@ -131,6 +194,22 @@ export function isRateLimited({ prefix, key, maxRequests, windowMs }) {
 
   rateLimitBuckets.set(bucketKey, existing)
   return false
+}
+
+export async function isRateLimited({ prefix, key, maxRequests, windowMs }) {
+  const bucketKey = createRateLimitKey(prefix, key)
+  const rateLimitStore = process.env.RATE_LIMIT_STORE || 'memory'
+
+  if (rateLimitStore === 'firestore') {
+    try {
+      return await isRateLimitedInFirestore({ bucketKey, maxRequests, windowMs })
+    } catch {
+      logSecurityEvent('rate_limit.firestore_fallback_memory', { bucketKey })
+      return isRateLimitedInMemory({ bucketKey, maxRequests, windowMs })
+    }
+  }
+
+  return isRateLimitedInMemory({ bucketKey, maxRequests, windowMs })
 }
 
 export function parseCookies(req) {
@@ -158,7 +237,11 @@ export function parseCookies(req) {
         return acc
       }
 
-      acc[name] = decodeURIComponent(value)
+      try {
+        acc[name] = decodeURIComponent(value)
+      } catch {
+        acc[name] = value
+      }
       return acc
     }, {})
 }

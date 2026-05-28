@@ -1,4 +1,7 @@
 import { useEffect } from 'react'
+import type { GlobalSearchItem } from '../../types/camara'
+import { useAuth } from '../../hooks/useAuth'
+import { mapGlobalSearchItemToFavorite, useFavoritePoliticians } from '../../hooks/useFavoritePoliticians'
 import { useAppNavigation } from '../../hooks/useAppNavigation'
 import { useGlobalSearch } from '../../hooks/useGlobalSearch'
 import { buildBreadcrumbSchema, buildCollectionPageSchema } from '../../utils/seo'
@@ -7,6 +10,7 @@ import { SearchPanel } from '../panels/SearchPanel'
 
 export function SearchPage() {
   const { goToHome } = useAppNavigation()
+  const { authStatus } = useAuth()
   const {
     parties,
     offices,
@@ -23,10 +27,24 @@ export function SearchPage() {
     clearParty,
     clearOffice,
   } = useGlobalSearch()
+  const {
+    favoriteKeys,
+    loadingFavorites,
+    savingFavorite,
+    favoritesError,
+    toggleFavorite,
+    clearFavoritesError,
+  } = useFavoritePoliticians({
+    isAuthenticated: authStatus === 'authenticated',
+  })
 
   useEffect(() => {
     void loadSearchIndex()
   }, [loadSearchIndex])
+
+  async function handleToggleFavorite(item: GlobalSearchItem) {
+    await toggleFavorite(mapGlobalSearchItemToFavorite(item))
+  }
 
   return (
     <>
@@ -60,6 +78,13 @@ export function SearchPage() {
         onSelectOffice={toggleOffice}
         onClearParty={clearParty}
         onClearOffice={clearOffice}
+        favoriteKeys={favoriteKeys}
+        canFavorite={authStatus === 'authenticated'}
+        loadingFavorites={loadingFavorites}
+        savingFavorite={savingFavorite}
+        favoritesError={favoritesError}
+        onToggleFavorite={handleToggleFavorite}
+        onClearFavoritesError={clearFavoritesError}
         onBack={goToHome}
       />
     </>

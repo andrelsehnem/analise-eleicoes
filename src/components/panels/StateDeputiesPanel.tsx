@@ -4,6 +4,7 @@ import { FALLBACK_AVATAR } from '../../utils/ui'
 import { AppButton } from '../common/AppButton'
 import { EmptyState } from '../common/EmptyState'
 import { ErrorBox } from '../common/ErrorBox'
+import { FavoriteStarButton } from '../common/FavoriteStarButton'
 import { Loader } from '../common/Loader'
 
 type StateDeputiesPanelProps = {
@@ -14,7 +15,17 @@ type StateDeputiesPanelProps = {
   loading: boolean
   error: string
   deputies: StateDeputy[]
+  favoriteKeys: Set<string>
+  canFavorite: boolean
+  savingFavorite: boolean
+  favoritesError: string
+  onToggleFavorite: (deputy: StateDeputy) => Promise<void>
+  onClearFavoritesError: () => void
   onBack: () => void
+}
+
+function getFavoriteKey(deputy: StateDeputy): string {
+  return `deputados-estaduais:${deputy.id}`
 }
 
 export function StateDeputiesPanel({
@@ -25,6 +36,12 @@ export function StateDeputiesPanel({
   loading,
   error,
   deputies,
+  favoriteKeys,
+  canFavorite,
+  savingFavorite,
+  favoritesError,
+  onToggleFavorite,
+  onClearFavoritesError,
   onBack,
 }: StateDeputiesPanelProps) {
   return (
@@ -41,6 +58,21 @@ export function StateDeputiesPanel({
       <p className="president-panel-description">
         Filtre por nome ou partido para encontrar deputados estaduais da UF selecionada.
       </p>
+
+      {!canFavorite && (
+        <p className="search-favorites-hint" role="status" aria-live="polite">
+          Entre na sua conta para favoritar políticos.
+        </p>
+      )}
+
+      {favoritesError && (
+        <div className="search-favorites-error-wrap">
+          <ErrorBox message={favoritesError} />
+          <button className="party-filter-clear" type="button" onClick={onClearFavoritesError}>
+            Fechar
+          </button>
+        </div>
+      )}
 
       <div className="search-box">
         <span className="search-icon">🔍</span>
@@ -80,7 +112,17 @@ export function StateDeputiesPanel({
                 }}
               />
               <div className="deputy-info">
-                <div className="deputy-name">{deputy.nome}</div>
+                <div className="deputy-name-row">
+                  <div className="deputy-name">{deputy.nome}</div>
+                  <FavoriteStarButton
+                    isActive={favoriteKeys.has(getFavoriteKey(deputy))}
+                    canFavorite={canFavorite}
+                    disabled={savingFavorite}
+                    onToggle={() => {
+                      void onToggleFavorite(deputy)
+                    }}
+                  />
+                </div>
                 <div className="deputy-party">{deputy.siglaPartido}</div>
                 <div className="deputy-meta">
                   {deputy.siglaUf} · {deputy.email || 'sem e-mail'}

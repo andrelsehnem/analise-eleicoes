@@ -6,11 +6,15 @@ import { useEffect } from 'react'
 import { STATES } from '../../constants/states'
 import { SeoHead } from '../common/SeoHead'
 import { buildBreadcrumbSchema, buildCollectionPageSchema } from '../../utils/seo'
+import { useAuth } from '../../hooks/useAuth'
+import { useFavoritePoliticians } from '../../hooks/useFavoritePoliticians'
+import { toDeputyFavorite } from '../../utils/favorites'
 
 export function DeputiesListPage() {
   const { uf } = useParams<{ uf: string }>()
   const navigate = useNavigate()
   const { goToStateSelection } = useAppNavigation()
+  const { authStatus } = useAuth()
   const {
     allDeputies,
     search,
@@ -20,6 +24,15 @@ export function DeputiesListPage() {
     setSearch,
     loadDeputies,
   } = useDeputies()
+  const {
+    favoriteKeys,
+    savingFavorite,
+    favoritesError,
+    toggleFavorite,
+    clearFavoritesError,
+  } = useFavoritePoliticians({
+    isAuthenticated: authStatus === 'authenticated',
+  })
 
   // Validar se UF é válido
   useEffect(() => {
@@ -47,6 +60,10 @@ export function DeputiesListPage() {
   const stateName: string =
     STATES.find((state) => state.uf.toLowerCase() === uf?.toLowerCase())
       ?.name || uf || ''
+
+  async function handleToggleFavorite(deputy: (typeof filteredDeputies)[number]) {
+    await toggleFavorite(toDeputyFavorite(deputy))
+  }
 
   return (
     <>
@@ -83,6 +100,12 @@ export function DeputiesListPage() {
         loading={loadingDeputies}
         error={deputiesError}
         deputies={filteredDeputies}
+        favoriteKeys={favoriteKeys}
+        canFavorite={authStatus === 'authenticated'}
+        savingFavorite={savingFavorite}
+        favoritesError={favoritesError}
+        onToggleFavorite={handleToggleFavorite}
+        onClearFavoritesError={clearFavoritesError}
         onBack={goToStateSelection}
       />
     </>
