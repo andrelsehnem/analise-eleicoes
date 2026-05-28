@@ -1,5 +1,5 @@
-import { getFirebaseAdminAuth } from './firebaseAdmin'
-import { clearCookie, parseCookies } from './security'
+import { getFirebaseAdminAuth } from './firebaseAdmin.js'
+import { clearCookie, parseCookies } from './security.js'
 
 export const SESSION_COOKIE_NAME = 'mt_session'
 export const CSRF_COOKIE_NAME = 'mt_csrf'

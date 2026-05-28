@@ -1,6 +1,7 @@
 import {
   createUserWithEmailAndPassword,
   fetchSignInMethodsForEmail,
+  sendEmailVerification,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -16,6 +17,8 @@ import type { AuthProfile } from '../types/camara'
 type AuthProviderProps = {
   children: ReactNode
 }
+
+const EMAIL_NOT_VERIFIED_ERROR = 'auth/email-not-verified'
 
 function normalizeAuthError(error: unknown): string {
   if (!(error instanceof Error)) {
@@ -36,6 +39,10 @@ function normalizeAuthError(error: unknown): string {
     return 'Muitas tentativas. Aguarde alguns minutos e tente novamente.'
   }
 
+  if (message.includes(EMAIL_NOT_VERIFIED_ERROR)) {
+    return 'Confirme seu e-mail para concluir o login. Enviamos um link de verificação para sua caixa de entrada.'
+  }
+
   if (message.includes('popup-closed-by-user')) {
     return 'Login com Google cancelado.'
   }
@@ -49,7 +56,15 @@ async function resolveEmailCredential(email: string, password: string): Promise<
   }
 
   try {
-    return await signInWithEmailAndPassword(firebaseAuth, email, password)
+    const credential = await signInWithEmailAndPassword(firebaseAuth, email, password)
+    await credential.user.reload()
+
+    if (!credential.user.emailVerified) {
+      await sendEmailVerification(credential.user).catch(() => undefined)
+      throw new Error(EMAIL_NOT_VERIFIED_ERROR)
+    }
+
+    return credential
   } catch (error) {
     const isUserNotFound = error instanceof Error
       && (error.message.includes('auth/user-not-found') || error.message.includes('auth/invalid-credential'))
@@ -71,7 +86,9 @@ async function resolveEmailCredential(email: string, password: string): Promise<
       displayName: fallbackDisplayName,
     })
 
-    return created
+    await sendEmailVerification(created.user).catch(() => undefined)
+
+    throw new Error(EMAIL_NOT_VERIFIED_ERROR)
   }
 }
 

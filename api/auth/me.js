@@ -1,11 +1,11 @@
-import { verifySessionFromRequest } from '../_lib/authSession'
+import { verifySessionFromRequest } from '../_lib/authSession.js'
 import {
   applySecurityHeaders,
   getClientIp,
   isTrustedOrigin,
   jsonResponse,
   logSecurityEvent,
-} from '../_lib/security'
+} from '../_lib/security.js'
 
 export default async function handler(req, res) {
   applySecurityHeaders(res)

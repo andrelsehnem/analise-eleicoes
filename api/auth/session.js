@@ -1,4 +1,4 @@
-import { getFirebaseAdminAuth, getFirebaseAdminDb } from '../_lib/firebaseAdmin'
+import { getFirebaseAdminAuth, getFirebaseAdminDb } from '../_lib/firebaseAdmin.js'
 import {
   CSRF_COOKIE_NAME,
   SESSION_COOKIE_NAME,
@@ -6,7 +6,7 @@ import {
   getSessionTtlMs,
   isProductionEnv,
   verifySessionFromRequest,
-} from '../_lib/authSession'
+} from '../_lib/authSession.js'
 import {
   applySecurityHeaders,
   getClientIp,
@@ -16,7 +16,7 @@ import {
   jsonResponse,
   logSecurityEvent,
   setCookie,
-} from '../_lib/security'
+} from '../_lib/security.js'
 
 const AUTH_RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000
 const AUTH_RATE_LIMIT_MAX = Number(process.env.AUTH_RATE_LIMIT_MAX || 8)
@@ -128,6 +128,17 @@ export default async function handler(req, res) {
   try {
     const auth = getFirebaseAdminAuth()
     const decodedToken = await auth.verifyIdToken(idToken, true)
+    const signInProvider = typeof decodedToken.firebase?.sign_in_provider === 'string'
+      ? decodedToken.firebase.sign_in_provider
+      : ''
+    const isEmailVerified = decodedToken.email_verified === true
+
+    if (signInProvider === 'password' && !isEmailVerified) {
+      return jsonResponse(res, 403, {
+        message: 'Confirme seu e-mail para concluir o login.',
+      })
+    }
+
     const expiresIn = getSessionTtlMs()
     const sessionCookie = await auth.createSessionCookie(idToken, { expiresIn })
 
@@ -150,8 +161,9 @@ export default async function handler(req, res) {
         photoURL: typeof decodedToken.picture === 'string' ? decodedToken.picture : '',
       },
     })
-  } catch {
-    logSecurityEvent('auth.session.invalid_id_token', { ip })
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : 'unknown_error'
+    logSecurityEvent('auth.session.invalid_id_token', { ip, errorMessage })
 
     return jsonResponse(res, 401, {
       message: 'Falha ao validar autenticação. Faça login novamente.',

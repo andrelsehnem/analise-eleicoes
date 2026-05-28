@@ -11,7 +11,7 @@ type DevApiResponse = ServerResponse & {
   json: (body: unknown) => void
 }
 
-type SuggestionHandler = (req: DevApiRequest, res: DevApiResponse) => Promise<void>
+type ApiHandler = (req: DevApiRequest, res: DevApiResponse) => Promise<void>
 
 async function readJsonBody(req: IncomingMessage): Promise<unknown> {
   let raw = ''
@@ -68,7 +68,7 @@ export default defineConfig(({ mode }) => {
         configureServer(server) {
           server.middlewares.use('/api/sugestoes', async (req, res) => {
             try {
-              const module = (await import('./api/sugestoes.js')) as { default: SuggestionHandler }
+              const module = (await import('./api/sugestoes.js')) as { default: ApiHandler }
               const handler = module.default
               const apiReq = req as DevApiRequest
 
@@ -87,9 +87,75 @@ export default defineConfig(({ mode }) => {
           })
         },
       },
+      {
+        name: 'local-api-auth',
+        configureServer(server) {
+          server.middlewares.use('/api/auth', async (req, res, next) => {
+            const url = (req.url ?? '').replace(/\?.*$/, '').replace(/\/$/, '')
+
+            const routeMap: Record<string, string> = {
+              '/csrf': new URL('./api/auth/csrf.js', import.meta.url).href,
+              '/me': new URL('./api/auth/me.js', import.meta.url).href,
+              '/session': new URL('./api/auth/session.js', import.meta.url).href,
+            }
+
+            const modulePath = routeMap[url]
+
+            if (!modulePath) {
+              next()
+              return
+            }
+
+            try {
+              const module = (await import(/* @vite-ignore */ modulePath)) as { default: ApiHandler }
+              const apiReq = req as DevApiRequest
+
+              if (req.method === 'POST' || req.method === 'DELETE') {
+                apiReq.body = await readJsonBody(req)
+              }
+
+              await module.default(apiReq, withResponseHelpers(res))
+            } catch (err) {
+              console.error('[local-api-auth] Erro ao processar', url, err)
+              if (!res.headersSent) {
+                withResponseHelpers(res).status(500).json({
+                  message: 'Erro interno ao processar a API de autenticação no ambiente local.',
+                })
+              }
+            }
+          })
+        },
+      },
+      {
+        name: 'local-api-profile',
+        configureServer(server) {
+          server.middlewares.use('/api/profile', async (req, res) => {
+            try {
+              const module = (await import('./api/profile.js')) as { default: ApiHandler }
+              const handler = module.default
+              const apiReq = req as DevApiRequest
+
+              if (req.method === 'PUT') {
+                apiReq.body = await readJsonBody(req)
+              }
+
+              await handler(apiReq, withResponseHelpers(res))
+            } catch {
+              if (!res.headersSent) {
+                withResponseHelpers(res).status(500).json({
+                  message: 'Erro interno ao processar a API de perfil no ambiente local.',
+                })
+              }
+            }
+          })
+        },
+      },
     ],
     server: {
       middlewareMode: false,
+      headers: {
+        'Cross-Origin-Opener-Policy': 'same-origin-allow-popups',
+      },
     },
   }
 })

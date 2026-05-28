@@ -50,18 +50,26 @@ export async function ensureCsrfToken(forceRefresh = false): Promise<string> {
 }
 
 export async function createServerSession(idToken: string): Promise<AuthProfile> {
-  const csrfToken = await ensureCsrfToken()
+  async function sendSessionRequest(forceRefreshCsrf: boolean): Promise<Response> {
+    const csrfToken = await ensureCsrfToken(forceRefreshCsrf)
 
-  const response = await fetch('/api/auth/session', {
-    method: 'POST',
-    headers: {
-      ...JSON_HEADERS,
-      Authorization: `Bearer ${idToken}`,
-      'x-csrf-token': csrfToken,
-    },
-    credentials: 'include',
-    body: JSON.stringify({ idToken }),
-  })
+    return fetch('/api/auth/session', {
+      method: 'POST',
+      headers: {
+        ...JSON_HEADERS,
+        Authorization: `Bearer ${idToken}`,
+        'x-csrf-token': csrfToken,
+      },
+      credentials: 'include',
+      body: JSON.stringify({ idToken }),
+    })
+  }
+
+  let response = await sendSessionRequest(false)
+
+  if (response.status === 403) {
+    response = await sendSessionRequest(true)
+  }
 
   if (!response.ok) {
     throw await parseError(response, 'Não foi possível concluir o login.')

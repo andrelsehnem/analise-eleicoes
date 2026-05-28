@@ -10,9 +10,11 @@ Adicionar autenticação de usuário e um perfil protegido para preparar funcion
   - Google (Firebase Auth)
   - E-mail e senha
 - Criação automática de conta ao tentar login por e-mail inexistente.
+- Contas por e-mail/senha exigem confirmação de e-mail antes de concluir login.
 - Proteção da rota `/perfil` com `ProtectedRoute`.
 - Redirecionamento para `/login` quando o usuário não possui sessão válida.
 - Página `/perfil` com leitura e atualização de nome de exibição.
+- Página `/perfil` com leitura, atualização de nome de exibição e exclusão permanente de conta.
 - Logout com encerramento de sessão no backend.
 
 ## Arquitetura técnica
@@ -32,6 +34,7 @@ Adicionar autenticação de usuário e um perfil protegido para preparar funcion
 - `GET /api/auth/me`: retorna usuário autenticado da sessão atual.
 - `GET /api/profile`: lê perfil do usuário autenticado.
 - `PUT /api/profile`: atualiza perfil do usuário autenticado.
+- `DELETE /api/profile`: exclui usuário no Firebase Authentication, remove documento de perfil no Firestore e encerra a sessão.
 
 ## Segurança aplicada
 
@@ -45,12 +48,11 @@ Adicionar autenticação de usuário e um perfil protegido para preparar funcion
 
 - Sem recuperação de senha.
 - Sem MFA.
-- Sem verificação obrigatória de e-mail para contas criadas por e-mail/senha.
 - Rate limit em memória (por instância), sem storage distribuído.
 
 ## Próximas evoluções sugeridas
 
-- Exigir verificação de e-mail para operações críticas.
+- Exigir verificação de e-mail também para operações críticas com provedores sem verificação nativa.
 - Adicionar recuperação de senha no fluxo de login.
 - Persistir auditoria de eventos de segurança.
 - Evoluir rate limit para backend distribuído.

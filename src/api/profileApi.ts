@@ -55,3 +55,19 @@ export async function updateProfile(displayName: string): Promise<ProfileData> {
 
   return body.profile
 }
+
+export async function deleteAccount(): Promise<void> {
+  const csrfToken = await ensureCsrfToken(true)
+
+  const response = await fetch('/api/profile', {
+    method: 'DELETE',
+    credentials: 'include',
+    headers: {
+      'x-csrf-token': csrfToken,
+    },
+  })
+
+  if (!response.ok) {
+    throw await parseError(response, 'Não foi possível excluir a conta.')
+  }
+}

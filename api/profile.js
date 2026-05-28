@@ -1,5 +1,5 @@
-import { CSRF_COOKIE_NAME, verifySessionFromRequest } from './_lib/authSession'
-import { getFirebaseAdminDb } from './_lib/firebaseAdmin'
+import { CSRF_COOKIE_NAME, clearAuthCookies, verifySessionFromRequest } from './_lib/authSession.js'
+import { getFirebaseAdminAuth, getFirebaseAdminDb } from './_lib/firebaseAdmin.js'
 import {
   applySecurityHeaders,
   getClientIp,
@@ -8,7 +8,7 @@ import {
   isTrustedOrigin,
   jsonResponse,
   logSecurityEvent,
-} from './_lib/security'
+} from './_lib/security.js'
 
 const PROFILE_RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000
 const PROFILE_RATE_LIMIT_MAX = Number(process.env.PROFILE_RATE_LIMIT_MAX || 20)
@@ -58,8 +58,8 @@ async function readProfile(uid) {
 export default async function handler(req, res) {
   applySecurityHeaders(res)
 
-  if (req.method !== 'GET' && req.method !== 'PUT') {
-    res.setHeader('Allow', 'GET, PUT')
+  if (req.method !== 'GET' && req.method !== 'PUT' && req.method !== 'DELETE') {
+    res.setHeader('Allow', 'GET, PUT, DELETE')
     return jsonResponse(res, 405, { message: 'Método não permitido.' })
   }
 
@@ -118,6 +118,43 @@ export default async function handler(req, res) {
 
     return jsonResponse(res, 403, {
       message: 'Token CSRF inválido.',
+    })
+  }
+
+  if (req.method === 'DELETE') {
+    const db = getFirebaseAdminDb()
+    const auth = getFirebaseAdminAuth()
+
+    try {
+      await db.collection('users').doc(session.uid).delete()
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'unknown_error'
+      logSecurityEvent('profile.delete.firestore_failed', { ip, uid: session.uid, errorMessage })
+
+      return jsonResponse(res, 500, {
+        message: 'Não foi possível excluir os dados do perfil no momento.',
+      })
+    }
+
+    try {
+      await auth.deleteUser(session.uid)
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'unknown_error'
+
+      if (!errorMessage.includes('auth/user-not-found')) {
+        logSecurityEvent('profile.delete.auth_failed', { ip, uid: session.uid, errorMessage })
+
+        return jsonResponse(res, 500, {
+          message: 'Não foi possível excluir a conta de autenticação no momento.',
+        })
+      }
+    }
+
+    clearAuthCookies(res)
+
+    return jsonResponse(res, 200, {
+      success: true,
+      message: 'Conta excluída com sucesso.',
     })
   }
 

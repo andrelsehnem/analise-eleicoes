@@ -94,6 +94,8 @@
    - retorna perfil do usuário autenticado
 - `PUT /api/profile`
    - atualiza perfil do usuário autenticado
+- `DELETE /api/profile`
+   - exclui conta do usuário autenticado (registro no Firebase Auth e documento no Firestore), encerrando a sessão
 
 Regras de proteção aplicadas:
 

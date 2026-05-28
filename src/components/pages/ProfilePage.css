@@ -63,7 +63,8 @@
 }
 
 .profile-save-button,
-.profile-logout-button {
+.profile-logout-button,
+.profile-delete-button {
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 0.7rem 1rem;
@@ -88,8 +89,19 @@
   border-color: var(--border-bright);
 }
 
+.profile-delete-button {
+  border-color: rgba(255, 99, 99, 0.45);
+  background: rgba(153, 20, 20, 0.35);
+}
+
+.profile-delete-button:hover {
+  border-color: rgba(255, 118, 118, 0.85);
+  background: rgba(153, 20, 20, 0.5);
+}
+
 .profile-save-button:focus-visible,
-.profile-logout-button:focus-visible {
+.profile-logout-button:focus-visible,
+.profile-delete-button:focus-visible {
   outline: 2px solid var(--gold-light);
   outline-offset: 2px;
 }

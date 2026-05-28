@@ -45,7 +45,7 @@ export function LoginPage() {
       await signInWithGoogle()
       navigate(redirectPath, { replace: true })
     } catch {
-      setLocalError('Não foi possível entrar com Google no momento.')
+      setLocalError('')
     } finally {
       setIsSubmitting(false)
     }
@@ -66,7 +66,7 @@ export function LoginPage() {
       await signInWithEmail(email.trim(), password)
       navigate(redirectPath, { replace: true })
     } catch {
-      setLocalError('Falha ao autenticar com e-mail e senha.')
+      setLocalError('')
     } finally {
       setIsSubmitting(false)
     }
@@ -90,7 +90,7 @@ export function LoginPage() {
         </div>
 
         <p className="auth-description">
-          Entre com Google ou com e-mail e senha. Se o e-mail ainda não existir, a conta será criada automaticamente.
+          Entre com Google ou com e-mail e senha. Se o e-mail ainda não existir, a conta será criada automaticamente e você precisará confirmar o e-mail antes de entrar.
         </p>
 
         {!isFirebaseConfigured ? (
