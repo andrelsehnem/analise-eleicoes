@@ -1,5 +1,6 @@
 import { useEffect, useState, type FormEvent } from 'react'
-import { fetchProfile, updateProfile } from '../../api/profileApi'
+import { useNavigate } from 'react-router-dom'
+import { deleteAccount, fetchProfile, updateProfile } from '../../api/profileApi'
 import type { ProfileData } from '../../types/camara'
 import { buildBreadcrumbSchema } from '../../utils/seo'
 import { AppButton } from '../common/AppButton'
@@ -10,11 +11,13 @@ import { useAuth } from '../../hooks/useAuth'
 import './ProfilePage.css'
 
 export function ProfilePage() {
-  const { logout } = useAuth()
+  const navigate = useNavigate()
+  const { logout, refreshUser } = useAuth()
   const [profile, setProfile] = useState<ProfileData | null>(null)
   const [displayNameInput, setDisplayNameInput] = useState('')
   const [loadingProfile, setLoadingProfile] = useState(true)
   const [savingProfile, setSavingProfile] = useState(false)
+  const [deletingAccount, setDeletingAccount] = useState(false)
   const [error, setError] = useState('')
   const [successMessage, setSuccessMessage] = useState('')
 
@@ -83,6 +86,30 @@ export function ProfilePage() {
     }
   }
 
+  async function handleDeleteAccount() {
+    const confirmed = window.confirm(
+      'Tem certeza que deseja deletar sua conta? Esta ação deleta todos os seus dados da base, ela é permanente e não pode ser desfeita.',
+    )
+
+    if (!confirmed) {
+      return
+    }
+
+    setDeletingAccount(true)
+    setError('')
+    setSuccessMessage('')
+
+    try {
+      await deleteAccount()
+      await refreshUser()
+      navigate('/login', { replace: true })
+    } catch (deleteError) {
+      setError(deleteError instanceof Error ? deleteError.message : 'Não foi possível deletar a conta.')
+    } finally {
+      setDeletingAccount(false)
+    }
+  }
+
   if (loadingProfile) {
     return <Loader />
   }
@@ -139,11 +166,14 @@ export function ProfilePage() {
           </div>
 
           <div className="profile-actions">
-            <AppButton className="profile-save-button" type="submit" disabled={savingProfile}>
+            <AppButton className="profile-save-button" type="submit" disabled={savingProfile || deletingAccount}>
               {savingProfile ? 'Salvando...' : 'Salvar alterações'}
             </AppButton>
-            <AppButton className="profile-logout-button" onClick={handleLogout} type="button">
+            <AppButton className="profile-logout-button" onClick={handleLogout} type="button" disabled={savingProfile || deletingAccount}>
               Sair
+            </AppButton>
+            <AppButton className="profile-delete-button" onClick={handleDeleteAccount} type="button" disabled={savingProfile || deletingAccount}>
+              {deletingAccount ? 'Deletando conta...' : 'Deletar conta'}
             </AppButton>
           </div>
         </form>

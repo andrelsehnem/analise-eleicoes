@@ -1,4 +1,4 @@
-import { CSRF_COOKIE_NAME, isProductionEnv } from '../_lib/authSession'
+import { CSRF_COOKIE_NAME, isProductionEnv } from '../_lib/authSession.js'
 import {
   applySecurityHeaders,
   generateCsrfToken,
@@ -7,7 +7,7 @@ import {
   logSecurityEvent,
   setCookie,
   getClientIp,
-} from '../_lib/security'
+} from '../_lib/security.js'
 
 export default async function handler(req, res) {
   applySecurityHeaders(res)
