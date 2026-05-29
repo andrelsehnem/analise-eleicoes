@@ -42,6 +42,8 @@
    - Uso: geração do grupo `deputados-estaduais` no índice local (`public/politicians-index.json`).
 5. **Dados locais do projeto**
    - `src/constants/presidents.ts`
+   - `public/politicians-index.json`
+   - `public/statistics-index.json`
    - Uso: diretório de presidente/vice e fallback de detalhe.
 6. **Cloudflare Turnstile**
    - Base: `https://challenges.cloudflare.com/turnstile/v0/siteverify`
@@ -59,6 +61,8 @@
 - `fetchPropositionVotes(propositionId)`
 - `fetchPresidents()`
 - `fetchPresidentDetail(id)`
+- `fetchPoliticiansIndex()`
+- `fetchGeneralInfoStatistics()`
 - `fetchStateDeputiesByState(uf)`
 - `fetchSenatorsByState(uf)`
 - `fetchSenatorDetailBundle(id)`

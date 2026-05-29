@@ -15,6 +15,11 @@ export function AppHeader() {
     navigate('/sugestoes')
   }
 
+  function handleInformacoesGerais(event: React.MouseEvent<HTMLAnchorElement>) {
+    event.preventDefault()
+    navigate('/informacoes-gerais')
+  }
+
   function handlePerfil(event: React.MouseEvent<HTMLAnchorElement>) {
     event.preventDefault()
     navigate('/perfil')
@@ -44,6 +49,9 @@ export function AppHeader() {
         <div className="header-sep" />
 
         <nav className="header-nav" aria-label="Navegação principal">
+          <a className="header-badge-link" href="/informacoes-gerais" onClick={handleInformacoesGerais}>
+            <div className="header-badge">Informações gerais</div>
+          </a>
           <a className="header-badge-link" href="/sugestoes" onClick={handleSugestoes}>
             <div className="header-badge">Sugestões</div>
           </a>

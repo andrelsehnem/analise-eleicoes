@@ -47,6 +47,9 @@ const PrivacyPolicyPage = lazy(async () => ({
 const SearchPage = lazy(async () => ({
   default: (await import('./components/pages/SearchPage')).SearchPage,
 }))
+const GeneralInfoPage = lazy(async () => ({
+  default: (await import('./components/pages/GeneralInfoPage')).GeneralInfoPage,
+}))
 const LoginPage = lazy(async () => ({
   default: (await import('./components/pages/LoginPage')).LoginPage,
 }))
@@ -206,6 +209,26 @@ function App() {
           <AppLayout showStepsNav={false}>
             <Suspense fallback={<Loader />}>
               <SearchPage />
+            </Suspense>
+          </AppLayout>
+        }
+      />
+      <Route
+        path="/informacoes-gerais"
+        element={
+          <AppLayout showStepsNav={false}>
+            <Suspense fallback={<Loader />}>
+              <GeneralInfoPage />
+            </Suspense>
+          </AppLayout>
+        }
+      />
+      <Route
+        path="/informacoes-gerais/:uf"
+        element={
+          <AppLayout showStepsNav={false}>
+            <Suspense fallback={<Loader />}>
+              <GeneralInfoPage />
             </Suspense>
           </AppLayout>
         }

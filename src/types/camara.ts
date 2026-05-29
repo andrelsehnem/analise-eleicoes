@@ -329,6 +329,53 @@ export type PoliticiansIndex = {
   'deputados-estaduais': PoliticianIndexItem[]
 }
 
+export type GeneralInfoPartyCount = {
+  partido: string
+  total: number
+  percentual: number
+}
+
+export type GeneralInfoOfficeStats = {
+  cargo: 'deputado-federal' | 'deputado-estadual' | 'senador'
+  total: number
+  percentualDoTotal: number
+  porPartido: GeneralInfoPartyCount[]
+}
+
+export type GeneralInfoStateOfficeStats = {
+  total: number
+  percentualNoEstado: number
+  porPartido: GeneralInfoPartyCount[]
+}
+
+export type GeneralInfoStateStats = {
+  uf: string
+  total: number
+  percentualDoTotal: number
+  porCargo: Record<'deputado-federal' | 'deputado-estadual' | 'senador', GeneralInfoStateOfficeStats>
+  porPartido: GeneralInfoPartyCount[]
+}
+
+export type GeneralInfoStatistics = {
+  geradoEm: string
+  totalPoliticos: number
+  totalPartidosUnicos: number
+  mediaPoliticosPorUf: number
+  porCargo: GeneralInfoOfficeStats[]
+  porPartido: GeneralInfoPartyCount[]
+  porUf: GeneralInfoStateStats[]
+  destaques: {
+    ufComMaiorQuantidade: {
+      uf: string
+      total: number
+    } | null
+    partidoComMaiorQuantidade: {
+      partido: string
+      total: number
+    } | null
+  }
+}
+
 export type GlobalSearchItem = PoliticianIndexItem & {
   grupo: PoliticiansIndexGroup
   cargo: 'deputado-federal' | 'senador' | 'deputado-estadual'

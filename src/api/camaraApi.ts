@@ -1,5 +1,6 @@
 import type {
   Deputy,
+  GeneralInfoStatistics,
   GlobalSearchItem,
   DeputyInfo,
   DeputyOrgan,
@@ -81,6 +82,7 @@ const presidentDetailRequestCache = new Map<string, Promise<PresidentDetail>>()
 const senatorsByStateRequestCache = new Map<string, Promise<Senator[]>>()
 const senatorDetailRequestCache = new Map<string, Promise<SenatorDetail>>()
 let politiciansIndexRequestCache: Promise<GlobalSearchItem[]> | null = null
+let generalInfoStatsRequestCache: Promise<GeneralInfoStatistics> | null = null
 
 type PropositionVoting = {
   id: string
@@ -694,6 +696,31 @@ export async function fetchPoliticiansIndex(): Promise<GlobalSearchItem[]> {
     return await request
   } catch (error) {
     politiciansIndexRequestCache = null
+    throw error
+  }
+}
+
+export async function fetchGeneralInfoStatistics(): Promise<GeneralInfoStatistics> {
+  if (generalInfoStatsRequestCache) {
+    return generalInfoStatsRequestCache
+  }
+
+  const request = (async () => {
+    const stats = await fetchApi<GeneralInfoStatistics>('/statistics-index.json')
+
+    if (!stats || !Array.isArray(stats.porCargo) || !Array.isArray(stats.porUf)) {
+      throw new Error('Arquivo de estatísticas indisponível ou inválido.')
+    }
+
+    return stats
+  })()
+
+  generalInfoStatsRequestCache = request
+
+  try {
+    return await request
+  } catch (error) {
+    generalInfoStatsRequestCache = null
     throw error
   }
 }

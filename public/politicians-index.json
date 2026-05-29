@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-05-25T17:54:07.019Z",
+  "geradoEm": "2026-05-29T17:37:09.051Z",
   "deputados-federais": [
     {
       "id": "204379",
@@ -1301,7 +1301,7 @@
       "id": "236284",
       "nome": "Glaycon Franco",
       "estado": "MG",
-      "partido": "PV"
+      "partido": "PSDB"
     },
     {
       "id": "107283",
@@ -1802,12 +1802,6 @@
       "partido": "PSB"
     },
     {
-      "id": "220616",
-      "nome": "Luciano Vieira",
-      "estado": "RJ",
-      "partido": "PSDB"
-    },
-    {
       "id": "178954",
       "nome": "Lucio Mosquini",
       "estado": "RO",
@@ -1980,6 +1974,12 @@
       "nome": "Marcos Aurélio Sampaio",
       "estado": "PI",
       "partido": "MDB"
+    },
+    {
+      "id": "236375",
+      "nome": "Marcos Braz",
+      "estado": "RJ",
+      "partido": "PSDB"
     },
     {
       "id": "204506",
@@ -2172,12 +2172,6 @@
       "nome": "Murillo Gouvea",
       "estado": "RJ",
       "partido": "PSDB"
-    },
-    {
-      "id": "220584",
-      "nome": "Murilo Galdino",
-      "estado": "PB",
-      "partido": "REPUBLICANOS"
     },
     {
       "id": "204453",
@@ -2508,6 +2502,12 @@
       "nome": "Raimundo Santos",
       "estado": "PA",
       "partido": "PSD"
+    },
+    {
+      "id": "115200",
+      "nome": "Raniery Paulino",
+      "estado": "PB",
+      "partido": "REPUBLICANOS"
     },
     {
       "id": "74161",
@@ -5859,7 +5859,7 @@
       "nome": "DEPUTADA CIBELE MOURA",
       "estado": "AL",
       "partido": "MDB",
-      "urlFoto": "https://sapl.al.al.leg.br/media/sapl/public/parlamentar/49/cibele_moura.jpg.128x128_q85_box-0%2C6%2C483%2C489_crop_detail.jpg",
+      "urlFoto": "https://sapl.al.al.leg.br/media/sapl/public/parlamentar/49/cibelemouranovaimagem.png.128x128_q85_box-65%2C151%2C1346%2C1433_crop_detail.png",
       "urlPerfil": "https://sapl.al.al.leg.br/parlamentar/49"
     },
     {
@@ -8794,6 +8794,13 @@
       "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/julio-mendonca/"
     },
     {
+      "id": "145",
+      "nome": "Julio Pina",
+      "estado": "GO",
+      "partido": "SD",
+      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/145"
+    },
+    {
       "id": "500",
       "nome": "JULIO ROCHA",
       "estado": "RJ",
@@ -8911,7 +8918,7 @@
       "partido": "MDB",
       "email": "juvir.costella@al.rs.gov.br",
       "telefone": "(51) 32101783",
-      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2016/8/8/203496_G.jpg",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2026/5/28/456647_G.jpeg",
       "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2103"
     },
     {
@@ -12655,7 +12662,7 @@
       "id": "468",
       "nome": "WELLINGTON JOSÉ",
       "estado": "RJ",
-      "partido": "PODE",
+      "partido": "União",
       "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/05012021_151143perfil_wellingtonJos&#233;_500x500_ok_RafaelWallace-9283.jpg",
       "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/468?Legislatura=20"
     },

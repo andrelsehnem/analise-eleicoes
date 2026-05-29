@@ -1,0 +1,164 @@
+.general-info-section {
+  margin-top: 1.6rem;
+  padding: 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(17, 34, 64, 0.4);
+}
+
+.general-info-state-actions {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.general-info-state-grid {
+  margin-top: 1rem;
+}
+
+.general-info-kpi-grid {
+  margin-top: 0.9rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.8rem;
+}
+
+.general-info-kpi-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem;
+  background: rgba(10, 22, 40, 0.55);
+}
+
+.general-info-kpi-label {
+  font-size: 0.72rem;
+  color: var(--silver);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.general-info-kpi-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.general-info-kpi-subvalue {
+  margin-top: 0.2rem;
+  color: var(--white-dim);
+  font-size: 0.86rem;
+}
+
+.general-info-gender-grid {
+  margin-top: 0.9rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.8rem;
+}
+
+.general-info-metric-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem;
+  background: rgba(10, 22, 40, 0.55);
+}
+
+.general-info-metric-label {
+  color: var(--silver);
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.general-info-metric-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-top: 0.22rem;
+}
+
+.general-info-metric-subvalue {
+  margin-top: 0.15rem;
+  color: var(--gold-light);
+  font-size: 0.86rem;
+}
+
+.general-info-office-grid {
+  margin-top: 0.9rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.8rem;
+}
+
+.general-info-office-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem;
+  background: rgba(10, 22, 40, 0.55);
+}
+
+.general-info-office-label {
+  color: var(--silver);
+  font-size: 0.8rem;
+}
+
+.general-info-office-total {
+  margin-top: 0.25rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.general-info-office-percent {
+  margin-top: 0.1rem;
+  color: var(--gold-light);
+  font-size: 0.86rem;
+}
+
+.general-info-party-list {
+  margin-top: 0.9rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.general-info-party-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: rgba(10, 22, 40, 0.55);
+}
+
+.general-info-party-name {
+  font-weight: 600;
+  color: var(--white);
+}
+
+.general-info-party-percent {
+  margin-top: 0.1rem;
+  font-size: 0.82rem;
+  color: var(--white-dim);
+}
+
+.general-info-party-total {
+  color: var(--gold-light);
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .general-info-section {
+    padding: 0.9rem;
+  }
+
+  .general-info-kpi-value,
+  .general-info-office-total {
+    font-size: 1.28rem;
+  }
+
+  .general-info-metric-value {
+    font-size: 1.2rem;
+  }
+}

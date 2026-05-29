@@ -14,6 +14,7 @@ export function SenatorsListPage() {
   const { uf } = useParams<{ uf: string }>()
   const navigate = useNavigate()
   const { goToStateSelection } = useAppNavigation()
+  const normalizedUf = uf?.trim().toUpperCase() || ''
   const { authStatus } = useAuth()
   const {
     allSenators,
@@ -55,7 +56,8 @@ export function SenatorsListPage() {
   }, [uf, navigate, loadSenators])
 
   const stateName: string =
-    STATES.find((state) => state.uf.toLowerCase() === uf?.toLowerCase())?.name || uf || ''
+    STATES.find((state) => state.uf.toLowerCase() === uf?.toLowerCase())?.name || ''
+  const stateNameWithUf = stateName && normalizedUf ? `${stateName} (${normalizedUf})` : stateName
 
   async function handleToggleFavorite(senator: (typeof filteredSenators)[number]) {
     await toggleFavorite(toSenatorFavorite(senator))
@@ -64,10 +66,10 @@ export function SenatorsListPage() {
   return (
     <>
       <SeoHead
-        title={stateName ? `Senadores de ${stateName}` : 'Senadores por estado'}
+        title={stateNameWithUf ? `Senadores do ${stateNameWithUf}: quem são e quantos são` : 'Senadores por estado'}
         description={
-          stateName
-            ? `Veja a lista de senadores de ${stateName}, filtre por nome ou partido e abra o perfil público de cada parlamentar.`
+          stateNameWithUf
+            ? `Veja quais são os senadores do ${stateNameWithUf}. Cada estado e o Distrito Federal elegem 3 senadores. Filtre por nome ou partido e abra o perfil público de cada parlamentar.`
             : 'Veja a lista de senadores por estado e consulte dados públicos de atuação parlamentar.'
         }
         jsonLd={[
@@ -80,9 +82,9 @@ export function SenatorsListPage() {
             },
           ]),
           buildCollectionPageSchema(
-            stateName ? `Senadores de ${stateName}` : 'Senadores por estado',
-            stateName
-              ? `Diretório de senadores de ${stateName} com busca por nome e partido.`
+            stateNameWithUf ? `Senadores do ${stateNameWithUf}` : 'Senadores por estado',
+            stateNameWithUf
+              ? `Diretório de senadores do ${stateNameWithUf}, com busca por nome, partido e informações de mandato.`
               : 'Diretório de senadores com filtros de busca.',
             uf ? `/senadores/${uf.toLowerCase()}` : '/por-estado',
           ),

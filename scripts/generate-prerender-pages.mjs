@@ -13,10 +13,44 @@ const politiciansIndexPath = path.join(projectRoot, 'public', 'politicians-index
 const SITE_NAME = 'Mandato Transparente'
 const SITE_URL = 'https://www.mandatotransparente.com.br'
 const DEFAULT_DESCRIPTION =
-  'Consulte deputados federais e presidência com dados públicos oficiais para votar com mais informação.'
+  'Consulte senadores, deputados federais, deputados estaduais e presidência com dados públicos oficiais para votar com mais informação.'
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-default.svg`
 const CAMARA_API = 'https://dadosabertos.camara.leg.br/api/v2'
 const SENADO_API = 'https://legis.senado.leg.br/dadosabertos'
+
+const STATE_NAME_BY_UF = new Map([
+  ['AC', 'Acre'],
+  ['AL', 'Alagoas'],
+  ['AM', 'Amazonas'],
+  ['AP', 'Amapá'],
+  ['BA', 'Bahia'],
+  ['CE', 'Ceará'],
+  ['DF', 'Distrito Federal'],
+  ['ES', 'Espírito Santo'],
+  ['GO', 'Goiás'],
+  ['MA', 'Maranhão'],
+  ['MG', 'Minas Gerais'],
+  ['MS', 'Mato Grosso do Sul'],
+  ['MT', 'Mato Grosso'],
+  ['PA', 'Pará'],
+  ['PB', 'Paraíba'],
+  ['PE', 'Pernambuco'],
+  ['PI', 'Piauí'],
+  ['PR', 'Paraná'],
+  ['RJ', 'Rio de Janeiro'],
+  ['RN', 'Rio Grande do Norte'],
+  ['RO', 'Rondônia'],
+  ['RR', 'Roraima'],
+  ['RS', 'Rio Grande do Sul'],
+  ['SC', 'Santa Catarina'],
+  ['SE', 'Sergipe'],
+  ['SP', 'São Paulo'],
+  ['TO', 'Tocantins'],
+])
+
+function getStateNameByUf(uf) {
+  return STATE_NAME_BY_UF.get(String(uf || '').toUpperCase()) || String(uf || '').toUpperCase()
+}
 
 function escapeHtml(value) {
   return value
@@ -170,6 +204,7 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
   const senatorDetailMatch = normalizedPath.match(/^\/senador\/(\d+)$/i)
   const senatorListMatch = normalizedPath.match(/^\/senadores\/([a-z]{2})$/i)
   const presidentDetailMatch = normalizedPath.match(/^\/presidente\/([a-z0-9-]+)$/i)
+  const generalInfoStateMatch = normalizedPath.match(/^\/informacoes-gerais\/([a-z]{2})$/i)
 
   if (deputyDetailMatch) {
     const uf = deputyDetailMatch[1].toUpperCase()
@@ -185,10 +220,11 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
 
   if (deputyListMatch) {
     const uf = deputyListMatch[1].toUpperCase()
+    const stateName = getStateNameByUf(uf)
 
     return {
-      title: `Deputados federais de ${uf}`,
-      description: `Veja a lista de deputados federais de ${uf}, filtre por nome ou partido e abra o histórico de atuação parlamentar.`,
+      title: `Deputados federais de ${stateName} (${uf}): lista por nome e partido`,
+      description: `Veja quais são os deputados federais de ${stateName} (${uf}), filtre por nome ou partido e abra o histórico de atuação parlamentar.`,
     }
   }
 
@@ -224,10 +260,21 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
 
   if (senatorListMatch) {
     const uf = senatorListMatch[1].toUpperCase()
+    const stateName = getStateNameByUf(uf)
 
     return {
-      title: `Senadores de ${uf}`,
-      description: `Veja a lista de senadores de ${uf}, filtre por nome ou partido e abra o perfil público de cada parlamentar.`,
+      title: `Senadores do ${stateName} (${uf}): quem são e quantos são`,
+      description: `Veja quais são os senadores do ${stateName} (${uf}). Cada estado e o Distrito Federal elegem 3 senadores. Filtre por nome ou partido e abra o perfil de cada parlamentar.`,
+    }
+  }
+
+  if (generalInfoStateMatch) {
+    const uf = generalInfoStateMatch[1].toUpperCase()
+    const stateName = getStateNameByUf(uf)
+
+    return {
+      title: `Quantos senadores e deputados têm em ${stateName} (${uf})`,
+      description: `Consulte quantos senadores, deputados federais e deputados estaduais têm em ${stateName} (${uf}), com distribuição por cargo e partido.`,
     }
   }
 
@@ -257,6 +304,14 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
       title: 'Seleção por estado e cargo',
       description:
         'Selecione o cargo e o estado para consultar deputados federais e senadores com dados públicos oficiais.',
+    }
+  }
+
+  if (normalizedPath === '/informacoes-gerais') {
+    return {
+      title: 'Informações gerais por estado e cargo',
+      description:
+        'Consulte quantos senadores, deputados federais e deputados estaduais existem por estado, com distribuição por cargo e partido.',
     }
   }
 

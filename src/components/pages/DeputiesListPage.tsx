@@ -14,6 +14,7 @@ export function DeputiesListPage() {
   const { uf } = useParams<{ uf: string }>()
   const navigate = useNavigate()
   const { goToStateSelection } = useAppNavigation()
+  const normalizedUf = uf?.trim().toUpperCase() || ''
   const { authStatus } = useAuth()
   const {
     allDeputies,
@@ -60,6 +61,7 @@ export function DeputiesListPage() {
   const stateName: string =
     STATES.find((state) => state.uf.toLowerCase() === uf?.toLowerCase())
       ?.name || uf || ''
+  const stateNameWithUf = stateName && normalizedUf ? `${stateName} (${normalizedUf})` : stateName
 
   async function handleToggleFavorite(deputy: (typeof filteredDeputies)[number]) {
     await toggleFavorite(toDeputyFavorite(deputy))
@@ -68,10 +70,14 @@ export function DeputiesListPage() {
   return (
     <>
       <SeoHead
-        title={stateName ? `Deputados federais de ${stateName}` : 'Deputados federais por estado'}
+        title={
+          stateNameWithUf
+            ? `Deputados federais de ${stateNameWithUf}: lista por nome e partido`
+            : 'Deputados federais por estado'
+        }
         description={
-          stateName
-            ? `Veja a lista de deputados federais de ${stateName}, filtre por nome ou partido e abra o histórico de atuação de cada parlamentar.`
+          stateNameWithUf
+            ? `Veja quais são os deputados federais de ${stateNameWithUf}, filtre por nome ou partido e abra o histórico de atuação de cada parlamentar.`
             : 'Veja a lista de deputados federais por estado e consulte dados públicos de atuação parlamentar.'
         }
         jsonLd={[
@@ -84,9 +90,9 @@ export function DeputiesListPage() {
             },
           ]),
           buildCollectionPageSchema(
-            stateName ? `Deputados federais de ${stateName}` : 'Deputados federais por estado',
-            stateName
-              ? `Diretório de deputados federais de ${stateName} com busca por nome e partido.`
+            stateNameWithUf ? `Deputados federais de ${stateNameWithUf}` : 'Deputados federais por estado',
+            stateNameWithUf
+              ? `Diretório de deputados federais de ${stateNameWithUf}, com busca por nome, partido e histórico de atuação.`
               : 'Diretório de deputados federais com filtros de busca.',
             uf ? `/por-estado/${uf.toLowerCase()}/deputado-federal` : '/por-estado',
           ),
