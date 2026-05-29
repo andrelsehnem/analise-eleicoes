@@ -30,6 +30,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const projectRoot = path.resolve(__dirname, '..')
 const outputPath = path.join(projectRoot, 'public', 'politicians-index.json')
+const statisticsOutputPath = path.join(projectRoot, 'public', 'statistics-index.json')
 
 const CAMARA_API = 'https://dadosabertos.camara.leg.br/api/v2'
 const SENADO_API = 'https://legis.senado.leg.br/dadosabertos'
@@ -1298,6 +1299,211 @@ async function loadDeputadosEstaduais() {
   ].sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
 }
 
+const OFFICE_KEYS = ['deputado-federal', 'deputado-estadual', 'senador']
+
+/**
+ * @param {number} part
+ * @param {number} total
+ * @returns {number}
+ */
+function calculatePercentage(part, total) {
+  if (!total) {
+    return 0
+  }
+
+  return Number(((part / total) * 100).toFixed(1))
+}
+
+/**
+ * @param {string | undefined | null} value
+ * @returns {string}
+ */
+function normalizeParty(value) {
+  const normalized = String(value ?? '').trim().toUpperCase()
+  return normalized || 'SEM PARTIDO'
+}
+
+/**
+ * @param {'deputados-federais' | 'deputados-estaduais' | 'senadores'} group
+ * @returns {'deputado-federal' | 'deputado-estadual' | 'senador'}
+ */
+function mapGroupToOffice(group) {
+  if (group === 'deputados-federais') {
+    return 'deputado-federal'
+  }
+
+  if (group === 'deputados-estaduais') {
+    return 'deputado-estadual'
+  }
+
+  return 'senador'
+}
+
+/**
+ * @param {Array<{ partido?: string }>} entries
+ * @param {number} total
+ */
+function buildPartyDistribution(entries, total) {
+  const countByParty = new Map()
+
+  entries.forEach((entry) => {
+    const party = normalizeParty(entry.partido)
+    countByParty.set(party, (countByParty.get(party) || 0) + 1)
+  })
+
+  return [...countByParty.entries()]
+    .map(([partido, quantity]) => ({
+      partido,
+      total: quantity,
+      percentual: calculatePercentage(quantity, total),
+    }))
+    .sort((left, right) => {
+      if (left.total !== right.total) {
+        return right.total - left.total
+      }
+
+      return left.partido.localeCompare(right.partido, 'pt-BR')
+    })
+}
+
+/**
+ * @param {Array<{ cargo: 'deputado-federal' | 'deputado-estadual' | 'senador'; estado: string; partido: string }>} entries
+ * @param {number} totalPoliticians
+ */
+function buildOfficeDistribution(entries, totalPoliticians) {
+  return OFFICE_KEYS.map((office) => {
+    const officeEntries = entries.filter((entry) => entry.cargo === office)
+    const total = officeEntries.length
+
+    return {
+      cargo: office,
+      total,
+      percentualDoTotal: calculatePercentage(total, totalPoliticians),
+      porPartido: buildPartyDistribution(officeEntries, total),
+    }
+  })
+}
+
+/**
+ * @param {Array<{ cargo: 'deputado-federal' | 'deputado-estadual' | 'senador'; estado: string; partido: string }>} entries
+ * @param {number} totalPoliticians
+ */
+function buildStateDistribution(entries, totalPoliticians) {
+  return STATES.map((uf) => {
+    const stateEntries = entries.filter((entry) => entry.estado === uf)
+    const total = stateEntries.length
+
+    const officeDistribution = /** @type {Record<'deputado-federal' | 'deputado-estadual' | 'senador', {
+      total: number
+      percentualNoEstado: number
+      porPartido: ReturnType<typeof buildPartyDistribution>
+    }>} */ ({
+      'deputado-federal': {
+        total: 0,
+        percentualNoEstado: 0,
+        porPartido: [],
+      },
+      'deputado-estadual': {
+        total: 0,
+        percentualNoEstado: 0,
+        porPartido: [],
+      },
+      senador: {
+        total: 0,
+        percentualNoEstado: 0,
+        porPartido: [],
+      },
+    })
+
+    OFFICE_KEYS.forEach((office) => {
+      const officeEntries = stateEntries.filter((entry) => entry.cargo === office)
+      const officeTotal = officeEntries.length
+
+      officeDistribution[office] = {
+        total: officeTotal,
+        percentualNoEstado: calculatePercentage(officeTotal, total),
+        porPartido: buildPartyDistribution(officeEntries, officeTotal),
+      }
+    })
+
+    return {
+      uf,
+      total,
+      percentualDoTotal: calculatePercentage(total, totalPoliticians),
+      porCargo: officeDistribution,
+      porPartido: buildPartyDistribution(stateEntries, total),
+    }
+  }).sort((left, right) => {
+    if (left.total !== right.total) {
+      return right.total - left.total
+    }
+
+    return left.uf.localeCompare(right.uf, 'pt-BR')
+  })
+}
+
+/**
+ * @param {{
+ *   geradoEm: string
+ *   'deputados-federais': PoliticianEntry[]
+ *   senadores: PoliticianEntry[]
+ *   'deputados-estaduais': PoliticianEntry[]
+ * }} index
+ */
+function buildStatistics(index) {
+  const allEntries = [
+    ...index['deputados-federais'].map((entry) => ({
+      ...entry,
+      cargo: mapGroupToOffice('deputados-federais'),
+      estado: String(entry.estado || '').trim().toUpperCase(),
+      partido: normalizeParty(entry.partido),
+    })),
+    ...index.senadores.map((entry) => ({
+      ...entry,
+      cargo: mapGroupToOffice('senadores'),
+      estado: String(entry.estado || '').trim().toUpperCase(),
+      partido: normalizeParty(entry.partido),
+    })),
+    ...index['deputados-estaduais'].map((entry) => ({
+      ...entry,
+      cargo: mapGroupToOffice('deputados-estaduais'),
+      estado: String(entry.estado || '').trim().toUpperCase(),
+      partido: normalizeParty(entry.partido),
+    })),
+  ].filter((entry) => entry.id && entry.nome && entry.estado)
+
+  const totalPoliticians = allEntries.length
+  const porPartido = buildPartyDistribution(allEntries, totalPoliticians)
+  const porCargo = buildOfficeDistribution(allEntries, totalPoliticians)
+  const porUf = buildStateDistribution(allEntries, totalPoliticians)
+  const ufComMaiorQuantidade = porUf[0]
+  const partidoComMaiorQuantidade = porPartido[0]
+
+  return {
+    geradoEm: index.geradoEm,
+    totalPoliticos: totalPoliticians,
+    totalPartidosUnicos: porPartido.length,
+    mediaPoliticosPorUf: Number((totalPoliticians / STATES.length).toFixed(1)),
+    porCargo,
+    porPartido,
+    porUf,
+    destaques: {
+      ufComMaiorQuantidade: ufComMaiorQuantidade
+        ? {
+            uf: ufComMaiorQuantidade.uf,
+            total: ufComMaiorQuantidade.total,
+          }
+        : null,
+      partidoComMaiorQuantidade: partidoComMaiorQuantidade
+        ? {
+            partido: partidoComMaiorQuantidade.partido,
+            total: partidoComMaiorQuantidade.total,
+          }
+        : null,
+    },
+  }
+}
+
 async function main() {
   console.log('🔄 Gerando índice de políticos...')
 
@@ -1326,17 +1532,26 @@ async function main() {
     console.error('❌ Falha ao carregar deputados estaduais:', deputadosEstaduais.reason)
   }
 
+  const statistics = buildStatistics(index)
+
   const json = JSON.stringify(index, null, 2)
-  await writeFile(outputPath, json, 'utf-8')
+  const statisticsJson = JSON.stringify(statistics, null, 2)
+
+  await Promise.all([
+    writeFile(outputPath, json, 'utf-8'),
+    writeFile(statisticsOutputPath, statisticsJson, 'utf-8'),
+  ])
 
   const totalDeputados = index['deputados-federais'].length
   const totalSenadores = index.senadores.length
   const totalEstaduais = index['deputados-estaduais'].length
 
   console.log(`✅ Índice gerado em ${outputPath}`)
+  console.log(`✅ Estatísticas geradas em ${statisticsOutputPath}`)
   console.log(`   • Deputados federais: ${totalDeputados}`)
   console.log(`   • Senadores: ${totalSenadores}`)
   console.log(`   • Deputados estaduais (cobertura nacional): ${totalEstaduais}`)
+  console.log(`   • Total geral de políticos: ${statistics.totalPoliticos}`)
 }
 
 void main().catch((error) => {

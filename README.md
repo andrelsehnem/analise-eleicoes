@@ -68,6 +68,19 @@ npm run lint
 npm run preview
 ```
 
+Geração de arquivos estáticos:
+
+- O comando build já executa automaticamente a geração de:
+  - politicians-index.json (inclui statistics-index.json)
+  - sitemap.xml
+  - prerender-routes.json
+  - páginas de prerender em dist
+- Para executar somente a geração estática sem rebuild, use:
+
+```bash
+npm run generate:static
+```
+
 ## Configuração de autenticação Firebase
 
 Para habilitar login e perfil, configure as variáveis abaixo no `.env` (veja [.env.example](.env.example)):

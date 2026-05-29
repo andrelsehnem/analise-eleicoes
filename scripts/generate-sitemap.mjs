@@ -26,6 +26,7 @@ const CORE_PAGES = [
   { path: '/por-estado/deputado-estadual', changefreq: 'weekly', priority: '0.8' },
   { path: '/por-estado/senador', changefreq: 'weekly', priority: '0.8' },
   { path: '/presidente', changefreq: 'weekly', priority: '0.9' },
+  { path: '/informacoes-gerais', changefreq: 'weekly', priority: '0.8' },
   { path: '/sobre', changefreq: 'monthly', priority: '0.6' },
   { path: '/privacidade', changefreq: 'monthly', priority: '0.5' },
   { path: '/sugestoes', changefreq: 'monthly', priority: '0.5' },
@@ -161,6 +162,14 @@ function loadPresidentPaths() {
   }))
 }
 
+function loadGeneralInfoPaths() {
+  return STATES.map((uf) => ({
+    path: `/informacoes-gerais/${uf.toLowerCase()}`,
+    changefreq: 'weekly',
+    priority: '0.8',
+  }))
+}
+
 async function loadStateDeputyPaths() {
   try {
     const raw = await readFile(politiciansIndexPath, 'utf-8')
@@ -202,7 +211,14 @@ async function main() {
     loadStateDeputyPaths(),
   ])
 
-  const entries = [...CORE_PAGES, ...deputyPaths, ...senatorPaths, ...stateDeputyPaths, ...loadPresidentPaths()]
+  const entries = [
+    ...CORE_PAGES,
+    ...deputyPaths,
+    ...senatorPaths,
+    ...stateDeputyPaths,
+    ...loadPresidentPaths(),
+    ...loadGeneralInfoPaths(),
+  ]
   const uniqueByPath = new Map(entries.map((entry) => [entry.path, entry]))
   const normalizedEntries = [...uniqueByPath.values()].sort((a, b) => a.path.localeCompare(b.path))
 

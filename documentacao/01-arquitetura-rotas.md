@@ -10,6 +10,8 @@
 
 - `/` → `LandingPage`
 - `/busca` → `SearchPage`
+- `/informacoes-gerais` → `GeneralInfoPage`
+- `/informacoes-gerais/:uf` → `GeneralInfoPage`
 - `/por-estado` → `StateSelectionPage`
 - `/por-estado/:office` → `StateSelectionPage`
 - `/por-estado/:uf/deputado-federal` → `DeputiesListPage`
@@ -44,13 +46,8 @@
 ## Indexação
 
 - `public/robots.txt` permite rastreamento e aponta para o sitemap.
-- `public/sitemap.xml` contém apenas rotas estáticas públicas nesta fase:
-	- `/`
-	- `/por-estado`
-	- `/presidente`
-	- `/sobre`
-	- `/privacidade`
-	- `/sugestoes`
+- `public/sitemap.xml` é gerado automaticamente via script e inclui rotas públicas estáticas e dinâmicas (listas e detalhes por UF/cargo).
+- `public/prerender-routes.json` é derivado do sitemap e define as rotas para prerender estático no build.
 
 ## Performance de carregamento
 
