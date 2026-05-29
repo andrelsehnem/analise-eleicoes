@@ -19,7 +19,7 @@ export default async function handler(req, res) {
 
   const ip = getClientIp(req)
 
-  if (!isTrustedOrigin(req, { allowMissingOrigin: false })) {
+  if (!isTrustedOrigin(req)) {
     logSecurityEvent('auth.csrf.invalid_origin', {
       ip,
       origin: typeof req.headers.origin === 'string' ? req.headers.origin : 'unknown',

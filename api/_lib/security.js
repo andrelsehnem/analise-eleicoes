@@ -34,6 +34,24 @@ function normalizeOrigin(value) {
   }
 }
 
+function isLoopbackHost(hostname) {
+  return hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '[::1]'
+}
+
+function isLocalDevelopmentOrigin(origin) {
+  if (process.env.NODE_ENV === 'production') {
+    return false
+  }
+
+  try {
+    const parsed = new URL(origin)
+
+    return ['http:', 'https:'].includes(parsed.protocol) && Boolean(parsed.hostname)
+  } catch {
+    return false
+  }
+}
+
 export function getTrustedOrigins() {
   const origins = new Set()
   const configuredOrigins = [
@@ -83,6 +101,10 @@ export function isTrustedOrigin(req, options = {}) {
 
   if (!requestOrigin) {
     return false
+  }
+
+  if (isLocalDevelopmentOrigin(requestOrigin)) {
+    return true
   }
 
   return getTrustedOrigins().has(requestOrigin)

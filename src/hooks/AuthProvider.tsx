@@ -20,6 +20,23 @@ type AuthProviderProps = {
 
 const EMAIL_NOT_VERIFIED_ERROR = 'auth/email-not-verified'
 
+function isTokenExpiredError(error: unknown): boolean {
+  return error instanceof Error && error.message.toLowerCase().includes('auth/user-token-expired')
+}
+
+async function getFreshIdToken(user: UserCredential['user']): Promise<string> {
+  try {
+    return await user.getIdToken()
+  } catch (error) {
+    if (!isTokenExpiredError(error)) {
+      throw error
+    }
+
+    await user.reload().catch(() => undefined)
+    return await user.getIdToken()
+  }
+}
+
 function normalizeAuthError(error: unknown): string {
   if (!(error instanceof Error)) {
     return 'Não foi possível completar a autenticação.'
@@ -33,6 +50,10 @@ function normalizeAuthError(error: unknown): string {
 
   if (message.includes('auth/wrong-password')) {
     return 'Senha incorreta.'
+  }
+
+  if (message.includes('auth/email-already-in-use')) {
+    return 'E-mail ou senha inválidos.'
   }
 
   if (message.includes('auth/too-many-requests')) {
@@ -152,14 +173,15 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     try {
       const credential = await signInWithPopup(firebaseAuth, googleProvider)
-      const idToken = await credential.user.getIdToken(true)
+      const idToken = await getFreshIdToken(credential.user)
       await completeServerSession(idToken)
     } catch (error) {
       setAuthError(normalizeAuthError(error))
       setAuthStatus('unauthenticated')
+      if (firebaseAuth) {
+        await signOut(firebaseAuth).catch(() => undefined)
+      }
       throw error
-    } finally {
-      await signOut(firebaseAuth).catch(() => undefined)
     }
   }, [completeServerSession])
 
@@ -175,14 +197,15 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     try {
       const credential = await resolveEmailCredential(email, password)
-      const idToken = await credential.user.getIdToken(true)
+      const idToken = await getFreshIdToken(credential.user)
       await completeServerSession(idToken)
     } catch (error) {
       setAuthError(normalizeAuthError(error))
       setAuthStatus('unauthenticated')
+      if (firebaseAuth) {
+        await signOut(firebaseAuth).catch(() => undefined)
+      }
       throw error
-    } finally {
-      await signOut(firebaseAuth).catch(() => undefined)
     }
   }, [completeServerSession])
 

@@ -186,7 +186,9 @@ export default async function handler(req, res) {
 
   const ip = getClientIp(req)
 
-  if (!isTrustedOrigin(req, { allowMissingOrigin: false })) {
+  const requiresExplicitOrigin = req.method !== 'GET'
+
+  if (!isTrustedOrigin(req, { allowMissingOrigin: !requiresExplicitOrigin })) {
     logSecurityEvent('profile.invalid_origin', {
       ip,
       origin: typeof req.headers.origin === 'string' ? req.headers.origin : 'unknown',
