@@ -20,6 +20,17 @@ type AuthProviderProps = {
 
 const EMAIL_NOT_VERIFIED_ERROR = 'auth/email-not-verified'
 
+type FirebaseAuthError = Error & { code?: string }
+
+function getFirebaseAuthCode(error: unknown): string {
+  if (typeof error !== 'object' || error === null) {
+    return ''
+  }
+
+  const withCode = error as FirebaseAuthError
+  return typeof withCode.code === 'string' ? withCode.code.toLowerCase() : ''
+}
+
 function isTokenExpiredError(error: unknown): boolean {
   return error instanceof Error && error.message.toLowerCase().includes('auth/user-token-expired')
 }
@@ -42,7 +53,24 @@ function normalizeAuthError(error: unknown): string {
     return 'Não foi possível completar a autenticação.'
   }
 
+  const authCode = getFirebaseAuthCode(error)
   const message = error.message.toLowerCase()
+
+  if (authCode === 'auth/unauthorized-domain' || message.includes('auth/unauthorized-domain')) {
+    return 'Login com Google indisponível neste domínio. Verifique os domínios autorizados no Firebase Authentication.'
+  }
+
+  if (authCode === 'auth/operation-not-allowed' || message.includes('auth/operation-not-allowed')) {
+    return 'Login com Google não está habilitado neste ambiente. Ative o provedor Google no Firebase Authentication.'
+  }
+
+  if (authCode === 'auth/popup-blocked' || message.includes('auth/popup-blocked')) {
+    return 'O navegador bloqueou a janela de login do Google. Permita pop-ups para continuar.'
+  }
+
+  if (authCode === 'auth/cancelled-popup-request' || message.includes('auth/cancelled-popup-request')) {
+    return 'A solicitação de login foi interrompida. Tente novamente.'
+  }
 
   if (message.includes('auth/invalid-credential')) {
     return 'E-mail ou senha inválidos.'
