@@ -1,6 +1,9 @@
 const AD_NETWORK_SCRIPT_ID = 'mt-ad-network-script'
 const AD_NETWORK_SCRIPT_SRC =
   'https://pl29372614.profitablecpmratenetwork.com/f8/38/e0/f838e0f087e13e4db8d8c3c0e6488560.js'
+const NATIVE_BANNER_SCRIPT_ID = 'mt-native-banner-script'
+const NATIVE_BANNER_SCRIPT_SRC =
+  'https://pl29690551.effectivecpmnetwork.com/2a01a6f0f8175c1150b4d310483f83ff/invoke.js'
 const GTAG_SCRIPT_ID = 'mt-ga-gtag-script'
 const GTAG_CONFIG_SCRIPT_ID = 'mt-ga-config-script'
 const GTM_SCRIPT_ID = 'mt-gtm-script'
@@ -50,6 +53,18 @@ function enableAdNetworkTracking(): void {
   injectExternalScript(AD_NETWORK_SCRIPT_ID, AD_NETWORK_SCRIPT_SRC)
 }
 
+function enableNativeBannerAd(): void {
+  if (!hasDocument() || document.getElementById(NATIVE_BANNER_SCRIPT_ID)) {
+    return
+  }
+  const script = document.createElement('script')
+  script.id = NATIVE_BANNER_SCRIPT_ID
+  script.src = NATIVE_BANNER_SCRIPT_SRC
+  script.async = true
+  script.setAttribute('data-cfasync', 'false')
+  document.body.appendChild(script)
+}
+
 function enableGoogleAnalytics(measurementId: string): void {
   injectExternalScript(
     GTAG_SCRIPT_ID,
@@ -84,6 +99,7 @@ function enableGoogleTagManager(containerId: string): void {
 
 export function enableTrackingByConsent(): void {
   enableAdNetworkTracking()
+  enableNativeBannerAd()
 
   const gaMeasurementId = normalizeEnvVar(import.meta.env.VITE_GA_MEASUREMENT_ID)
   const gtmContainerId = normalizeEnvVar(import.meta.env.VITE_GTM_CONTAINER_ID)

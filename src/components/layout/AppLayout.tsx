@@ -4,6 +4,7 @@ import { Disclaimer } from '../layout/Disclaimer'
 import { HeroSection } from '../layout/HeroSection'
 import { StepsNav } from '../layout/StepsNav'
 import { CookieBanner } from '../common/CookieBanner'
+import { NativeBanner } from '../ads/NativeBanner'
 import { useLocation, useParams } from 'react-router-dom'
 import { STATES } from '../../constants/states'
 
@@ -59,6 +60,7 @@ export function AppLayout({
       </main>
 
       <CookieBanner />
+      <NativeBanner />
       <Disclaimer />
     </div>
   )
