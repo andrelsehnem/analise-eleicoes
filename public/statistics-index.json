@@ -1,13 +1,13 @@
 {
-  "geradoEm": "2026-07-09T14:34:04.253Z",
-  "totalPoliticos": 1652,
-  "totalPartidosUnicos": 36,
-  "mediaPoliticosPorUf": 61.2,
+  "geradoEm": "2026-07-09T14:59:22.390Z",
+  "totalPoliticos": 1610,
+  "totalPartidosUnicos": 39,
+  "mediaPoliticosPorUf": 59.6,
   "porCargo": [
     {
       "cargo": "deputado-federal",
       "total": 512,
-      "percentualDoTotal": 31,
+      "percentualDoTotal": 31.8,
       "porPartido": [
         {
           "partido": "PL",
@@ -118,118 +118,113 @@
     },
     {
       "cargo": "deputado-estadual",
-      "total": 1059,
-      "percentualDoTotal": 64.1,
+      "total": 1017,
+      "percentualDoTotal": 63.2,
       "porPartido": [
         {
           "partido": "PL",
-          "total": 138,
-          "percentual": 13
-        },
-        {
-          "partido": "MDB",
-          "total": 124,
-          "percentual": 11.7
+          "total": 134,
+          "percentual": 13.2
         },
         {
           "partido": "PT",
-          "total": 123,
-          "percentual": 11.6
+          "total": 125,
+          "percentual": 12.3
         },
         {
           "partido": "PSD",
-          "total": 116,
-          "percentual": 11
+          "total": 114,
+          "percentual": 11.2
+        },
+        {
+          "partido": "MDB",
+          "total": 110,
+          "percentual": 10.8
         },
         {
           "partido": "PP",
-          "total": 81,
-          "percentual": 7.6
+          "total": 80,
+          "percentual": 7.9
         },
         {
           "partido": "UNIÃO",
-          "total": 76,
-          "percentual": 7.2
+          "total": 78,
+          "percentual": 7.7
         },
         {
           "partido": "REPUBLICANOS",
-          "total": 62,
-          "percentual": 5.9
+          "total": 59,
+          "percentual": 5.8
         },
         {
           "partido": "PSB",
-          "total": 47,
-          "percentual": 4.4
+          "total": 40,
+          "percentual": 3.9
         },
         {
           "partido": "PSDB",
           "total": 35,
-          "percentual": 3.3
+          "percentual": 3.4
         },
         {
           "partido": "SEM PARTIDO",
           "total": 32,
-          "percentual": 3
-        },
-        {
-          "partido": "NÃO POSSUI FILIAÇÃO",
-          "total": 27,
-          "percentual": 2.5
+          "percentual": 3.1
         },
         {
           "partido": "PV",
           "total": 24,
-          "percentual": 2.3
+          "percentual": 2.4
         },
         {
           "partido": "REP",
           "total": 23,
-          "percentual": 2.2
+          "percentual": 2.3
+        },
+        {
+          "partido": "PDT",
+          "total": 21,
+          "percentual": 2.1
         },
         {
           "partido": "PSOL",
           "total": 18,
-          "percentual": 1.7
+          "percentual": 1.8
         },
         {
           "partido": "AVANTE",
           "total": 15,
-          "percentual": 1.4
+          "percentual": 1.5
         },
         {
-          "partido": "PDT",
-          "total": 15,
-          "percentual": 1.4
+          "partido": "PODEMOS",
+          "total": 13,
+          "percentual": 1.3
         },
         {
           "partido": "PRD",
-          "total": 15,
-          "percentual": 1.4
+          "total": 13,
+          "percentual": 1.3
         },
         {
           "partido": "UB",
           "total": 13,
-          "percentual": 1.2
+          "percentual": 1.3
         },
         {
           "partido": "PODE",
           "total": 12,
-          "percentual": 1.1
-        },
-        {
-          "partido": "PODEMOS",
-          "total": 12,
-          "percentual": 1.1
+          "percentual": 1.2
         },
         {
           "partido": "NOVO",
           "total": 10,
-          "percentual": 0.9
+          "percentual": 1
         },
         {
           "partido": "PCDOB",
           "total": 10,
-          "percentual": 0.9
+          "percentual": 1
         },
         {
           "partido": "SD",
@@ -237,12 +232,17 @@
           "percentual": 0.6
         },
         {
-          "partido": "PC DO B",
-          "total": 3,
-          "percentual": 0.3
+          "partido": "REDE",
+          "total": 5,
+          "percentual": 0.5
         },
         {
-          "partido": "REDE",
+          "partido": "UNIÃO BRASIL",
+          "total": 4,
+          "percentual": 0.4
+        },
+        {
+          "partido": "PC DO B",
           "total": 3,
           "percentual": 0.3
         },
@@ -253,11 +253,6 @@
         },
         {
           "partido": "UNIAO",
-          "total": 3,
-          "percentual": 0.3
-        },
-        {
-          "partido": "UNIÃO BRASIL",
           "total": 3,
           "percentual": 0.3
         },
@@ -295,13 +290,33 @@
           "partido": "MOBILIZA",
           "total": 1,
           "percentual": 0.1
+        },
+        {
+          "partido": "PARTIDO VERDE",
+          "total": 1,
+          "percentual": 0.1
+        },
+        {
+          "partido": "PARTIDO VERDE - PV",
+          "total": 1,
+          "percentual": 0.1
+        },
+        {
+          "partido": "REDE SUSTENTABILIDADE - REDE",
+          "total": 1,
+          "percentual": 0.1
+        },
+        {
+          "partido": "REPUBLICANO",
+          "total": 1,
+          "percentual": 0.1
         }
       ]
     },
     {
       "cargo": "senador",
       "total": 81,
-      "percentualDoTotal": 4.9,
+      "percentualDoTotal": 5,
       "porPartido": [
         {
           "partido": "PL",
@@ -374,58 +389,63 @@
   "porPartido": [
     {
       "partido": "PL",
-      "total": 251,
-      "percentual": 15.2
+      "total": 247,
+      "percentual": 15.3
     },
     {
       "partido": "PT",
-      "total": 197,
-      "percentual": 11.9
+      "total": 199,
+      "percentual": 12.4
     },
     {
       "partido": "PSD",
-      "total": 178,
-      "percentual": 10.8
+      "total": 176,
+      "percentual": 10.9
     },
     {
       "partido": "MDB",
-      "total": 171,
-      "percentual": 10.4
+      "total": 157,
+      "percentual": 9.8
     },
     {
       "partido": "PP",
-      "total": 134,
-      "percentual": 8.1
+      "total": 133,
+      "percentual": 8.3
     },
     {
       "partido": "UNIÃO",
-      "total": 131,
-      "percentual": 7.9
+      "total": 133,
+      "percentual": 8.3
     },
     {
       "partido": "REPUBLICANOS",
-      "total": 110,
-      "percentual": 6.7
+      "total": 107,
+      "percentual": 6.6
     },
     {
       "partido": "PSB",
-      "total": 71,
-      "percentual": 4.3
+      "total": 64,
+      "percentual": 4
     },
     {
       "partido": "PSDB",
       "total": 56,
-      "percentual": 3.4
+      "percentual": 3.5
     },
     {
       "partido": "PODE",
       "total": 38,
-      "percentual": 2.3
+      "percentual": 2.4
+    },
+    {
+      "partido": "PDT",
+      "total": 33,
+      "percentual": 2
     },
     {
       "partido": "SEM PARTIDO",
       "total": 32,
-      "percentual": 1.9
+      "percentual": 2
     },
     {
       "partido": "PSOL",
@@ -435,17 +455,7 @@
     {
       "partido": "PV",
       "total": 30,
-      "percentual": 1.8
-    },
-    {
-      "partido": "NÃO POSSUI FILIAÇÃO",
-      "total": 27,
-      "percentual": 1.6
-    },
-    {
-      "partido": "PDT",
-      "total": 27,
-      "percentual": 1.6
+      "percentual": 1.9
     },
     {
       "partido": "REP",
@@ -463,19 +473,19 @@
       "percentual": 1.3
     },
     {
-      "partido": "PRD",
-      "total": 18,
-      "percentual": 1.1
-    },
-    {
       "partido": "NOVO",
       "total": 16,
       "percentual": 1
     },
     {
       "partido": "PODEMOS",
-      "total": 15,
-      "percentual": 0.9
+      "total": 16,
+      "percentual": 1
+    },
+    {
+      "partido": "PRD",
+      "total": 16,
+      "percentual": 1
     },
     {
       "partido": "UB",
@@ -484,8 +494,8 @@
     },
     {
       "partido": "REDE",
-      "total": 6,
-      "percentual": 0.4
+      "total": 8,
+      "percentual": 0.5
     },
     {
       "partido": "SD",
@@ -494,6 +504,11 @@
     },
     {
       "partido": "SOLIDARIEDADE",
+      "total": 4,
+      "percentual": 0.2
+    },
+    {
+      "partido": "UNIÃO BRASIL",
       "total": 4,
       "percentual": 0.2
     },
@@ -514,11 +529,6 @@
     },
     {
       "partido": "UNIAO",
-      "total": 3,
-      "percentual": 0.2
-    },
-    {
-      "partido": "UNIÃO BRASIL",
       "total": 3,
       "percentual": 0.2
     },
@@ -551,13 +561,33 @@
       "partido": "MOBILIZA",
       "total": 1,
       "percentual": 0.1
+    },
+    {
+      "partido": "PARTIDO VERDE",
+      "total": 1,
+      "percentual": 0.1
+    },
+    {
+      "partido": "PARTIDO VERDE - PV",
+      "total": 1,
+      "percentual": 0.1
+    },
+    {
+      "partido": "REDE SUSTENTABILIDADE - REDE",
+      "total": 1,
+      "percentual": 0.1
+    },
+    {
+      "partido": "REPUBLICANO",
+      "total": 1,
+      "percentual": 0.1
     }
   ],
   "porUf": [
     {
       "uf": "SP",
       "total": 167,
-      "percentualDoTotal": 10.1,
+      "percentualDoTotal": 10.4,
       "porCargo": {
         "deputado-federal": {
           "total": 70,
@@ -849,7 +879,7 @@
     {
       "uf": "MG",
       "total": 133,
-      "percentualDoTotal": 8.1,
+      "percentualDoTotal": 8.3,
       "porCargo": {
         "deputado-federal": {
           "total": 53,
@@ -1131,7 +1161,7 @@
     {
       "uf": "RJ",
       "total": 119,
-      "percentualDoTotal": 7.2,
+      "percentualDoTotal": 7.4,
       "porCargo": {
         "deputado-federal": {
           "total": 46,
@@ -1423,7 +1453,7 @@
     {
       "uf": "BA",
       "total": 105,
-      "percentualDoTotal": 6.4,
+      "percentualDoTotal": 6.5,
       "porCargo": {
         "deputado-federal": {
           "total": 39,
@@ -1670,7 +1700,7 @@
     {
       "uf": "RS",
       "total": 89,
-      "percentualDoTotal": 5.4,
+      "percentualDoTotal": 5.5,
       "porCargo": {
         "deputado-federal": {
           "total": 31,
@@ -1902,7 +1932,7 @@
     {
       "uf": "PR",
       "total": 87,
-      "percentualDoTotal": 5.3,
+      "percentualDoTotal": 5.4,
       "porCargo": {
         "deputado-federal": {
           "total": 30,
@@ -2114,7 +2144,7 @@
     {
       "uf": "CE",
       "total": 79,
-      "percentualDoTotal": 4.8,
+      "percentualDoTotal": 4.9,
       "porCargo": {
         "deputado-federal": {
           "total": 22,
@@ -2361,7 +2391,7 @@
     {
       "uf": "PE",
       "total": 77,
-      "percentualDoTotal": 4.7,
+      "percentualDoTotal": 4.8,
       "porCargo": {
         "deputado-federal": {
           "total": 25,
@@ -2593,7 +2623,7 @@
     {
       "uf": "PB",
       "total": 70,
-      "percentualDoTotal": 4.2,
+      "percentualDoTotal": 4.3,
       "porCargo": {
         "deputado-federal": {
           "total": 11,
@@ -2818,221 +2848,9 @@
       ]
     },
     {
-      "uf": "MA",
-      "total": 64,
-      "percentualDoTotal": 3.9,
-      "porCargo": {
-        "deputado-federal": {
-          "total": 18,
-          "percentualNoEstado": 28.1,
-          "porPartido": [
-            {
-              "partido": "MDB",
-              "total": 3,
-              "percentual": 16.7
-            },
-            {
-              "partido": "PL",
-              "total": 3,
-              "percentual": 16.7
-            },
-            {
-              "partido": "PP",
-              "total": 2,
-              "percentual": 11.1
-            },
-            {
-              "partido": "UNIÃO",
-              "total": 2,
-              "percentual": 11.1
-            },
-            {
-              "partido": "AVANTE",
-              "total": 1,
-              "percentual": 5.6
-            },
-            {
-              "partido": "PCDOB",
-              "total": 1,
-              "percentual": 5.6
-            },
-            {
-              "partido": "PODE",
-              "total": 1,
-              "percentual": 5.6
-            },
-            {
-              "partido": "PRD",
-              "total": 1,
-              "percentual": 5.6
-            },
-            {
-              "partido": "PSDB",
-              "total": 1,
-              "percentual": 5.6
-            },
-            {
-              "partido": "PT",
-              "total": 1,
-              "percentual": 5.6
-            },
-            {
-              "partido": "REPUBLICANOS",
-              "total": 1,
-              "percentual": 5.6
-            },
-            {
-              "partido": "SOLIDARIEDADE",
-              "total": 1,
-              "percentual": 5.6
-            }
-          ]
-        },
-        "deputado-estadual": {
-          "total": 43,
-          "percentualNoEstado": 67.2,
-          "porPartido": [
-            {
-              "partido": "MDB",
-              "total": 17,
-              "percentual": 39.5
-            },
-            {
-              "partido": "REPUBLICANOS",
-              "total": 8,
-              "percentual": 18.6
-            },
-            {
-              "partido": "PSB",
-              "total": 7,
-              "percentual": 16.3
-            },
-            {
-              "partido": "PL",
-              "total": 5,
-              "percentual": 11.6
-            },
-            {
-              "partido": "PSD",
-              "total": 3,
-              "percentual": 7
-            },
-            {
-              "partido": "PRD",
-              "total": 2,
-              "percentual": 4.7
-            },
-            {
-              "partido": "PP",
-              "total": 1,
-              "percentual": 2.3
-            }
-          ]
-        },
-        "senador": {
-          "total": 3,
-          "percentualNoEstado": 4.7,
-          "porPartido": [
-            {
-              "partido": "PDT",
-              "total": 1,
-              "percentual": 33.3
-            },
-            {
-              "partido": "PSB",
-              "total": 1,
-              "percentual": 33.3
-            },
-            {
-              "partido": "PSD",
-              "total": 1,
-              "percentual": 33.3
-            }
-          ]
-        }
-      },
-      "porPartido": [
-        {
-          "partido": "MDB",
-          "total": 20,
-          "percentual": 31.3
-        },
-        {
-          "partido": "REPUBLICANOS",
-          "total": 9,
-          "percentual": 14.1
-        },
-        {
-          "partido": "PL",
-          "total": 8,
-          "percentual": 12.5
-        },
-        {
-          "partido": "PSB",
-          "total": 8,
-          "percentual": 12.5
-        },
-        {
-          "partido": "PSD",
-          "total": 4,
-          "percentual": 6.3
-        },
-        {
-          "partido": "PP",
-          "total": 3,
-          "percentual": 4.7
-        },
-        {
-          "partido": "PRD",
-          "total": 3,
-          "percentual": 4.7
-        },
-        {
-          "partido": "UNIÃO",
-          "total": 2,
-          "percentual": 3.1
-        },
-        {
-          "partido": "AVANTE",
-          "total": 1,
-          "percentual": 1.6
-        },
-        {
-          "partido": "PCDOB",
-          "total": 1,
-          "percentual": 1.6
-        },
-        {
-          "partido": "PDT",
-          "total": 1,
-          "percentual": 1.6
-        },
-        {
-          "partido": "PODE",
-          "total": 1,
-          "percentual": 1.6
-        },
-        {
-          "partido": "PSDB",
-          "total": 1,
-          "percentual": 1.6
-        },
-        {
-          "partido": "PT",
-          "total": 1,
-          "percentual": 1.6
-        },
-        {
-          "partido": "SOLIDARIEDADE",
-          "total": 1,
-          "percentual": 1.6
-        }
-      ]
-    },
-    {
       "uf": "GO",
       "total": 63,
-      "percentualDoTotal": 3.8,
+      "percentualDoTotal": 3.9,
       "porCargo": {
         "deputado-federal": {
           "total": 17,
@@ -3259,7 +3077,7 @@
     {
       "uf": "PA",
       "total": 61,
-      "percentualDoTotal": 3.7,
+      "percentualDoTotal": 3.8,
       "porCargo": {
         "deputado-federal": {
           "total": 17,
@@ -3471,7 +3289,7 @@
     {
       "uf": "PI",
       "total": 55,
-      "percentualDoTotal": 3.3,
+      "percentualDoTotal": 3.4,
       "porCargo": {
         "deputado-federal": {
           "total": 10,
@@ -3745,7 +3563,7 @@
     {
       "uf": "ES",
       "total": 43,
-      "percentualDoTotal": 2.6,
+      "percentualDoTotal": 2.7,
       "porCargo": {
         "deputado-federal": {
           "total": 10,
@@ -3872,7 +3690,7 @@
     {
       "uf": "SE",
       "total": 40,
-      "percentualDoTotal": 2.4,
+      "percentualDoTotal": 2.5,
       "porCargo": {
         "deputado-federal": {
           "total": 8,
@@ -4052,21 +3870,16 @@
       ]
     },
     {
-      "uf": "TO",
-      "total": 38,
-      "percentualDoTotal": 2.3,
+      "uf": "AP",
+      "total": 39,
+      "percentualDoTotal": 2.4,
       "porCargo": {
         "deputado-federal": {
           "total": 8,
-          "percentualNoEstado": 21.1,
+          "percentualNoEstado": 20.5,
           "porPartido": [
             {
-              "partido": "PSDB",
-              "total": 2,
-              "percentual": 25
-            },
-            {
-              "partido": "REPUBLICANOS",
+              "partido": "PDT",
               "total": 2,
               "percentual": 25
             },
@@ -4076,12 +3889,22 @@
               "percentual": 12.5
             },
             {
+              "partido": "PCDOB",
+              "total": 1,
+              "percentual": 12.5
+            },
+            {
               "partido": "PL",
               "total": 1,
               "percentual": 12.5
             },
             {
-              "partido": "PODE",
+              "partido": "PP",
+              "total": 1,
+              "percentual": 12.5
+            },
+            {
+              "partido": "PT",
               "total": 1,
               "percentual": 12.5
             },
@@ -4093,27 +3916,92 @@
           ]
         },
         "deputado-estadual": {
-          "total": 27,
-          "percentualNoEstado": 71.1,
+          "total": 28,
+          "percentualNoEstado": 71.8,
           "porPartido": [
             {
-              "partido": "NÃO POSSUI FILIAÇÃO",
-              "total": 27,
-              "percentual": 100
+              "partido": "PDT",
+              "total": 6,
+              "percentual": 21.4
+            },
+            {
+              "partido": "REPUBLICANOS",
+              "total": 5,
+              "percentual": 17.9
+            },
+            {
+              "partido": "MDB",
+              "total": 3,
+              "percentual": 10.7
+            },
+            {
+              "partido": "PT",
+              "total": 2,
+              "percentual": 7.1
+            },
+            {
+              "partido": "REDE",
+              "total": 2,
+              "percentual": 7.1
+            },
+            {
+              "partido": "UNIÃO",
+              "total": 2,
+              "percentual": 7.1
+            },
+            {
+              "partido": "PARTIDO VERDE",
+              "total": 1,
+              "percentual": 3.6
+            },
+            {
+              "partido": "PARTIDO VERDE - PV",
+              "total": 1,
+              "percentual": 3.6
+            },
+            {
+              "partido": "PL",
+              "total": 1,
+              "percentual": 3.6
+            },
+            {
+              "partido": "PODEMOS",
+              "total": 1,
+              "percentual": 3.6
+            },
+            {
+              "partido": "PSD",
+              "total": 1,
+              "percentual": 3.6
+            },
+            {
+              "partido": "REDE SUSTENTABILIDADE - REDE",
+              "total": 1,
+              "percentual": 3.6
+            },
+            {
+              "partido": "REPUBLICANO",
+              "total": 1,
+              "percentual": 3.6
+            },
+            {
+              "partido": "UNIÃO BRASIL",
+              "total": 1,
+              "percentual": 3.6
             }
           ]
         },
         "senador": {
           "total": 3,
-          "percentualNoEstado": 7.9,
+          "percentualNoEstado": 7.7,
           "porPartido": [
             {
-              "partido": "PL",
+              "partido": "PSD",
               "total": 1,
               "percentual": 33.3
             },
             {
-              "partido": "PSD",
+              "partido": "PT",
               "total": 1,
               "percentual": 33.3
             },
@@ -4127,42 +4015,82 @@
       },
       "porPartido": [
         {
-          "partido": "NÃO POSSUI FILIAÇÃO",
-          "total": 27,
-          "percentual": 71.1
+          "partido": "PDT",
+          "total": 8,
+          "percentual": 20.5
+        },
+        {
+          "partido": "REPUBLICANOS",
+          "total": 5,
+          "percentual": 12.8
+        },
+        {
+          "partido": "MDB",
+          "total": 4,
+          "percentual": 10.3
+        },
+        {
+          "partido": "PT",
+          "total": 4,
+          "percentual": 10.3
+        },
+        {
+          "partido": "UNIÃO",
+          "total": 4,
+          "percentual": 10.3
         },
         {
           "partido": "PL",
           "total": 2,
-          "percentual": 5.3
-        },
-        {
-          "partido": "PSDB",
-          "total": 2,
-          "percentual": 5.3
-        },
-        {
-          "partido": "REPUBLICANOS",
-          "total": 2,
-          "percentual": 5.3
-        },
-        {
-          "partido": "UNIÃO",
-          "total": 2,
-          "percentual": 5.3
-        },
-        {
-          "partido": "MDB",
-          "total": 1,
-          "percentual": 2.6
-        },
-        {
-          "partido": "PODE",
-          "total": 1,
-          "percentual": 2.6
+          "percentual": 5.1
         },
         {
           "partido": "PSD",
+          "total": 2,
+          "percentual": 5.1
+        },
+        {
+          "partido": "REDE",
+          "total": 2,
+          "percentual": 5.1
+        },
+        {
+          "partido": "PARTIDO VERDE",
+          "total": 1,
+          "percentual": 2.6
+        },
+        {
+          "partido": "PARTIDO VERDE - PV",
+          "total": 1,
+          "percentual": 2.6
+        },
+        {
+          "partido": "PCDOB",
+          "total": 1,
+          "percentual": 2.6
+        },
+        {
+          "partido": "PODEMOS",
+          "total": 1,
+          "percentual": 2.6
+        },
+        {
+          "partido": "PP",
+          "total": 1,
+          "percentual": 2.6
+        },
+        {
+          "partido": "REDE SUSTENTABILIDADE - REDE",
+          "total": 1,
+          "percentual": 2.6
+        },
+        {
+          "partido": "REPUBLICANO",
+          "total": 1,
+          "percentual": 2.6
+        },
+        {
+          "partido": "UNIÃO BRASIL",
           "total": 1,
           "percentual": 2.6
         }
@@ -4171,7 +4099,7 @@
     {
       "uf": "AM",
       "total": 37,
-      "percentualDoTotal": 2.2,
+      "percentualDoTotal": 2.3,
       "porCargo": {
         "deputado-federal": {
           "total": 8,
@@ -4323,7 +4251,7 @@
     {
       "uf": "MT",
       "total": 37,
-      "percentualDoTotal": 2.2,
+      "percentualDoTotal": 2.3,
       "porCargo": {
         "deputado-federal": {
           "total": 8,
@@ -4480,7 +4408,7 @@
     {
       "uf": "RO",
       "total": 37,
-      "percentualDoTotal": 2.2,
+      "percentualDoTotal": 2.3,
       "porCargo": {
         "deputado-federal": {
           "total": 8,
@@ -4951,7 +4879,7 @@
     {
       "uf": "DF",
       "total": 35,
-      "percentualDoTotal": 2.1,
+      "percentualDoTotal": 2.2,
       "porCargo": {
         "deputado-federal": {
           "total": 8,
@@ -5153,7 +5081,7 @@
     {
       "uf": "MS",
       "total": 35,
-      "percentualDoTotal": 2.1,
+      "percentualDoTotal": 2.2,
       "porCargo": {
         "deputado-federal": {
           "total": 8,
@@ -5320,7 +5248,7 @@
     {
       "uf": "RN",
       "total": 35,
-      "percentualDoTotal": 2.1,
+      "percentualDoTotal": 2.2,
       "porCargo": {
         "deputado-federal": {
           "total": 8,
@@ -5460,6 +5388,182 @@
       ]
     },
     {
+      "uf": "MA",
+      "total": 21,
+      "percentualDoTotal": 1.3,
+      "porCargo": {
+        "deputado-federal": {
+          "total": 18,
+          "percentualNoEstado": 85.7,
+          "porPartido": [
+            {
+              "partido": "MDB",
+              "total": 3,
+              "percentual": 16.7
+            },
+            {
+              "partido": "PL",
+              "total": 3,
+              "percentual": 16.7
+            },
+            {
+              "partido": "PP",
+              "total": 2,
+              "percentual": 11.1
+            },
+            {
+              "partido": "UNIÃO",
+              "total": 2,
+              "percentual": 11.1
+            },
+            {
+              "partido": "AVANTE",
+              "total": 1,
+              "percentual": 5.6
+            },
+            {
+              "partido": "PCDOB",
+              "total": 1,
+              "percentual": 5.6
+            },
+            {
+              "partido": "PODE",
+              "total": 1,
+              "percentual": 5.6
+            },
+            {
+              "partido": "PRD",
+              "total": 1,
+              "percentual": 5.6
+            },
+            {
+              "partido": "PSDB",
+              "total": 1,
+              "percentual": 5.6
+            },
+            {
+              "partido": "PT",
+              "total": 1,
+              "percentual": 5.6
+            },
+            {
+              "partido": "REPUBLICANOS",
+              "total": 1,
+              "percentual": 5.6
+            },
+            {
+              "partido": "SOLIDARIEDADE",
+              "total": 1,
+              "percentual": 5.6
+            }
+          ]
+        },
+        "deputado-estadual": {
+          "total": 0,
+          "percentualNoEstado": 0,
+          "porPartido": []
+        },
+        "senador": {
+          "total": 3,
+          "percentualNoEstado": 14.3,
+          "porPartido": [
+            {
+              "partido": "PDT",
+              "total": 1,
+              "percentual": 33.3
+            },
+            {
+              "partido": "PSB",
+              "total": 1,
+              "percentual": 33.3
+            },
+            {
+              "partido": "PSD",
+              "total": 1,
+              "percentual": 33.3
+            }
+          ]
+        }
+      },
+      "porPartido": [
+        {
+          "partido": "MDB",
+          "total": 3,
+          "percentual": 14.3
+        },
+        {
+          "partido": "PL",
+          "total": 3,
+          "percentual": 14.3
+        },
+        {
+          "partido": "PP",
+          "total": 2,
+          "percentual": 9.5
+        },
+        {
+          "partido": "UNIÃO",
+          "total": 2,
+          "percentual": 9.5
+        },
+        {
+          "partido": "AVANTE",
+          "total": 1,
+          "percentual": 4.8
+        },
+        {
+          "partido": "PCDOB",
+          "total": 1,
+          "percentual": 4.8
+        },
+        {
+          "partido": "PDT",
+          "total": 1,
+          "percentual": 4.8
+        },
+        {
+          "partido": "PODE",
+          "total": 1,
+          "percentual": 4.8
+        },
+        {
+          "partido": "PRD",
+          "total": 1,
+          "percentual": 4.8
+        },
+        {
+          "partido": "PSB",
+          "total": 1,
+          "percentual": 4.8
+        },
+        {
+          "partido": "PSD",
+          "total": 1,
+          "percentual": 4.8
+        },
+        {
+          "partido": "PSDB",
+          "total": 1,
+          "percentual": 4.8
+        },
+        {
+          "partido": "PT",
+          "total": 1,
+          "percentual": 4.8
+        },
+        {
+          "partido": "REPUBLICANOS",
+          "total": 1,
+          "percentual": 4.8
+        },
+        {
+          "partido": "SOLIDARIEDADE",
+          "total": 1,
+          "percentual": 4.8
+        }
+      ]
+    },
+    {
       "uf": "SC",
       "total": 19,
       "percentualDoTotal": 1.2,
@@ -5566,7 +5670,7 @@
       ]
     },
     {
-      "uf": "AP",
+      "uf": "TO",
       "total": 11,
       "percentualDoTotal": 0.7,
       "porCargo": {
@@ -5575,7 +5679,12 @@
           "percentualNoEstado": 72.7,
           "porPartido": [
             {
-              "partido": "PDT",
+              "partido": "PSDB",
+              "total": 2,
+              "percentual": 25
+            },
+            {
+              "partido": "REPUBLICANOS",
               "total": 2,
               "percentual": 25
             },
@@ -5585,22 +5694,12 @@
               "percentual": 12.5
             },
             {
-              "partido": "PCDOB",
-              "total": 1,
-              "percentual": 12.5
-            },
-            {
               "partido": "PL",
               "total": 1,
               "percentual": 12.5
             },
             {
-              "partido": "PP",
-              "total": 1,
-              "percentual": 12.5
-            },
-            {
-              "partido": "PT",
+              "partido": "PODE",
               "total": 1,
               "percentual": 12.5
             },
@@ -5621,12 +5720,12 @@
           "percentualNoEstado": 27.3,
           "porPartido": [
             {
-              "partido": "PSD",
+              "partido": "PL",
               "total": 1,
               "percentual": 33.3
             },
             {
-              "partido": "PT",
+              "partido": "PSD",
               "total": 1,
               "percentual": 33.3
             },
@@ -5640,12 +5739,17 @@
       },
       "porPartido": [
         {
-          "partido": "PDT",
+          "partido": "PL",
           "total": 2,
           "percentual": 18.2
         },
         {
-          "partido": "PT",
+          "partido": "PSDB",
+          "total": 2,
+          "percentual": 18.2
+        },
+        {
+          "partido": "REPUBLICANOS",
           "total": 2,
           "percentual": 18.2
         },
@@ -5660,17 +5764,7 @@
           "percentual": 9.1
         },
         {
-          "partido": "PCDOB",
-          "total": 1,
-          "percentual": 9.1
-        },
-        {
-          "partido": "PL",
-          "total": 1,
-          "percentual": 9.1
-        },
-        {
-          "partido": "PP",
+          "partido": "PODE",
           "total": 1,
           "percentual": 9.1
         },
@@ -5689,7 +5783,7 @@
     },
     "partidoComMaiorQuantidade": {
       "partido": "PL",
-      "total": 251
+      "total": 247
     }
   }
 }
