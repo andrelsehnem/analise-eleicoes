@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-06-16T18:54:44.998Z",
+  "geradoEm": "2026-07-09T14:34:04.253Z",
   "deputados-federais": [
     {
       "id": "204379",
@@ -1586,6 +1586,12 @@
       "partido": "PT"
     },
     {
+      "id": "74140",
+      "nome": "José Carlos Araujo",
+      "estado": "BA",
+      "partido": "PDT"
+    },
+    {
       "id": "204472",
       "nome": "José Medeiros",
       "estado": "MT",
@@ -1751,12 +1757,6 @@
       "id": "220566",
       "nome": "Lêda Borges",
       "estado": "GO",
-      "partido": "REPUBLICANOS"
-    },
-    {
-      "id": "80815",
-      "nome": "Leo Prates",
-      "estado": "BA",
       "partido": "REPUBLICANOS"
     },
     {
@@ -2384,6 +2384,12 @@
       "partido": "PT"
     },
     {
+      "id": "154700",
+      "nome": "Paulo Soares",
+      "estado": "SP",
+      "partido": "PODE"
+    },
+    {
       "id": "141488",
       "nome": "Paulo Teixeira",
       "estado": "SP",
@@ -2534,12 +2540,6 @@
       "partido": "PT"
     },
     {
-      "id": "178989",
-      "nome": "Renata Abreu",
-      "estado": "SP",
-      "partido": "PODE"
-    },
-    {
       "id": "153423",
       "nome": "Renilce Nicodemos",
       "estado": "PA",
@@ -2670,12 +2670,6 @@
       "nome": "Rogério Correia",
       "estado": "MG",
       "partido": "PT"
-    },
-    {
-      "id": "160629",
-      "nome": "Romero Rodrigues",
-      "estado": "PB",
-      "partido": "PODE"
     },
     {
       "id": "204525",
@@ -3570,6 +3564,14 @@
   ],
   "deputados-estaduais": [
     {
+      "id": "5",
+      "nome": "Abdala Fraxe",
+      "estado": "AM",
+      "partido": "AVANTE",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/5/abdala-fraxe.png.128x128_q85_box-0%2C6%2C200%2C206_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/5"
+    },
+    {
       "id": "ma-abigail-cunha",
       "nome": "Abigail Cunha",
       "estado": "MA",
@@ -3589,7 +3591,7 @@
       "id": "248",
       "nome": "ADAILTON CRUZ",
       "estado": "AC",
-      "partido": "UNIÃO PROGRESSISTA",
+      "partido": "UNIÃO",
       "urlFoto": "https://sapl.al.ac.leg.br/media/sapl/public/parlamentar/248/foto_dep_17_P2gnjRV.jpg.128x128_q85_box-0%2C0%2C862%2C862_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.ac.leg.br/parlamentar/248"
     },
@@ -3661,12 +3663,12 @@
       "urlPerfil": "https://www.al.es.gov.br/Deputado/AdilsonEspindula"
     },
     {
-      "id": "sc-adilson-girardi",
-      "nome": "Adilson Girardi",
-      "estado": "SC",
-      "partido": "",
-      "email": "adilsonlgirardi@gmail.com",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/adilson-girardi/"
+      "id": "7",
+      "nome": "Adjuto Afonso",
+      "estado": "AM",
+      "partido": "UNIÃO",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/7/adjuto-afonso.png.128x128_q85_box-0%2C11%2C200%2C211_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/7"
     },
     {
       "id": "137",
@@ -3739,7 +3741,7 @@
       "id": "249",
       "nome": "AFONSO FERNANDES",
       "estado": "AC",
-      "partido": "UNIÃO PROGRESSISTA",
+      "partido": "UNIÃO",
       "urlFoto": "https://sapl.al.ac.leg.br/media/sapl/public/parlamentar/249/foto_dep_18.jpg.128x128_q85_box-0%2C0%2C862%2C862_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.ac.leg.br/parlamentar/249"
     },
@@ -3812,14 +3814,6 @@
       "urlPerfil": "https://www.al.ce.gov.br/deputados/alcides-fernandes"
     },
     {
-      "id": "74",
-      "nome": "Aldilene Souza",
-      "estado": "AP",
-      "partido": "PDT",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230828122115Aldilene Souza.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=74"
-    },
-    {
       "id": "324",
       "nome": "Aldo Gil",
       "estado": "PI",
@@ -3836,20 +3830,19 @@
       "urlPerfil": "https://www.almg.gov.br/deputados/ale-portela/16234"
     },
     {
+      "id": "9",
+      "nome": "Alessandra Campêlo",
+      "estado": "AM",
+      "partido": "PSD",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/9/alessandra-campelo.png.128x128_q85_box-0%2C6%2C200%2C206_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/9"
+    },
+    {
       "id": "808",
       "nome": "Alessandro Moreira",
       "estado": "GO",
       "partido": "PRD",
       "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/808"
-    },
-    {
-      "id": "sc-alex-brasil",
-      "nome": "Alex Brasil",
-      "estado": "SC",
-      "partido": "",
-      "email": "alexbrasil@alesc.sc.gov.br",
-      "telefone": "4832212723",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/alex-brasil/"
     },
     {
       "id": "921263",
@@ -3876,6 +3869,14 @@
       "partido": "REPUBLICANOS",
       "urlFoto": "https://sapl.al.ro.leg.br/media/sapl/public/parlamentar/256/alex_redano_yVjNj9u.jpg.128x128_q85_box-998%2C0%2C2686%2C1690_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.ro.leg.br/parlamentar/256"
+    },
+    {
+      "id": "407",
+      "nome": "Alex Sandro",
+      "estado": "MT",
+      "partido": "REPUBLICANOS",
+      "urlFoto": "https://storage.al.mt.gov.br/api/v1/download/image/558596?width=420px&quality=80",
+      "urlPerfil": "https://www.al.mt.gov.br/parlamento/deputados/407/perfil"
     },
     {
       "id": "pr-alexandre-amaro",
@@ -3938,14 +3939,6 @@
       "urlPerfil": "https://www.al.es.gov.br/Deputado/AllanFerreira"
     },
     {
-      "id": "75",
-      "nome": "Alliny Serrão",
-      "estado": "AP",
-      "partido": "UNIÃO",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/foto_presidente_alliny.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=75"
-    },
-    {
       "id": "ce-almir-bie",
       "nome": "Almir Bié",
       "estado": "CE",
@@ -3972,23 +3965,6 @@
       "telefone": "(11) 3886-6468/ 6476",
       "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230315-141411-id=545-GRD.jpeg",
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300609"
-    },
-    {
-      "id": "sc-altair-silva",
-      "nome": "Altair Silva",
-      "estado": "SC",
-      "partido": "",
-      "email": "dep.altairsilva@alesc.sc.gov.br",
-      "telefone": "4832212729",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/altair-silva/"
-    },
-    {
-      "id": "120",
-      "nome": "Altir Peruzzo",
-      "estado": "MT",
-      "partido": "PT",
-      "urlFoto": "https://storage.al.mt.gov.br/api/v1/download/image/988471?width=420px&quality=80",
-      "urlPerfil": "https://www.al.mt.gov.br/parlamento/deputados/120/perfil"
     },
     {
       "id": "ma-aluizio-santos",
@@ -4043,15 +4019,6 @@
       "estado": "GO",
       "partido": "MDB",
       "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/138"
-    },
-    {
-      "id": "sc-ana-campagnolo",
-      "nome": "Ana Campagnolo",
-      "estado": "SC",
-      "partido": "",
-      "email": "ana@alesc.sc.gov.br",
-      "telefone": "4832212686",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/ana-campagnolo/"
     },
     {
       "id": "300657",
@@ -4192,7 +4159,7 @@
       "id": "223",
       "nome": "ANDRÉ VALE",
       "estado": "AC",
-      "partido": "UNIÃO PROGRESSISTA",
+      "partido": "PP",
       "urlFoto": "https://sapl.al.ac.leg.br/media/sapl/public/parlamentar/223/foto_dep_1.jpg.128x128_q85_box-121%2C23%2C744%2C647_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.ac.leg.br/parlamentar/223"
     },
@@ -4267,15 +4234,6 @@
       "partido": "MDB",
       "urlFoto": "https://storage2.assembleia.pr.leg.br/img/CMV1MIcPTqiPA_NFTd20qlyj0MY=/full-fit-in/300x300/deputados/1f428c05ffae20630483de041e945f1a0a6f72a5.jpg",
       "urlPerfil": "https://www.assembleia.pr.leg.br/deputados/perfil/anibelli-neto"
-    },
-    {
-      "id": "sc-antidio-lunelli",
-      "nome": "Antídio Lunelli",
-      "estado": "SC",
-      "partido": "",
-      "email": "depantidiolunelli@alesc.sc.gov.br",
-      "telefone": "4832212695",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/antidio-lunelli/"
     },
     {
       "id": "28",
@@ -4533,15 +4491,6 @@
       "urlPerfil": "https://www.almg.gov.br/deputados/bella-goncalves/28860"
     },
     {
-      "id": "sc-berlanda",
-      "nome": "Berlanda",
-      "estado": "SC",
-      "partido": "",
-      "email": "deputadoberlanda@alesc.sc.gov.br",
-      "telefone": "4832212645",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/berlanda/"
-    },
-    {
       "id": "26145",
       "nome": "Betão",
       "estado": "MG",
@@ -4568,12 +4517,12 @@
       "urlPerfil": "https://www.almg.gov.br/deputados/betinho-pinto-coelho/13425"
     },
     {
-      "id": "120",
+      "id": "407",
       "nome": "Beto Dois a Um",
       "estado": "MT",
       "partido": "PODE",
       "urlFoto": "https://storage.al.mt.gov.br/api/v1/download/image/570629?width=420px&quality=80",
-      "urlPerfil": "https://www.al.mt.gov.br/parlamento/deputados/120/perfil"
+      "urlPerfil": "https://www.al.mt.gov.br/parlamento/deputados/407/perfil"
     },
     {
       "id": "2139",
@@ -4673,6 +4622,14 @@
       "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/439?Legislatura=20"
     },
     {
+      "id": "81",
+      "nome": "Brena Dianná",
+      "estado": "AM",
+      "partido": "UNIÃO",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/81/brena_dianna.jpg.128x128_q85_box-35%2C0%2C645%2C610_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/81"
+    },
+    {
       "id": "300659",
       "nome": "Bruna Furlan",
       "estado": "SP",
@@ -4731,6 +4688,14 @@
       "telefone": "(11) 3886-6860/ 6862",
       "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230511-162900-id=1644-GRD.jfif",
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300660"
+    },
+    {
+      "id": "12",
+      "nome": "Cabo Maciel",
+      "estado": "AM",
+      "partido": "PL",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/12/cabo-maciel.png.128x128_q85_box-0%2C0%2C200%2C200_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/12"
     },
     {
       "id": "932181",
@@ -4792,15 +4757,6 @@
       "email": "dep.camilavaladao@al.es.gov.br",
       "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_camila_costa_valadao_mini_335.jpg",
       "urlPerfil": "https://www.al.es.gov.br/Deputado/CamilaValadao"
-    },
-    {
-      "id": "sc-camilo-martins",
-      "nome": "Camilo Martins",
-      "estado": "SC",
-      "partido": "",
-      "email": "camilo@camilomartins.com.br",
-      "telefone": "4832212677",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/camilo-martins/"
     },
     {
       "id": "pr-cantora-mara-lima",
@@ -4883,6 +4839,14 @@
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300499"
     },
     {
+      "id": "52",
+      "nome": "Carlinhos Bessa",
+      "estado": "AM",
+      "partido": "UNIÃO",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/52/carlinhos-bessa.png.128x128_q85_box-0%2C5%2C190%2C195_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/52"
+    },
+    {
       "id": "494",
       "nome": "CARLINHOS BNH",
       "estado": "RJ",
@@ -4930,15 +4894,6 @@
       "partido": "REPUBLICANOS",
       "urlFoto": "https://www.almg.gov.br/export/sites/portal/a-assembleia/deputados/fotos/10002.jpg_1098812190.jpg",
       "urlPerfil": "https://www.almg.gov.br/deputados/carlos-henrique/10002"
-    },
-    {
-      "id": "sc-carlos-humberto",
-      "nome": "Carlos Humberto",
-      "estado": "SC",
-      "partido": "",
-      "email": "deputadocarloshumberto@alesc.sc.gov.br",
-      "telefone": "4832212653",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/carlos-humberto/"
     },
     {
       "id": "ma-carlos-lula",
@@ -5034,6 +4989,14 @@
       "partido": "REPUBLICANOS",
       "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2025/01/catule-jr-350x233.jpg",
       "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/catule-junior/"
+    },
+    {
+      "id": "563976",
+      "nome": "Cayo Albino",
+      "estado": "PE",
+      "partido": "PSB",
+      "email": "cayo.albino@alepe.pe.gov.br",
+      "urlFoto": "https://www.alepe.pe.gov.br/wp-content/uploads/2025/01/RG_1539-1-scaled-e1736174633977.jpg"
     },
     {
       "id": "464",
@@ -5132,7 +5095,7 @@
       "id": "32",
       "nome": "CHICO VIGA",
       "estado": "AC",
-      "partido": "UNIÃO PROGRESSISTA",
+      "partido": "UNIÃO",
       "urlFoto": "https://sapl.al.ac.leg.br/media/sapl/public/parlamentar/32/foto_dep_2.jpg.128x128_q85_box-106%2C22%2C790%2C706_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.ac.leg.br/parlamentar/32"
     },
@@ -5294,7 +5257,7 @@
       "id": "259",
       "nome": "CLODOALDO RODRIGUES",
       "estado": "AC",
-      "partido": "UNIÃO PROGRESSISTA",
+      "partido": "PP",
       "urlFoto": "https://sapl.al.ac.leg.br/media/sapl/public/parlamentar/259/foto_dep_15.jpg.128x128_q85_box-0%2C0%2C862%2C862_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.ac.leg.br/parlamentar/259"
     },
@@ -5305,6 +5268,14 @@
       "partido": "PSD",
       "urlFoto": "https://storage2.assembleia.pr.leg.br/img/PpdHiX2IN1VAmRBYBF84lJ5W-iw=/full-fit-in/300x300/deputados/a797a24c00bdf747923927fd89ec960b8294c7d9.jpg",
       "urlPerfil": "https://www.assembleia.pr.leg.br/deputados/perfil/cobra-reporter"
+    },
+    {
+      "id": "71",
+      "nome": "Comandante Dan",
+      "estado": "AM",
+      "partido": "REPUBLICANOS",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/71/comandante-dan_ycDS9mQ.png.128x128_q85_box-7%2C8%2C194%2C195_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/71"
     },
     {
       "id": "300205",
@@ -5354,14 +5325,6 @@
       "partido": "PL"
     },
     {
-      "id": "96",
-      "nome": "Coronel Flexa",
-      "estado": "AP",
-      "partido": "REPUBLICANOS",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/260311114035deputado_foto.jpeg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=96"
-    },
-    {
       "id": "26149",
       "nome": "Coronel Henrique",
       "estado": "MG",
@@ -5401,6 +5364,14 @@
       "partido": "UNIÃO",
       "urlFoto": "https://aleselegis.al.se.leg.br/arquivo/images/pessoas/172bx61tfidc2h3g8278.jpg",
       "urlPerfil": "https://aleselegis.al.se.leg.br/spl/parlamentar.aspx?id=565"
+    },
+    {
+      "id": "70",
+      "nome": "Cristiano D’Angelo",
+      "estado": "AM",
+      "partido": "MDB",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/70/cristiano-dangelo.png.128x128_q85_box-0%2C6%2C200%2C206_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/70"
     },
     {
       "id": "813",
@@ -5475,6 +5446,14 @@
       "urlFoto": "https://www.alepe.pe.gov.br/wp-content/uploads/2023/02/DANI-PORTELA-scaled-e1675863495267.jpg"
     },
     {
+      "id": "72",
+      "nome": "Daniel Almeida",
+      "estado": "AM",
+      "partido": "AVANTE",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/72/daniel_almeida.png.128x128_q85_box-0%2C14%2C200%2C214_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/72"
+    },
+    {
       "id": "df-daniel-donizet-2019-2022",
       "nome": "Daniel Donizet",
       "estado": "DF",
@@ -5489,7 +5468,7 @@
       "partido": "UNIÃO",
       "email": "DanielSoares@al.sp.gov.br",
       "telefone": "(11) 3886-6235/ 6236",
-      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230315-142647-id=535-GRD.jpg",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300619/cec0402144b0315447fa3997f76321c9fb68c90be094f78007def21f5fa86c71.jpeg",
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300619"
     },
     {
@@ -5575,14 +5554,6 @@
       "urlPerfil": "https://www.cl.df.gov.br/web/guest/dayse-amarilio"
     },
     {
-      "id": "93",
-      "nome": "Dayse Marques",
-      "estado": "AP",
-      "partido": "REDE SUSTENTABILIDADE - REDE",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230825010447Deyse Marques.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=93"
-    },
-    {
       "id": "ce-de-assis-diniz",
       "nome": "De Assis Diniz",
       "estado": "CE",
@@ -5597,6 +5568,14 @@
       "partido": "PSD",
       "email": "debora.almeida@alepe.pe.gov.br",
       "urlFoto": "https://www.alepe.pe.gov.br/wp-content/uploads/2023/02/Debora-Almeida.png"
+    },
+    {
+      "id": "73",
+      "nome": "Débora Menezes",
+      "estado": "AM",
+      "partido": "PL",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/73/debora-menezes.png.128x128_q85_box-0%2C7%2C200%2C207_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/73"
     },
     {
       "id": "168",
@@ -5683,13 +5662,6 @@
       "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/143"
     },
     {
-      "id": "88",
-      "nome": "Delegado Inácio",
-      "estado": "AP",
-      "partido": "PDT",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=88"
-    },
-    {
       "id": "pr-delegado-jacovos",
       "nome": "DELEGADO JACOVÓS",
       "estado": "PR",
@@ -5721,6 +5693,14 @@
       "telefone": "(11) 3886-6536/ 6543",
       "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230321-191240-id=263-GRD.jpg",
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300543"
+    },
+    {
+      "id": "46",
+      "nome": "Delegado Péricles",
+      "estado": "AM",
+      "partido": "PL",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/46/pericles_.png.128x128_q85_box-134%2C78%2C2038%2C1982_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/46"
     },
     {
       "id": "pr-tito-barichello",
@@ -6021,14 +6001,6 @@
       "urlFoto": "https://www.alepe.pe.gov.br/wp-content/uploads/2019/02/Diogo-Moraes.png"
     },
     {
-      "id": "83",
-      "nome": "Diogo Senior",
-      "estado": "AP",
-      "partido": "MDB",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230828010641Diogo Senior.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=83"
-    },
-    {
       "id": "291",
       "nome": "DIONISIO LINS",
       "estado": "RJ",
@@ -6279,6 +6251,14 @@
       "urlPerfil": "https://sapl.al.pi.leg.br/parlamentar/326"
     },
     {
+      "id": "74",
+      "nome": "Dr. George Lins",
+      "estado": "AM",
+      "partido": "UNIÃO",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/74/dr-george-lins.png.128x128_q85_box-0%2C6%2C200%2C206_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/74"
+    },
+    {
       "id": "815",
       "nome": "Dr. George Morais",
       "estado": "GO",
@@ -6292,6 +6272,14 @@
       "partido": "PT",
       "urlFoto": "https://sapl.al.pi.leg.br/media/sapl/public/parlamentar/327/gil_carlos-24.jpg.128x128_q85_box-0%2C10%2C140%2C150_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.pi.leg.br/parlamentar/327"
+    },
+    {
+      "id": "15",
+      "nome": "Dr. Gomes",
+      "estado": "AM",
+      "partido": "UNIÃO",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/15/dr-gomes_qfo03Gi.png.128x128_q85_box-0%2C5%2C200%2C205_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/15"
     },
     {
       "id": "383",
@@ -6394,23 +6382,6 @@
       "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2123"
     },
     {
-      "id": "sc-dr-vicente-caropreso",
-      "nome": "Dr. Vicente Caropreso",
-      "estado": "SC",
-      "partido": "",
-      "email": "dr.vicente@alesc.sc.gov.br",
-      "telefone": "4832212640",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/dr-vicente-caropreso/"
-    },
-    {
-      "id": "78",
-      "nome": "Dr. Victor",
-      "estado": "AP",
-      "partido": "REDE",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230828010909Dep Dr. Victor.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=78"
-    },
-    {
       "id": "332",
       "nome": "Dr. Vinicius",
       "estado": "PI",
@@ -6466,6 +6437,14 @@
       "partido": "REPUBLICANOS",
       "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2025/06/dra-helena-duailibe-350x233.jpg",
       "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/dra-helena-duailibe/"
+    },
+    {
+      "id": "44",
+      "nome": "Dra. Mayara Pinheiro",
+      "estado": "AM",
+      "partido": "REPUBLICANOS",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/44/dr.-mayara-lins.png.128x128_q85_box-0%2C9%2C200%2C209_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/44"
     },
     {
       "id": "ce-dra-silvana",
@@ -6541,14 +6520,6 @@
       "email": "edivilson.brum@al.rs.gov.br",
       "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/3/24/360296_G.jpg",
       "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2150"
-    },
-    {
-      "id": "54",
-      "nome": "Edna Auzier",
-      "estado": "AP",
-      "partido": "PARTIDO VERDE - PV",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230828011151Dep Edna Auzier.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=54"
     },
     {
       "id": "300318",
@@ -6794,13 +6765,6 @@
       "urlPerfil": "https://sapl.al.ac.leg.br/parlamentar/257"
     },
     {
-      "id": "sc-emerson-stein",
-      "nome": "Emerson Stein",
-      "estado": "SC",
-      "partido": "",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/emerson-stein/"
-    },
-    {
       "id": "300395",
       "nome": "Emídio de Souza",
       "estado": "SP",
@@ -6961,13 +6925,12 @@
       "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/fabiana-vilar/"
     },
     {
-      "id": "sc-fabiano-da-luz",
-      "nome": "Fabiano da Luz",
-      "estado": "SC",
-      "partido": "",
-      "email": "fabiano@fabianodaluz.com.br",
-      "telefone": "4832212628",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/fabiano-da-luz/"
+      "id": "518",
+      "nome": "FABIANI VASCONCELLOS",
+      "estado": "RJ",
+      "partido": "AGIR",
+      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/06072026_134849Vale WhatsApp Image 2026-07-06 at 13.41.02 vale.jpeg",
+      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/518?Legislatura=20"
     },
     {
       "id": "es-fabioduarte",
@@ -7076,14 +7039,6 @@
       "urlPerfil": "https://www.al.ba.gov.br/deputados/deputado-estadual/915868"
     },
     {
-      "id": "56",
-      "nome": "Fabricio Furlan",
-      "estado": "AP",
-      "partido": "REDE",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230828012018Dep Fabricio Furlan.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=56"
-    },
-    {
       "id": "364559",
       "nome": "Fabrizio Ferraz",
       "estado": "PE",
@@ -7095,7 +7050,7 @@
       "id": "238",
       "nome": "FAGNER CALEGÁRIO",
       "estado": "AC",
-      "partido": "UNIÃO PROGRESSISTA",
+      "partido": "UNIÃO",
       "urlFoto": "https://sapl.al.ac.leg.br/media/sapl/public/parlamentar/238/foto_dep_4_EOv7YES.jpg.128x128_q85_box-89%2C14%2C773%2C698_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.ac.leg.br/parlamentar/238"
     },
@@ -7160,6 +7115,14 @@
       "urlPerfil": "https://www.al.ce.gov.br/deputados/felipe-mota"
     },
     {
+      "id": "57",
+      "nome": "Felipe Souza",
+      "estado": "AM",
+      "partido": "PODE",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/57/felipe-souza.png.128x128_q85_box-0%2C11%2C200%2C211_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/57"
+    },
+    {
       "id": "490",
       "nome": "FELIPINHO RAVIS",
       "estado": "RJ",
@@ -7190,15 +7153,6 @@
       "partido": "REPUBLICANOS",
       "urlFoto": "https://www.al.ce.gov.br/image/384336",
       "urlPerfil": "https://www.al.ce.gov.br/deputados/fernando-hugo"
-    },
-    {
-      "id": "sc-fernando-krelling",
-      "nome": "Fernando Krelling",
-      "estado": "SC",
-      "partido": "",
-      "email": "fernandokrelling@alesc.sc.gov.br",
-      "telefone": "4832212650",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/fernando-krelling/"
     },
     {
       "id": "ce-fernando-santana",
@@ -7359,7 +7313,7 @@
       "nome": "Gabriel Magno",
       "estado": "DF",
       "partido": "PT",
-      "urlFoto": "https://www.cl.df.gov.br/documents/10162/26356646/GABRIEL-MAGNO-%284%29-final.jpg/f93fec87-07c4-7290-899c-f0f1b9d37294?version=1.0&t=1678830466024&download=true&imageThumbnail=3",
+      "urlFoto": "https://www.cl.df.gov.br/documents/10162/33185635/Gabriel+Magno.jpg/13eec123-6fcc-a743-1dfc-847c88c9adbd?version=3.0&t=1783368862559&download=true&imageThumbnail=3",
       "urlPerfil": "https://www.cl.df.gov.br/gabriel-magno"
     },
     {
@@ -7516,7 +7470,7 @@
       "id": "255",
       "nome": "GILBERTO LIRA",
       "estado": "AC",
-      "partido": "UNIÃO PROGRESSISTA",
+      "partido": "UNIÃO",
       "urlFoto": "https://sapl.al.ac.leg.br/media/sapl/public/parlamentar/255/foto_dep_20.jpg.128x128_q85_box-0%2C0%2C862%2C862_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.ac.leg.br/parlamentar/255"
     },
@@ -7917,14 +7871,6 @@
       "urlPerfil": "https://sapl.al.pb.leg.br/parlamentar/117"
     },
     {
-      "id": "92",
-      "nome": "Hildegard Gurgel",
-      "estado": "AP",
-      "partido": "REPUBLICANOS",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230828012221Dep Hildegard Gurgel.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=92"
-    },
-    {
       "id": "926902",
       "nome": "Hilton Coelho",
       "estado": "BA",
@@ -8073,15 +8019,6 @@
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300510"
     },
     {
-      "id": "sc-ivan-naatz",
-      "nome": "Ivan Naatz",
-      "estado": "SC",
-      "partido": "",
-      "email": "ivannaatz@alesc.sc.gov.br",
-      "telefone": "4832212801",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/ivan-naatz/"
-    },
-    {
       "id": "915867",
       "nome": "Ivana Bastos",
       "estado": "BA",
@@ -8114,22 +8051,6 @@
       "urlFoto": "https://www.alepe.pe.gov.br/wp-content/uploads/2023/02/IZAIAS-REGIS-scaled-e1675859777797.jpg"
     },
     {
-      "id": "84",
-      "nome": "Jack JK",
-      "estado": "AP",
-      "partido": "PDT",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230828012552Dep Jack JK.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=84"
-    },
-    {
-      "id": "57",
-      "nome": "Jaime Perez",
-      "estado": "AP",
-      "partido": "REPUBLICANOS",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230828013403Dep Jaime Perez.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=57"
-    },
-    {
       "id": "385",
       "nome": "JAIR BITTENCOURT",
       "estado": "RJ",
@@ -8144,15 +8065,6 @@
       "partido": "NÃO POSSUI FILIAÇÃO",
       "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/16/foto_jair_farias.jpg.128x128_q85_box-0%2C19%2C161%2C180_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/16"
-    },
-    {
-      "id": "sc-jair-miotto",
-      "nome": "Jair Miotto",
-      "estado": "SC",
-      "partido": "",
-      "email": "jairmiotto@alesc.sc.gov.br",
-      "telefone": "4832212748",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/jair-miotto/"
     },
     {
       "id": "pr-jairo-tamura",
@@ -8184,12 +8096,12 @@
       "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/janaina/"
     },
     {
-      "id": "397",
+      "id": "32",
       "nome": "Janaina Riva",
       "estado": "MT",
       "partido": "MDB",
       "urlFoto": "https://storage.al.mt.gov.br/api/v1/download/image/558709?width=420px&quality=80",
-      "urlPerfil": "https://www.al.mt.gov.br/parlamento/deputados/397/perfil"
+      "urlPerfil": "https://www.al.mt.gov.br/parlamento/deputados/32/perfil"
     },
     {
       "id": "285",
@@ -8292,24 +8204,6 @@
       "urlPerfil": "https://www.al.ce.gov.br/deputados/jeova-mota"
     },
     {
-      "id": "sc-jerry-comper",
-      "nome": "Jerry Comper",
-      "estado": "SC",
-      "partido": "",
-      "email": "deputadojerry@gmail.com",
-      "telefone": "4832212683",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/jerry-comper/"
-    },
-    {
-      "id": "sc-jesse-lopes",
-      "nome": "Jessé Lopes",
-      "estado": "SC",
-      "partido": "",
-      "email": "dep.jesselopes@alesc.sc.gov.br",
-      "telefone": "4832212698",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/jesse-lopes/"
-    },
-    {
       "id": "243",
       "nome": "JESUINO BOABAID",
       "estado": "RO",
@@ -8318,20 +8212,20 @@
       "urlPerfil": "https://sapl.al.ro.leg.br/parlamentar/243"
     },
     {
-      "id": "79",
-      "nome": "Jesus Pontes",
-      "estado": "AP",
-      "partido": "PDT",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230828013632Dep Jesus Pontes.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=79"
-    },
-    {
       "id": "ce-jo-farias",
       "nome": "Jô Farias",
       "estado": "CE",
       "partido": "PT",
       "urlFoto": "https://www.al.ce.gov.br/image/400053",
       "urlPerfil": "https://www.al.ce.gov.br/deputados/jo-farias"
+    },
+    {
+      "id": "58",
+      "nome": "Joana Darc",
+      "estado": "AM",
+      "partido": "UNIÃO",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/58/joana-darc.png.128x128_q85_box-0%2C14%2C200%2C214_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/58"
     },
     {
       "id": "ma-joao-batista-segundo",
@@ -8390,6 +8284,14 @@
       "urlPerfil": "https://www.al.ce.gov.br/deputados/joao-jaime"
     },
     {
+      "id": "59",
+      "nome": "João Luiz",
+      "estado": "AM",
+      "partido": "REPUBLICANOS",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/59/joao-luiz.png.128x128_q85_box-0%2C13%2C200%2C213_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/59"
+    },
+    {
       "id": "20",
       "nome": "João Mádison",
       "estado": "PI",
@@ -8434,7 +8336,7 @@
       "nome": "João Pingarilho",
       "estado": "PA",
       "partido": "MDB",
-      "urlFoto": "https://alepa.quartertec.com.br/Content/Portal/PerfilAgentePolitico/Deputado Estadual_Joao Pingarilho.png?timestamp=639105484017997991"
+      "urlFoto": "https://alepa.quartertec.com.br/Content/Portal/PerfilAgentePolitico/Deputado Estadual_Joao Pingarilho.png?timestamp=639184919817732393"
     },
     {
       "id": "481469",
@@ -8542,7 +8444,7 @@
       "partido": "REPUBLICANOS",
       "email": "jorgewilsonxerifedoconsumidor@al.sp.gov.br",
       "telefone": "(11) 3886-6485/ 6487",
-      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20191112-192632-id=274-GRD.png",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300549/47f88284bdc895cf1147af82d86200bfa82a43b841d5d923ddcf033a8afcb14a.jpeg",
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300549"
     },
     {
@@ -8552,14 +8454,6 @@
       "partido": "PSD",
       "urlFoto": "https://aleselegis.al.se.leg.br/arquivo/images/pessoas/3271q2s30v04v2o17xf2.jpg",
       "urlPerfil": "https://aleselegis.al.se.leg.br/spl/parlamentar.aspx?id=566"
-    },
-    {
-      "id": "58",
-      "nome": "Jory Oeiras",
-      "estado": "AP",
-      "partido": "REPUBLICANOS",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230830121201Dep Jory Oeiras1.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=58"
     },
     {
       "id": "915859",
@@ -8593,15 +8487,6 @@
       "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/814"
     },
     {
-      "id": "sc-jose-milton-scheffer",
-      "nome": "José Milton Scheffer",
-      "estado": "SC",
-      "partido": "",
-      "email": "josemilton@alesc.sc.gov.br",
-      "telefone": "4832212671",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/jose-milton-scheffer/"
-    },
-    {
       "id": "pa-josue-paiva",
       "nome": "Josué Paiva",
       "estado": "PA",
@@ -8609,12 +8494,12 @@
       "urlFoto": "https://alepa.quartertec.com.br/Content/Portal/PerfilAgentePolitico/DEPUTADO_Josue Paiva.png?timestamp=639112587706575997"
     },
     {
-      "id": "28",
+      "id": "397",
       "nome": "Juca do Guaraná",
       "estado": "MT",
       "partido": "PSDB",
       "urlFoto": "https://storage.al.mt.gov.br/api/v1/download/image/558715?width=420px&quality=80",
-      "urlPerfil": "https://www.al.mt.gov.br/parlamento/deputados/28/perfil"
+      "urlPerfil": "https://www.al.mt.gov.br/parlamento/deputados/397/perfil"
     },
     {
       "id": "ce-juliana-lucena",
@@ -8641,15 +8526,6 @@
       "urlPerfil": "https://www.al.ce.gov.br/deputados/julio-cesar-filho"
     },
     {
-      "id": "sc-julio-garcia",
-      "nome": "Julio Garcia",
-      "estado": "SC",
-      "partido": "",
-      "email": "juliogarcia@alesc.sc.gov.br",
-      "telefone": "4832212667",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/julio-garcia/"
-    },
-    {
       "id": "ma-julio-mendonca",
       "nome": "Júlio Mendonça",
       "estado": "MA",
@@ -8665,14 +8541,6 @@
       "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/145"
     },
     {
-      "id": "500",
-      "nome": "JULIO ROCHA",
-      "estado": "RJ",
-      "partido": "AGIR",
-      "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_154857JulioRocha.jpg",
-      "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/500?Legislatura=20"
-    },
-    {
       "id": "161",
       "nome": "Júnior Araújo",
       "estado": "PB",
@@ -8681,29 +8549,12 @@
       "urlPerfil": "https://sapl.al.pb.leg.br/parlamentar/161"
     },
     {
-      "id": "sc-junior-cardoso",
-      "nome": "Junior Cardoso",
-      "estado": "SC",
-      "partido": "",
-      "email": "deputadojuniorcardoso@alesc.sc.gov.br",
-      "telefone": "4832212638",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/junior-cardoso/"
-    },
-    {
       "id": "ma-junior-cascaria",
       "nome": "Júnior Cascaria",
       "estado": "MA",
       "partido": "REPUBLICANOS",
       "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/junior-cascaria-1-350x233.jpg",
       "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/junior-cascaria/"
-    },
-    {
-      "id": "31",
-      "nome": "Júnior Favacho",
-      "estado": "AP",
-      "partido": "MDB",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230830121400Dep Jr Favacho.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=31"
     },
     {
       "id": "ma-junior-franca",
@@ -8792,13 +8643,6 @@
       "partido": "PP",
       "email": "kaiomanicoba.alepe@gmail.com",
       "urlFoto": "https://www.alepe.pe.gov.br/wp-content/uploads/2023/02/KAIO-MANICOBA-scaled-e1675860922583.jpg"
-    },
-    {
-      "id": "13",
-      "nome": "Kaká Barbosa",
-      "estado": "AP",
-      "partido": "PL",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=13"
     },
     {
       "id": "2147",
@@ -9066,14 +8910,6 @@
       "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/514?Legislatura=20"
     },
     {
-      "id": "87",
-      "nome": "Liliane Abreu",
-      "estado": "AP",
-      "partido": "PARTIDO VERDE",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230830121834Dep Liliane Abreu.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=87"
-    },
-    {
       "id": "64",
       "nome": "Lincoln Tejota",
       "estado": "GO",
@@ -9123,14 +8959,6 @@
       "nome": "Londres Machado",
       "estado": "MS",
       "partido": "PP"
-    },
-    {
-      "id": "86",
-      "nome": "Lorran Barreto",
-      "estado": "AP",
-      "partido": "PSD",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230830122054Dep Lorran Barreto.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=86"
     },
     {
       "id": "pa-lu-ogawa",
@@ -9194,15 +9022,6 @@
       "urlPerfil": "https://www.almg.gov.br/deputados/lucas-lasmar/28870"
     },
     {
-      "id": "sc-lucas-neves",
-      "nome": "Lucas Neves",
-      "estado": "SC",
-      "partido": "",
-      "email": "lucasneves@alesc.sc.gov.br",
-      "telefone": "4832212807",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/lucas-neves/"
-    },
-    {
       "id": "es-lucaspolese",
       "nome": "Lucas Polese",
       "estado": "ES",
@@ -9237,15 +9056,6 @@
       "partido": "PT",
       "urlFoto": "https://storage2.assembleia.pr.leg.br/img/JaDBW7DDptlNtnoCNGe9yCfXf1s=/full-fit-in/300x300/deputados/7aa6eb554efaed8dcdeb6134f9d6d2c939ccf100.png",
       "urlPerfil": "https://www.assembleia.pr.leg.br/deputados/perfil/luciana-rafagnin"
-    },
-    {
-      "id": "sc-luciane-carminatti",
-      "nome": "Luciane Carminatti",
-      "estado": "SC",
-      "partido": "",
-      "email": "lucianecarminatti13@gmail.com",
-      "telefone": "4832212998",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/luciane-carminatti/"
     },
     {
       "id": "932106",
@@ -9555,7 +9365,7 @@
       "id": "198",
       "nome": "MANOEL MORAES",
       "estado": "AC",
-      "partido": "UNIÃO PROGRESSISTA",
+      "partido": "PP",
       "urlFoto": "https://sapl.al.ac.leg.br/media/sapl/public/parlamentar/198/foto_dep_6.jpg.128x128_q85_box-80%2C26%2C759%2C704_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.ac.leg.br/parlamentar/198"
     },
@@ -9724,24 +9534,6 @@
       "urlPerfil": "https://sapl.al.pb.leg.br/parlamentar/76"
     },
     {
-      "id": "sc-marcius-machado",
-      "nome": "Marcius Machado",
-      "estado": "SC",
-      "partido": "",
-      "email": "marcius.machado@alesc.sc.gov.br",
-      "telefone": "4832212717",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/marcius-machado/"
-    },
-    {
-      "id": "sc-marcos-da-rosa",
-      "nome": "Marcos da Rosa",
-      "estado": "SC",
-      "partido": "",
-      "email": "depmarcosdarosa@alesc.sc.gov.br",
-      "telefone": "4832212577",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/marcos-da-rosa/"
-    },
-    {
       "id": "300552",
       "nome": "Marcos Damasio",
       "estado": "SP",
@@ -9786,15 +9578,6 @@
       "urlPerfil": "https://www.al.ce.gov.br/deputados/marcos-sobreira"
     },
     {
-      "id": "sc-marcos-vieira",
-      "nome": "Marcos Vieira",
-      "estado": "SC",
-      "partido": "",
-      "email": "marcosvieira@alesc.sc.gov.br",
-      "telefone": "4832212707",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/marcos-vieira/"
-    },
-    {
       "id": "242",
       "nome": "MARCUS CAVALCANTE",
       "estado": "AC",
@@ -9832,7 +9615,7 @@
       "id": "184",
       "nome": "MARIA ANTÔNIA",
       "estado": "AC",
-      "partido": "UNIÃO PROGRESSISTA",
+      "partido": "PP",
       "urlFoto": "https://sapl.al.ac.leg.br/media/sapl/public/parlamentar/184/foto_dep_8.jpg.128x128_q85_box-89%2C26%2C753%2C690_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.ac.leg.br/parlamentar/184"
     },
@@ -9896,21 +9679,20 @@
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300636"
     },
     {
+      "id": "75",
+      "nome": "Mário César Filho",
+      "estado": "AM",
+      "partido": "UNIÃO",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/75/depmcfsapl.jpg.128x128_q85_box-0%2C0%2C198%2C198_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/75"
+    },
+    {
       "id": "21125",
       "nome": "Mário Henrique Caixa",
       "estado": "MG",
       "partido": "PV",
       "urlFoto": "https://www.almg.gov.br/export/sites/portal/a-assembleia/deputados/fotos/21125.jpg_1098812190.jpg",
       "urlPerfil": "https://www.almg.gov.br/deputados/mario-henrique-caixa/21125"
-    },
-    {
-      "id": "sc-mario-motta",
-      "nome": "Mário Motta",
-      "estado": "SC",
-      "partido": "",
-      "email": "secretariado@deputadomariomotta.com.br",
-      "telefone": "4832212839",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/mario-motta/"
     },
     {
       "id": "481474",
@@ -9951,15 +9733,6 @@
       "partido": "PV",
       "urlFoto": "https://www.al.ba.gov.br/fserver/:imagensAlbanet:fotos:MarquinhoViana.jpg/static:images:shared:avatar.jpg",
       "urlPerfil": "https://www.al.ba.gov.br/deputados/deputado-estadual/919329"
-    },
-    {
-      "id": "sc-marquito",
-      "nome": "Marquito",
-      "estado": "SC",
-      "partido": "",
-      "email": "marquitopsol@gmail.com",
-      "telefone": "4832212662",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/marquito/"
     },
     {
       "id": "300533",
@@ -10003,15 +9776,6 @@
       "urlPerfil": "https://www.cl.df.gov.br/web/guest/martins-machado-2019-2022"
     },
     {
-      "id": "sc-matheus-cadorin",
-      "nome": "Matheus Cadorin",
-      "estado": "SC",
-      "partido": "",
-      "email": "contato@matheuscadorin.com.br",
-      "telefone": "4832212732",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/matheus-cadorin/"
-    },
-    {
       "id": "932109",
       "nome": "Matheus Ferreira",
       "estado": "BA",
@@ -10048,24 +9812,6 @@
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300653"
     },
     {
-      "id": "sc-mauricio-eskudlark",
-      "nome": "Maurício Eskudlark",
-      "estado": "SC",
-      "partido": "",
-      "email": "eskudlark@alesc.sc.gov.br",
-      "telefone": "4832212874",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/mauricio-eskudlark/"
-    },
-    {
-      "id": "sc-mauricio-peixer",
-      "nome": "Maurício Peixer",
-      "estado": "SC",
-      "partido": "",
-      "email": "deputadopeixer@alesc.sc.gov.br",
-      "telefone": "4832212689",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/mauricio-peixer/"
-    },
-    {
       "id": "300098",
       "nome": "Mauro Bragato",
       "estado": "SP",
@@ -10074,15 +9820,6 @@
       "telefone": "(11)3886-6400 / 6417",
       "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20190315-144027-id=87-GRD.jpeg",
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300098"
-    },
-    {
-      "id": "sc-mauro-de-nadal",
-      "nome": "Mauro De Nadal",
-      "estado": "SC",
-      "partido": "",
-      "email": "maurodenadal@alesc.sc.gov.br",
-      "telefone": "4832212702",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/mauro-de-nadal/"
     },
     {
       "id": "pr-mauro-moraes",
@@ -10124,6 +9861,14 @@
       "urlPerfil": "https://www.al.mt.gov.br/parlamento/deputados/393/perfil"
     },
     {
+      "id": "76",
+      "nome": "Mayra Dias",
+      "estado": "AM",
+      "partido": "PSD",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/76/mayra-dias.png.128x128_q85_box-0%2C13%2C200%2C213_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/76"
+    },
+    {
       "id": "es-mazinhodosanjos",
       "nome": "Mazinho dos Anjos",
       "estado": "ES",
@@ -10153,7 +9898,7 @@
       "id": "254",
       "nome": "MICHELLE MELO",
       "estado": "AC",
-      "partido": "UNIÃO PROGRESSISTA",
+      "partido": "UNIÃO",
       "urlFoto": "https://sapl.al.ac.leg.br/media/sapl/public/parlamentar/254/foto_dep_12.jpg.128x128_q85_box-29%2C26%2C825%2C822_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.ac.leg.br/parlamentar/254"
     },
@@ -10227,15 +9972,6 @@
       "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/497?Legislatura=20"
     },
     {
-      "id": "sc-napoleao-bernardes",
-      "nome": "Napoleão Bernardes",
-      "estado": "SC",
-      "partido": "",
-      "email": "gabinete@napoleaobernardes.com.br",
-      "telefone": "4832212715",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/napoleao-bernardes/"
-    },
-    {
       "id": "18022",
       "nome": "Nayara Rocha",
       "estado": "MG",
@@ -10280,15 +10016,6 @@
       "nome": "Neno Razuk",
       "estado": "MS",
       "partido": "PL"
-    },
-    {
-      "id": "sc-neodi-saretta",
-      "nome": "Neodi Saretta",
-      "estado": "SC",
-      "partido": "",
-      "email": "gabinetesaretta@alesc.sc.gov.br",
-      "telefone": "4832212665",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/neodi-saretta/"
     },
     {
       "id": "2125",
@@ -10360,7 +10087,7 @@
       "id": "220",
       "nome": "NICOLAU JUNIOR",
       "estado": "AC",
-      "partido": "UNIÃO PROGRESSISTA",
+      "partido": "PP",
       "urlFoto": "https://sapl.al.ac.leg.br/media/sapl/public/parlamentar/220/foto_dep_9.jpg.128x128_q85_box-46%2C17%2C816%2C787_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.ac.leg.br/parlamentar/220"
     },
@@ -10461,15 +10188,6 @@
       "urlPerfil": "https://www.al.ce.gov.br/deputados/oriel-filho"
     },
     {
-      "id": "sc-oscar-gutz",
-      "nome": "Oscar Gutz",
-      "estado": "SC",
-      "partido": "",
-      "email": "gabineteoscargutz@alesc.sc.gov.br",
-      "telefone": "4832212953",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/oscar-gutz/"
-    },
-    {
       "id": "28876",
       "nome": "Oscar Teixeira",
       "estado": "MG",
@@ -10523,7 +10241,7 @@
       "id": "253",
       "nome": "PABLO BREGENSE",
       "estado": "AC",
-      "partido": "UNIÃO PROGRESSISTA",
+      "partido": "UNIÃO",
       "urlFoto": "https://sapl.al.ac.leg.br/media/sapl/public/parlamentar/253/foto_dep_21.jpg.128x128_q85_box-0%2C0%2C862%2C862_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.ac.leg.br/parlamentar/253"
     },
@@ -10544,15 +10262,6 @@
       "partido": "MDB",
       "urlFoto": "https://sapl.al.pi.leg.br/media/sapl/public/parlamentar/284/pablo.jpg.128x128_q85_box-0%2C0%2C140%2C140_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.pi.leg.br/parlamentar/284"
-    },
-    {
-      "id": "sc-padre-pedro-baldissera",
-      "nome": "Padre Pedro Baldissera",
-      "estado": "SC",
-      "partido": "",
-      "email": "padrepedro@alesc.sc.gov.br",
-      "telefone": "4832212726",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/padre-pedro-baldissera/"
     },
     {
       "id": "932146",
@@ -10595,14 +10304,6 @@
       "partido": "PP",
       "email": "junior.tercio@alepe.pe.gov.br",
       "urlFoto": "https://www.alepe.pe.gov.br/wp-content/uploads/2023/02/08.09-PASTOR_JUNIOR_TERCIO-RS-002-scaled-e1691755356373.jpg"
-    },
-    {
-      "id": "61",
-      "nome": "Pastor Oliveira",
-      "estado": "AP",
-      "partido": "PDT",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230830122326Dep Pastor Oliviera.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=61"
     },
     {
       "id": "574",
@@ -10654,13 +10355,6 @@
       "estado": "PA",
       "partido": "PP",
       "urlFoto": "https://alepa.quartertec.com.br/Content/Portal/PerfilAgentePolitico/DEPUTADA_Paula Titan.png?timestamp=639110672778617665"
-    },
-    {
-      "id": "sc-paulinha",
-      "nome": "Paulinha",
-      "estado": "SC",
-      "partido": "",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/paulinha/"
     },
     {
       "id": "51",
@@ -10744,27 +10438,12 @@
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300679"
     },
     {
-      "id": "90",
-      "nome": "Paulo Nogueira",
-      "estado": "AP",
-      "partido": "PT",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=90"
-    },
-    {
       "id": "298",
       "nome": "PEDRO FERNANDES",
       "estado": "RO",
       "partido": "PRD",
       "urlFoto": "https://sapl.al.ro.leg.br/media/sapl/public/parlamentar/298/pedro_fernandes_Zv0DWaz.jpg.128x128_q85_box-1109%2C26%2C2666%2C1584_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.ro.leg.br/parlamentar/298"
-    },
-    {
-      "id": "97",
-      "nome": "Pedro Filé",
-      "estado": "AP",
-      "partido": "PDT",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/260430020627foto_deputado.jpeg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=97"
     },
     {
       "id": "1041",
@@ -10829,15 +10508,6 @@
       "urlPerfil": "https://www.cl.df.gov.br/web/guest/pepa"
     },
     {
-      "id": "sc-pepe-collaco",
-      "nome": "Pepê Collaço",
-      "estado": "SC",
-      "partido": "",
-      "email": "pepe.collaco@alesc.sc.gov.br",
-      "telefone": "4832212644",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/pepe-collaco/"
-    },
-    {
       "id": "194",
       "nome": "Pepe Vargas",
       "estado": "RS",
@@ -10863,6 +10533,14 @@
       "email": "prof.claudio@al.rs.gov.br",
       "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/2/16/357181_G.png",
       "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2149"
+    },
+    {
+      "id": "80",
+      "nome": "Prof. Jacqueline",
+      "estado": "AM",
+      "partido": "UNIÃO",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/80/jacqueline.png.128x128_q85_box-0%2C16%2C200%2C216_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/80"
     },
     {
       "id": "300700",
@@ -10956,14 +10634,6 @@
       "urlPerfil": "https://www.al.ce.gov.br/deputados/queiroz-filho"
     },
     {
-      "id": "85",
-      "nome": "R. Nelson Vieira",
-      "estado": "AP",
-      "partido": "PODEMOS",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230830122657Dep R. Nelson Vieira.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=85"
-    },
-    {
       "id": "300641",
       "nome": "Rafa Zimbaldi",
       "estado": "SP",
@@ -11050,14 +10720,6 @@
       "partido": "PSD",
       "urlFoto": "https://www.almg.gov.br/export/sites/portal/a-assembleia/deputados/fotos/26114.jpg_1098812190.jpg",
       "urlPerfil": "https://www.almg.gov.br/deputados/raul-belem/26114"
-    },
-    {
-      "id": "94",
-      "nome": "Rayfran Beirão",
-      "estado": "AP",
-      "partido": "REPUBLICANOS",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230830122905Dep Rayfran Beirao.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=94"
     },
     {
       "id": "300681",
@@ -11262,12 +10924,12 @@
       "urlPerfil": "https://www.al.ba.gov.br/deputados/deputado-estadual/907278"
     },
     {
-      "id": "91",
-      "nome": "Roberto Góes",
-      "estado": "AP",
+      "id": "45",
+      "nome": "Roberto Cidade",
+      "estado": "AM",
       "partido": "UNIÃO",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230830123124Dep Roberto Goes.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=91"
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/45/roberto.png.128x128_q85_box-0%2C13%2C200%2C213_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/45"
     },
     {
       "id": "1031",
@@ -11292,29 +10954,12 @@
       "urlPerfil": "https://www.al.ba.gov.br/deputados/deputado-estadual/926905"
     },
     {
-      "id": "95",
-      "nome": "Rodolfo Vale",
-      "estado": "AP",
-      "partido": "UNIÃO BRASIL",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230830123437Dep Rodolfo Vale.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=95"
-    },
-    {
       "id": "443",
       "nome": "RODRIGO AMORIM",
       "estado": "RJ",
       "partido": "PL",
       "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_155958RodrigoAmorim.jpg",
       "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/443?Legislatura=20"
-    },
-    {
-      "id": "sc-rodrigo-fachini",
-      "nome": "Rodrigo Fachini",
-      "estado": "SC",
-      "partido": "",
-      "email": "deputadorodrigofachini@alesc.sc.gov.br",
-      "telefone": "4832212734",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/rodrigo-fachini/"
     },
     {
       "id": "481478",
@@ -11349,15 +10994,6 @@
       "telefone": "(51) 32101746",
       "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/3/13/359004_G.jpg",
       "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2136"
-    },
-    {
-      "id": "sc-rodrigo-minotto",
-      "nome": "Rodrigo Minotto",
-      "estado": "SC",
-      "partido": "",
-      "email": "rodrigominotto@alesc.sc.gov.br",
-      "telefone": "4832212656",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/rodrigo-minotto/"
     },
     {
       "id": "300519",
@@ -11519,6 +11155,14 @@
       "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/343?Legislatura=20"
     },
     {
+      "id": "77",
+      "nome": "Rozenha",
+      "estado": "AM",
+      "partido": "PSD",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/77/rozenha.png.128x128_q85_box-0%2C0%2C200%2C200_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/77"
+    },
+    {
       "id": "148",
       "nome": "Rubens Marques",
       "estado": "GO",
@@ -11608,15 +11252,6 @@
       "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/42"
     },
     {
-      "id": "sc-sargento-lima",
-      "nome": "Sargento Lima",
-      "estado": "SC",
-      "partido": "",
-      "email": "dep.sargentolima@alesc.sc.gov.br",
-      "telefone": "4832212966",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/sargento-lima/"
-    },
-    {
       "id": "184",
       "nome": "Sargento Neto",
       "estado": "PB",
@@ -11691,15 +11326,6 @@
       "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/452?Legislatura=20"
     },
     {
-      "id": "sc-sergio-guimaraes",
-      "nome": "Sérgio Guimarães",
-      "estado": "SC",
-      "partido": "",
-      "email": "sergioguimaraes@alesc.sc.gov.br",
-      "telefone": "4832212980",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/sergio-guimaraes/"
-    },
-    {
       "id": "es-sergiomeneguelli",
       "nome": "Sergio Meneguelli",
       "estado": "ES",
@@ -11708,15 +11334,6 @@
       "email": "dep.sergiomeneguelli@al.es.gov.br",
       "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_sergio_meneguelli_mini_349.jpg",
       "urlPerfil": "https://www.al.es.gov.br/Deputado/SergioMeneguelli"
-    },
-    {
-      "id": "sc-sergio-motta",
-      "nome": "Sergio Motta",
-      "estado": "SC",
-      "partido": "",
-      "email": "depsergiomotta@alesc.sc.gov.br",
-      "telefone": "4832212737",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/sergio-motta/"
     },
     {
       "id": "58",
@@ -11763,6 +11380,14 @@
       "urlPerfil": "https://ww4.al.rs.gov.br/deputados/1504"
     },
     {
+      "id": "39",
+      "nome": "Silvano Amaral",
+      "estado": "MT",
+      "partido": "MDB",
+      "urlFoto": "https://storage.al.mt.gov.br/api/v1/download/image/558722?width=420px&quality=80",
+      "urlPerfil": "https://www.al.mt.gov.br/parlamento/deputados/39/perfil"
+    },
+    {
       "id": "186",
       "nome": "Silvia Benjamin",
       "estado": "PB",
@@ -11793,6 +11418,14 @@
       "partido": "PSB",
       "email": "simone.santana@alepe.pe.gov.br",
       "urlFoto": "https://www.alepe.pe.gov.br/wp-content/uploads/2015/05/SIMONE-SANTANA-1-scaled-e1675862417317.jpg"
+    },
+    {
+      "id": "22",
+      "nome": "Sinésio Campos",
+      "estado": "AM",
+      "partido": "PT",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/22/sinesio-campos.png.128x128_q85_box-0%2C7%2C200%2C207_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/22"
     },
     {
       "id": "932117",
@@ -11936,14 +11569,6 @@
       "urlPerfil": "https://sapl.al.rr.leg.br/parlamentar/23"
     },
     {
-      "id": "81",
-      "nome": "Telma Nery",
-      "estado": "AP",
-      "partido": "REPUBLICANO",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230830123628Dep Telma Nery.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=81"
-    },
-    {
       "id": "300646",
       "nome": "Tenente Coimbra",
       "estado": "SP",
@@ -11988,6 +11613,14 @@
       "telefone": "(11) 3886-6850/ 6851",
       "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300687/54bcd424e77bc8078e63e9e27ace179e7b56ba04fcc11fd917b82cc2d26b26bf.jpeg",
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300687"
+    },
+    {
+      "id": "78",
+      "nome": "Thiago Abrahim",
+      "estado": "AM",
+      "partido": "MDB",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/78/thiagoabrahim_LiyJlrJ.png.128x128_q85_box-48%2C20%2C274%2C245_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/78"
     },
     {
       "id": "pa-thiago-araujo",
@@ -12039,12 +11672,12 @@
       "urlPerfil": "https://www.cl.df.gov.br/web/guest/thiago-manzoni"
     },
     {
-      "id": "32",
+      "id": "10",
       "nome": "Thiago Silva",
       "estado": "MT",
       "partido": "MDB",
       "urlFoto": "https://storage.al.mt.gov.br/api/v1/download/image/558721?width=420px&quality=80",
-      "urlPerfil": "https://www.al.mt.gov.br/parlamento/deputados/32/perfil"
+      "urlPerfil": "https://www.al.mt.gov.br/parlamento/deputados/10/perfil"
     },
     {
       "id": "395",
@@ -12069,15 +11702,6 @@
       "partido": "PSD",
       "urlFoto": "https://sapl.al.pi.leg.br/media/sapl/public/parlamentar/338/tiago-vasconcelos-24.jpg.128x128_q85_box-5%2C5%2C134%2C134_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.pi.leg.br/parlamentar/338"
-    },
-    {
-      "id": "sc-tiago-zilli",
-      "nome": "Tiago Zilli",
-      "estado": "SC",
-      "partido": "",
-      "email": "deptiagozilli@alesc.sc.gov.br",
-      "telefone": "4832212795",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/tiago-zilli/"
     },
     {
       "id": "35",
@@ -12213,14 +11837,6 @@
       "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/24"
     },
     {
-      "id": "39",
-      "nome": "Valdenir Santos",
-      "estado": "MT",
-      "partido": "MDB",
-      "urlFoto": "https://storage.al.mt.gov.br/api/v1/download/image/988453?width=420px&quality=80",
-      "urlPerfil": "https://www.al.mt.gov.br/parlamento/deputados/39/perfil"
-    },
-    {
       "id": "386",
       "nome": "Valdir Barranco",
       "estado": "MT",
@@ -12249,12 +11865,12 @@
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300649"
     },
     {
-      "id": "445",
+      "id": "28",
       "nome": "Valmir Moretto",
       "estado": "MT",
       "partido": "REPUBLICANOS",
       "urlFoto": "https://storage.al.mt.gov.br/api/v1/download/image/558723?width=420px&quality=80",
-      "urlPerfil": "https://www.al.mt.gov.br/parlamento/deputados/445/perfil"
+      "urlPerfil": "https://www.al.mt.gov.br/parlamento/deputados/28/perfil"
     },
     {
       "id": "26",
@@ -12395,28 +12011,11 @@
       "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/824"
     },
     {
-      "id": "sc-volnei-weber",
-      "nome": "Volnei Weber",
-      "estado": "SC",
-      "partido": "",
-      "email": "volneiweber@alesc.sc.gov.br",
-      "telefone": "4832212720",
-      "urlPerfil": "https://www.alesc.sc.gov.br/deputado/volnei-weber/"
-    },
-    {
       "id": "152",
       "nome": "Wagner Camargo Neto",
       "estado": "GO",
       "partido": "SD",
       "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/152"
-    },
-    {
-      "id": "14854",
-      "nome": "Waldemar Borges",
-      "estado": "PE",
-      "partido": "PSB",
-      "email": "dep.waldemarborges@gmail.com",
-      "urlFoto": "https://www.alepe.pe.gov.br/wp-content/uploads/2015/05/WaldemarBorges_001-scaled-e1675862571749.jpg"
     },
     {
       "id": "ce-walter-cavalcante",
@@ -12425,6 +12024,14 @@
       "partido": "PV",
       "urlFoto": "https://www.al.ce.gov.br/image/400051",
       "urlPerfil": "https://www.al.ce.gov.br/deputados/walter-cavalcante"
+    },
+    {
+      "id": "79",
+      "nome": "Wanderley Monteiro",
+      "estado": "AM",
+      "partido": "UNIÃO",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/79/wanderley_monteiro.png.128x128_q85_box-75%2C5%2C339%2C269_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/79"
     },
     {
       "id": "364646",
@@ -12477,7 +12084,7 @@
       "id": "228",
       "nome": "WHENDY LIMA",
       "estado": "AC",
-      "partido": "UNIÃO PROGRESSISTA",
+      "partido": "UNIÃO",
       "urlFoto": "https://sapl.al.ac.leg.br/media/sapl/public/parlamentar/228/foto_dep_11.jpg.128x128_q85_box-0%2C3%2C846%2C849_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.ac.leg.br/parlamentar/228"
     },
@@ -12487,6 +12094,14 @@
       "estado": "GO",
       "partido": "UB",
       "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/153"
+    },
+    {
+      "id": "65",
+      "nome": "Wilker Barreto",
+      "estado": "AM",
+      "partido": "PSD",
+      "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/65/wilker-barreto.png.128x128_q85_box-0%2C15%2C200%2C215_crop_detail.png",
+      "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/65"
     },
     {
       "id": "364648",
@@ -12513,12 +12128,12 @@
       "urlPerfil": "https://sapl.al.pb.leg.br/parlamentar/163"
     },
     {
-      "id": "390",
+      "id": "378",
       "nome": "Wilson Santos",
       "estado": "MT",
       "partido": "PSD",
       "urlFoto": "https://storage.al.mt.gov.br/api/v1/download/image/558725?width=420px&quality=80",
-      "urlPerfil": "https://www.al.mt.gov.br/parlamento/deputados/390/perfil"
+      "urlPerfil": "https://www.al.mt.gov.br/parlamento/deputados/378/perfil"
     },
     {
       "id": "37",
@@ -12606,14 +12221,6 @@
       "partido": "PT",
       "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/06022026_161639Zei.jpeg",
       "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/402?Legislatura=20"
-    },
-    {
-      "id": "89",
-      "nome": "Zeneide Costa",
-      "estado": "AP",
-      "partido": "PT",
-      "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230830123822Dep Zeneide Costa.jpg",
-      "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=89"
     },
     {
       "id": "ce-zezinho-albuquerque",

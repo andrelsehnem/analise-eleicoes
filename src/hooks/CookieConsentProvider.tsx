@@ -7,7 +7,7 @@ import {
   shouldShowCookieBanner,
   type CookieConsentDecision,
 } from '../utils/cookieConsent'
-import { enableTrackingByConsent } from '../utils/trackingConsent'
+import { enableAdsAlways, enableTrackingByConsent } from '../utils/trackingConsent'
 import {
   CookieConsentContext,
   type CookieConsentContextValue,
@@ -23,6 +23,12 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
   )
   const [isBannerVisible, setIsBannerVisible] = useState<boolean>(() => shouldShowCookieBanner())
 
+  // Ads always display, regardless of cookie consent
+  useEffect(() => {
+    enableAdsAlways()
+  }, [])
+
+  // Analytics only enabled with explicit consent
   useEffect(() => {
     if (consentDecision === 'accepted') {
       enableTrackingByConsent()
