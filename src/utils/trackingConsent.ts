@@ -97,10 +97,12 @@ function enableGoogleTagManager(containerId: string): void {
   )
 }
 
-export function enableTrackingByConsent(): void {
+export function enableAdsAlways(): void {
   enableAdNetworkTracking()
   enableNativeBannerAd()
+}
 
+export function enableTrackingByConsent(): void {
   const gaMeasurementId = normalizeEnvVar(import.meta.env.VITE_GA_MEASUREMENT_ID)
   const gtmContainerId = normalizeEnvVar(import.meta.env.VITE_GTM_CONTAINER_ID)
 
