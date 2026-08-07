@@ -1,11 +1,14 @@
 .privacy-panel {
   max-width: 980px;
-  margin: 0 auto;
+  margin: 2rem auto 0;
   display: grid;
   gap: 1rem;
 }
 
 .privacy-panel__header {
+  position: static;
+  z-index: auto;
+  backdrop-filter: none;
   border: 1px solid var(--border);
   border-radius: 12px;
   background: rgba(17, 34, 64, 0.65);

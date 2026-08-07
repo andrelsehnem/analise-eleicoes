@@ -1,9 +1,9 @@
-const AD_NETWORK_SCRIPT_ID = 'mt-ad-network-script'
-const AD_NETWORK_SCRIPT_SRC =
-  'https://pl29372614.profitablecpmratenetwork.com/f8/38/e0/f838e0f087e13e4db8d8c3c0e6488560.js'
-const NATIVE_BANNER_SCRIPT_ID = 'mt-native-banner-script'
-const NATIVE_BANNER_SCRIPT_SRC =
-  'https://pl29690551.effectivecpmnetwork.com/2a01a6f0f8175c1150b4d310483f83ff/invoke.js'
+//const AD_NETWORK_SCRIPT_ID = 'mt-ad-network-script'
+//const AD_NETWORK_SCRIPT_SRC =
+//  'https://pl29372614.profitablecpmratenetwork.com/f8/38/e0/f838e0f087e13e4db8d8c3c0e6488560.js'
+//const NATIVE_BANNER_SCRIPT_ID = 'mt-native-banner-script'
+//const NATIVE_BANNER_SCRIPT_SRC =
+//  'https://pl29690551.effectivecpmnetwork.com/2a01a6f0f8175c1150b4d310483f83ff/invoke.js'
 const GTAG_SCRIPT_ID = 'mt-ga-gtag-script'
 const GTAG_CONFIG_SCRIPT_ID = 'mt-ga-config-script'
 const GTM_SCRIPT_ID = 'mt-gtm-script'
@@ -49,11 +49,11 @@ function normalizeEnvVar(value: string | undefined): string {
   return value ? value.trim() : ''
 }
 
-function enableAdNetworkTracking(): void {
+/*function enableAdNetworkTracking(): void {
   injectExternalScript(AD_NETWORK_SCRIPT_ID, AD_NETWORK_SCRIPT_SRC)
-}
+}*/
 
-function enableNativeBannerAd(): void {
+/*function enableNativeBannerAd(): void {
   if (!hasDocument() || document.getElementById(NATIVE_BANNER_SCRIPT_ID)) {
     return
   }
@@ -63,7 +63,7 @@ function enableNativeBannerAd(): void {
   script.async = true
   script.setAttribute('data-cfasync', 'false')
   document.body.appendChild(script)
-}
+}*/
 
 function enableGoogleAnalytics(measurementId: string): void {
   injectExternalScript(
@@ -98,8 +98,8 @@ function enableGoogleTagManager(containerId: string): void {
 }
 
 export function enableAdsAlways(): void {
-  enableAdNetworkTracking()
-  enableNativeBannerAd()
+  //enableAdNetworkTracking()
+ // enableNativeBannerAd()
 }
 
 export function enableTrackingByConsent(): void {

@@ -25,6 +25,16 @@ export function AppHeader() {
     navigate('/perfil')
   }
 
+  function handleTermos(event: React.MouseEvent<HTMLAnchorElement>) {
+    event.preventDefault()
+    navigate('/termos')
+  }
+
+  function handlePrivacidade(event: React.MouseEvent<HTMLAnchorElement>) {
+    event.preventDefault()
+    navigate('/privacidade')
+  }
+
   return (
     <header>
       <div className="header-inner">
@@ -57,6 +67,9 @@ export function AppHeader() {
           </a>
           <a className="header-badge-link" href="/sobre" onClick={handleSobre}>
             <div className="header-badge">Sobre</div>
+          </a>
+          <a className="header-badge-link" href="/termos" onClick={handleTermos}>
+            <div className="header-badge">Termos</div>
           </a>
           <a
             className="header-profile-link"
