@@ -29,6 +29,7 @@ const CORE_PAGES = [
   { path: '/informacoes-gerais', changefreq: 'weekly', priority: '0.8' },
   { path: '/sobre', changefreq: 'monthly', priority: '0.6' },
   { path: '/privacidade', changefreq: 'monthly', priority: '0.5' },
+  { path: '/termos', changefreq: 'monthly', priority: '0.5' },
   { path: '/sugestoes', changefreq: 'monthly', priority: '0.5' },
 ]
 

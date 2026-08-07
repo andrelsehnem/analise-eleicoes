@@ -81,17 +81,35 @@ function ensureTitleSuffix(title) {
   return `${title} | ${SITE_NAME}`
 }
 
-function buildFallbackMarkup(title, description, routePath) {
+function buildFallbackMarkup({ title, description, routePath, summary, highlights = [] }) {
   const normalizedTitle = escapeHtml(title)
   const normalizedDescription = escapeHtml(description)
+  const normalizedSummary = summary ? escapeHtml(summary) : ''
   const absoluteUrl = escapeHtml(toAbsoluteUrl(routePath))
+  const normalizedHighlights = highlights
+    .filter((item) => typeof item === 'string' && item.trim().length > 0)
+    .map((item) => `<li style="margin:6px 0;color:#c8d4ee;line-height:1.6;">${escapeHtml(item)}</li>`)
+    .join('')
 
   return [
     '<main style="max-width:980px;margin:0 auto;padding:24px 16px;font-family:IBM Plex Sans,sans-serif;color:#f0f4ff;background:#0a1628;min-height:100vh;">',
     `<h1 style="margin-bottom:12px;font-size:1.8rem;line-height:1.2;">${normalizedTitle}</h1>`,
     `<p style="margin-bottom:10px;color:#c8d4ee;line-height:1.6;">${normalizedDescription}</p>`,
-    `<p style="margin-bottom:18px;color:#8899bb;line-height:1.6;">Página: ${absoluteUrl}</p>`,
-    '<p style="color:#c8d4ee;line-height:1.6;">Esta página possui conteúdo dinâmico com dados públicos oficiais. Se necessário, ative o JavaScript para a experiência completa.</p>',
+    normalizedSummary
+      ? `<p style="margin-bottom:16px;color:#dbe6ff;line-height:1.6;">${normalizedSummary}</p>`
+      : '',
+    normalizedHighlights
+      ? '<section aria-label="Conteúdo disponível sem JavaScript" style="margin-bottom:16px;">'
+        + '<h2 style="margin:0 0 8px 0;font-size:1.15rem;color:#f0f4ff;line-height:1.4;">O que você encontra nesta página</h2>'
+        + `<ul style="margin:0;padding-left:20px;">${normalizedHighlights}</ul>`
+        + '</section>'
+      : '',
+    '<section aria-label="Fontes de dados públicas" style="margin-bottom:16px;">',
+    '<h2 style="margin:0 0 8px 0;font-size:1.15rem;color:#f0f4ff;line-height:1.4;">Fontes oficiais</h2>',
+    '<p style="margin:0;color:#c8d4ee;line-height:1.6;">Os dados exibidos são consolidados a partir de fontes públicas oficiais, como Câmara dos Deputados, Senado Federal e portais institucionais estaduais.</p>',
+    '</section>',
+    `<p style="margin-bottom:12px;color:#8899bb;line-height:1.6;">Página: ${absoluteUrl}</p>`,
+    '<p style="color:#c8d4ee;line-height:1.6;">Recursos interativos podem depender de JavaScript, mas as informações essenciais desta página permanecem acessíveis neste HTML.</p>',
     '</main>',
   ].join('')
 }
@@ -215,6 +233,13 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
     return {
       title,
       description: `Acompanhe dados públicos, proposições e votações de ${name}, deputado federal por ${uf}.`,
+      summary:
+        'Este perfil reúne informações institucionais do parlamentar e facilita a consulta da atuação legislativa em um único lugar.',
+      highlights: [
+        `Parlamentar: ${name}`,
+        `Cargo: Deputado federal por ${uf}`,
+        'Histórico de proposições e votações públicas',
+      ],
     }
   }
 
@@ -225,6 +250,13 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
     return {
       title: `Deputados federais de ${stateName} (${uf}): lista por nome e partido`,
       description: `Veja quais são os deputados federais de ${stateName} (${uf}), filtre por nome ou partido e abra o histórico de atuação parlamentar.`,
+      summary:
+        'A listagem apresenta os representantes federais do estado para facilitar pesquisa por nome, partido e acesso ao perfil completo.',
+      highlights: [
+        `UF consultada: ${uf} (${stateName})`,
+        'Busca por nome e sigla partidária',
+        'Acesso ao perfil individual de cada deputado federal',
+      ],
     }
   }
 
@@ -236,6 +268,13 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
     return {
       title: `Perfil de ${name}`,
       description: `Acompanhe dados públicos de ${name}, deputado estadual por ${uf}.`,
+      summary:
+        'Este perfil consolida informações públicas do representante estadual para apoiar análise eleitoral com base em dados oficiais.',
+      highlights: [
+        `Parlamentar: ${name}`,
+        `Cargo: Deputado estadual por ${uf}`,
+        'Consulta de dados públicos e identificação partidária',
+      ],
     }
   }
 
@@ -245,6 +284,12 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
     return {
       title: `Deputados estaduais de ${uf}`,
       description: `Veja a lista de deputados estaduais de ${uf}, filtre por nome ou partido e acesse os perfis oficiais.`,
+      summary: 'A página lista os deputados estaduais por UF com foco em navegação simples para o perfil de cada representante.',
+      highlights: [
+        `UF consultada: ${uf}`,
+        'Filtragem por nome ou partido',
+        'Links para detalhes individuais dos parlamentares estaduais',
+      ],
     }
   }
 
@@ -255,6 +300,13 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
     return {
       title: `Perfil de ${name}`,
       description: `Veja dados públicos, mandatos e comissões de ${name} no Senado Federal.`,
+      summary:
+        'Este perfil oferece um resumo objetivo da atuação no Senado, com informações públicas para acompanhamento do mandato.',
+      highlights: [
+        `Parlamentar: ${name}`,
+        'Cargo: Senador(a) da República',
+        'Informações públicas sobre mandatos e comissões',
+      ],
     }
   }
 
@@ -265,6 +317,13 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
     return {
       title: `Senadores do ${stateName} (${uf}): quem são e quantos são`,
       description: `Veja quais são os senadores do ${stateName} (${uf}). Cada estado e o Distrito Federal elegem 3 senadores. Filtre por nome ou partido e abra o perfil de cada parlamentar.`,
+      summary:
+        'A listagem apresenta os senadores vinculados ao estado com atalho para consulta individual de cada perfil parlamentar.',
+      highlights: [
+        `UF consultada: ${uf} (${stateName})`,
+        'Relação de senadores com navegação para perfil detalhado',
+        'Contexto institucional sobre representação no Senado',
+      ],
     }
   }
 
@@ -275,6 +334,13 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
     return {
       title: `Quantos senadores e deputados têm em ${stateName} (${uf})`,
       description: `Consulte quantos senadores, deputados federais e deputados estaduais têm em ${stateName} (${uf}), com distribuição por cargo e partido.`,
+      summary:
+        'A página resume a composição política do estado por cargo eletivo, ajudando a entender a distribuição de representação.',
+      highlights: [
+        `UF consultada: ${uf} (${stateName})`,
+        'Totais por cargo: Senado, Câmara Federal e Assembleia Legislativa',
+        'Distribuição por partido com base em fontes públicas',
+      ],
     }
   }
 
@@ -288,6 +354,13 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
     return {
       title: `Perfil de ${name}`,
       description: `Veja dados públicos, resumo e mandatos de ${name} na Presidência da República.`,
+      summary:
+        'O perfil reúne dados institucionais da Presidência para consulta pública e comparação de trajetória governamental.',
+      highlights: [
+        `Autoridade: ${name}`,
+        'Cargo: Presidência ou Vice-Presidência da República',
+        'Resumo público de mandatos e histórico político',
+      ],
     }
   }
 
@@ -296,6 +369,12 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
       title: 'Presidente e vice-presidente',
       description:
         'Consulte presidente e vice-presidente atuais, com dados públicos sobre mandato, trajetória e fontes oficiais.',
+      summary: 'A página centraliza o acesso aos perfis da chapa presidencial atual com contexto institucional e histórico resumido.',
+      highlights: [
+        'Lista de presidente e vice-presidente em exercício',
+        'Acesso ao perfil detalhado de cada autoridade',
+        'Referências baseadas em fontes oficiais públicas',
+      ],
     }
   }
 
@@ -304,6 +383,13 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
       title: 'Seleção por estado e cargo',
       description:
         'Selecione o cargo e o estado para consultar deputados federais e senadores com dados públicos oficiais.',
+      summary:
+        'Esta etapa orienta a navegação por UF e cargo para abrir listagens de representantes com base em dados oficiais.',
+      highlights: [
+        'Escolha de estado da federação',
+        'Seleção de cargo político para consulta',
+        'Atalho para listas e perfis de parlamentares',
+      ],
     }
   }
 
@@ -312,6 +398,13 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
       title: 'Informações gerais por estado e cargo',
       description:
         'Consulte quantos senadores, deputados federais e deputados estaduais existem por estado, com distribuição por cargo e partido.',
+      summary:
+        'A visão geral permite identificar rapidamente o volume de representantes por estado e cargo em uma única consulta.',
+      highlights: [
+        'Panorama de representatividade por UF',
+        'Totais por cargo político',
+        'Distribuição por partidos com base em dados públicos',
+      ],
     }
   }
 
@@ -320,6 +413,13 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
       title: 'Sobre o projeto',
       description:
         'Conheça o Mandato Transparente, projeto de consulta pública para acompanhar o histórico de atuação política no Brasil.',
+      summary:
+        'Esta seção explica o propósito da plataforma, metodologia de consolidação de dados e compromisso com transparência.',
+      highlights: [
+        'Objetivo e escopo do projeto',
+        'Como os dados públicos são reunidos',
+        'Diretrizes de uso responsável da informação',
+      ],
     }
   }
 
@@ -328,6 +428,28 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
       title: 'Política de Privacidade e Cookies',
       description:
         'Entenda como o Mandato Transparente trata consentimento de cookies e o carregamento de scripts de rastreamento.',
+      summary:
+        'A política descreve como o consentimento é coletado e como tecnologias de rastreamento são aplicadas no site.',
+      highlights: [
+        'Regras de consentimento de cookies',
+        'Uso de scripts de medição e publicidade',
+        'Direitos do usuário sobre preferências de rastreamento',
+      ],
+    }
+  }
+
+  if (normalizedPath === '/termos') {
+    return {
+      title: 'Termos de Uso',
+      description:
+        'Consulte os termos de uso do Mandato Transparente, incluindo responsabilidades, limites e condições de acesso ao serviço.',
+      summary:
+        'Os termos de uso definem as condições para utilização da plataforma e a responsabilidade sobre interpretação dos dados públicos.',
+      highlights: [
+        'Condições de uso da plataforma',
+        'Limites de responsabilidade e natureza informativa dos dados',
+        'Diretrizes de conduta para navegação e uso do conteúdo',
+      ],
     }
   }
 
@@ -336,6 +458,13 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
       title: 'Sugestões',
       description:
         'Envie sugestões para melhorar o Mandato Transparente e fortalecer a consulta de dados públicos para eleitores.',
+      summary:
+        'Este canal permite enviar melhorias e reportar oportunidades para evoluir a experiência de consulta pública.',
+      highlights: [
+        'Envio de propostas de melhoria',
+        'Comunicação de ajustes de conteúdo e usabilidade',
+        'Aprimoramento contínuo com participação da comunidade',
+      ],
     }
   }
 
@@ -350,7 +479,8 @@ function replaceSingle(html, matcher, replacement) {
   return result
 }
 
-function applyHeadMeta(htmlTemplate, routePath, title, description) {
+function applyHeadMeta(htmlTemplate, routePath, meta) {
+  const { title, description } = meta
   const canonicalUrl = toAbsoluteUrl(routePath)
   const finalTitle = ensureTitleSuffix(title)
 
@@ -451,7 +581,13 @@ function applyHeadMeta(htmlTemplate, routePath, title, description) {
     `<link rel="canonical" href="${escapeHtml(canonicalUrl)}" />`,
   )
 
-  const fallbackMarkup = buildFallbackMarkup(title, description, routePath)
+  const fallbackMarkup = buildFallbackMarkup({
+    title,
+    description,
+    routePath,
+    summary: meta.summary,
+    highlights: meta.highlights,
+  })
   html = html.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">${fallbackMarkup}</div>`)
 
   return html
@@ -487,7 +623,7 @@ async function main() {
   await Promise.all(
     routes.map(async (routePath) => {
       const meta = buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDeputyNameByKey)
-      const html = applyHeadMeta(distHtml, routePath, meta.title, meta.description)
+      const html = applyHeadMeta(distHtml, routePath, meta)
       await writeRouteHtml(routePath, html)
     }),
   )
