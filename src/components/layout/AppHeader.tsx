@@ -25,16 +25,6 @@ export function AppHeader() {
     navigate('/perfil')
   }
 
-  function handleTermos(event: React.MouseEvent<HTMLAnchorElement>) {
-    event.preventDefault()
-    navigate('/termos')
-  }
-
-  function handlePrivacidade(event: React.MouseEvent<HTMLAnchorElement>) {
-    event.preventDefault()
-    navigate('/privacidade')
-  }
-
   return (
     <header>
       <div className="header-inner">
@@ -68,9 +58,6 @@ export function AppHeader() {
           <a className="header-badge-link" href="/sobre" onClick={handleSobre}>
             <div className="header-badge">Sobre</div>
           </a>
-          <a className="header-badge-link" href="/termos" onClick={handleTermos}>
-            <div className="header-badge">Termos</div>
-          </a>
           <a
             className="header-profile-link"
             href="/perfil"
@@ -86,6 +73,18 @@ export function AppHeader() {
                 />
               </svg>
             </span>
+          </a>
+        </nav>
+
+        <nav className="header-mobile-links" aria-label="Atalhos principais">
+          <a className="header-mobile-link" href="/informacoes-gerais" onClick={handleInformacoesGerais}>
+            Informações gerais
+          </a>
+          <a className="header-mobile-link" href="/sugestoes" onClick={handleSugestoes}>
+            Sugestões
+          </a>
+          <a className="header-mobile-link" href="/sobre" onClick={handleSobre}>
+            Sobre
           </a>
         </nav>
 

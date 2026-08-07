@@ -250,3 +250,56 @@
 .sobre-footer-note a:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+  .sobre-panel {
+    padding: 2rem 1rem 2.8rem;
+  }
+
+  .sobre-hero {
+    margin-bottom: 2.4rem;
+  }
+
+  .sobre-section {
+    padding: 1.35rem 1rem;
+  }
+
+  .sobre-github-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .sobre-hero-icon {
+    width: 58px;
+    height: 58px;
+  }
+
+  .sobre-hero p {
+    font-size: 0.95rem;
+  }
+
+  .sobre-section-header {
+    align-items: flex-start;
+  }
+
+  .sobre-source-item,
+  .sobre-creator-card {
+    padding: 0.9rem;
+  }
+
+  .sobre-source-item {
+    gap: 0.7rem;
+  }
+
+  .sobre-creator-card {
+    flex: 1 1 100%;
+  }
+
+  .sobre-github-link {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+}

@@ -28,3 +28,14 @@
     font-size: 0.88rem;
   }
 }
+
+@media (max-width: 520px) {
+  .privacy-panel.termos-panel .privacy-panel__section ul {
+    margin-left: 1.1rem;
+  }
+
+  .privacy-panel.termos-panel .privacy-panel__section li {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+}

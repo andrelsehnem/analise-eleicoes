@@ -144,3 +144,24 @@
     width: 100%;
   }
 }
+
+@media (max-width: 560px) {
+  .support-project-modal-overlay {
+    padding: 0.6rem;
+  }
+
+  .support-project-modal-header,
+  .support-project-modal-content {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
+
+  .support-project-modal-title {
+    font-size: 1.08rem;
+  }
+
+  .support-project-modal-close {
+    width: 100%;
+    text-align: center;
+  }
+}

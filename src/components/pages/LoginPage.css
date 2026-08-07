@@ -93,3 +93,16 @@
     padding: 1rem;
   }
 }
+
+@media (max-width: 480px) {
+  .auth-panel {
+    margin-top: 0.9rem;
+    padding: 0.85rem;
+  }
+
+  .auth-field input,
+  .auth-google-button,
+  .auth-submit-button {
+    font-size: 0.9rem;
+  }
+}

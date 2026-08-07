@@ -162,3 +162,22 @@
     font-size: 1.2rem;
   }
 }
+
+@media (max-width: 560px) {
+  .general-info-kpi-grid,
+  .general-info-gender-grid,
+  .general-info-office-grid {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .general-info-party-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .general-info-party-total {
+    font-size: 0.9rem;
+  }
+}

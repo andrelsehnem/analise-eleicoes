@@ -301,3 +301,35 @@
     margin-top: -6px;
   }
 }
+
+@media (max-width: 540px) {
+  .profile-panel {
+    padding: 0.85rem;
+  }
+
+  .profile-tabs {
+    border-radius: 12px;
+    flex-wrap: wrap;
+  }
+
+  .profile-tab {
+    flex: 1 1 calc(50% - 0.45rem);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .profile-summary-value {
+    font-size: 1.5rem;
+  }
+
+  .profile-favorite-badge {
+    margin-left: 0;
+    margin-top: 0.35rem;
+  }
+
+  .profile-save-button,
+  .profile-logout-button,
+  .profile-delete-button {
+    width: 100%;
+  }
+}

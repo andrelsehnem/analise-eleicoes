@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-07-09T14:59:22.390Z",
+  "geradoEm": "2026-08-07T12:41:16.145Z",
   "deputados-federais": [
     {
       "id": "204379",
@@ -626,6 +626,12 @@
       "partido": "UNIÃO"
     },
     {
+      "id": "178963",
+      "nome": "Covatti Filho",
+      "estado": "RS",
+      "partido": "PP"
+    },
+    {
       "id": "220608",
       "nome": "Cristiane Lopes",
       "estado": "RO",
@@ -732,12 +738,6 @@
       "nome": "David Soares",
       "estado": "SP",
       "partido": "PODE"
-    },
-    {
-      "id": "220659",
-      "nome": "Dayany Bittencourt",
-      "estado": "CE",
-      "partido": "UNIÃO"
     },
     {
       "id": "220539",
@@ -1056,6 +1056,12 @@
       "nome": "Eros Biondini",
       "estado": "MG",
       "partido": "PL"
+    },
+    {
+      "id": "204482",
+      "nome": "Euclydes Pettersen",
+      "estado": "MG",
+      "partido": "REPUBLICANOS"
     },
     {
       "id": "74454",
@@ -1400,12 +1406,6 @@
       "partido": "MDB"
     },
     {
-      "id": "178884",
-      "nome": "Hildo Rocha",
-      "estado": "MA",
-      "partido": "MDB"
-    },
-    {
       "id": "141450",
       "nome": "Hugo Leal",
       "estado": "RJ",
@@ -1434,12 +1434,6 @@
       "nome": "Igor Timo",
       "estado": "MG",
       "partido": "UNIÃO"
-    },
-    {
-      "id": "235620",
-      "nome": "Ilacir Bicalho",
-      "estado": "MG",
-      "partido": "REPUBLICANOS"
     },
     {
       "id": "74295",
@@ -1589,7 +1583,7 @@
       "id": "74140",
       "nome": "José Carlos Araujo",
       "estado": "BA",
-      "partido": "PDT"
+      "partido": "DC"
     },
     {
       "id": "204472",
@@ -1760,6 +1754,12 @@
       "partido": "REPUBLICANOS"
     },
     {
+      "id": "122195",
+      "nome": "Leonardo Gadelha",
+      "estado": "PB",
+      "partido": "PODE"
+    },
+    {
       "id": "74156",
       "nome": "Leonardo Monteiro",
       "estado": "MG",
@@ -1824,6 +1824,12 @@
       "nome": "Lucio Mosquini",
       "estado": "RO",
       "partido": "PL"
+    },
+    {
+      "id": "160510",
+      "nome": "Luis Tibé",
+      "estado": "MG",
+      "partido": "AVANTE"
     },
     {
       "id": "204410",
@@ -2246,6 +2252,12 @@
       "partido": "PT"
     },
     {
+      "id": "194260",
+      "nome": "Nivaldo Albuquerque",
+      "estado": "AL",
+      "partido": "UNIÃO"
+    },
+    {
       "id": "204498",
       "nome": "Olival Marques",
       "estado": "PA",
@@ -2309,12 +2321,6 @@
       "id": "74160",
       "nome": "Patrus Ananias",
       "estado": "MG",
-      "partido": "PT"
-    },
-    {
-      "id": "171617",
-      "nome": "Paulão",
-      "estado": "AL",
       "partido": "PT"
     },
     {
@@ -2459,6 +2465,12 @@
       "id": "160601",
       "nome": "Pr. Marco Feliciano",
       "estado": "SP",
+      "partido": "PL"
+    },
+    {
+      "id": "226075",
+      "nome": "Priscila Costa",
+      "estado": "CE",
       "partido": "PL"
     },
     {
@@ -2696,6 +2708,12 @@
       "partido": "PL"
     },
     {
+      "id": "73806",
+      "nome": "Roseana Sarney",
+      "estado": "MA",
+      "partido": "MDB"
+    },
+    {
       "id": "74371",
       "nome": "Rubens Otoni",
       "estado": "GO",
@@ -2790,12 +2808,6 @@
       "nome": "Sergio Souza",
       "estado": "PR",
       "partido": "MDB"
-    },
-    {
-      "id": "235776",
-      "nome": "Sérgio Turra",
-      "estado": "RS",
-      "partido": "PP"
     },
     {
       "id": "204557",
@@ -2942,12 +2954,6 @@
       "partido": "PT"
     },
     {
-      "id": "235712",
-      "nome": "Vavá",
-      "estado": "MG",
-      "partido": "AVANTE"
-    },
-    {
       "id": "204396",
       "nome": "Vermelho",
       "estado": "PR",
@@ -3086,12 +3092,6 @@
       "nome": "Alessandro Vieira",
       "estado": "SE",
       "partido": "MDB"
-    },
-    {
-      "id": "6358",
-      "nome": "Ana Paula Lobato",
-      "estado": "MA",
-      "partido": "PSB"
     },
     {
       "id": "5967",
@@ -3346,6 +3346,12 @@
       "partido": "PDT"
     },
     {
+      "id": "6359",
+      "nome": "Lourdinha Pereira",
+      "estado": "MA",
+      "partido": "PSB"
+    },
+    {
       "id": "5926",
       "nome": "Lucas Barreto",
       "estado": "AP",
@@ -3572,6 +3578,14 @@
       "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/5"
     },
     {
+      "id": "ma-abigail-cunha",
+      "nome": "Abigail Cunha",
+      "estado": "MA",
+      "partido": "MDB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/12/Abigail-Cunha.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/abigail-cunha/"
+    },
+    {
       "id": "481457",
       "nome": "Abimael Santos",
       "estado": "PE",
@@ -3627,6 +3641,14 @@
       "email": "adao.prettofilho@al.rs.gov.br",
       "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/3/24/360297_G.jpg",
       "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2144"
+    },
+    {
+      "id": "ma-adelmo-soares",
+      "nome": "Adelmo Soares",
+      "estado": "MA",
+      "partido": "REPUBLICANOS",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/06/1fafca12-37e4-43c5-8152-94e32e719d27-350x233.jpeg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/adelmo-soares/"
     },
     {
       "id": "pr-ademar-traiano",
@@ -3830,13 +3852,6 @@
       "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/9"
     },
     {
-      "id": "808",
-      "nome": "Alessandro Moreira",
-      "estado": "GO",
-      "partido": "PRD",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/808"
-    },
-    {
       "id": "921263",
       "nome": "Alex da Piatã",
       "estado": "BA",
@@ -3967,6 +3982,14 @@
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300609"
     },
     {
+      "id": "ma-aluizio-santos",
+      "nome": "Aluízio Santos",
+      "estado": "MA",
+      "partido": "PL",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/aluizio-santos-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/aluizio-santos/"
+    },
+    {
       "id": "14812",
       "nome": "Álvaro Porto",
       "estado": "PE",
@@ -3991,18 +4014,12 @@
       "urlPerfil": "https://www.almg.gov.br/deputados/amanda-teixeira-dias/30238"
     },
     {
-      "id": "137",
-      "nome": "Amauri Ribeiro",
-      "estado": "GO",
-      "partido": "PL",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/137"
-    },
-    {
-      "id": "138",
-      "nome": "Amilton Filho",
-      "estado": "GO",
-      "partido": "MDB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/138"
+      "id": "3",
+      "nome": "AMÉLIO CAYRES",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/3/foto_amelio.jpg.128x128_q85_box-0%2C26%2C400%2C426_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/3"
     },
     {
       "id": "300657",
@@ -4020,6 +4037,14 @@
       "estado": "PA",
       "partido": "MDB",
       "urlFoto": "https://alepa.quartertec.com.br/Content/Portal/PerfilAgentePolitico/DEPUTADA_Ana Cunha.png?timestamp=639117605479939461"
+    },
+    {
+      "id": "ma-ana-do-gas",
+      "nome": "Ana do Gás",
+      "estado": "MA",
+      "partido": "REPUBLICANOS",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/04/ana-do-gas-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/ana-do-gas/"
     },
     {
       "id": "pr-ana-julia",
@@ -4082,20 +4107,13 @@
       "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/422?Legislatura=20"
     },
     {
-      "id": "809",
-      "nome": "Anderson Teodoro",
-      "estado": "GO",
-      "partido": "PRD",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/809"
-    },
-    {
       "id": "300694",
       "nome": "André Bueno",
       "estado": "SP",
       "partido": "MDB",
       "email": "andre.bueno@al.sp.gov.br",
       "telefone": "(11) 3886-6526 / 6527",
-      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300694/e887523d7aec18236fb4b9da8ef2e63fd9c728bc645aa04c5c1131fa9f4fd2c5.jpeg",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300694/4d62fb03b21a6e7cbbb6ec1c104aeb1f3e75f853cbf8c1df2c2f2284f08381d1.jpeg",
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300694"
     },
     {
@@ -4115,13 +4133,6 @@
       "telefone": "(11) 3886-6562/ 6563",
       "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300497/2f42bf3f57458a3a37942214178dfc3d890395c8884ceb9979a0aea6f0a1850c.jpeg",
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300497"
-    },
-    {
-      "id": "810",
-      "nome": "André do Premium",
-      "estado": "GO",
-      "partido": "UB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/810"
     },
     {
       "id": "91",
@@ -4156,6 +4167,14 @@
       "partido": "PT",
       "urlFoto": "https://www.almg.gov.br/export/sites/portal/a-assembleia/deputados/fotos/26143.jpg_1098812190.jpg",
       "urlPerfil": "https://www.almg.gov.br/deputados/andreia-de-jesus/26143"
+    },
+    {
+      "id": "ma-andreia-rezende",
+      "nome": "Andreia M. Rezende",
+      "estado": "MA",
+      "partido": "MDB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/WhatsApp-Image-2025-08-19-at-17.43.58-3-350x233.jpeg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/andreia-rezende/"
     },
     {
       "id": "pa-andreia-xarao",
@@ -4228,13 +4247,6 @@
       "urlFoto": "https://www.alepe.pe.gov.br/wp-content/uploads/2019/02/ANTONIO-COELHO-scaled-e1675863217804.jpg"
     },
     {
-      "id": "139",
-      "nome": "Antônio Gomide",
-      "estado": "GO",
-      "partido": "PT",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/139"
-    },
-    {
       "id": "ce-antonio-granja",
       "nome": "Antônio Granja",
       "estado": "CE",
@@ -4267,6 +4279,14 @@
       "urlFoto": "https://www.alepe.pe.gov.br/wp-content/uploads/2015/05/Antonio-Moraes.png"
     },
     {
+      "id": "ma-antonio-pereira",
+      "nome": "Antônio Pereira",
+      "estado": "MA",
+      "partido": "MDB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/antonio-pereira-1-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/antonio-pereira/"
+    },
+    {
       "id": "pa-antonio-tonheiro",
       "nome": "Antônio Tonheiro",
       "estado": "PA",
@@ -4296,6 +4316,14 @@
       "urlPerfil": "https://www.assembleia.pr.leg.br/deputados/perfil/arilson-maroldi-chiorato"
     },
     {
+      "id": "ma-ariston",
+      "nome": "Ariston",
+      "estado": "MA",
+      "partido": "MDB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/ariston-2-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/ariston/"
+    },
+    {
       "id": "9652",
       "nome": "Arlen Santiago",
       "estado": "MG",
@@ -4318,6 +4346,14 @@
       "partido": "PL",
       "urlFoto": "https://sapl.al.rr.leg.br/media/sapl/public/parlamentar/110/2_-_armando_neto-1.png.128x128_q85_box-0%2C0%2C1036%2C1034_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.rr.leg.br/parlamentar/110"
+    },
+    {
+      "id": "ma-arnaldo-melo",
+      "nome": "Arnaldo Melo",
+      "estado": "MA",
+      "partido": "MDB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/arnaldo-melo-2-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/arnaldo-melo/"
     },
     {
       "id": "22514",
@@ -4479,13 +4515,6 @@
       "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2139"
     },
     {
-      "id": "811",
-      "nome": "Bia de Lima",
-      "estado": "GO",
-      "partido": "PT",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/811"
-    },
-    {
       "id": "28861",
       "nome": "Bim da Ambulância",
       "estado": "MG",
@@ -4617,13 +4646,6 @@
       "urlPerfil": "https://www.al.ce.gov.br/deputados/bruno-pedrosa"
     },
     {
-      "id": "51",
-      "nome": "Bruno Peixoto",
-      "estado": "GO",
-      "partido": "UB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/51"
-    },
-    {
       "id": "300660",
       "nome": "Bruno Zambelli",
       "estado": "SP",
@@ -4666,13 +4688,6 @@
       "partido": "MDB",
       "urlFoto": "https://sapl.al.pb.leg.br/media/sapl/public/parlamentar/116/116_foto_parlamentar.jpg.128x128_q85_box-0%2C3%2C206%2C209_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.pb.leg.br/parlamentar/116"
-    },
-    {
-      "id": "140",
-      "nome": "Cairo Salim",
-      "estado": "GO",
-      "partido": "MDB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/140"
     },
     {
       "id": "es-callegari",
@@ -4848,6 +4863,14 @@
       "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=98"
     },
     {
+      "id": "ma-carlos-lula",
+      "nome": "Carlos Lula",
+      "estado": "MA",
+      "partido": "PSB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/carlos-lula-1-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/carlos-lula/"
+    },
+    {
       "id": "378",
       "nome": "CARLOS MACEDO",
       "estado": "RJ",
@@ -4927,6 +4950,14 @@
       "urlPerfil": "https://sapl.al.rr.leg.br/parlamentar/4"
     },
     {
+      "id": "ma-catule-junior",
+      "nome": "Catulé Júnior",
+      "estado": "MA",
+      "partido": "REPUBLICANOS",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2025/01/catule-jr-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/catule-junior/"
+    },
+    {
       "id": "563976",
       "nome": "Cayo Albino",
       "estado": "PE",
@@ -4958,13 +4989,6 @@
       "urlFoto": "https://alepa.quartertec.com.br/Content/Portal/PerfilAgentePolitico/DEPUTADO_Chamonzinho.jpg?timestamp=638450878064314978"
     },
     {
-      "id": "117",
-      "nome": "Charles Bento",
-      "estado": "GO",
-      "partido": "MDB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/117"
-    },
-    {
       "id": "26062",
       "nome": "Charles Santos",
       "estado": "MG",
@@ -4985,7 +5009,7 @@
       "nome": "Chicão",
       "estado": "PA",
       "partido": "UB",
-      "urlFoto": "https://alepa.quartertec.com.br/Content/Portal/PerfilAgentePolitico/DEPUTADO_Chicao.png?timestamp=639053011155847762"
+      "urlFoto": "https://alepa.quartertec.com.br/Content/Portal/PerfilAgentePolitico/DEPUTADO_Chicao.png?timestamp=639197285684373383"
     },
     {
       "id": "564",
@@ -5093,12 +5117,28 @@
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300662"
     },
     {
+      "id": "ma-claudia-coutinho",
+      "nome": "Cláudia Coutinho",
+      "estado": "MA",
+      "partido": "MDB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/CLAUDIA-BCOUTINHO-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/claudia-coutinho/"
+    },
+    {
       "id": "289",
       "nome": "CLÁUDIA DE JESUS",
       "estado": "RO",
       "partido": "PT",
       "urlFoto": "https://sapl.al.ro.leg.br/media/sapl/public/parlamentar/289/claudia.jpg.128x128_q85_box-13%2C22%2C909%2C918_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.ro.leg.br/parlamentar/289"
+    },
+    {
+      "id": "5",
+      "nome": "CLAUDIA LELIS",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/5/foto_claudia.jpg.128x128_q85_box-0%2C9%2C160%2C169_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/5"
     },
     {
       "id": "932112",
@@ -5125,6 +5165,14 @@
       "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/507?Legislatura=20"
     },
     {
+      "id": "ma-claudio-cunha",
+      "nome": "Cláudio Cunha",
+      "estado": "MA",
+      "partido": "PL",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/claudio-cunha-2-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/claudio-cunha/"
+    },
+    {
       "id": "ce-claudio-pinho",
       "nome": "Cláudio Pinho",
       "estado": "CE",
@@ -5143,11 +5191,12 @@
       "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2148"
     },
     {
-      "id": "812",
-      "nome": "Clécio Alves",
-      "estado": "GO",
-      "partido": "PSDB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/812"
+      "id": "6",
+      "nome": "CLEITON CARDOSO",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/6/foto_cleiton_cardoso.jpg.128x128_q85_box-0%2C10%2C161%2C171_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/6"
     },
     {
       "id": "pr-cloara-pinheiro",
@@ -5190,13 +5239,6 @@
       "telefone": "(11) 3886-6464 / 6465",
       "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230316-173502-id=180-GRD.jpg",
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300205"
-    },
-    {
-      "id": "142",
-      "nome": "Coronel Adailton",
-      "estado": "GO",
-      "partido": "SD",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/142"
     },
     {
       "id": "342025",
@@ -5286,13 +5328,6 @@
       "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/70"
     },
     {
-      "id": "813",
-      "nome": "Cristiano Galindo",
-      "estado": "GO",
-      "partido": "SD",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/813"
-    },
-    {
       "id": "22523",
       "nome": "Cristiano Silveira",
       "estado": "MG",
@@ -5307,21 +5342,6 @@
       "partido": "PP",
       "urlFoto": "https://storage2.assembleia.pr.leg.br/img/LczYZGIU49UpT_hmCZzNI4p-jwI=/full-fit-in/300x300/deputados/521d7e95d5dc6819e3b62b3221f63985a7419ed8.png",
       "urlPerfil": "https://www.assembleia.pr.leg.br/deputados/perfil/cristina-silvestri"
-    },
-    {
-      "id": "6",
-      "nome": "Cristóvão Tormin",
-      "estado": "GO",
-      "partido": "PRD",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/6"
-    },
-    {
-      "id": "9655",
-      "nome": "Dalmo Ribeiro",
-      "estado": "MG",
-      "partido": "PSDB",
-      "urlFoto": "https://www.almg.gov.br/export/sites/portal/a-assembleia/deputados/fotos/9655.jpg_1098812190.jpg",
-      "urlPerfil": "https://www.almg.gov.br/deputados/dalmo-ribeiro/9655"
     },
     {
       "id": "300663",
@@ -5384,6 +5404,14 @@
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300619"
     },
     {
+      "id": "ma-daniella",
+      "nome": "Daniella",
+      "estado": "MA",
+      "partido": "MDB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/daniela-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/daniella/"
+    },
+    {
       "id": "176",
       "nome": "Danielle do Vale",
       "estado": "PB",
@@ -5424,6 +5452,14 @@
       "email": "darypagung@al.es.gov.br",
       "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_dary_alves_pagung_mini_24.jpg",
       "urlPerfil": "https://www.al.es.gov.br/Deputado/DaryPagung"
+    },
+    {
+      "id": "ma-davi-brandao",
+      "nome": "Davi Brandão",
+      "estado": "MA",
+      "partido": "MDB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/davi-brandao-2-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/davi-brandao/"
     },
     {
       "id": "ce-davi-de-raimundao",
@@ -5557,13 +5593,6 @@
       "email": "dep.danilobahiense@al.es.gov.br",
       "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_danilo_bahiense_moreira_mini_316.jpg",
       "urlPerfil": "https://www.al.es.gov.br/Deputado/DelegadoDaniloBahiense"
-    },
-    {
-      "id": "143",
-      "nome": "Delegado Eduardo Prado",
-      "estado": "GO",
-      "partido": "PL",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/143"
     },
     {
       "id": "88",
@@ -5808,6 +5837,14 @@
       "partido": "MDB",
       "urlFoto": "https://sapl.al.al.leg.br/media/sapl/public/parlamentar/10/inacio_loiola_painel.jpg.128x128_q85_box-390%2C10%2C2642%2C2262_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.al.leg.br/parlamentar/10"
+    },
+    {
+      "id": "37",
+      "nome": "DEPUTADO JUDSON CABRAL",
+      "estado": "AL",
+      "partido": "PT",
+      "urlFoto": "https://sapl.al.al.leg.br/media/sapl/public/parlamentar/37/judson-cabral.jpg.128x128_q85_box-0%2C11%2C500%2C512_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.al.leg.br/parlamentar/37"
     },
     {
       "id": "130",
@@ -6110,6 +6147,14 @@
       "urlPerfil": "https://sapl.al.rr.leg.br/parlamentar/111"
     },
     {
+      "id": "43",
+      "nome": "DR. DANILO ALENCAR",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/43/dep_danilo_alencar.jpg.128x128_q85_box-0%2C8%2C161%2C170_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/43"
+    },
+    {
       "id": "380",
       "nome": "DR. DEODALTO",
       "estado": "RJ",
@@ -6168,13 +6213,6 @@
       "partido": "UNIÃO",
       "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/74/dr-george-lins.png.128x128_q85_box-0%2C6%2C200%2C206_crop_detail.png",
       "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/74"
-    },
-    {
-      "id": "815",
-      "nome": "Dr. George Morais",
-      "estado": "GO",
-      "partido": "MDB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/815"
     },
     {
       "id": "327",
@@ -6309,6 +6347,14 @@
       "urlPerfil": "https://sapl.al.pi.leg.br/parlamentar/332"
     },
     {
+      "id": "ma-yglesio-moyses",
+      "nome": "Dr. Yglésio",
+      "estado": "MA",
+      "partido": "PRD",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/YGLESIO-MOYSES-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/yglesio-moyses/"
+    },
+    {
       "id": "170",
       "nome": "Drª Jane Panta",
       "estado": "PB",
@@ -6325,13 +6371,6 @@
       "urlPerfil": "https://sapl.al.pb.leg.br/parlamentar/166"
     },
     {
-      "id": "825",
-      "nome": "Dra.  Zeli",
-      "estado": "GO",
-      "partido": "PSD",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/825"
-    },
-    {
       "id": "300624",
       "nome": "Dra. Damaris Moura",
       "estado": "SP",
@@ -6340,6 +6379,14 @@
       "telefone": "(11) 3886-7963 / 7936",
       "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20191112-191414-id=530-GRD.jpg",
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300624"
+    },
+    {
+      "id": "ma-dra-helena-duailibe",
+      "nome": "Dra. Helena Duailibe",
+      "estado": "MA",
+      "partido": "REPUBLICANOS",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2025/06/dra-helena-duailibe-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/dra-helena-duailibe/"
     },
     {
       "id": "44",
@@ -6364,6 +6411,14 @@
       "partido": "PL",
       "urlFoto": "https://sapl.al.ro.leg.br/media/sapl/public/parlamentar/293/dra_taissa.jpg.128x128_q85_box-1261%2C12%2C2685%2C1434_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.ro.leg.br/parlamentar/293"
+    },
+    {
+      "id": "ma-dra-vivianne",
+      "nome": "Dra. Vivianne",
+      "estado": "MA",
+      "partido": "PSD",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/dra-viviane-1-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/dra-vivianne/"
     },
     {
       "id": "17919",
@@ -6435,6 +6490,22 @@
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300318"
     },
     {
+      "id": "ma-edna-silva",
+      "nome": "Edna Silva",
+      "estado": "MA",
+      "partido": "PRD",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/edna-silva-2-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/edna-silva/"
+    },
+    {
+      "id": "ma-edson-araujo",
+      "nome": "Edson Araújo",
+      "estado": "MA",
+      "partido": "PSB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2025/01/Imagem-do-WhatsApp-de-2025-01-06-as-12.58.43_057d851b-350x225.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/edson-araujo/"
+    },
+    {
       "id": "300449",
       "nome": "Edson Giriboni",
       "estado": "SP",
@@ -6493,6 +6564,22 @@
       "urlPerfil": "https://sapl.al.pb.leg.br/parlamentar/158"
     },
     {
+      "id": "8",
+      "nome": "EDUARDO DO DERTINS",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/8/foto_eduardo_dertins.jpg.128x128_q85_box-0%2C19%2C161%2C180_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/8"
+    },
+    {
+      "id": "40",
+      "nome": "EDUARDO FORTES",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/40/foto_eduardo_fortes.jpg.128x128_q85_box-0%2C0%2C161%2C161_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/40"
+    },
+    {
       "id": "2085",
       "nome": "Eduardo Loureiro",
       "estado": "RS",
@@ -6501,6 +6588,14 @@
       "telefone": "(51) 32102560",
       "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/2/17/357222_G.jpg",
       "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2085"
+    },
+    {
+      "id": "38",
+      "nome": "EDUARDO MANTOAN",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/38/foto_mantoan.jpg.128x128_q85_box-0%2C7%2C209%2C216_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/38"
     },
     {
       "id": "df-eduardo-pedrosa-2019-2022",
@@ -6558,14 +6653,7 @@
       "nome": "Elias Santiago",
       "estado": "PA",
       "partido": "PT",
-      "urlFoto": "https://alepa.quartertec.com.br/Content/Portal/PerfilAgentePolitico/DEPUTADO_Elias Santiago.png?timestamp=638749096799293122"
-    },
-    {
-      "id": "831",
-      "nome": "Eliel Junior",
-      "estado": "GO",
-      "partido": "SD",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/831"
+      "urlFoto": "https://alepa.quartertec.com.br/Content/Portal/PerfilAgentePolitico/DEPUTADO_Elias Santiago.png?timestamp=639198097397312054"
     },
     {
       "id": "481",
@@ -6689,6 +6777,14 @@
       "urlFoto": "https://www.alepe.pe.gov.br/wp-content/uploads/2023/02/ERIBERTO-FILHO-scaled-e1676402906319.jpg"
     },
     {
+      "id": "ma-eric-costa",
+      "nome": "Eric Costa",
+      "estado": "MA",
+      "partido": "REPUBLICANOS",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/eric-costa-2-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/eric-costa/"
+    },
+    {
       "id": "pa-erick-monteiro",
       "nome": "Erick Monteiro",
       "estado": "PA",
@@ -6770,6 +6866,14 @@
       "telefone": "(11) 3886-6504/ 6505",
       "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300669/c3164700a1d9a520ce2bd91f02475ecf7392825cc642755ced7be33b02771720.jpeg",
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300669"
+    },
+    {
+      "id": "ma-fabiana-vilar",
+      "nome": "Fabiana Vilar",
+      "estado": "MA",
+      "partido": "PL",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/fabiana-vilar-nova-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/fabiana-vilar/"
     },
     {
       "id": "518",
@@ -6868,6 +6972,14 @@
       "partido": "PT",
       "urlFoto": "https://sapl.al.pi.leg.br/media/sapl/public/parlamentar/288/fabio-xavier-26.jpg.128x128_q85_box-0%2C0%2C140%2C140_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.pi.leg.br/parlamentar/288"
+    },
+    {
+      "id": "11",
+      "nome": "FABION GOMES",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/11/foto_fabion.jpg.128x128_q85_box-0%2C26%2C400%2C426_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/11"
     },
     {
       "id": "915868",
@@ -6986,6 +7098,14 @@
       "urlPerfil": "https://sapl.al.pb.leg.br/parlamentar/204"
     },
     {
+      "id": "ma-fernando-salim-braide",
+      "nome": "Fernando Braide",
+      "estado": "MA",
+      "partido": "PSD",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2025/02/fernando-braide-2-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/fernando-salim-braide/"
+    },
+    {
       "id": "ce-fernando-hugo",
       "nome": "Fernando Hugo",
       "estado": "CE",
@@ -7058,6 +7178,14 @@
       "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/400?Legislatura=20"
     },
     {
+      "id": "ma-florencio-neto",
+      "nome": "Florêncio Neto",
+      "estado": "MA",
+      "partido": "MDB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/florencio-neto-1-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/florencio-neto/"
+    },
+    {
       "id": "481463",
       "nome": "France Hacker",
       "estado": "PE",
@@ -7096,6 +7224,14 @@
       "partido": "PT",
       "urlFoto": "https://sapl.al.pi.leg.br/media/sapl/public/parlamentar/283/francisco_lima-24.jpg.128x128_q85_box-0%2C0%2C140%2C140_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.pi.leg.br/parlamentar/283"
+    },
+    {
+      "id": "ma-francisco-nagib",
+      "nome": "Francisco Nagib",
+      "estado": "MA",
+      "partido": "MDB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/francisco-nagib-1-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/francisco-nagib/"
     },
     {
       "id": "14826",
@@ -7350,6 +7486,14 @@
       "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/431?Legislatura=20"
     },
     {
+      "id": "34",
+      "nome": "GIPÃO",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/34/foto_gipao.jpg.128x128_q85_box-0%2C46%2C300%2C345_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/34"
+    },
+    {
       "id": "482",
       "nome": "GISELLE MONTEIRO",
       "estado": "RJ",
@@ -7366,11 +7510,12 @@
       "urlPerfil": "https://sapl.al.ro.leg.br/parlamentar/295"
     },
     {
-      "id": "832",
-      "nome": "Givago Valadares",
-      "estado": "GO",
-      "partido": "UB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/832"
+      "id": "ma-glalbert-cutrim",
+      "nome": "Glalbert Cutrim",
+      "estado": "MA",
+      "partido": "MDB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/glalberth-cutrim-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/glalbert-cutrim/"
     },
     {
       "id": "1024",
@@ -7419,13 +7564,6 @@
       "urlPerfil": "https://www.assembleia.pr.leg.br/deputados/perfil/gugu-bueno"
     },
     {
-      "id": "817",
-      "nome": "Gugu Nader",
-      "estado": "GO",
-      "partido": "PSDB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/817"
-    },
-    {
       "id": "ce-guilherme-bismarck",
       "nome": "Guilherme Bismarck",
       "estado": "CE",
@@ -7467,6 +7605,14 @@
       "email": "guilherme.pasin@al.rs.gov.br",
       "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2025/1/7/413285_G.jpg",
       "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2153"
+    },
+    {
+      "id": "ma-guilherme-paz",
+      "nome": "Guilherme Paz",
+      "estado": "MA",
+      "partido": "MDB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/gui29-350x225.jpeg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/guilherme-paz/"
     },
     {
       "id": "ce-guilherme-sampaio",
@@ -7517,13 +7663,6 @@
       "urlPerfil": "https://www.almg.gov.br/deputados/gustavo-santana/24621"
     },
     {
-      "id": "122",
-      "nome": "Gustavo Sebba",
-      "estado": "GO",
-      "partido": "PSDB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/122"
-    },
-    {
       "id": "pa-gustavo-sefer",
       "nome": "Gustavo Sefer",
       "estado": "PA",
@@ -7554,6 +7693,14 @@
       "email": "gustavo.victorino@al.rs.gov.br",
       "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2023/2/1/356345_G.jpg",
       "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2154"
+    },
+    {
+      "id": "32",
+      "nome": "GUTIERRES TORQUATO",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/32/foto_gutierres.jpg.128x128_q85_box-0%2C0%2C161%2C161_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/32"
     },
     {
       "id": "300673",
@@ -7605,13 +7752,6 @@
       "partido": "PT",
       "urlFoto": "https://sapl.al.pi.leg.br/media/sapl/public/parlamentar/334/helio_rodrigues-24.jpg.128x128_q85_box-0%2C0%2C140%2C140_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.pi.leg.br/parlamentar/334"
-    },
-    {
-      "id": "134",
-      "nome": "Henrique César",
-      "estado": "GO",
-      "partido": "PODEMOS",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/134"
     },
     {
       "id": "135",
@@ -7740,7 +7880,7 @@
       "nome": "Iolando",
       "estado": "DF",
       "partido": "MDB",
-      "urlFoto": "https://www.cl.df.gov.br/documents/10162/26356646/Iolando-2.jpg/8050b47c-7019-c90f-669d-3e05022ca464?version=1.0&t=1672684511099&download=true&imageThumbnail=3",
+      "urlFoto": "https://www.cl.df.gov.br/documents/10162/33185635/Iolando.jpg/8ccb3534-262c-af84-0084-d4861ee7a171?version=1.0&t=1783630615354&download=true&imageThumbnail=3",
       "urlPerfil": "https://www.cl.df.gov.br/web/guest/iolando-2019-2022"
     },
     {
@@ -7750,6 +7890,14 @@
       "partido": "UNIÃO",
       "urlFoto": "https://www.almg.gov.br/export/sites/portal/a-assembleia/deputados/fotos/8095.jpg_1098812190.jpg",
       "urlPerfil": "https://www.almg.gov.br/deputados/ione-pinheiro/8095"
+    },
+    {
+      "id": "ma-iracema-vale",
+      "nome": "Iracema Vale",
+      "estado": "MA",
+      "partido": "MDB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/image-2-1-350x233.png",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/iracema-vale/"
     },
     {
       "id": "pa-iran-lima",
@@ -7793,13 +7941,6 @@
       "urlPerfil": "https://www.al.rn.leg.br/deputado/120/isolda-dantas"
     },
     {
-      "id": "406",
-      "nome": "Issy Quinan",
-      "estado": "GO",
-      "partido": "MDB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/406"
-    },
-    {
       "id": "300510",
       "nome": "Itamar Borges",
       "estado": "SP",
@@ -7824,6 +7965,14 @@
       "partido": "PV",
       "urlFoto": "https://www.al.rn.leg.br/storage/deputados/2023/ECDJHTp0Esbc2fK5VnAT8GZvEkRWqXlNc8N2S9Fa.jpg",
       "urlPerfil": "https://www.al.rn.leg.br/deputado/133/ivanilson-oliveira"
+    },
+    {
+      "id": "15",
+      "nome": "IVORY DE LIRA",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/15/foto_ivory.jpg.128x128_q85_box-0%2C10%2C161%2C171_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/15"
     },
     {
       "id": "481465",
@@ -7858,6 +8007,14 @@
       "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/385?Legislatura=20"
     },
     {
+      "id": "16",
+      "nome": "JAIR FARIAS",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/16/foto_jair_farias.jpg.128x128_q85_box-0%2C19%2C161%2C180_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/16"
+    },
+    {
       "id": "pr-jairo-tamura",
       "nome": "JAIRO TAMURA",
       "estado": "PR",
@@ -7866,17 +8023,18 @@
       "urlPerfil": "https://www.assembleia.pr.leg.br/deputados/perfil/jairo-tamura"
     },
     {
-      "id": "818",
-      "nome": "Jamil Calife",
-      "estado": "GO",
-      "partido": "PP",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/818"
-    },
-    {
       "id": "1059",
       "nome": "Jamilson Name",
       "estado": "MS",
       "partido": "PSDB"
+    },
+    {
+      "id": "ma-janaina",
+      "nome": "Janaina",
+      "estado": "MA",
+      "partido": "REPUBLICANOS",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/janaina-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/janaina/"
     },
     {
       "id": "32",
@@ -7909,7 +8067,7 @@
       "nome": "Jaqueline Silva",
       "estado": "DF",
       "partido": "MDB",
-      "urlFoto": "https://www.cl.df.gov.br/documents/10162/22349802/jaqueline.jpg/40e7f23e-71ff-fcda-f870-f31f328c02aa?version=1.1&t=1699893496981&download=true&imageThumbnail=3",
+      "urlFoto": "https://www.cl.df.gov.br/documents/23806148/0/Jaqueline_Silva__opcao_2.jpg/95102c3f-afec-251f-2c9f-031dfbec789f?version=1.0&t=1785170396795&download=true&imageThumbnail=3",
       "urlPerfil": "https://www.cl.df.gov.br/web/guest/jaqueline-silva-2019-2022"
     },
     {
@@ -8019,6 +8177,14 @@
       "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/58"
     },
     {
+      "id": "ma-joao-batista-segundo",
+      "nome": "João Batista Segundo",
+      "estado": "MA",
+      "partido": "PL",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/03/joao-batista-segundo-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/joao-batista-segundo/"
+    },
+    {
       "id": "df-joao-cardoso-2019-2022",
       "nome": "João Cardoso",
       "estado": "DF",
@@ -8122,6 +8288,14 @@
       "urlFoto": "https://alepa.quartertec.com.br/Content/Portal/PerfilAgentePolitico/Deputado Estadual_Joao Pingarilho.png?timestamp=639184919817732393"
     },
     {
+      "id": "18858",
+      "nome": "João Vítor Xavier",
+      "estado": "MG",
+      "partido": "CIDADANIA",
+      "urlFoto": "https://www.almg.gov.br/export/sites/portal/a-assembleia/deputados/fotos/18858.jpg_1098812190.jpg",
+      "urlPerfil": "https://www.almg.gov.br/deputados/joao-vitor-xavier/18858"
+    },
+    {
       "id": "481469",
       "nome": "Joãozinho Tenório",
       "estado": "PE",
@@ -8205,6 +8379,14 @@
       "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/389?Legislatura=20"
     },
     {
+      "id": "17",
+      "nome": "JORGE FREDERICO",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/17/foto_jorge_frederico.jpg.128x128_q85_box-0%2C7%2C158%2C165_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/17"
+    },
+    {
       "id": "df-jorge-vianna-2019-2022",
       "nome": "Jorge Vianna",
       "estado": "DF",
@@ -8263,13 +8445,6 @@
       "urlPerfil": "https://sapl.al.ac.leg.br/parlamentar/41"
     },
     {
-      "id": "814",
-      "nome": "José Machado",
-      "estado": "GO",
-      "partido": "PSDB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/814"
-    },
-    {
       "id": "pa-josue-paiva",
       "nome": "Josué Paiva",
       "estado": "PA",
@@ -8309,11 +8484,12 @@
       "urlPerfil": "https://www.al.ce.gov.br/deputados/julio-cesar-filho"
     },
     {
-      "id": "145",
-      "nome": "Julio Pina",
-      "estado": "GO",
-      "partido": "SD",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/145"
+      "id": "ma-julio-mendonca",
+      "nome": "Júlio Mendonça",
+      "estado": "MA",
+      "partido": "PSB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/julio-mendonca-1-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/julio-mendonca/"
     },
     {
       "id": "161",
@@ -8324,12 +8500,28 @@
       "urlPerfil": "https://sapl.al.pb.leg.br/parlamentar/161"
     },
     {
+      "id": "ma-junior-cascaria",
+      "nome": "Júnior Cascaria",
+      "estado": "MA",
+      "partido": "REPUBLICANOS",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/junior-cascaria-1-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/junior-cascaria/"
+    },
+    {
       "id": "31",
       "nome": "Júnior Favacho",
       "estado": "AP",
       "partido": "MDB",
       "urlFoto": "https://www.al.ap.leg.br/fotodeputado/230830121400Dep Jr Favacho.jpg",
       "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=31"
+    },
+    {
+      "id": "ma-junior-franca",
+      "nome": "Júnior França",
+      "estado": "MA",
+      "partido": "PP",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/junior-franca-1-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/junior-franca/"
     },
     {
       "id": "553664",
@@ -8437,19 +8629,20 @@
       "urlPerfil": "https://aleselegis.al.se.leg.br/spl/parlamentar.aspx?id=576"
     },
     {
-      "id": "63",
-      "nome": "Karlos Cabral",
-      "estado": "GO",
-      "partido": "PSB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/63"
-    },
-    {
       "id": "926898",
       "nome": "Kátia Oliveira",
       "estado": "BA",
       "partido": "UNIÃO",
       "urlFoto": "https://www.al.ba.gov.br/fserver/:imagensAlbanet:fotos:KatiaOliveira.jpg/static:images:shared:avatar.jpg",
       "urlPerfil": "https://www.al.ba.gov.br/deputados/deputado-estadual/926898"
+    },
+    {
+      "id": "ma-keke-teixeira",
+      "nome": "Kekê Teixeira",
+      "estado": "MA",
+      "partido": "MDB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2025/01/keke-teixeira-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/keke-teixeira/"
     },
     {
       "id": "1511",
@@ -8511,6 +8704,14 @@
       "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2156"
     },
     {
+      "id": "ma-leandro-bello",
+      "nome": "Leandro Bello",
+      "estado": "MA",
+      "partido": "PSB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/leandro-bello-1-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/leandro-bello/"
+    },
+    {
       "id": "932100",
       "nome": "Leandro de Jesus",
       "estado": "BA",
@@ -8551,6 +8752,14 @@
       "partido": "PT",
       "urlFoto": "https://www.almg.gov.br/export/sites/portal/a-assembleia/deputados/fotos/26153.jpg_1098812190.jpg",
       "urlPerfil": "https://www.almg.gov.br/deputados/leninha/26153"
+    },
+    {
+      "id": "18",
+      "nome": "LÉO BARBOSA",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/18/foto_leo_barbosa.jpeg.128x128_q85_box-0%2C36%2C990%2C1024_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/18"
     },
     {
       "id": "42",
@@ -8668,13 +8877,6 @@
       "urlPerfil": "https://www.al.ap.leg.br/pagina.php?pg=exibir_parlamentar&iddeputado=87"
     },
     {
-      "id": "64",
-      "nome": "Lincoln Tejota",
-      "estado": "GO",
-      "partido": "UB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/64"
-    },
-    {
       "id": "568",
       "nome": "Linda Brasil",
       "estado": "SE",
@@ -8689,13 +8891,6 @@
       "partido": "PP",
       "urlFoto": "https://sapl.al.pb.leg.br/media/sapl/public/parlamentar/26/26_foto_parlamentar.jpg.128x128_q85_box-0%2C3%2C206%2C209_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.pb.leg.br/parlamentar/26"
-    },
-    {
-      "id": "819",
-      "nome": "Lineu Olimpio",
-      "estado": "GO",
-      "partido": "MDB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/819"
     },
     {
       "id": "pa-livia-duarte",
@@ -8742,6 +8937,14 @@
       "urlPerfil": "https://www.al.ce.gov.br/deputados/luana-regia"
     },
     {
+      "id": "19",
+      "nome": "LUANA RIBEIRO",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/19/luana-ribeiro-45555.jpg.128x128_q85_box-0%2C12%2C161%2C173_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/19"
+    },
+    {
       "id": "300676",
       "nome": "Lucas Bove",
       "estado": "SP",
@@ -8752,24 +8955,10 @@
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300676"
     },
     {
-      "id": "125",
-      "nome": "Lucas Calil",
-      "estado": "GO",
-      "partido": "PRD",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/125"
-    },
-    {
       "id": "1062",
       "nome": "Lucas de Lima",
       "estado": "MS",
       "partido": "sem partido"
-    },
-    {
-      "id": "820",
-      "nome": "Lucas do Vale",
-      "estado": "GO",
-      "partido": "PSD",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/820"
     },
     {
       "id": "28870",
@@ -8846,6 +9035,14 @@
       "partido": "PODEMOS",
       "email": "luciano.duque@alepe.pe.gov.br",
       "urlFoto": "https://www.alepe.pe.gov.br/wp-content/uploads/2023/02/Luciano-Duque.png"
+    },
+    {
+      "id": "39",
+      "nome": "LUCIANO OLIVEIRA",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/39/foto_luciano_oliveira.jpg.128x128_q85_box-0%2C7%2C161%2C168_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/39"
     },
     {
       "id": "537",
@@ -9085,13 +9282,6 @@
       "partido": "PSD",
       "urlFoto": "https://aleselegis.al.se.leg.br/arquivo/images/pessoas/41ur0i57126j188133e7.jpg",
       "urlPerfil": "https://aleselegis.al.se.leg.br/spl/parlamentar.aspx?id=557"
-    },
-    {
-      "id": "62",
-      "nome": "Major Araújo",
-      "estado": "GO",
-      "partido": "PL",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/62"
     },
     {
       "id": "300633",
@@ -9336,6 +9526,14 @@
       "urlPerfil": "https://sapl.al.ac.leg.br/parlamentar/242"
     },
     {
+      "id": "35",
+      "nome": "MARCUS MARCELO",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/35/foto_marcus_marcelo.jpg.128x128_q85_box-0%2C14%2C161%2C176_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/35"
+    },
+    {
       "id": "2142",
       "nome": "Marcus Vinícius",
       "estado": "RS",
@@ -9572,13 +9770,6 @@
       "urlPerfil": "https://www.assembleia.pr.leg.br/deputados/perfil/mauro-moraes"
     },
     {
-      "id": "40",
-      "nome": "Mauro Rubem",
-      "estado": "GO",
-      "partido": "PT",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/40"
-    },
-    {
       "id": "26111",
       "nome": "Mauro Tramonte",
       "estado": "MG",
@@ -9619,6 +9810,14 @@
       "email": "dep.mazinhodosanjos@al.es.gov.br",
       "urlFoto": "https://www.al.es.gov.br/appdata/anexos_internet/portal/deputados/img_edmar_lorencini_dos_anjos_mini_342.jpg",
       "urlPerfil": "https://www.al.es.gov.br/Deputado/MazinhodosAnjos"
+    },
+    {
+      "id": "ma-mical-damasceno",
+      "nome": "Mical Damasceno",
+      "estado": "MA",
+      "partido": "REPUBLICANOS",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2025/02/mical-damasceno-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/mical-damasceno/"
     },
     {
       "id": "183",
@@ -9670,6 +9869,14 @@
       "partido": "PSD",
       "urlFoto": "https://storage2.assembleia.pr.leg.br/img/YxZTA_IZHBZH3278dA5gHUop9RE=/full-fit-in/300x300/deputados/2960eeeffb9bcdb15b8b4e17a9d86bc0242be025.png",
       "urlPerfil": "https://www.assembleia.pr.leg.br/deputados/perfil/moacyr-fadel"
+    },
+    {
+      "id": "41",
+      "nome": "MOISEMAR MARINHO",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/41/foto_moisemar_marinho.jpeg.128x128_q85_box-0%2C11%2C161%2C172_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/41"
     },
     {
       "id": "ce-moises-braz",
@@ -9778,6 +9985,14 @@
       "urlPerfil": "https://aleselegis.al.se.leg.br/spl/parlamentar.aspx?id=572"
     },
     {
+      "id": "ma-neto-evangelista",
+      "nome": "Neto Evangelista",
+      "estado": "MA",
+      "partido": "MDB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/neto-evangelista-1-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/neto-evangelista/"
+    },
+    {
       "id": "18",
       "nome": "Neto Loureiro",
       "estado": "RR",
@@ -9824,6 +10039,14 @@
       "partido": "PSD",
       "urlFoto": "https://www.al.ba.gov.br/fserver/:imagensAlbanet:fotos:Niltinho.jpg/static:images:shared:avatar.jpg",
       "urlPerfil": "https://www.al.ba.gov.br/deputados/deputado-estadual/926913"
+    },
+    {
+      "id": "20",
+      "nome": "NILTON FRANCO",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/20/foto_nilton_franco.jpg.128x128_q85_box-0%2C6%2C161%2C167_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/20"
     },
     {
       "id": "297",
@@ -9882,6 +10105,14 @@
       "urlPerfil": "https://www.al.ba.gov.br/deputados/deputado-estadual/926908"
     },
     {
+      "id": "21",
+      "nome": "OLYNTHO NETO",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/21/foto_olyntho.jpg.128x128_q85_box-0%2C6%2C161%2C167_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/21"
+    },
+    {
       "id": "ce-oriel-filho",
       "nome": "Oriel Filho",
       "estado": "CE",
@@ -9916,12 +10147,28 @@
       "urlPerfil": "https://www.al.ce.gov.br/deputados/osmar-baquit"
     },
     {
+      "id": "ma-osmar-filho",
+      "nome": "Osmar Filho",
+      "estado": "MA",
+      "partido": "MDB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/osmar-filho-1-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/osmar-filho/"
+    },
+    {
       "id": "926914",
       "nome": "Osni Cardoso",
       "estado": "BA",
       "partido": "PT",
       "urlFoto": "https://www.al.ba.gov.br/fserver/:imagensAlbanet:fotos:OsniCardoso.jpg/static:images:shared:avatar.jpg",
       "urlPerfil": "https://www.al.ba.gov.br/deputados/deputado-estadual/926914"
+    },
+    {
+      "id": "ma-othelino-neto",
+      "nome": "Othelino Neto",
+      "estado": "MA",
+      "partido": "PSB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/othelino-neto-1-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/othelino-neto/"
     },
     {
       "id": "253",
@@ -10065,13 +10312,6 @@
       "partido": "PL",
       "urlFoto": "https://www.al.ba.gov.br/fserver/:imagensAlbanet:fotos:PauloCamara.jpg/static:images:shared:avatar.jpg",
       "urlPerfil": "https://www.al.ba.gov.br/deputados/deputado-estadual/935102"
-    },
-    {
-      "id": "28",
-      "nome": "Paulo Cezar Martins",
-      "estado": "GO",
-      "partido": "MDB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/28"
     },
     {
       "id": "1039",
@@ -10262,15 +10502,6 @@
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300700"
     },
     {
-      "id": "2163",
-      "nome": "Professor Bonatto",
-      "estado": "RS",
-      "partido": "PSD",
-      "email": "professor.bonatto@al.rs.gov.br",
-      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2024/2/19/383749_G.jpg",
-      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2163"
-    },
-    {
       "id": "26119",
       "nome": "Professor Cleiton",
       "estado": "MG",
@@ -10285,6 +10516,14 @@
       "partido": "REDE",
       "urlFoto": "https://sapl.al.pb.leg.br/media/sapl/public/parlamentar/195/195_foto_parlamentar.jpg.128x128_q85_box-0%2C3%2C206%2C209_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.pb.leg.br/parlamentar/195"
+    },
+    {
+      "id": "22",
+      "nome": "PROFESSOR JÚNIOR GEO",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/22/foto_junior_geo.jpg.128x128_q85_box-0%2C25%2C161%2C186_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/22"
     },
     {
       "id": "pr-professor-lemos",
@@ -10317,6 +10556,14 @@
       "telefone": "(011)3886-6645 / 6648",
       "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300640/5792a9cebeacc3b58d496afab642a82010316b056eed3885ae11642bd7932177.jpeg",
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300640"
+    },
+    {
+      "id": "36",
+      "nome": "PROFESSORA JANAD VALCARI",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/36/foto_janad.jpg.128x128_q85_box-0%2C2%2C161%2C164_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/36"
     },
     {
       "id": "ce-queiroz-filho",
@@ -10533,6 +10780,14 @@
       "urlPerfil": "https://sapl.al.ro.leg.br/parlamentar/299"
     },
     {
+      "id": "ma-ricardo-arruda",
+      "nome": "Ricardo Arruda",
+      "estado": "MA",
+      "partido": "MDB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/ricardo-arruda-2-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/ricardo-arruda/"
+    },
+    {
       "id": "pr-ricardo-arruda",
       "nome": "RICARDO ARRUDA",
       "estado": "PR",
@@ -10569,11 +10824,12 @@
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300539"
     },
     {
-      "id": "821",
-      "nome": "Ricardo Quirino",
-      "estado": "GO",
-      "partido": "REPUBLICANOS",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/821"
+      "id": "ma-ricardo-rios",
+      "nome": "Ricardo Rios",
+      "estado": "MA",
+      "partido": "PSB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/ricardo-rios-nova-1-259x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/ricardo-rios/"
     },
     {
       "id": "932108",
@@ -10676,6 +10932,14 @@
       "partido": "PSB",
       "email": "rodrigo.farias@alepe.pe.gov.br",
       "urlFoto": "https://www.alepe.pe.gov.br/wp-content/uploads/2023/02/RODRIGO-FARIAS-scaled-e1676403276451.jpg"
+    },
+    {
+      "id": "ma-rodrigo-lago",
+      "nome": "Rodrigo Lago",
+      "estado": "MA",
+      "partido": "PSB",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/rodrigo-lago-2-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/rodrigo-lago/"
     },
     {
       "id": "28877",
@@ -10832,13 +11096,6 @@
       "urlPerfil": "https://sapl.al.ro.leg.br/parlamentar/276"
     },
     {
-      "id": "822",
-      "nome": "Rosângela Rezende",
-      "estado": "GO",
-      "partido": "AGIR",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/822"
-    },
-    {
       "id": "915881",
       "nome": "Rosemberg Pinto",
       "estado": "BA",
@@ -10861,13 +11118,6 @@
       "partido": "PSD",
       "urlFoto": "https://sapl.al.am.leg.br/media/sapl/public/parlamentar/77/rozenha.png.128x128_q85_box-0%2C0%2C200%2C200_crop_detail.png",
       "urlPerfil": "https://sapl.al.am.leg.br/parlamentar/77"
-    },
-    {
-      "id": "148",
-      "nome": "Rubens Marques",
-      "estado": "GO",
-      "partido": "PSB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/148"
     },
     {
       "id": "330",
@@ -10942,6 +11192,14 @@
       "partido": "SDD",
       "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/13022025_154859Sarah.jpeg",
       "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/515?Legislatura=20"
+    },
+    {
+      "id": "42",
+      "nome": "SARGENTO JUNIOR BRASÃO",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/42/img_6227.jpg.256x256_q85_box-210126750665_crop_detail.jpg.128x128_q85_box-0%2C0%2C256%2C256_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/42"
     },
     {
       "id": "184",
@@ -11146,6 +11404,14 @@
       "urlPerfil": "https://ww4.al.rs.gov.br/deputados/2122"
     },
     {
+      "id": "ma-solange-almeida",
+      "nome": "Solange Almeida",
+      "estado": "MA",
+      "partido": "PL",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/solange-almeida--350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/solange-almeida/"
+    },
+    {
       "id": "300686",
       "nome": "Solange Freitas",
       "estado": "SP",
@@ -11204,13 +11470,6 @@
       "partido": "MDB",
       "urlFoto": "https://www.almg.gov.br/export/sites/portal/a-assembleia/deputados/fotos/18860.jpg_1098812190.jpg",
       "urlPerfil": "https://www.almg.gov.br/deputados/tadeu-leite/18860"
-    },
-    {
-      "id": "68",
-      "nome": "Talles Barreto",
-      "estado": "GO",
-      "partido": "UB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/68"
     },
     {
       "id": "185",
@@ -11521,6 +11780,14 @@
       "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/450?Legislatura=20"
     },
     {
+      "id": "24",
+      "nome": "VALDEMAR JÚNIOR",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/24/foto_valdemar_junior.jpg.128x128_q85_box-0%2C4%2C161%2C165_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/24"
+    },
+    {
       "id": "386",
       "nome": "Valdir Barranco",
       "estado": "MT",
@@ -11545,7 +11812,7 @@
       "partido": "PL",
       "email": "ValeriaBolsonaro@al.sp.gov.br",
       "telefone": "(011)3886-6222 / 6223",
-      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/20230321-201012-id=503-GRD.png",
+      "urlFoto": "https://www.al.sp.gov.br/biografia/fotos/300649/7bb45b0b116ac36defe28a7d11b41edba3784e648032c9988b5584158fc97c7c.jpeg",
       "urlPerfil": "https://www.al.sp.gov.br/deputado/?matricula=300649"
     },
     {
@@ -11555,6 +11822,14 @@
       "partido": "REPUBLICANOS",
       "urlFoto": "https://storage.al.mt.gov.br/api/v1/download/image/558723?width=420px&quality=80",
       "urlPerfil": "https://www.al.mt.gov.br/parlamento/deputados/28/perfil"
+    },
+    {
+      "id": "26",
+      "nome": "VANDA MONTEIRO",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/26/foto_vanda.jpg.128x128_q85_box-0%2C5%2C161%2C167_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/26"
     },
     {
       "id": "es-vandinholeite",
@@ -11583,18 +11858,19 @@
       "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/486?Legislatura=20"
     },
     {
-      "id": "823",
-      "nome": "Veter Martins",
-      "estado": "GO",
-      "partido": "PSB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/823"
-    },
-    {
       "id": "pa-victor-dias",
       "nome": "Victor Dias",
       "estado": "PA",
       "partido": "UB",
       "urlFoto": "https://alepa.quartertec.com.br/Content/Portal/PerfilAgentePolitico/DEPUTADO_Victor Dias.png?timestamp=639110722655453688"
+    },
+    {
+      "id": "27",
+      "nome": "VILMAR DE OLIVEIRA",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/27/foto_vilmar.jpg.128x128_q85_box-0%2C0%2C400%2C401_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/27"
     },
     {
       "id": "2100",
@@ -11613,13 +11889,6 @@
       "partido": "PSD",
       "urlFoto": "https://www.alerj.rj.gov.br/Uploads/PerfilDeputado/Imagem/24022023_160629ViniciosCozzolino.jpg",
       "urlPerfil": "https://www.alerj.rj.gov.br/Deputados/PerfilDeputado/483?Legislatura=20"
-    },
-    {
-      "id": "131",
-      "nome": "Virmondes Cruvinel",
-      "estado": "GO",
-      "partido": "UB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/131"
     },
     {
       "id": "300689",
@@ -11672,20 +11941,6 @@
       "urlPerfil": "https://www.al.rn.leg.br/deputado/92/vivaldo-costa"
     },
     {
-      "id": "824",
-      "nome": "Vivian Naves",
-      "estado": "GO",
-      "partido": "REPUBLICANOS",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/824"
-    },
-    {
-      "id": "152",
-      "nome": "Wagner Camargo Neto",
-      "estado": "GO",
-      "partido": "SD",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/152"
-    },
-    {
       "id": "ce-walter-cavalcante",
       "nome": "Walter Cavalcante",
       "estado": "CE",
@@ -11718,6 +11973,14 @@
       "urlPerfil": "https://sapl.al.pi.leg.br/parlamentar/318"
     },
     {
+      "id": "ma-wellington-do-curso",
+      "nome": "Wellington do Curso",
+      "estado": "MA",
+      "partido": "PSD",
+      "urlFoto": "https://www.al.ma.leg.br/sitealema/wp-content/uploads/2024/01/wellington-do-curso-1-350x233.jpg",
+      "urlPerfil": "https://www.al.ma.leg.br/sitealema/deputado/wellington-do-curso/"
+    },
+    {
       "id": "468",
       "nome": "WELLINGTON JOSÉ",
       "estado": "RJ",
@@ -11747,13 +12010,6 @@
       "partido": "UNIÃO",
       "urlFoto": "https://sapl.al.ac.leg.br/media/sapl/public/parlamentar/228/foto_dep_11.jpg.128x128_q85_box-0%2C3%2C846%2C849_crop_detail.jpg",
       "urlPerfil": "https://sapl.al.ac.leg.br/parlamentar/228"
-    },
-    {
-      "id": "153",
-      "nome": "Wilde Cambão",
-      "estado": "GO",
-      "partido": "UB",
-      "urlPerfil": "https://portal.al.go.leg.br/deputados/perfil/153"
     },
     {
       "id": "65",
@@ -11794,6 +12050,14 @@
       "partido": "PSD",
       "urlFoto": "https://storage.al.mt.gov.br/api/v1/download/image/558725?width=420px&quality=80",
       "urlPerfil": "https://www.al.mt.gov.br/parlamento/deputados/378/perfil"
+    },
+    {
+      "id": "37",
+      "nome": "WISTON GOMES",
+      "estado": "TO",
+      "partido": "NÃO POSSUI FILIAÇÃO",
+      "urlFoto": "https://sapl.al.to.leg.br/media/sapl/public/parlamentar/37/wiston_gomes.jpg.128x128_q85_box-94%2C15%2C393%2C315_crop_detail.jpg",
+      "urlPerfil": "https://sapl.al.to.leg.br/parlamentar/37"
     },
     {
       "id": "503",
@@ -11889,6 +12153,16 @@
       "partido": "PROGRESSISTAS",
       "urlFoto": "https://www.al.ce.gov.br/image/400629",
       "urlPerfil": "https://www.al.ce.gov.br/deputados/zezinho-albuquerque"
+    },
+    {
+      "id": "1510",
+      "nome": "Zilá Breitenbach",
+      "estado": "RS",
+      "partido": "PSDB",
+      "email": "zila.breitenbach@al.rs.gov.br",
+      "telefone": "(51) 32102620",
+      "urlFoto": "https://ww2.al.rs.gov.br/filerepository/fotografias/2019/2/14/238681_G.jpg",
+      "urlPerfil": "https://ww4.al.rs.gov.br/deputados/1510"
     },
     {
       "id": "292",
