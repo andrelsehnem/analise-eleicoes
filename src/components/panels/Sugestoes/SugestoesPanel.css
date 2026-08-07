@@ -213,3 +213,23 @@
     width: 100%;
   }
 }
+
+@media (max-width: 520px) {
+  .sugestoes-panel {
+    padding: 1.6rem 0.8rem 2.2rem;
+  }
+
+  .sugestoes-form {
+    padding: 0.9rem;
+  }
+
+  .sugestoes-header h1 {
+    font-size: clamp(1.5rem, 8vw, 1.9rem);
+  }
+
+  .sugestoes-field input,
+  .sugestoes-field textarea,
+  .sugestoes-submit-btn {
+    font-size: 0.9rem;
+  }
+}

@@ -76,6 +76,18 @@ export function AppHeader() {
           </a>
         </nav>
 
+        <nav className="header-mobile-links" aria-label="Atalhos principais">
+          <a className="header-mobile-link" href="/informacoes-gerais" onClick={handleInformacoesGerais}>
+            Informações gerais
+          </a>
+          <a className="header-mobile-link" href="/sugestoes" onClick={handleSugestoes}>
+            Sugestões
+          </a>
+          <a className="header-mobile-link" href="/sobre" onClick={handleSobre}>
+            Sobre
+          </a>
+        </nav>
+
       </div>
     </header>
   )

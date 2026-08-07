@@ -44,6 +44,9 @@ const SugestoesPage = lazy(async () => ({
 const PrivacyPolicyPage = lazy(async () => ({
   default: (await import('./components/pages/PrivacyPolicyPage')).PrivacyPolicyPage,
 }))
+const TermosPage = lazy(async () => ({
+  default: (await import('./components/pages/TermosPage')).TermosPage,
+}))
 const SearchPage = lazy(async () => ({
   default: (await import('./components/pages/SearchPage')).SearchPage,
 }))
@@ -189,6 +192,16 @@ function App() {
           <AppLayout showStepsNav={false}>
             <Suspense fallback={<Loader />}>
               <PrivacyPolicyPage />
+            </Suspense>
+          </AppLayout>
+        }
+      />
+      <Route
+        path="/termos"
+        element={
+          <AppLayout showStepsNav={false}>
+            <Suspense fallback={<Loader />}>
+              <TermosPage />
             </Suspense>
           </AppLayout>
         }

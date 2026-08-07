@@ -104,3 +104,28 @@
   background: rgba(26, 58, 110, 0.5);
   box-shadow: 0 8px 20px rgba(10, 22, 40, 0.3);
 }
+
+@media (max-width: 560px) {
+  .not-found-panel {
+    min-height: auto;
+    padding: 2.2rem 0.9rem;
+  }
+
+  .not-found-description {
+    margin-bottom: 1.8rem;
+  }
+
+  .not-found-divider {
+    margin-bottom: 1.8rem;
+  }
+
+  .not-found-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .not-found-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
