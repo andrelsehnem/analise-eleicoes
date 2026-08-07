@@ -1,0 +1,63 @@
+# Analise-Eleicoes
+
+Aplicacao web SPA para consulta e analise de politicos brasileiros. Este arquivo serve como indice rapido para LLMs e agentes: ele resume o projeto e aponta para a documentacao canonica do repositorio.
+
+## Projeto
+
+- Objetivo: ajudar eleitores a conhecer o historico de representantes antes das eleicoes.
+- Publico principal: usuarios que pesquisam politicos por estado, cargo, nome ou partido.
+- Estado atual: deputados federais, deputados estaduais, senadores, presidencia, busca global, autenticacao e perfil protegido.
+- Fluxos futuros planejados: favoritos, comparacao e candidatos.
+
+## Stack
+
+- React 19 com TypeScript em modo strict.
+- Vite como bundler.
+- React Router DOM para rotas.
+- CSS puro, sem framework externo.
+- Context API e hooks customizados para estado global.
+- Firebase Auth no frontend e Firebase Admin no backend serverless.
+- @svg-maps/brazil para selecao visual de UF.
+
+
+## Fluxos principais
+
+- Landing com entrada por estado.
+- Selecao de UF por mapa SVG e lista.
+- Listas e detalhes de deputado federal, deputado estadual e senador.
+- Consulta da presidencia com lista e detalhe.
+- Busca global por nome, partido e cargo.
+- Login com Google e e-mail/senha.
+- Perfil protegido com autenticacao verificada no backend.
+- Paginas institucionais como Sobre, Privacidade e Sugestoes.
+
+## Dados e APIs
+
+- Camara dos Deputados: dados de deputados, detalhes, proposicoes, votos e orgaos.
+- Senado Federal: lista e detalhe de senadores, mandatos e cargos.
+- Assembleias Legislativas Estaduais: fontes consolidadas para deputados estaduais.
+- Wikipedia REST: enriquecimento de resumo e foto na presidencia.
+- Dados locais: `public/politicians-index.json`, `public/statistics-index.json` e `src/constants/presidents.ts`.
+- Backend serverless: endpoints internos para autenticacao, perfil e envio de sugestoes.
+
+## Documentacao canonica
+
+- [Visao geral](documentacao/00-visao-geral.md)
+- [Arquitetura e rotas](documentacao/01-arquitetura-rotas.md)
+- [Fontes de dados e API](documentacao/02-fontes-dados-api.md)
+- [Modulos da aplicacao](documentacao/modulos/)
+- [Componentes comuns e utils](documentacao/modulos/08-componentes-comuns-e-utils.md)
+- [Autenticacao e perfil](documentacao/modulos/10-autenticacao-perfil.md)
+- [README da documentacao](documentacao/README.md)
+
+## Regras importantes
+
+- Textos da interface em portugues do Brasil.
+- Tipos explicitos e sem `any`.
+- Preferir exportacoes nomeadas, exceto onde o projeto ja usa default export.
+- Sem Redux, Zustand ou outras bibliotecas de estado global sem discussao previa.
+- Atualizar a documentacao em `documentacao/` quando alterar arquitetura, API ou fluxos.
+
+## Observacao
+
+Este arquivo nao substitui a documentacao detalhada. Ele existe para orientar rapidamente agentes e modelos para os arquivos corretos do repositorio.

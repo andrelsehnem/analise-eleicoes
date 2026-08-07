@@ -24,6 +24,7 @@
 - `/presidente/:presidentId` → `PresidentDetailPage`
 - `/sobre` → `SobrePage`
 - `/privacidade` → `PrivacyPolicyPage`
+- `/termos` → `TermosPage`
 - `/sugestoes` → `SugestoesPage`
 - `/login` → `LoginPage`
 - `/perfil` → `ProfilePage` (rota protegida)
@@ -48,6 +49,8 @@
 - `public/robots.txt` permite rastreamento e aponta para o sitemap.
 - `public/sitemap.xml` é gerado automaticamente via script e inclui rotas públicas estáticas e dinâmicas (listas e detalhes por UF/cargo).
 - `public/prerender-routes.json` é derivado do sitemap e define as rotas para prerender estático no build.
+- O prerender estático injeta fallback HTML sem JS em cada rota para disponibilizar conteúdo editorial mínimo e contexto de dados públicos aos crawlers.
+- As páginas legais (`/privacidade` e `/termos`) são incluídas no sitemap e no manifest de prerender.
 
 ## Performance de carregamento
 
