@@ -25,6 +25,8 @@
 - **Deputados federais:** `GET /api/candidatos-2026/deputados-federais/:uf` e detalhe `/:id`, cargo TSE `6`.
 - **Deputados estaduais/distritais:** `GET /api/candidatos-2026/deputados-estaduais/:uf` e detalhe `/:id`; usa cargo TSE `7` nos estados e `8` no Distrito Federal.
 - As listas proporcionais não fazem consultas individuais para completar fotos; o detalhe consulta o registro completo.
+- As URLs estaduais são preservadas por rewrites, mas convergem para uma única função Vercel
+  (`api/candidatos-2026/cargos.js`) para manter o deploy abaixo do limite de funções do plano.
 
 ## Fontes utilizadas
 

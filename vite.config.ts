@@ -204,16 +204,13 @@ export default defineConfig(({ mode }) => {
             try {
               const apiReq = req as DevApiRequest
               const uf = (detailMatch?.[1] ?? listMatch?.[1] ?? '').toUpperCase()
-              const modulePath = detailMatch
-                ? '/api/candidatos-2026/governadores/[uf]/[id].js'
-                : '/api/candidatos-2026/governadores/[uf].js'
-              const module = (await server.ssrLoadModule(modulePath)) as {
+              const module = (await server.ssrLoadModule('/api/candidatos-2026/cargos.js')) as {
                 default: ApiHandler
               }
 
               apiReq.query = detailMatch
-                ? { uf, id: detailMatch[2] }
-                : { uf }
+                ? { office: 'governadores', uf, id: detailMatch[2] }
+                : { office: 'governadores', uf }
 
               await module.default(apiReq, withResponseHelpers(res))
             } catch (error) {
@@ -231,12 +228,12 @@ export default defineConfig(({ mode }) => {
           })
 
           const stateOfficeApis = [
-            { segment: 'senadores', moduleBase: '/api/candidatos-2026/senadores' },
-            { segment: 'deputados-federais', moduleBase: '/api/candidatos-2026/deputados-federais' },
-            { segment: 'deputados-estaduais', moduleBase: '/api/candidatos-2026/deputados-estaduais' },
+            'senadores',
+            'deputados-federais',
+            'deputados-estaduais',
           ]
 
-          stateOfficeApis.forEach(({ segment, moduleBase }) => {
+          stateOfficeApis.forEach((segment) => {
             server.middlewares.use(`/api/candidatos-2026/${segment}`, async (req, res, next) => {
               const path = (req.url ?? '/').replace(/\?.*$/, '').replace(/\/$/, '')
               const listMatch = path.match(/^\/([A-Za-z]{2})$/)
@@ -245,10 +242,11 @@ export default defineConfig(({ mode }) => {
 
               try {
                 const uf = (detailMatch?.[1] ?? listMatch?.[1] ?? '').toUpperCase()
-                const modulePath = detailMatch ? `${moduleBase}/[uf]/[id].js` : `${moduleBase}/[uf].js`
-                const module = (await server.ssrLoadModule(modulePath)) as { default: ApiHandler }
+                const module = (await server.ssrLoadModule('/api/candidatos-2026/cargos.js')) as { default: ApiHandler }
                 const apiReq = req as DevApiRequest
-                apiReq.query = detailMatch ? { uf, id: detailMatch[2] } : { uf }
+                apiReq.query = detailMatch
+                  ? { office: segment, uf, id: detailMatch[2] }
+                  : { office: segment, uf }
                 await module.default(apiReq, withResponseHelpers(res))
               } catch (error) {
                 console.error(`[local-api-candidatos-2026] Erro ao consultar ${segment}`, error)
