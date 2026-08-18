@@ -1,0 +1,46 @@
+.candidates-presidents-source {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(53, 184, 121, 0.28);
+  border-radius: 10px;
+  background: rgba(53, 184, 121, 0.08);
+  color: var(--white-dim);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.candidates-presidents-card {
+  min-height: 142px;
+}
+
+.candidates-presidents-full-name {
+  margin-bottom: 0.35rem;
+  overflow: hidden;
+  color: var(--white-dim);
+  font-size: 0.72rem;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.candidates-presidents-official-link {
+  margin-top: 0.55rem;
+  color: var(--gold-light);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 560px) {
+  .candidates-presidents-card {
+    min-height: 124px;
+  }
+
+  .candidates-presidents .section-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

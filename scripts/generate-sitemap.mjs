@@ -21,10 +21,14 @@ const PRESIDENT_IDS = ['luiz-inacio-lula-da-silva', 'geraldo-alckmin']
 
 const CORE_PAGES = [
   { path: '/', changefreq: 'daily', priority: '1.0' },
+  { path: '/busca', changefreq: 'daily', priority: '0.9' },
   { path: '/por-estado', changefreq: 'weekly', priority: '0.9' },
   { path: '/por-estado/deputado-federal', changefreq: 'weekly', priority: '0.8' },
   { path: '/por-estado/deputado-estadual', changefreq: 'weekly', priority: '0.8' },
   { path: '/por-estado/senador', changefreq: 'weekly', priority: '0.8' },
+  { path: '/candidatos-2026', changefreq: 'weekly', priority: '0.9' },
+  { path: '/candidatos-2026/guia-eleicoes', changefreq: 'monthly', priority: '0.9' },
+  { path: '/candidatos-2026/presidente', changefreq: 'daily', priority: '0.9' },
   { path: '/presidente', changefreq: 'weekly', priority: '0.9' },
   { path: '/informacoes-gerais', changefreq: 'weekly', priority: '0.8' },
   { path: '/sobre', changefreq: 'monthly', priority: '0.6' },

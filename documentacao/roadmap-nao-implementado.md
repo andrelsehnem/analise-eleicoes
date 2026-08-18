@@ -5,7 +5,7 @@ Este arquivo separa funcionalidades planejadas/indicadas na interface das que j�
 ## Em breve (indicadas na UI)
 
 1. Busca por cargo (landing, como fluxo dedicado).
-2. Candidatos 2026.
+2. Candidatos aos demais cargos das Eleições 2026; a consulta para Presidente já está disponível.
 
 ## Previstas nas instruções do projeto, sem implementação encontrada
 

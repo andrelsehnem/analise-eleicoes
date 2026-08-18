@@ -1,5 +1,19 @@
 # Fontes de Dados e API
 
+## Candidaturas das Eleições 2026
+
+- **Fonte:** Tribunal Superior Eleitoral — DivulgaCandContas.
+- **Endpoint oficial consumido pelo backend:**
+  `GET https://divulgacandcontas.tse.jus.br/divulga/rest/v1/candidatura/listar/2026/BR/20322002026/1/candidatos`.
+- **Endpoint interno:** `GET /api/candidatos-2026/presidentes`.
+- **Detalhe interno:** `GET /api/candidatos-2026/presidentes/:id`, com dados pessoais
+  públicos, situação, campanha e bens declarados; CPF, título eleitoral e e-mail não são expostos.
+- **Cliente frontend:** `fetchPresidentialCandidates()` em `src/api/candidatesApi.ts`.
+- O backend normaliza a resposta e expõe somente os campos necessários à interface, sem
+  repassar identificadores pessoais presentes no payload original do TSE.
+- A resposta bem-sucedida usa cache compartilhado de 30 minutos e tolera conteúdo obsoleto
+  durante indisponibilidades temporárias da fonte.
+
 ## Fontes utilizadas
 
 1. **Câmara dos Deputados (Dados Abertos)**

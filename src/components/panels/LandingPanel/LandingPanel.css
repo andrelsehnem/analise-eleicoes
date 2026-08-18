@@ -93,6 +93,16 @@
   position: relative;
 }
 
+.feature-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.feature-link:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 3px;
+}
+
 .feature-highlight:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 28px rgba(59, 130, 246, 0.25);

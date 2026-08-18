@@ -4,6 +4,7 @@ import type { IncomingMessage, ServerResponse } from 'node:http'
 
 type DevApiRequest = IncomingMessage & {
   body?: unknown
+  query?: Record<string, string | string[]>
 }
 
 type DevApiResponse = ServerResponse & {
@@ -144,6 +145,48 @@ export default defineConfig(({ mode }) => {
               if (!res.headersSent) {
                 withResponseHelpers(res).status(500).json({
                   message: 'Erro interno ao processar a API de perfil no ambiente local.',
+                })
+              }
+            }
+          })
+        },
+      },
+      {
+        name: 'local-api-candidatos-2026',
+        configureServer(server) {
+          server.middlewares.use('/api/candidatos-2026/presidentes', async (req, res, next) => {
+            const path = (req.url ?? '/').replace(/\?.*$/, '').replace(/\/$/, '')
+            const candidateIdMatch = path.match(/^\/(\d{6,18})$/)
+
+            if (path && !candidateIdMatch) {
+              next()
+              return
+            }
+
+            try {
+              const apiReq = req as DevApiRequest
+              const module = candidateIdMatch
+                ? ((await import('./api/candidatos-2026/presidentes/[id].js')) as {
+                    default: ApiHandler
+                  })
+                : ((await import('./api/candidatos-2026/presidentes.js')) as {
+                    default: ApiHandler
+                  })
+
+              if (candidateIdMatch) {
+                apiReq.query = { id: candidateIdMatch[1] }
+              }
+
+              await module.default(apiReq, withResponseHelpers(res))
+            } catch (error) {
+              console.error(
+                '[local-api-candidatos-2026] Erro ao consultar candidatos à Presidência',
+                error,
+              )
+
+              if (!res.headersSent) {
+                withResponseHelpers(res).status(500).json({
+                  message: 'Erro interno ao consultar candidatos no ambiente local.',
                 })
               }
             }

@@ -1,0 +1,389 @@
+.candidates-2026 {
+  --election-green: #35b879;
+  --election-green-soft: rgba(53, 184, 121, 0.13);
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.candidates-2026-hero {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  padding: clamp(1.5rem, 4vw, 3.25rem);
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  border-radius: 18px;
+  background:
+    linear-gradient(112deg, rgba(17, 34, 64, 0.97) 0%, rgba(14, 42, 67, 0.93) 58%, rgba(24, 91, 70, 0.72) 100%);
+  box-shadow: 0 24px 60px rgba(3, 10, 22, 0.25);
+}
+
+.candidates-2026-hero::before,
+.candidates-2026-hero::after {
+  position: absolute;
+  content: '';
+  border: 1px solid rgba(232, 201, 109, 0.16);
+  border-radius: 50%;
+}
+
+.candidates-2026-hero::before {
+  width: 330px;
+  height: 330px;
+  right: -110px;
+  top: -190px;
+}
+
+.candidates-2026-hero::after {
+  width: 240px;
+  height: 240px;
+  right: -45px;
+  bottom: -190px;
+}
+
+.candidates-2026-kicker,
+.candidates-2026-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--gold-light);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.candidates-2026-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+}
+
+.candidates-2026-kicker-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--election-green);
+  box-shadow: 0 0 0 5px rgba(53, 184, 121, 0.12);
+}
+
+.candidates-2026-heading {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.candidates-2026-heading h1 {
+  margin-bottom: 0.8rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  font-weight: 900;
+  line-height: 0.98;
+}
+
+.candidates-2026-heading h1 em {
+  color: var(--gold-light);
+  font-style: italic;
+}
+
+.candidates-2026-heading p {
+  max-width: 650px;
+  color: var(--white-dim);
+  font-size: clamp(0.95rem, 2vw, 1.08rem);
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+.candidates-2026-year {
+  color: rgba(240, 244, 255, 0.06);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(7rem, 17vw, 13rem);
+  font-weight: 900;
+  line-height: 0.68;
+  user-select: none;
+}
+
+.candidates-2026-notice {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(53, 184, 121, 0.35);
+  border-radius: 12px;
+  background: var(--election-green-soft);
+}
+
+.candidates-2026-notice-icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid rgba(53, 184, 121, 0.35);
+  border-radius: 50%;
+  background: rgba(10, 22, 40, 0.45);
+}
+
+.candidates-2026-notice strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--white);
+  font-size: 0.92rem;
+}
+
+.candidates-2026-notice p {
+  color: var(--white-dim);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.candidates-2026-guide-link {
+  display: inline-block;
+  margin-top: 0.45rem;
+  color: var(--gold-light);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+
+.candidates-2026-guide-link:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 3px;
+}
+
+.candidates-2026-coming-soon,
+.candidates-2026-locked-label {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--gold-light);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.candidates-2026-coming-soon {
+  padding: 0.42rem 0.7rem;
+  background: rgba(201, 168, 76, 0.12);
+}
+
+.candidates-2026-section {
+  margin-top: 1.25rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(17, 34, 64, 0.55);
+}
+
+.candidates-2026-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.candidates-2026-section-heading h2 {
+  margin-top: 0.3rem;
+  color: var(--white);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem;
+}
+
+.candidates-2026-locked-label {
+  padding: 0.35rem 0.65rem;
+  background: rgba(10, 22, 40, 0.55);
+}
+
+.candidates-2026-offices {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.candidates-2026-office,
+.candidates-2026-state {
+  border: 1px solid rgba(136, 153, 187, 0.2);
+  color: var(--silver);
+  background: rgba(10, 22, 40, 0.55);
+  cursor: not-allowed;
+}
+
+.candidates-2026-office {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.55rem;
+  min-height: 64px;
+  padding: 0.8rem;
+  border-radius: 9px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.82rem;
+  text-align: left;
+}
+
+.candidates-2026-office-lock {
+  opacity: 0.55;
+  filter: grayscale(1);
+}
+
+.candidates-2026-office-link {
+  color: var(--white);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.candidates-2026-office-link:hover {
+  border-color: var(--gold-light);
+  background: rgba(201, 168, 76, 0.08);
+  transform: translateY(-2px);
+}
+
+.candidates-2026-office-link:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 3px;
+}
+
+.candidates-2026-office-arrow {
+  color: var(--gold-light);
+  font-size: 1.25rem;
+}
+
+.candidates-2026-map-shell {
+  position: relative;
+  overflow: hidden;
+  padding: 1.25rem;
+  border: 1px solid rgba(136, 153, 187, 0.18);
+  border-radius: 12px;
+  background:
+    linear-gradient(rgba(10, 22, 40, 0.2), rgba(10, 22, 40, 0.2)),
+    repeating-linear-gradient(135deg, transparent 0 28px, rgba(136, 153, 187, 0.025) 28px 29px);
+}
+
+.candidates-2026-map {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  margin: 0 auto;
+  opacity: 0.58;
+  filter: saturate(0.45);
+  pointer-events: none;
+}
+
+.candidates-2026-map-state {
+  fill: rgba(17, 34, 64, 0.95);
+  stroke: rgba(136, 153, 187, 0.42);
+  stroke-width: 0.95;
+}
+
+.candidates-2026-map-label {
+  fill: rgba(232, 201, 109, 0.75);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  user-select: none;
+}
+
+.candidates-2026-map-shell p {
+  margin-top: 0.85rem;
+  color: var(--silver);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.candidates-2026-list-title {
+  margin: 1.35rem 0 0.8rem;
+  color: var(--white-dim);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.08rem;
+}
+
+.candidates-2026-state-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(116px, 1fr));
+  gap: 0.65rem;
+}
+
+.candidates-2026-state {
+  min-height: 66px;
+  padding: 0.75rem 0.5rem;
+  border-radius: 8px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  opacity: 0.68;
+  text-align: center;
+}
+
+.candidates-2026-state-uf {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: rgba(232, 201, 109, 0.78);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.candidates-2026-state-name {
+  color: var(--silver);
+  font-size: 0.67rem;
+  line-height: 1.2;
+}
+
+@media (max-width: 900px) {
+  .candidates-2026-offices {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .candidates-2026-year {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .candidates-2026-hero {
+    border-radius: 14px;
+  }
+
+  .candidates-2026-notice {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .candidates-2026-coming-soon {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .candidates-2026-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .candidates-2026-offices {
+    grid-template-columns: 1fr;
+  }
+
+  .candidates-2026-state-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .candidates-2026-office {
+    min-height: 56px;
+  }
+
+  .candidates-2026-state {
+    min-height: 54px;
+    padding: 0.6rem 0.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .candidates-2026 {
+    animation: none;
+  }
+}
