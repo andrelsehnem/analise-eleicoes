@@ -393,6 +393,51 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
     }
   }
 
+  if (normalizedPath === '/candidatos-2026') {
+    return {
+      title: 'Candidatos 2026',
+      description:
+        'Conheça a futura consulta de candidatos das Eleições 2026 por cargo e estado, baseada nos registros oficiais da Justiça Eleitoral.',
+      summary:
+        'A área apresenta a estrutura planejada para consultar candidaturas por cargo e unidade da federação quando os dados oficiais estiverem disponíveis.',
+      highlights: [
+        'Prévia da consulta por cargo eleitoral',
+        'Seleção futura por estado',
+        'Dados condicionados à publicação das candidaturas oficiais',
+      ],
+    }
+  }
+
+  if (normalizedPath === '/candidatos-2026/presidente') {
+    return {
+      title: 'Candidatos à Presidência em 2026',
+      description:
+        'Consulte a lista de candidatos à Presidência nas Eleições 2026 com dados publicados pelo Tribunal Superior Eleitoral.',
+      summary:
+        'Lista de candidaturas à Presidência com nome de urna, número, partido e situação publicada pela Justiça Eleitoral.',
+      highlights: [
+        'Dados do Tribunal Superior Eleitoral',
+        'Busca por nome, número, partido ou coligação',
+        'Acesso ao perfil oficial de cada candidatura',
+      ],
+    }
+  }
+
+  if (normalizedPath === '/candidatos-2026/guia-eleicoes') {
+    return {
+      title: 'Eleições 2026: datas, cargos, ordem de votação e como votar',
+      description:
+        'Confira as datas das Eleições 2026, os cargos em disputa, a ordem dos seis votos na urna e orientações simples sobre como votar.',
+      summary:
+        'Guia informativo sobre as Eleições Gerais de 2026, sem antecipar candidaturas antes da publicação dos registros oficiais.',
+      highlights: [
+        'Primeiro turno em 4 de outubro e eventual segundo turno em 25 de outubro',
+        'Ordem das seis escolhas na urna eletrônica',
+        'Orientações para conferir os dados e confirmar o voto',
+      ],
+    }
+  }
+
   if (normalizedPath === '/informacoes-gerais') {
     return {
       title: 'Informações gerais por estado e cargo',

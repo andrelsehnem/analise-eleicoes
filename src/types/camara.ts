@@ -432,3 +432,62 @@ export type ProfileData = {
   updatedAt?: string
   favorites?: FavoritePolitician[]
 }
+
+export type PresidentialCandidate = {
+  id: string
+  nomeUrna: string
+  nomeCompleto: string
+  numero: number
+  partido: string
+  nomePartido: string
+  coligacao: string
+  cargo: string
+  situacao: string
+  situacaoTotalizacao: string
+  uf: string
+  fotoUrl: string
+  atualizadoEm: string
+}
+
+export type PresidentialCandidatesResponse = {
+  fonte: string
+  fonteUrl: string
+  consultadoEm: string
+  total: number
+  candidatos: PresidentialCandidate[]
+}
+
+export type PresidentialCandidateAsset = {
+  ordem: number
+  tipo: string
+  descricao: string
+  valor: number
+  atualizadoEm: string
+}
+
+export type PresidentialCandidateDetail = PresidentialCandidate & {
+  composicaoColigacao: string
+  situacaoCandidatura: string
+  candidatoApto: boolean
+  dataNascimento: string
+  sexo: string
+  corRaca: string
+  estadoCivil: string
+  nacionalidade: string
+  escolaridade: string
+  ocupacao: string
+  municipioNascimento: string
+  ufNascimento: string
+  gastoCampanha: number
+  gastoCampanhaPrimeiroTurno: number
+  gastoCampanhaSegundoTurno: number
+  totalBens: number
+  bens: PresidentialCandidateAsset[]
+}
+
+export type PresidentialCandidateDetailResponse = {
+  fonte: string
+  fonteUrl: string
+  consultadoEm: string
+  candidato: PresidentialCandidateDetail
+}

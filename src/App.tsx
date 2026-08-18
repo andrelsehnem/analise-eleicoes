@@ -53,6 +53,20 @@ const SearchPage = lazy(async () => ({
 const GeneralInfoPage = lazy(async () => ({
   default: (await import('./components/pages/GeneralInfoPage')).GeneralInfoPage,
 }))
+const Candidates2026Page = lazy(async () => ({
+  default: (await import('./components/pages/Candidates2026Page')).Candidates2026Page,
+}))
+const Elections2026GuidePage = lazy(async () => ({
+  default: (await import('./components/pages/Elections2026GuidePage')).Elections2026GuidePage,
+}))
+const Candidates2026PresidentsPage = lazy(async () => ({
+  default: (await import('./components/pages/Candidates2026PresidentsPage'))
+    .Candidates2026PresidentsPage,
+}))
+const Candidates2026PresidentDetailPage = lazy(async () => ({
+  default: (await import('./components/pages/Candidates2026PresidentDetailPage'))
+    .Candidates2026PresidentDetailPage,
+}))
 const LoginPage = lazy(async () => ({
   default: (await import('./components/pages/LoginPage')).LoginPage,
 }))
@@ -222,6 +236,46 @@ function App() {
           <AppLayout showStepsNav={false}>
             <Suspense fallback={<Loader />}>
               <SearchPage />
+            </Suspense>
+          </AppLayout>
+        }
+      />
+      <Route
+        path="/candidatos-2026"
+        element={
+          <AppLayout showStepsNav={false}>
+            <Suspense fallback={<Loader />}>
+              <Candidates2026Page />
+            </Suspense>
+          </AppLayout>
+        }
+      />
+      <Route
+        path="/candidatos-2026/guia-eleicoes"
+        element={
+          <AppLayout showStepsNav={false}>
+            <Suspense fallback={<Loader />}>
+              <Elections2026GuidePage />
+            </Suspense>
+          </AppLayout>
+        }
+      />
+      <Route
+        path="/candidatos-2026/presidente"
+        element={
+          <AppLayout showStepsNav={false}>
+            <Suspense fallback={<Loader message="Carregando candidaturas..." />}>
+              <Candidates2026PresidentsPage />
+            </Suspense>
+          </AppLayout>
+        }
+      />
+      <Route
+        path="/candidatos-2026/presidente/:candidateId"
+        element={
+          <AppLayout showStepsNav={false}>
+            <Suspense fallback={<Loader message="Carregando perfil da candidatura..." />}>
+              <Candidates2026PresidentDetailPage />
             </Suspense>
           </AppLayout>
         }

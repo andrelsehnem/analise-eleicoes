@@ -1,4 +1,5 @@
 import './LandingPanel.css'
+import { Link } from 'react-router-dom'
 
 interface LandingPanelProps {
   onStartSearch: () => void
@@ -14,7 +15,17 @@ export function LandingPanel({ onStartSearch, onStartGlobalSearch }: LandingPane
           Explore informações detalhadas sobre politicos brasileiros, suas proposições e votações.
         </p>
 
+
         <div className="landing-features">
+          <Link
+            aria-label="Conhecer a área Candidatos 2026"
+            className="feature feature-highlight feature-link"
+            to="/candidatos-2026"
+          >
+            <div className="feature-icon">🗳️</div>
+            <h3>Candidatos 2026</h3>
+            <p>Conheça a futura consulta de candidatos das eleições de outubro de 2026</p>
+          </Link>
           <div
             className="feature"
             role="button"
@@ -87,12 +98,7 @@ export function LandingPanel({ onStartSearch, onStartGlobalSearch }: LandingPane
             <p>Pesquise diretamente pelo nome do político</p>
           </div>
 
-          <div className="feature feature-highlight">
-            <span className="feature-badge">Em breve</span>
-            <div className="feature-icon">🗳️</div>
-            <h3>Candidatos 2026</h3>
-            <p>Consulte os candidatos registrados para as eleições de outubro de 2026</p>
-          </div>
+          
         </div>
       </div>
     </div>

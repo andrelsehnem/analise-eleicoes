@@ -21,8 +21,9 @@ No estado atual do projeto, os fluxos implementados são:
 13. **Página de Sugestões**
 14. **Login de usuário** (`/login`) com Firebase Auth (Google e e-mail/senha)
 15. **Perfil de usuário** (`/perfil`) com rota protegida e sessão segura
+16. **Candidatos à Presidência em 2026** com dados oficiais do DivulgaCandContas
 
-Fluxos como favoritos, comparação e candidatos futuros serão implementados em versões futuras.
+Fluxos como comparação e candidaturas dos demais cargos serão implementados em versões futuras.
 
 ---
 
@@ -115,6 +116,7 @@ type Tab         = 'proposicoes' | 'votacoes'
 | `deputados-federais` | `GET https://dadosabertos.camara.leg.br/api/v2/deputados` (por UF) |
 | `senadores` | `GET https://legis.senado.leg.br/dadosabertos/senador/lista/atual` |
 | `deputados-estaduais` | múltiplas fontes oficiais por UF (APIs e portais das assembleias), consolidadas em `scripts/generate-politicians-index.mjs` |
+| `candidatos-presidencia-2026` | `GET https://divulgacandcontas.tse.jus.br/divulga/rest/v1/candidatura/listar/2026/BR/20322002026/1/candidatos` |
 
 > **Ao integrar uma nova API com listagem de políticos:** adicionar um novo grupo em `scripts/generate-politicians-index.mjs` seguindo o padrão existente (função `load<Tipo>` + entrada no objeto `index`) e registrar a URL na tabela acima. O JSON `public/politicians-index.json` é gerado automaticamente no `pnpm build` e também via `pnpm generate:politicians`.
 
