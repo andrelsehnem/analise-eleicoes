@@ -34,6 +34,31 @@
   letter-spacing: 0.02em;
 }
 
+.candidate-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.candidate-pagination > span {
+  color: var(--white-dim);
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .candidate-pagination {
+    flex-wrap: wrap;
+  }
+
+  .candidate-pagination > span {
+    order: -1;
+    width: 100%;
+  }
+}
+
 @media (max-width: 560px) {
   .candidates-presidents-card {
     min-height: 124px;

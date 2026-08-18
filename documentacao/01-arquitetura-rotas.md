@@ -13,6 +13,8 @@
 - `/candidatos-2026` → `Candidates2026Page`
 - `/candidatos-2026/presidente` → `Candidates2026PresidentsPage`
 - `/candidatos-2026/presidente/:candidateId` → `Candidates2026PresidentDetailPage`
+- `/candidatos-2026/:office/:uf` → `StateElectionCandidatesPage` (Governador, Senador e Deputados)
+- `/candidatos-2026/:office/:uf/:candidateId` → `StateElectionCandidateDetailPage`
 - `/informacoes-gerais` → `GeneralInfoPage`
 - `/informacoes-gerais/:uf` → `GeneralInfoPage`
 - `/por-estado` → `StateSelectionPage`
@@ -105,4 +107,4 @@
 - `AppLayout` estrutura cabeçalho, hero, navegação de etapas (quando aplicável) e conteúdo.
 - O banner de cookies é renderizado globalmente no `AppLayout`, com persistência de decisão em localStorage.
 - Algumas rotas não usam StepsNav (`showStepsNav={false}`), especialmente presidência e sobre.
-- A rota `/candidatos-2026` não usa StepsNav. O cargo Presidente abre a listagem oficial em `/candidatos-2026/presidente`; os demais cargos, mapa e UFs permanecem desabilitados.
+- A rota `/candidatos-2026` não usa StepsNav. Presidente abre diretamente a listagem nacional; Governador, Senador, Deputado Federal e Deputado Estadual/Distrital ativam o mapa e a lista de UFs.

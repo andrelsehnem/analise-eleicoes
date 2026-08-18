@@ -58,6 +58,38 @@
   ],
   "rewrites": [
     {
+      "source": "/api/candidatos-2026/senadores/:uf/:id",
+      "destination": "/api/candidatos-2026/senadores/[uf]/[id]"
+    },
+    {
+      "source": "/api/candidatos-2026/senadores/:uf",
+      "destination": "/api/candidatos-2026/senadores/[uf]"
+    },
+    {
+      "source": "/api/candidatos-2026/deputados-federais/:uf/:id",
+      "destination": "/api/candidatos-2026/deputados-federais/[uf]/[id]"
+    },
+    {
+      "source": "/api/candidatos-2026/deputados-federais/:uf",
+      "destination": "/api/candidatos-2026/deputados-federais/[uf]"
+    },
+    {
+      "source": "/api/candidatos-2026/deputados-estaduais/:uf/:id",
+      "destination": "/api/candidatos-2026/deputados-estaduais/[uf]/[id]"
+    },
+    {
+      "source": "/api/candidatos-2026/deputados-estaduais/:uf",
+      "destination": "/api/candidatos-2026/deputados-estaduais/[uf]"
+    },
+    {
+      "source": "/api/candidatos-2026/governadores/:uf/:id",
+      "destination": "/api/candidatos-2026/governadores/[uf]/[id]"
+    },
+    {
+      "source": "/api/candidatos-2026/governadores/:uf",
+      "destination": "/api/candidatos-2026/governadores/[uf]"
+    },
+    {
       "source": "/api/candidatos-2026/presidentes/:id",
       "destination": "/api/candidatos-2026/presidentes/[id]"
     },

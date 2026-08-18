@@ -423,6 +423,27 @@ function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDepu
     }
   }
 
+  const stateCandidateMatch = normalizedPath.match(/^\/candidatos-2026\/(governador|senador|deputado-federal|deputado-estadual)\/([a-z]{2})$/)
+  if (stateCandidateMatch) {
+    const officeLabels = { governador: 'Governador', senador: 'Senador',
+      'deputado-federal': 'Deputado Federal', 'deputado-estadual': 'Deputado Estadual' }
+    const uf = stateCandidateMatch[2].toUpperCase()
+    const officeLabel = stateCandidateMatch[1] === 'deputado-estadual' && uf === 'DF'
+      ? 'Deputado Distrital' : officeLabels[stateCandidateMatch[1]]
+    return {
+      title: `Candidatos a ${officeLabel} de ${uf} em 2026`,
+      description:
+        `Consulte os candidatos a ${officeLabel} de ${uf} nas Eleições 2026 com dados publicados pelo Tribunal Superior Eleitoral.`,
+      summary:
+        `Lista de candidaturas a ${officeLabel} de ${uf} com nome de urna, número, partido e situação publicada pela Justiça Eleitoral.`,
+      highlights: [
+        'Dados do Tribunal Superior Eleitoral',
+        'Busca por nome, número, partido ou coligação',
+        'Acesso ao perfil oficial de cada candidatura',
+      ],
+    }
+  }
+
   if (normalizedPath === '/candidatos-2026/guia-eleicoes') {
     return {
       title: 'Eleições 2026: datas, cargos, ordem de votação e como votar',

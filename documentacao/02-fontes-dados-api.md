@@ -15,6 +15,16 @@
   repassar identificadores pessoais presentes no payload original do TSE.
 - A resposta bem-sucedida usa cache compartilhado de 30 minutos e tolera conteúdo obsoleto
   durante indisponibilidades temporárias da fonte.
+- **Governadores:** `GET /api/candidatos-2026/governadores/:uf` consulta o cargo 3 do
+  DivulgaCandContas para uma UF validada.
+- **Detalhe de governador:** `GET /api/candidatos-2026/governadores/:uf/:id` expõe o mesmo
+  recorte público e normalizado usado no detalhe presidencial.
+- As rotas estaduais usam a eleição `20322002026`, validam as 27 UFs e mantêm o mesmo
+  timeout e cache compartilhado da consulta presidencial.
+- **Senadores:** `GET /api/candidatos-2026/senadores/:uf` e detalhe `/:id`, cargo TSE `5`.
+- **Deputados federais:** `GET /api/candidatos-2026/deputados-federais/:uf` e detalhe `/:id`, cargo TSE `6`.
+- **Deputados estaduais/distritais:** `GET /api/candidatos-2026/deputados-estaduais/:uf` e detalhe `/:id`; usa cargo TSE `7` nos estados e `8` no Distrito Federal.
+- As listas proporcionais não fazem consultas individuais para completar fotos; o detalhe consulta o registro completo.
 
 ## Fontes utilizadas
 

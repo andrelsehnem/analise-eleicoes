@@ -247,6 +247,11 @@
   outline-offset: 3px;
 }
 
+.candidates-2026-office-link.is-selected {
+  border-color: var(--election-green);
+  background: var(--election-green-soft);
+}
+
 .candidates-2026-office-arrow {
   color: var(--gold-light);
   font-size: 1.25rem;
@@ -272,6 +277,22 @@
   opacity: 0.58;
   filter: saturate(0.45);
   pointer-events: none;
+}
+
+.candidates-2026-map.is-enabled {
+  opacity: 1;
+  filter: none;
+  pointer-events: auto;
+}
+
+.candidates-2026-map.is-enabled a:hover .candidates-2026-map-state,
+.candidates-2026-map.is-enabled a:focus-visible .candidates-2026-map-state {
+  fill: rgba(53, 184, 121, 0.35);
+  stroke: var(--gold-light);
+}
+
+.candidates-2026-map.is-enabled a:focus-visible {
+  outline: none;
 }
 
 .candidates-2026-map-state {
@@ -317,6 +338,23 @@
   font-family: 'IBM Plex Sans', sans-serif;
   opacity: 0.68;
   text-align: center;
+}
+
+.candidates-2026-state.is-enabled {
+  color: var(--white);
+  cursor: pointer;
+  opacity: 1;
+  text-decoration: none;
+}
+
+.candidates-2026-state.is-enabled:hover {
+  border-color: var(--gold-light);
+  background: rgba(201, 168, 76, 0.08);
+}
+
+.candidates-2026-state.is-enabled:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 3px;
 }
 
 .candidates-2026-state-uf {

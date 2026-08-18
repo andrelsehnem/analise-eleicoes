@@ -433,7 +433,7 @@ export type ProfileData = {
   favorites?: FavoritePolitician[]
 }
 
-export type PresidentialCandidate = {
+export type ElectionCandidate = {
   id: string
   nomeUrna: string
   nomeCompleto: string
@@ -449,15 +449,15 @@ export type PresidentialCandidate = {
   atualizadoEm: string
 }
 
-export type PresidentialCandidatesResponse = {
+export type ElectionCandidatesResponse = {
   fonte: string
   fonteUrl: string
   consultadoEm: string
   total: number
-  candidatos: PresidentialCandidate[]
+  candidatos: ElectionCandidate[]
 }
 
-export type PresidentialCandidateAsset = {
+export type ElectionCandidateAsset = {
   ordem: number
   tipo: string
   descricao: string
@@ -465,7 +465,7 @@ export type PresidentialCandidateAsset = {
   atualizadoEm: string
 }
 
-export type PresidentialCandidateDetail = PresidentialCandidate & {
+export type ElectionCandidateDetail = ElectionCandidate & {
   composicaoColigacao: string
   situacaoCandidatura: string
   candidatoApto: boolean
@@ -482,12 +482,28 @@ export type PresidentialCandidateDetail = PresidentialCandidate & {
   gastoCampanhaPrimeiroTurno: number
   gastoCampanhaSegundoTurno: number
   totalBens: number
-  bens: PresidentialCandidateAsset[]
+  bens: ElectionCandidateAsset[]
 }
 
-export type PresidentialCandidateDetailResponse = {
+export type ElectionCandidateDetailResponse = {
   fonte: string
   fonteUrl: string
   consultadoEm: string
-  candidato: PresidentialCandidateDetail
+  candidato: ElectionCandidateDetail
 }
+
+export type StateElectionOffice =
+  | 'governador'
+  | 'senador'
+  | 'deputado-federal'
+  | 'deputado-estadual'
+
+export type PresidentialCandidate = ElectionCandidate
+export type PresidentialCandidatesResponse = ElectionCandidatesResponse
+export type PresidentialCandidateAsset = ElectionCandidateAsset
+export type PresidentialCandidateDetail = ElectionCandidateDetail
+export type PresidentialCandidateDetailResponse = ElectionCandidateDetailResponse
+export type GovernorCandidate = PresidentialCandidate
+export type GovernorCandidatesResponse = PresidentialCandidatesResponse
+export type GovernorCandidateDetail = PresidentialCandidateDetail
+export type GovernorCandidateDetailResponse = PresidentialCandidateDetailResponse
