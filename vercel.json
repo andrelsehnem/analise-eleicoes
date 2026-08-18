@@ -58,6 +58,10 @@
   ],
   "rewrites": [
     {
+      "source": "/api/candidatos-2026/presidentes/:id",
+      "destination": "/api/candidatos-2026/presidentes/[id]"
+    },
+    {
       "source": "/api/(.*)",
       "destination": "/api/$1"
     },

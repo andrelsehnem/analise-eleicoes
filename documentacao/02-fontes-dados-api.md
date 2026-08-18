@@ -8,6 +8,8 @@
 - **Endpoint interno:** `GET /api/candidatos-2026/presidentes`.
 - **Detalhe interno:** `GET /api/candidatos-2026/presidentes/:id`, com dados pessoais
   públicos, situação, campanha e bens declarados; CPF, título eleitoral e e-mail não são expostos.
+- Na Vercel, a rota pública de detalhe possui um rewrite explícito para a função dinâmica
+  `api/candidatos-2026/presidentes/[id].js`, definido antes do fallback da SPA para `index.html`.
 - **Cliente frontend:** `fetchPresidentialCandidates()` em `src/api/candidatesApi.ts`.
 - O backend normaliza a resposta e expõe somente os campos necessários à interface, sem
   repassar identificadores pessoais presentes no payload original do TSE.
