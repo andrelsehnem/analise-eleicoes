@@ -67,6 +67,12 @@ const Candidates2026PresidentDetailPage = lazy(async () => ({
   default: (await import('./components/pages/Candidates2026PresidentDetailPage'))
     .Candidates2026PresidentDetailPage,
 }))
+const StateElectionCandidatesPage = lazy(async () => ({
+  default: (await import('./components/pages/StateElectionCandidatesPage')).StateElectionCandidatesPage,
+}))
+const StateElectionCandidateDetailPage = lazy(async () => ({
+  default: (await import('./components/pages/StateElectionCandidateDetailPage')).StateElectionCandidateDetailPage,
+}))
 const LoginPage = lazy(async () => ({
   default: (await import('./components/pages/LoginPage')).LoginPage,
 }))
@@ -279,6 +285,14 @@ function App() {
             </Suspense>
           </AppLayout>
         }
+      />
+      <Route
+        path="/candidatos-2026/:office/:uf"
+        element={<AppLayout showStepsNav={false}><Suspense fallback={<Loader message="Carregando candidaturas..." />}><StateElectionCandidatesPage /></Suspense></AppLayout>}
+      />
+      <Route
+        path="/candidatos-2026/:office/:uf/:candidateId"
+        element={<AppLayout showStepsNav={false}><Suspense fallback={<Loader message="Carregando perfil da candidatura..." />}><StateElectionCandidateDetailPage /></Suspense></AppLayout>}
       />
       <Route
         path="/informacoes-gerais"

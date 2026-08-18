@@ -175,6 +175,15 @@ function loadGeneralInfoPaths() {
   }))
 }
 
+function loadStateCandidatePaths() {
+  const offices = ['governador', 'senador', 'deputado-federal', 'deputado-estadual']
+  return offices.flatMap((office) => STATES.map((uf) => ({
+    path: `/candidatos-2026/${office}/${uf.toLowerCase()}`,
+    changefreq: 'daily',
+    priority: '0.9',
+  })))
+}
+
 async function loadStateDeputyPaths() {
   try {
     const raw = await readFile(politiciansIndexPath, 'utf-8')
@@ -222,6 +231,7 @@ async function main() {
     ...senatorPaths,
     ...stateDeputyPaths,
     ...loadPresidentPaths(),
+    ...loadStateCandidatePaths(),
     ...loadGeneralInfoPaths(),
   ]
   const uniqueByPath = new Map(entries.map((entry) => [entry.path, entry]))

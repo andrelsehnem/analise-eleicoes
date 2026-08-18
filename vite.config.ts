@@ -156,7 +156,7 @@ export default defineConfig(({ mode }) => {
         configureServer(server) {
           server.middlewares.use('/api/candidatos-2026/presidentes', async (req, res, next) => {
             const path = (req.url ?? '/').replace(/\?.*$/, '').replace(/\/$/, '')
-            const candidateIdMatch = path.match(/^\/(\d{6,18})$/)
+            const candidateIdMatch = path.match(/^\/([^/]+)$/)
 
             if (path && !candidateIdMatch) {
               next()
@@ -165,13 +165,12 @@ export default defineConfig(({ mode }) => {
 
             try {
               const apiReq = req as DevApiRequest
-              const module = candidateIdMatch
-                ? ((await import('./api/candidatos-2026/presidentes/[id].js')) as {
-                    default: ApiHandler
-                  })
-                : ((await import('./api/candidatos-2026/presidentes.js')) as {
-                    default: ApiHandler
-                  })
+              const modulePath = candidateIdMatch
+                ? '/api/candidatos-2026/presidentes/[id].js'
+                : '/api/candidatos-2026/presidentes.js'
+              const module = (await server.ssrLoadModule(modulePath)) as {
+                default: ApiHandler
+              }
 
               if (candidateIdMatch) {
                 apiReq.query = { id: candidateIdMatch[1] }
@@ -190,6 +189,72 @@ export default defineConfig(({ mode }) => {
                 })
               }
             }
+          })
+
+          server.middlewares.use('/api/candidatos-2026/governadores', async (req, res, next) => {
+            const path = (req.url ?? '/').replace(/\?.*$/, '').replace(/\/$/, '')
+            const listMatch = path.match(/^\/([A-Za-z]{2})$/)
+            const detailMatch = path.match(/^\/([A-Za-z]{2})\/([^/]+)$/)
+
+            if (!listMatch && !detailMatch) {
+              next()
+              return
+            }
+
+            try {
+              const apiReq = req as DevApiRequest
+              const uf = (detailMatch?.[1] ?? listMatch?.[1] ?? '').toUpperCase()
+              const module = (await server.ssrLoadModule('/api/candidatos-2026/cargos.js')) as {
+                default: ApiHandler
+              }
+
+              apiReq.query = detailMatch
+                ? { office: 'governadores', uf, id: detailMatch[2] }
+                : { office: 'governadores', uf }
+
+              await module.default(apiReq, withResponseHelpers(res))
+            } catch (error) {
+              console.error(
+                '[local-api-candidatos-2026] Erro ao consultar candidatos a Governador',
+                error,
+              )
+
+              if (!res.headersSent) {
+                withResponseHelpers(res).status(500).json({
+                  message: 'Erro interno ao consultar candidatos no ambiente local.',
+                })
+              }
+            }
+          })
+
+          const stateOfficeApis = [
+            'senadores',
+            'deputados-federais',
+            'deputados-estaduais',
+          ]
+
+          stateOfficeApis.forEach((segment) => {
+            server.middlewares.use(`/api/candidatos-2026/${segment}`, async (req, res, next) => {
+              const path = (req.url ?? '/').replace(/\?.*$/, '').replace(/\/$/, '')
+              const listMatch = path.match(/^\/([A-Za-z]{2})$/)
+              const detailMatch = path.match(/^\/([A-Za-z]{2})\/([^/]+)$/)
+              if (!listMatch && !detailMatch) { next(); return }
+
+              try {
+                const uf = (detailMatch?.[1] ?? listMatch?.[1] ?? '').toUpperCase()
+                const module = (await server.ssrLoadModule('/api/candidatos-2026/cargos.js')) as { default: ApiHandler }
+                const apiReq = req as DevApiRequest
+                apiReq.query = detailMatch
+                  ? { office: segment, uf, id: detailMatch[2] }
+                  : { office: segment, uf }
+                await module.default(apiReq, withResponseHelpers(res))
+              } catch (error) {
+                console.error(`[local-api-candidatos-2026] Erro ao consultar ${segment}`, error)
+                if (!res.headersSent) withResponseHelpers(res).status(500).json({
+                  message: 'Erro interno ao consultar candidatos no ambiente local.',
+                })
+              }
+            })
           })
         },
       },

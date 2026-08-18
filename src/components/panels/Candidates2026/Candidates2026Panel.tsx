@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import brazilMap from '@svg-maps/brazil'
 import { Link } from 'react-router-dom'
 import { STATES } from '../../../constants/states'
+import { STATE_ELECTION_OFFICES, type StateElectionOfficeConfig } from '../../../constants/electionOffices'
 import './Candidates2026Panel.css'
 
 type BrazilLocation = {
@@ -10,19 +11,12 @@ type BrazilLocation = {
   path: string
 }
 
-const OFFICES = [
-  'Presidente',
-  'Governador',
-  'Senador',
-  'Deputado Federal',
-  'Deputado Estadual/Distrital',
-] as const
-
 const mapLocations = brazilMap.locations as BrazilLocation[]
 const stateNameByUf = new Map(STATES.map((state) => [state.uf, state.name]))
 
 export function Candidates2026Panel() {
   const svgRef = useRef<SVGSVGElement>(null)
+  const [selectedOffice, setSelectedOffice] = useState<StateElectionOfficeConfig | null>(null)
 
   useEffect(() => {
     const svg = svgRef.current
@@ -77,10 +71,10 @@ export function Candidates2026Panel() {
       <div className="candidates-2026-notice" role="status">
         <span className="candidates-2026-notice-icon" aria-hidden="true">✓</span>
         <div>
-          <strong>Consulta à Presidência disponível</strong>
+          <strong>Consultas das Eleições 2026 disponíveis</strong>
           <p>
-            A lista de candidatos a Presidente já usa os registros oficiais da Justiça
-            Eleitoral. Os demais cargos serão liberados gradualmente.
+            Consulte candidatos a Presidente, Governador, Senador e Deputados com dados oficiais
+            publicados pela Justiça Eleitoral.
           </p>
           <Link className="candidates-2026-guide-link" to="/candidatos-2026/guia-eleicoes">
             Ver datas, ordem da urna e como votar
@@ -95,37 +89,24 @@ export function Candidates2026Panel() {
             <span className="candidates-2026-eyebrow">Primeiro passo</span>
             <h2 id="candidates-offices-title">Escolha o cargo</h2>
           </div>
-          <span className="candidates-2026-locked-label">4 opções em breve</span>
         </div>
 
         <div className="candidates-2026-offices" aria-label="Cargos das Eleições 2026">
-          {OFFICES.map((office) => {
-            if (office === 'Presidente') {
-              return (
-                <Link
-                  className="candidates-2026-office candidates-2026-office-link"
-                  key={office}
-                  to="/candidatos-2026/presidente"
-                >
-                  <span>{office}</span>
-                  <span className="candidates-2026-office-arrow" aria-hidden="true">›</span>
-                </Link>
-              )
-            }
-
-            return (
+          <Link className="candidates-2026-office candidates-2026-office-link" to="/candidatos-2026/presidente">
+            <span>Presidente</span><span className="candidates-2026-office-arrow" aria-hidden="true">›</span>
+          </Link>
+          {STATE_ELECTION_OFFICES.map((office) => (
               <button
-                className="candidates-2026-office"
-                disabled
-                aria-disabled="true"
-                key={office}
+                aria-pressed={selectedOffice?.slug === office.slug}
+                className={`candidates-2026-office candidates-2026-office-link${selectedOffice?.slug === office.slug ? ' is-selected' : ''}`}
+                key={office.slug}
                 type="button"
+                onClick={() => setSelectedOffice(office)}
               >
-                <span>{office}</span>
-                <span className="candidates-2026-office-lock" aria-hidden="true">🔒</span>
+                <span>{office.buttonLabel}</span>
+                <span className="candidates-2026-office-arrow" aria-hidden="true">↓</span>
               </button>
-            )
-          })}
+          ))}
         </div>
       </div>
 
@@ -135,13 +116,15 @@ export function Candidates2026Panel() {
             <span className="candidates-2026-eyebrow">Para cargos estaduais</span>
             <h2 id="candidates-states-title">Escolha o estado</h2>
           </div>
-          <span className="candidates-2026-locked-label">🔒 Mapa bloqueado</span>
+          <span className="candidates-2026-locked-label">
+            {selectedOffice ? `${selectedOffice.buttonLabel} selecionado` : 'Selecione cargo acima'}
+          </span>
         </div>
 
         <div className="candidates-2026-map-shell" aria-describedby="candidates-map-hint">
           <svg
-            aria-label="Prévia indisponível do mapa do Brasil por estados"
-            className="candidates-2026-map"
+            aria-label={selectedOffice ? 'Escolha um estado no mapa do Brasil' : 'Mapa do Brasil aguardando a seleção de um cargo'}
+            className={`candidates-2026-map${selectedOffice ? ' is-enabled' : ''}`}
             ref={svgRef}
             role="img"
             viewBox={brazilMap.viewBox}
@@ -152,16 +135,17 @@ export function Candidates2026Panel() {
 
               return (
                 <g key={location.id}>
+                  <Link key={location.id} to={selectedOffice ? `/candidatos-2026/${selectedOffice.slug}/${uf.toLowerCase()}` : '#'}
+                    aria-disabled={!selectedOffice} tabIndex={selectedOffice ? 0 : -1}>
                   <path
-                    aria-disabled="true"
-                    aria-label={`${name} indisponível`}
+                    aria-label={selectedOffice ? `Ver candidatos a ${selectedOffice.buttonLabel} de ${name}` : `${name} indisponível`}
                     className="candidates-2026-map-state"
                     d={location.path}
                     data-candidate-state={location.id}
                     role="button"
                     tabIndex={-1}
                   >
-                    <title>{`${name} (${uf}) — em breve`}</title>
+                    <title>{selectedOffice ? `Candidatos a ${selectedOffice.buttonLabel} de ${name} (${uf})` : `${name} (${uf}) — selecione um cargo`}</title>
                   </path>
                   <text
                     className="candidates-2026-map-label"
@@ -174,25 +158,28 @@ export function Candidates2026Panel() {
                   >
                     {uf}
                   </text>
+                  </Link>
                 </g>
               )
             })}
           </svg>
           <p id="candidates-map-hint">
-            A seleção pelo mapa estará disponível com a publicação dos registros oficiais.
+            {selectedOffice
+              ? `Selecione uma UF para consultar as candidaturas a ${selectedOffice.buttonLabel}.`
+              : 'Selecione um cargo para liberar o mapa e a lista de estados.'}
           </p>
         </div>
 
         <h3 className="candidates-2026-list-title">Ou selecione pela lista</h3>
-        <div className="candidates-2026-state-grid" aria-label="Estados indisponíveis">
-          {STATES.map((state) => (
-            <button
-              className="candidates-2026-state"
-              disabled
-              aria-disabled="true"
-              key={state.uf}
-              type="button"
-            >
+        <div className="candidates-2026-state-grid" aria-label="Estados brasileiros">
+          {STATES.map((state) => selectedOffice ? (
+            <Link className="candidates-2026-state is-enabled" key={state.uf}
+              to={`/candidatos-2026/${selectedOffice.slug}/${state.uf.toLowerCase()}`}>
+              <span className="candidates-2026-state-uf">{state.uf}</span>
+              <span className="candidates-2026-state-name">{state.name}</span>
+            </Link>
+          ) : (
+            <button className="candidates-2026-state" disabled aria-disabled="true" key={state.uf} type="button">
               <span className="candidates-2026-state-uf">{state.uf}</span>
               <span className="candidates-2026-state-name">{state.name}</span>
             </button>

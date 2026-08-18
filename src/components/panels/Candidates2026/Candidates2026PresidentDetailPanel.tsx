@@ -11,6 +11,8 @@ type Candidates2026PresidentDetailPanelProps = {
   error: string
   loading: boolean
   sourceUrl: string
+  officeLabel?: string
+  jurisdictionLabel?: string
   onBack: () => void
 }
 
@@ -36,6 +38,8 @@ export function Candidates2026PresidentDetailPanel({
   error,
   loading,
   sourceUrl,
+  officeLabel = 'Presidência',
+  jurisdictionLabel = '🇧🇷 Brasil',
   onBack,
 }: Candidates2026PresidentDetailPanelProps) {
   return (
@@ -48,7 +52,12 @@ export function Candidates2026PresidentDetailPanel({
       {!loading && error && <ErrorBox message={error} />}
 
       {!loading && !error && candidate && (
-        <CandidateDetailContent candidate={candidate} sourceUrl={sourceUrl} />
+        <CandidateDetailContent
+          candidate={candidate}
+          jurisdictionLabel={jurisdictionLabel}
+          officeLabel={officeLabel}
+          sourceUrl={sourceUrl}
+        />
       )}
     </div>
   )
@@ -56,10 +65,17 @@ export function Candidates2026PresidentDetailPanel({
 
 type CandidateDetailContentProps = {
   candidate: PresidentialCandidateDetail
+  jurisdictionLabel: string
+  officeLabel: string
   sourceUrl: string
 }
 
-function CandidateDetailContent({ candidate, sourceUrl }: CandidateDetailContentProps) {
+function CandidateDetailContent({
+  candidate,
+  jurisdictionLabel,
+  officeLabel,
+  sourceUrl,
+}: CandidateDetailContentProps) {
   const birthPlace = formatBirthPlace(candidate)
   const status = candidate.situacao || candidate.situacaoCandidatura || 'Situação não informada'
 
@@ -77,12 +93,12 @@ function CandidateDetailContent({ candidate, sourceUrl }: CandidateDetailContent
           }}
         />
         <div className="deputy-detail-info">
-          <div className="candidate-2026-detail-kicker">Candidatura à Presidência · Eleições 2026</div>
+          <div className="candidate-2026-detail-kicker">Candidatura a {officeLabel} · Eleições 2026</div>
           <h1 className="deputy-detail-name">{candidate.nomeUrna}</h1>
           <div className="candidate-2026-detail-civil-name">{candidate.nomeCompleto}</div>
           <div className="deputy-tags">
             <span className="tag tag-party">{candidate.numero} · {candidate.partido}</span>
-            <span className="tag tag-state">🇧🇷 Brasil</span>
+            <span className="tag tag-state">{jurisdictionLabel}</span>
             <span className="tag candidate-2026-status-tag">{status}</span>
           </div>
           <div className="deputy-extra">
