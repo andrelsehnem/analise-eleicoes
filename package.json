@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build && pnpm run generate:static",
+    "dev": "vite && pnpm run generate:static ",
+    "build": "tsc -b && vite build ",
     "lint": "eslint .",
     "preview": "vite preview",
     "geracao": "pnpm run generate:politicians && pnpm run generate:sitemap && pnpm run generate:prerender-routes",

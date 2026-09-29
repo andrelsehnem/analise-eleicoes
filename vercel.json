@@ -1,4 +1,15 @@
 {
+  "functions": {
+    "api/candidatos-2026/presidentes.js": {
+      "regions": ["gru1"]
+    },
+    "api/candidatos-2026/presidentes/[id].js": {
+      "regions": ["gru1"]
+    },
+    "api/candidatos-2026/cargos.js": {
+      "regions": ["gru1"]
+    }
+  },
   "headers": [
     {
       "source": "/(.*)",
