@@ -16,8 +16,9 @@
 - A resposta bem-sucedida usa cache compartilhado de 30 minutos e tolera conteúdo obsoleto
   durante indisponibilidades temporárias da fonte.
 - As funções que consultam o DivulgaCandContas são executadas na região Vercel de São Paulo
-  (`gru1`). O TSE pode negar tráfego originado de regiões fora do Brasil; manter essa região
-  evita que a função converta esse bloqueio em resposta `502` para a aplicação.
+  (`gru1`) para reduzir a latência com a fonte brasileira. O TSE pode, ainda assim, negar
+  requisições automatizadas; por isso a aplicação não deve depender exclusivamente da API
+  transacional do DivulgaCand para manter listagens disponíveis.
 - **Governadores:** `GET /api/candidatos-2026/governadores/:uf` consulta o cargo 3 do
   DivulgaCandContas para uma UF validada.
 - **Detalhe de governador:** `GET /api/candidatos-2026/governadores/:uf/:id` expõe o mesmo
