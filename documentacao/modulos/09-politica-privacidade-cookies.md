@@ -39,5 +39,9 @@ Registrar e aplicar consentimento de cookies/rastreamento antes de carregar scri
 ## Observações
 
 - O componente `Analytics` da Vercel é renderizado apenas com consentimento aceito.
-- O script de anúncios deixou de ser injetado em `index.html` e passou para carregamento condicional.
+- Anúncios: Google AdSense (`ca-pub-7478664676745892`). O script `adsbygoogle.js` é carregado em `index.html` e `public/ads.txt` declara o publisher.
+- Bloco manual de anúncio: `src/components/ads/AdSlot.tsx`, renderizado em `AppLayout` ao fim de cada página (recriado a cada troca de rota). Só aparece se `VITE_ADSENSE_SLOT_ID` estiver definida.
+- A CSP em `vercel.json` libera `*.googlesyndication.com`, `*.doubleclick.net`, `*.google.com`, `*.adtrafficquality.google` e `*.gstatic.com`.
+- O consentimento para EEE/Reino Unido é tratado pela mensagem de privacidade (CMP) do próprio AdSense; o banner do site controla apenas Analytics/GTM.
+- A integração anterior com Adsterra foi removida.
 - O link do banner aponta para a rota `/privacidade`.

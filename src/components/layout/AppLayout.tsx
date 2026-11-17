@@ -4,8 +4,8 @@ import { Disclaimer } from '../layout/Disclaimer'
 import { HeroSection } from '../layout/HeroSection'
 import { StepsNav } from '../layout/StepsNav'
 import { CookieBanner } from '../common/CookieBanner'
-import { NativeBanner } from '../ads/NativeBanner'
 import { useLocation, useParams } from 'react-router-dom'
+import { AdSlot } from '../ads/AdSlot'
 import { STATES } from '../../constants/states'
 
 interface AppLayoutProps {
@@ -21,6 +21,7 @@ export function AppLayout({
 }: AppLayoutProps) {
   const location = useLocation()
   const { pathname, state } = location
+  const adSlotId = (import.meta.env.VITE_ADSENSE_SLOT_ID ?? '').trim()
   const { uf, deputyId } = useParams<{ uf?: string; deputyId?: string }>()
   const shouldShowHero = pathname === '/'
   const hideStepsNavFromSearch = Boolean((state as { fromGlobalSearch?: boolean } | null)?.fromGlobalSearch)
@@ -57,10 +58,11 @@ export function AppLayout({
         )}
 
         {children}
+
+        {adSlotId && <AdSlot key={pathname} slot={adSlotId} />}
       </main>
 
       <CookieBanner />
-      <NativeBanner />
       <Disclaimer />
     </div>
   )
