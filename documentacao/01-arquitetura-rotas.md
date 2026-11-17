@@ -55,6 +55,9 @@
 - `public/sitemap.xml` é gerado automaticamente via script e inclui rotas públicas estáticas e dinâmicas (listas e detalhes por UF/cargo).
 - `public/prerender-routes.json` é derivado do sitemap e define as rotas para prerender estático no build.
 - O prerender estático injeta fallback HTML sem JS em cada rota para disponibilizar conteúdo editorial mínimo e contexto de dados públicos aos crawlers.
+- O prerender roda no próprio `pnpm build` (`scripts/generate-prerender-pages.mjs`, após o `vite build`), gerando `dist/<rota>/index.html` para cada rota do manifest. Sem isso, a Vercel serviria o `index.html` vazio da SPA para todas as URLs.
+- O gerador usa apenas arquivos versionados (`public/prerender-routes.json` e `public/politicians-index.json`), sem chamadas a APIs externas, para que o build não falhe se uma fonte oficial estiver fora do ar. Para atualizar os dados, rode `pnpm geracao` localmente e versione os JSONs.
+- Conteúdo gerado por tipo de página: perfis (partido, UF, explicação do cargo e links para os demais parlamentares do estado), listas por UF (explicação do cargo, distribuição por partido e lista completa com links), `/informacoes-gerais/<uf>` (totais por cargo e partidos) e landing (dados agregados e links por estado).
 - As páginas legais (`/privacidade` e `/termos`) são incluídas no sitemap e no manifest de prerender.
 
 ## Performance de carregamento

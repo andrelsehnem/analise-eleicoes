@@ -15,8 +15,6 @@ const SITE_URL = 'https://www.mandatotransparente.com.br'
 const DEFAULT_DESCRIPTION =
   'Consulte senadores, deputados federais, deputados estaduais e presidência com dados públicos oficiais para votar com mais informação.'
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-default.svg`
-const CAMARA_API = 'https://dadosabertos.camara.leg.br/api/v2'
-const SENADO_API = 'https://legis.senado.leg.br/dadosabertos'
 
 const STATE_NAME_BY_UF = new Map([
   ['AC', 'Acre'],
@@ -81,7 +79,25 @@ function ensureTitleSuffix(title) {
   return `${title} | ${SITE_NAME}`
 }
 
-function buildFallbackMarkup({ title, description, routePath, summary, highlights = [] }) {
+function renderSection(section) {
+  const heading = `<h2 style="margin:0 0 8px 0;font-size:1.15rem;color:#f0f4ff;line-height:1.4;">${escapeHtml(section.heading)}</h2>`
+  const paragraphs = (section.paragraphs || [])
+    .map((text) => `<p style="margin:0 0 10px 0;color:#c8d4ee;line-height:1.6;">${escapeHtml(text)}</p>`)
+    .join('')
+  const items = (section.items || [])
+    .map((item) => {
+      const label = escapeHtml(item.text)
+      const content = item.href
+        ? `<a href="${escapeHtml(item.href)}" style="color:#e8c96d;">${label}</a>`
+        : label
+      return `<li style="margin:4px 0;color:#c8d4ee;line-height:1.5;">${content}</li>`
+    })
+    .join('')
+  const list = items ? `<ul style="margin:0;padding-left:20px;">${items}</ul>` : ''
+  return `<section style="margin-bottom:20px;">${heading}${paragraphs}${list}</section>`
+}
+
+function buildFallbackMarkup({ title, description, routePath, summary, highlights = [], sections = [] }) {
   const normalizedTitle = escapeHtml(title)
   const normalizedDescription = escapeHtml(description)
   const normalizedSummary = summary ? escapeHtml(summary) : ''
@@ -104,6 +120,7 @@ function buildFallbackMarkup({ title, description, routePath, summary, highlight
         + `<ul style="margin:0;padding-left:20px;">${normalizedHighlights}</ul>`
         + '</section>'
       : '',
+    sections.map(renderSection).join(''),
     '<section aria-label="Fontes de dados públicas" style="margin-bottom:16px;">',
     '<h2 style="margin:0 0 8px 0;font-size:1.15rem;color:#f0f4ff;line-height:1.4;">Fontes oficiais</h2>',
     '<p style="margin:0;color:#c8d4ee;line-height:1.6;">Os dados exibidos são consolidados a partir de fontes públicas oficiais, como Câmara dos Deputados, Senado Federal e portais institucionais estaduais.</p>',
@@ -114,103 +131,220 @@ function buildFallbackMarkup({ title, description, routePath, summary, highlight
   ].join('')
 }
 
-async function fetchJson(url) {
-  const controller = new AbortController()
-  const timeoutId = setTimeout(() => controller.abort(), 15000)
-
+async function loadPoliticiansIndex() {
   try {
-    const response = await fetch(url, {
-      headers: { Accept: 'application/json' },
-      signal: controller.signal,
-    })
-
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`)
+    const json = JSON.parse(await readFile(politiciansIndexPath, 'utf-8'))
+    const pick = (key) => (Array.isArray(json?.[key]) ? json[key] : [])
+    return {
+      federais: pick('deputados-federais'),
+      senadores: pick('senadores'),
+      estaduais: pick('deputados-estaduais'),
     }
-
-    return await response.json()
-  } finally {
-    clearTimeout(timeoutId)
-  }
-}
-
-async function buildDeputyNameMap(routes) {
-  const byUf = new Map()
-  const ufSet = new Set(
-    routes
-      .map((route) => route.match(/^\/por-estado\/([a-z]{2})\/deputado-federal\/\d+$/i)?.[1]?.toUpperCase())
-      .filter(Boolean),
-  )
-
-  await Promise.all(
-    [...ufSet].map(async (uf) => {
-      try {
-        const data = await fetchJson(
-          `${CAMARA_API}/deputados?siglaUf=${uf}&ordem=ASC&ordenarPor=nome&itens=100`,
-        )
-        const items = Array.isArray(data?.dados) ? data.dados : []
-        const ufMap = new Map()
-
-        items.forEach((item) => {
-          if (item?.id) {
-            ufMap.set(String(item.id), item.nome || `Deputado ${item.id}`)
-          }
-        })
-
-        byUf.set(uf, ufMap)
-      } catch {
-        byUf.set(uf, new Map())
-      }
-    }),
-  )
-
-  return byUf
-}
-
-async function buildSenatorNameMap() {
-  try {
-    const data = await fetchJson(`${SENADO_API}/senador/lista/atual.json`)
-    const allItems = data?.ListaParlamentarEmExercicio?.Parlamentares?.Parlamentar
-    const items = Array.isArray(allItems) ? allItems : allItems ? [allItems] : []
-    const map = new Map()
-
-    items.forEach((entry) => {
-      const identification = entry?.IdentificacaoParlamentar
-      const id = identification?.CodigoParlamentar?.trim()
-      const name = identification?.NomeParlamentar?.trim()
-
-      if (id) {
-        map.set(id, name || `Senador ${id}`)
-      }
-    })
-
-    return map
   } catch {
-    return new Map()
+    return { federais: [], senadores: [], estaduais: [] }
   }
 }
 
-async function buildStateDeputyNameMap() {
-  try {
-    const data = await readFile(politiciansIndexPath, 'utf-8')
-    const json = JSON.parse(data)
-    const items = Array.isArray(json?.['deputados-estaduais']) ? json['deputados-estaduais'] : []
-    const map = new Map()
+function buildNameMapsFromIndex(index) {
+  const deputyNameByUf = new Map()
+  index.federais.forEach((item) => {
+    const uf = String(item.estado || '').toUpperCase()
+    if (!deputyNameByUf.has(uf)) deputyNameByUf.set(uf, new Map())
+    deputyNameByUf.get(uf).set(String(item.id), item.nome)
+  })
+  const senatorNameById = new Map(index.senadores.map((item) => [String(item.id), item.nome]))
+  const stateDeputyNameByKey = new Map(
+    index.estaduais.map((item) => [`${String(item.estado).toUpperCase()}:${item.id}`, item.nome]),
+  )
+  return { deputyNameByUf, senatorNameById, stateDeputyNameByKey }
+}
 
-    items.forEach((item) => {
-      const uf = String(item?.estado || '').toUpperCase()
-      const id = String(item?.id || '')
-      const name = String(item?.nome || '').trim()
+const OFFICE_INFO = {
+  'deputado-federal': {
+    label: 'Deputado federal',
+    plural: 'Deputados federais',
+    house: 'na Câmara dos Deputados',
+    paragraphs: [
+      'Os deputados federais representam a população na Câmara dos Deputados. Eles apresentam e votam projetos de lei, propostas de emenda à Constituição e medidas provisórias, além de fiscalizar o Poder Executivo e aprovar o orçamento da União.',
+      'O mandato é de quatro anos e a eleição é proporcional: as vagas de cada estado são distribuídas entre partidos e federações conforme a votação total recebida e depois preenchidas pelos candidatos mais votados de cada legenda. O número de deputados por estado varia de 8 a 70, de acordo com a população.',
+      'Ao avaliar um deputado federal, vale observar as proposições de sua autoria, como votou em temas relevantes, a presença nas sessões e as comissões de que participa.',
+    ],
+  },
+  'deputado-estadual': {
+    label: 'Deputado estadual',
+    plural: 'Deputados estaduais',
+    house: 'na Assembleia Legislativa',
+    paragraphs: [
+      'Os deputados estaduais (distritais, no Distrito Federal) atuam na Assembleia Legislativa. Eles criam e votam leis estaduais, aprovam o orçamento do estado e fiscalizam as ações do governador e das secretarias.',
+      'Assim como os deputados federais, são eleitos pelo sistema proporcional para mandatos de quatro anos. O tamanho de cada Assembleia é definido a partir do número de deputados federais do estado.',
+      'Temas como segurança pública, educação estadual, saúde regional e tributos estaduais, como o ICMS, passam pela Assembleia, o que torna o acompanhamento desses parlamentares importante para o dia a dia do eleitor.',
+    ],
+  },
+  senador: {
+    label: 'Senador',
+    plural: 'Senadores',
+    house: 'no Senado Federal',
+    paragraphs: [
+      'Os senadores representam os estados e o Distrito Federal no Senado Federal. Cada unidade da federação tem três senadores, independentemente do tamanho da população, o que garante equilíbrio entre os estados.',
+      'O mandato é de oito anos e a renovação é alternada: em uma eleição é renovado um terço das cadeiras e, na seguinte, dois terços. A eleição é majoritária, ou seja, vence quem recebe mais votos.',
+      'Além de votar leis e emendas constitucionais, o Senado tem competências exclusivas, como aprovar indicações de ministros do STF e de embaixadores, autorizar operações financeiras externas e julgar o presidente da República em processos de impeachment.',
+    ],
+  },
+}
 
-      if (uf && id && name) {
-        map.set(`${uf}:${id}`, name)
-      }
-    })
+function partyBreakdown(items) {
+  const counts = new Map()
+  items.forEach((item) => {
+    const party = item.partido || 'Sem partido'
+    counts.set(party, (counts.get(party) || 0) + 1)
+  })
+  return [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+}
 
-    return map
-  } catch {
-    return new Map()
+function memberLink(office, item) {
+  if (office === 'senador') return `/senador/${item.id}`
+  return `/por-estado/${String(item.estado).toLowerCase()}/${office}/${item.id}`
+}
+
+function membersSection(office, heading, items) {
+  return {
+    heading,
+    items: [...items]
+      .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+      .map((item) => ({ text: `${item.nome} (${item.partido || 'sem partido'})`, href: memberLink(office, item) })),
   }
+}
+
+function partySection(stateName, groupLabel, items) {
+  const breakdown = partyBreakdown(items)
+  if (breakdown.length === 0) return null
+  const [topParty, topCount] = breakdown[0]
+  return {
+    heading: 'Distribuição por partido',
+    paragraphs: [
+      `${stateName} tem ${items.length} ${groupLabel} em exercício, de ${breakdown.length} partidos diferentes. O partido com mais representantes é o ${topParty}, com ${topCount}.`,
+    ],
+    items: breakdown.map(([party, count]) => ({ text: `${party}: ${count}` })),
+  }
+}
+
+function officeSection(info) {
+  return { heading: `O que faz um ${info.label.toLowerCase()}`, paragraphs: info.paragraphs }
+}
+
+function buildEnrichedSections(routePath, index) {
+  const routeKey = normalizePath(routePath)
+  const byOffice = {
+    'deputado-federal': index.federais,
+    'deputado-estadual': index.estaduais,
+    senador: index.senadores,
+  }
+  const ofState = (office, uf) => byOffice[office].filter((item) => String(item.estado).toUpperCase() === uf)
+
+  const detail = routeKey.match(/^\/por-estado\/([a-z]{2})\/(deputado-federal|deputado-estadual)\/([a-z0-9-]+)$/i)
+  const list = routeKey.match(/^\/por-estado\/([a-z]{2})\/(deputado-federal|deputado-estadual)$/i)
+  const senatorDetail = routeKey.match(/^\/senador\/(\d+)$/i)
+  const senatorList = routeKey.match(/^\/senadores\/([a-z]{2})$/i)
+  const generalState = routeKey.match(/^\/informacoes-gerais\/([a-z]{2})$/i)
+
+  if (detail || senatorDetail) {
+    const office = senatorDetail ? 'senador' : detail[2]
+    const id = senatorDetail ? senatorDetail[1] : detail[3]
+    const person = byOffice[office].find((item) => String(item.id) === id)
+    if (!person) return []
+    const uf = String(person.estado).toUpperCase()
+    const stateName = getStateNameByUf(uf)
+    const info = OFFICE_INFO[office]
+    const peers = ofState(office, uf)
+    const sameParty = peers.filter((item) => item.partido === person.partido && item.id !== person.id)
+    const party = person.partido || 'partido não informado'
+
+    return [
+      {
+        heading: `Quem é ${person.nome}`,
+        paragraphs: [
+          `${person.nome} é ${info.label.toLowerCase()} por ${stateName} (${uf}), filiado(a) ao ${party}, com mandato em exercício ${info.house}.`,
+          `${stateName} tem ${peers.length} ${info.plural.toLowerCase()} em exercício. ${
+            sameParty.length > 0
+              ? `Além de ${person.nome}, ${sameParty.length === 1 ? "outro parlamentar também é" : `outros ${sameParty.length} também são`} do ${party}.`
+              : `${person.nome} é o(a) único(a) representante do ${party} neste cargo no estado.`
+          }`,
+        ],
+        items: [
+          { text: `Cargo: ${info.label}` },
+          { text: `Partido: ${party}` },
+          { text: `Estado: ${stateName} (${uf})` },
+        ],
+      },
+      officeSection(info),
+      membersSection(
+        office,
+        `Outros ${info.plural.toLowerCase()} de ${stateName}`,
+        peers.filter((item) => item.id !== person.id),
+      ),
+    ]
+  }
+
+  if (list || senatorList) {
+    const office = senatorList ? 'senador' : list[2]
+    const uf = (senatorList ? senatorList[1] : list[1]).toUpperCase()
+    const stateName = getStateNameByUf(uf)
+    const info = OFFICE_INFO[office]
+    const members = ofState(office, uf)
+    const sections = [officeSection(info)]
+    const parties = partySection(stateName, info.plural.toLowerCase(), members)
+    if (parties) sections.push(parties)
+    if (members.length > 0) sections.push(membersSection(office, `${info.plural} de ${stateName} (${uf})`, members))
+    return sections
+  }
+
+  if (generalState) {
+    const uf = generalState[1].toUpperCase()
+    const ufLower = uf.toLowerCase()
+    const stateName = getStateNameByUf(uf)
+    const federais = ofState('deputado-federal', uf)
+    const estaduais = ofState('deputado-estadual', uf)
+    const senadores = ofState('senador', uf)
+    const sections = [
+      {
+        heading: `Representação política de ${stateName}`,
+        paragraphs: [
+          `${stateName} é representado no Congresso Nacional por ${senadores.length} senadores e ${federais.length} deputados federais. Na esfera estadual, ${estaduais.length} deputados estaduais com dados disponíveis nesta plataforma compõem a Assembleia Legislativa.`,
+        ],
+        items: [
+          { text: `Senadores: ${senadores.length}`, href: `/senadores/${ufLower}` },
+          { text: `Deputados federais: ${federais.length}`, href: `/por-estado/${ufLower}/deputado-federal` },
+          { text: `Deputados estaduais: ${estaduais.length}`, href: `/por-estado/${ufLower}/deputado-estadual` },
+        ],
+      },
+    ]
+    const parties = partySection(stateName, 'parlamentares', [...senadores, ...federais, ...estaduais])
+    if (parties) sections.push(parties)
+    return sections
+  }
+
+  if (routeKey === '/' || routeKey === '/por-estado' || routeKey === '/informacoes-gerais') {
+    return [
+      {
+        heading: 'Consulte seus representantes por estado',
+        paragraphs: [
+          `O Mandato Transparente reúne dados públicos de ${index.senadores.length} senadores, ${index.federais.length} deputados federais e ${index.estaduais.length} deputados estaduais, organizados por estado, para que o eleitor conheça a atuação de quem o representa antes de votar.`,
+        ],
+        items: [...STATE_NAME_BY_UF.entries()].map(([uf, name]) => ({
+          text: name,
+          href: `/informacoes-gerais/${uf.toLowerCase()}`,
+        })),
+      },
+      ...Object.values(OFFICE_INFO).map(officeSection),
+    ]
+  }
+
+  const candidateMatch = routeKey.match(/^\/candidatos-2026\/(senador|deputado-federal|deputado-estadual)\//)
+  if (candidateMatch) {
+    return [officeSection(OFFICE_INFO[candidateMatch[1]])]
+  }
+
+  return []
 }
 
 function buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDeputyNameByKey) {
@@ -653,6 +787,7 @@ function applyHeadMeta(htmlTemplate, routePath, meta) {
     routePath,
     summary: meta.summary,
     highlights: meta.highlights,
+    sections: meta.sections,
   })
   html = html.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">${fallbackMarkup}</div>`)
 
@@ -680,15 +815,14 @@ async function main() {
   const routeManifest = JSON.parse(routeManifestRaw)
   const routes = Array.isArray(routeManifest?.paths) ? routeManifest.paths : ['/']
 
-  const [deputyNameByUf, senatorNameById, stateDeputyNameByKey] = await Promise.all([
-    buildDeputyNameMap(routes),
-    buildSenatorNameMap(),
-    buildStateDeputyNameMap(),
-  ])
+  // Usa o índice local (versionado) para não depender de APIs externas durante o build.
+  const politiciansIndex = await loadPoliticiansIndex()
+  const { deputyNameByUf, senatorNameById, stateDeputyNameByKey } = buildNameMapsFromIndex(politiciansIndex)
 
   await Promise.all(
     routes.map(async (routePath) => {
       const meta = buildMetaForRoute(routePath, deputyNameByUf, senatorNameById, stateDeputyNameByKey)
+      meta.sections = buildEnrichedSections(routePath, politiciansIndex)
       const html = applyHeadMeta(distHtml, routePath, meta)
       await writeRouteHtml(routePath, html)
     }),
